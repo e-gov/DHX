@@ -228,6 +228,8 @@ Tühipäringute arvu vähendamiseks on soovitatav kasutada hästituntud eksponen
 
 [Kapsel] Elektroonilise andmevahetuse metaandmete loend 2.1. Riigi Infosüsteemi Amet.  <https://riha.eesti.ee/riha/main/xml/elektroonilise_andmevahetuse_metaandmete_loend/1>.
 
+[PR-GCONF] X-Road Protocol for Downloading Configuration
+
 [PR-META] X-Road Service Metadata Protocol.
 
 [RIA-PP] Protokollide spetsifitseerimise parim praktika. Riigi Infosüsteemi Amet. 2015.

@@ -12,5 +12,5 @@ DHX on X-tee taristut kasutav uus dokumendivahetusprotokoll.
 Erinevalt vanemast Dokumendivahetuskeskuses (DVK) ei nõua DHX enam "postkontoris" posti järel käimist, vaid toob dokumendid ukselävele kätte.
 DHX on mõeldud avaliku sektori turvalise dokumendivahetuse korraldamiseks.
 
-
+[Tekst](Protokoll.md)
 

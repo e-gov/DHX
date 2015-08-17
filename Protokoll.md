@@ -1,5 +1,7 @@
 ###  Dokumendivahetusprotokoll DHX
 
+v 04
+
 ####  Ülevaade
 
 Käesolev protokoll esitab tehnilise lahenduse, mis võimaldab Eesti avaliku sektori dokumendihaldussüsteemidel (DHS), aga ka avaliku sektoriga suhtlevatel era- ja vabasektori infosüsteemidel vahetada dokumente nn hajus- e detsentraliseeritud põhimõttel.

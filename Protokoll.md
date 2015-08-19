@@ -157,7 +157,7 @@ Asutus volitab teenusepakkujat käitama DHX teenust asutuse nimel. See teostatak
 
 3.	Adressaadi DHX võimekuse väljaselgitamine enne saatmiskatset.
 
-   Saatja turvaserveris laeb perioodiliselt X-tee keskserverist alla teavet X-tee konfiguratsiooni kohta [PR-GCONF], sh teavet X-tee liikmete poolt määratletud alamsüsteemide (nt DHS) ja turvaserverite kohta. Saatja turvaserver teeb ülalnimetatud konfiguratsiooniteabe põhjal kindlaks, kas adressaat on määratlenud DHS alamsüsteemi. Kui ei ole, siis DHX võimekus puudub. Kui on, siis teeb pärib saatev süsteem adressaadi X-tee metateenusest `allowedMethods` [PR-META]  adressaadi poolt pakutavate teenuste nimekirja. Kui nimekirjas sisaldub `sendDocument`, siis adressaat on DHX võimeline ja järgneb dokumendi saatmine. Kui nimekirjas teenust ei ole, siis adressaat ei ole DHX võimeline ja dokument saadetakse DVK kaudu.
+   Saatja turvaserver laeb perioodiliselt X-tee keskserverist alla teavet X-tee konfiguratsiooni kohta [PR-GCONF], sh teavet X-tee liikmete poolt määratletud alamsüsteemide (nt DHS) ja turvaserverite kohta. Saatja turvaserver teeb ülalnimetatud konfiguratsiooniteabe põhjal kindlaks, kas adressaat on määratlenud DHS alamsüsteemi. Kui ei ole, siis DHX võimekus puudub. Kui on, siis teeb pärib saatev süsteem adressaadi X-tee metateenusest `allowedMethods` [PR-META]  adressaadi poolt pakutavate teenuste nimekirja. Kui nimekirjas sisaldub `sendDocument`, siis adressaat on DHX võimeline ja järgneb dokumendi saatmine. Kui nimekirjas teenust ei ole, siis adressaat ei ole DHX võimeline ja dokument saadetakse DVK kaudu.
 
 4. DHX võimekuse väljaselgitamine enne saatmist koos puhverdamisega.
 

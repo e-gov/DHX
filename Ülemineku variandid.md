@@ -2,16 +2,16 @@
 
 DHX protokollile ülemineku tehnilisi lahendusvariante on kaalumisel kolm. 
 
-1  DHS arendab DHX-i võimekuse otse
+1 &nbsp; DHS arendab DHX-i võimekuse iseseisvalt, ilma RIA poolt arendatava tarkvarakomponendita. Üleminekuperioodil peab DHS üheaegselt toetama nii DVK kui ka DHX protokolli.
 
-Märkus. DHX-võimekus – sendDocument teenuse pakkumine ja võime kasutada teise asutuse sendDocument teenust.
+Märkus. DHX-võimekus tähendab `sendDocument` teenuse pakkumist ja võimet kasutada teise asutuse `sendDocument` teenust.
 
-![Lahendus 1](img/Lahendus1.png)
+![](img/Lahendus1.PNG)
 
-2  DHS paigaldab RIA poolt arendatud universaalse tarkvarakomponendi – „DHX teisendaja“
+2 &nbsp; DHS paigaldab RIA poolt arendatud universaalse tarkvarakomponendi – „DHX teisendaja“.
 
-![Lahendus 2](img/Lahendus1.png)
+![](img/Lahendus1.PNG)
 
-3  Üleminekuperioodil kasutatakse RIA poolt DVK juurde arendatud DHX lüüsi; see lihtsustab  DHS-des vajalikke arendusi.
+3 &nbsp; Üleminekuperioodil kasutatakse RIA poolt DVK juurde arendatud DHX lüüsi; see lihtsustab  DHS-des vajalikke arendusi.
 
-![Lahendus 3](img/Lahendus1.png)
+![](img/Lahendus1.PNG)

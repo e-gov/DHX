@@ -18,4 +18,6 @@ Erinevalt vanemast Dokumendivahetuskeskusest (DVK) ei nõua DHX enam "postkontor
 
 [Protokolli tekst](Protokoll.md)
 
+[Ülemineku variandid](https://github.com/e-gov/DHX/blob/master/%C3%9Clemineku%20variandid.md)
+
 Märkuste ja ettepanekute esitamiseks loo _Issue_ või _Pull request_.

@@ -10,8 +10,8 @@ Märkus. DHX-võimekus tähendab `sendDocument` teenuse pakkumist ja võimet kas
 
 2 &nbsp; DHS paigaldab RIA poolt arendatud universaalse tarkvarakomponendi – „DHX teisendaja“.
 
-![](img/Lahendus1.PNG)
+![](img/Lahendus2.PNG)
 
 3 &nbsp; Üleminekuperioodil kasutatakse RIA poolt DVK juurde arendatud DHX lüüsi; see lihtsustab  DHS-des vajalikke arendusi.
 
-![](img/Lahendus1.PNG)
+![](img/Lahendus3.PNG)

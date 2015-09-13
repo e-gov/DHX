@@ -1,4 +1,4 @@
-### Document exchange protocol DHX
+### ↹ Document exchange protocol DHX
 
 DHX is a new application layer protocol on top of the X-road.
 
@@ -8,7 +8,7 @@ DHX is designed to support smooth transition from post-office style document exc
 
 ---
 
-### Dokumendivahetusprotokoll DHX
+### ↹ Dokumendivahetusprotokoll DHX
 
 DHX on X-tee taristut kasutav uus dokumendivahetusprotokoll.
 

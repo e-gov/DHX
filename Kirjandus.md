@@ -1,4 +1,5 @@
 ## Kirjandus
+- Internet Mail 2000, D. J. Bernstein's project "to design a new Internet mail infrastructure around the following concept: Mail storage is the sender's responsibility." -- [Hacker News](https://news.ycombinator.com/item?id=10406040)
 - Two general’s problem https://en.wikipedia.org/wiki/Two_Generals%27_Problem
 - Understanding trade-offs is distributed messaging http://bravenewgeek.com/what-you-want-is-what-you-dont-understanding-trade-offs-in-distributed-messaging/ 
 - A Transport Protocol for Content-Centric Networks https://eggert.org/papers/2010-icnp-con-trans.pdf 

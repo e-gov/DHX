@@ -1,4 +1,5 @@
 ## Kirjandus
+- [Gossip protocol](https://en.wikipedia.org/wiki/Gossip_protocol)
 - Armstrong (2003) Making reliable distributed systems in the presence of software errors http://www.erlang.org/download/armstrong_thesis_2003.pdf
 - Two general’s problem https://en.wikipedia.org/wiki/Two_Generals%27_Problem
 - Understanding trade-offs is distributed messaging http://bravenewgeek.com/what-you-want-is-what-you-dont-understanding-trade-offs-in-distributed-messaging/ 

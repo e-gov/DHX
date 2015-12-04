@@ -1,4 +1,4 @@
-UUS: [Dokumendivahetustaristu (DVK) üleviimine hajusarhitektuurile](http://slides.com/priitparmakson/DHX/fullscreen) (esitlus)
+UUS: [Dokumendivahetustaristu (DVK) üleviimine hajusarhitektuurile](http://slides.com/priitparmakson/dhx/fullscreen) (esitlus)
 
 ---
 

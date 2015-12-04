@@ -1,3 +1,7 @@
+UUS: [Dokumendivahetustaristu (DVK) üleviimine hajusarhitektuurile](http://slides.com/priitparmakson/DHX/fullscreen) (esitlus)
+
+---
+
 ### Document exchange protocol DHX
 
 DHX is a new application layer protocol on top of the X-road.

@@ -12,7 +12,7 @@ Erinevalt vanemast Dokumendivahetuskeskusest (DVK) ei nõua DHX enam "postkontor
 
 DHX on mõeldud avaliku sektori turvalise dokumendivahetuse korraldamiseks.
 
-Protokolli koostamisel on aluseks protokollide spetsifitseerimise parim praktika [RIA-PP].
+Protokolli koostamisel on aluseks [protokollide spetsifitseerimise parim praktika](https://github.com/e-gov/Open-Workflow/blob/master/ProtokollideParimPraktika.md) [RIA-PP].
 
 #### Mõisted ja lühendid
 
@@ -234,6 +234,6 @@ Tühipäringute arvu vähendamiseks on soovitatav kasutada hästituntud eksponen
 
 [PR-META] X-Road Service Metadata Protocol.
 
-[RIA-PP] Protokollide spetsifitseerimise parim praktika. Riigi Infosüsteemi Amet. 2015.
+[RIA-PP] [Protokollide spetsifitseerimise parim praktika](https://github.com/e-gov/Open-Workflow/blob/master/ProtokollideParimPraktika.md). Riigi Infosüsteemi Amet. 2015.
 
 [X-tee] Andmevahetuskiht X-tee, <https://www.ria.ee/x-tee/>.

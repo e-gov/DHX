@@ -24,7 +24,8 @@ ettekanne e-arvete töörühmas 18.01.2016
 ![](img/E04.PNG)
 
 - 200 000+ arveid käitlevat osapoolt
-- bilateraalsed (kahepoolsed) liidestused -> iga liidestus eriline -> €€€€€; multilateraalsed liidestused -> standarditud -> €
+- bilateraalsed (kahepoolsed) liidestused -> iga liidestus eriline -> €€€€€
+- multilateraalsed liidestused -> standarditud -> €
 - operatoorite rändlusvõrk – ka 4-5 osaleja puhul bilateraalsed liidestused -> €€€€€
 
 ## X-tee
@@ -32,6 +33,7 @@ ettekanne e-arvete töörühmas 18.01.2016
 ![](img/E05.PNG)
 
 aadressid: `70002093` Kadrioru lasteaed
+
 dokumentide vastuvõtupunktid: `EE/GOV/70003158/DHS/sendDocument`
 
 Uus dokumendivahetusprotokoll DHX

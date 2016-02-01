@@ -8,11 +8,15 @@ See ei ole X-tee senises praktikas päris tavaline.
 Tavaliselt määrab asutus oma X-tee teenuste nimed ise. Kasutatakse mitmesuguseid nimemustreid, kuid need on mitteformaalsed,
 mitte ametlikud kokkulepped.
 
+Näide 1. (andmed RIHAst, X-tee teenuste kataloogist)
+
 ![](img/M5.PNG)
 
-Sarnase kuju ja tähendusega, kuid standardimata teenused. (sendDocument vorming ja tähendus süsteemiti on sarnane, kuid mitte tingimata ühtelangev).
+Sarnase kuju ja tähendusega, kuid standardimata teenused. (`sendDocument` vorming ja tähendus süsteemiti on sarnane, kuid mitte tingimata ühtelangev).
+
+Näide 2.
 
 ![](img/M3.PNG)
 
-Fikseeritud nimekuju ja tähendusega teenused - erinevad asutused pakuvad samanimelist teenust ([Hasartmängukorraldaja elektrooniline arvestus- ja kontrollsüsteem](Hasartmängukorraldaja elektroonilise arvestus- ja kontrollsüsteemi)) 
+Fikseeritud nimekuju ja tähendusega teenused - erinevad asutused pakuvad samanimelist teenust ([Hasartmängukorraldaja elektrooniline arvestus- ja kontrollsüsteem](Hasartmängukorraldaja elektrooniline arvestus- ja kontrollsüsteem)). 
 

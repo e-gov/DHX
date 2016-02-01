@@ -1,4 +1,4 @@
-## Teenusenimede standardimine
+## Standardse nimega teenused
 
 DHX protokolli nurgakiviks on standarditud nimega ja tähendusega X-tee teenus (`sendDocument`). Kõik protokolli kasutavad asutused
 kasutavad üht ja sama nime - samas tähenduses.

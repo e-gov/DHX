@@ -1,8 +1,8 @@
-UUS: [Teenusenimede standardimine](NIMESTANDARD.md)
+UUS 01.02.2015: [Teenusenimede standardimine](NIMESTANDARD.md)
 
-UUS: [E-arvete liikluse võimalik tulevikuarhitektuur](https://github.com/e-gov/DHX/blob/gh-pages/E-arvete.md) (esitlus)
+UUS 18.01.2015: [E-arvete liikluse võimalik tulevikuarhitektuur](https://github.com/e-gov/DHX/blob/gh-pages/E-arvete.md) (esitlus)
 
-UUS: [Dokumendivahetustaristu (DVK) üleviimine hajusarhitektuurile](http://slides.com/priitparmakson/dhx/fullscreen) (esitlus)
+UUS 04.12.2015: [Dokumendivahetustaristu (DVK) üleviimine hajusarhitektuurile](http://slides.com/priitparmakson/dhx/fullscreen) (esitlus)
 
 ---
 

@@ -5,7 +5,7 @@ Siin on 7 pildistust X-tee teenuste kataloogist (teenuse nimi, teenust pakkuv an
 
 1) Kas tajud teenusenimedes korrapära? Tuvasta nimemuster.
 
-2) Milline sügavam, infotöötluslik või isegi äriline sisu võiks seista iga nimemustri taga?
+2) Milline infotöötluslik või isegi äriline sisu võiks seista iga nimemustri taga?
 
 ##1
 ![](img/M1.PNG)

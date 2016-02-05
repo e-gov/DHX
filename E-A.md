@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # E-arvete ringlusvõrk
 (kontseptsioon)
 

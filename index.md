@@ -72,3 +72,5 @@ Ettevõte võib e-arvete masinväljastuse delegeerida teenusepakkujale (operaato
 
 Skeem on kasutatav ka teiste masinloetavate äridokumentide ringluse korraldamiseks.
 
+Priit Parmakson, 06.02.2016
+*http://e-gov.github.io/DHX/*

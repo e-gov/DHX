@@ -24,12 +24,14 @@ DHX võimaldab Eesti avaliku sektori dokumendihaldussüsteemidel vahetada dokume
 
 Erinevalt vanemast Dokumendivahetuskeskusest (DVK) ei nõua DHX enam "postkontoris" posti järel käimist, vaid toob dokumendid ukselävele kätte.
 
-[Protokolli tekst](Protokoll.md)
+###[Protokolli tekst](Protokoll.md)
 
 Probleemipüstitus: [Millised võiksid olla minimaalsed nõuded üleminekut teostavatele DHS-dele? ](https://github.com/e-gov/DHX/blob/master/Uleminekuk.md)
+
+----
 
 [Ülemineku variandid](https://github.com/e-gov/DHX/blob/master/%C3%9Clemineku%20variandid.md)
 
 [Kirjandust](https://github.com/e-gov/DHX/blob/master/Kirjandus.md)
 
-Märkuste ja ettepanekute esitamiseks loo _Issue_ või _Pull request_.
+Märkuste ja ettepanekute esitamiseks palun loo _Issue_ või _Pull request_.

@@ -15,11 +15,13 @@ DHX on X-tee taristut kasutav uus dokumendivahetusprotokoll. DHX võimaldab Eest
 *Document exchange protocol DHX. DHX is a new application layer protocol on top of the X-road. Its allows large number of Estonian public sector agencies to exchange documents with each other in a standardised and simple manner. DHX is designed to support smooth transition from post-office style document exchange (via Document Exchange Centre DVK) to faster distributed model.*
 
 ----
-UUS 01.02.2015: [Teenusenimede standardimine](NIMESTANDARD.md)
+Esitlused
 
-UUS 18.01.2015: [E-arvete liikluse võimalik tulevikuarhitektuur](https://github.com/e-gov/DHX/blob/gh-pages/E-arvete.md) (esitlus)
+01.02.2015: [Teenusenimede standardimine](NIMESTANDARD.md)
 
-UUS 04.12.2015: [Dokumendivahetustaristu (DVK) üleviimine hajusarhitektuurile](http://slides.com/priitparmakson/dhx/fullscreen) (esitlus)
+18.01.2015: [E-arvete liikluse võimalik tulevikuarhitektuur](https://github.com/e-gov/DHX/blob/gh-pages/E-arvete.md) (esitlus)
+
+04.12.2015: [Dokumendivahetustaristu (DVK) üleviimine hajusarhitektuurile](http://slides.com/priitparmakson/dhx/fullscreen) (esitlus)
 
 ----
 

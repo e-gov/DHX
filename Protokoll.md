@@ -14,6 +14,10 @@ DHX on mõeldud avaliku sektori turvalise dokumendivahetuse korraldamiseks.
 
 Protokolli koostamisel on aluseks [protokollide spetsifitseerimise parim praktika](https://github.com/e-gov/Open-Workflow/blob/master/ProtokollideParimPraktika.md) [RIA-PP].
 
+Normatiivse tähendusega on käesolev tekst. GitHub-i varamu muul sisul on informatiivne tähendus.
+
+Protokolli on välja töötanud Riigi Infosüsteemi Amet. Ettepanekud ja märkused saata priit.parmakson@ria.ee või luua käesolevas varamus `Issue`. 
+
 #### Mõisted ja lühendid
 
 _Asutus_ &nbsp;&nbsp; Riigi ja kohaliku omavalitsuse asutuste riiklikku registrisse (RKOARR) kantud organisatsioon.
@@ -204,7 +208,7 @@ Tühipäringute arvu vähendamiseks on soovitatav kasutada hästituntud eksponen
 
 4.	Üleminekuperioodil niipea, kui asutuse DHS-is on tekkinud DHX protokolli võimekus (arendus on lõppenud), kohustatud hakkama dokumendi saatmisel esimese võimalusena kasutama DHX-teenust.
 
-5.	Kui osutub, et adressaat ei ole veel dokumentide vastuvõtmise DHX-teenust loonud (teenus ei ole X-teel leitav), siis saadetakse dokument DVK kaudu, kasutades DVK teenust sendDocument ja märkides adressaadi dokumendi metaandmete kapslis.
+5.	Kui osutub, et adressaat ei ole veel dokumentide vastuvõtmise DHX-teenust loonud (teenus ei ole X-teel leitav), siis saadetakse dokument DVK kaudu, kasutades DVK teenust `sendDocument` ja märkides adressaadi dokumendi metaandmete kapslis.
 
 6.	Alates esimesest edukast DHX-protokolli kohasest dokumendiedastusest teise asutusse tuleb edaspidi sellesse asutusse saatmiseks kasutada ainult DHX-i (mitte DVK-d).
 
@@ -214,7 +218,7 @@ Tühipäringute arvu vähendamiseks on soovitatav kasutada hästituntud eksponen
 
 1. DVK-d hoitakse töös kogu üleminekuperioodi vältel. DVK-d täiendatakse üleminekuperioodil toimimiseks vajaliku funktsionaalsusega.
 
-2. DVK pakub teenust sendDocument, millega DHX-i võimekuse loonud asutus saab edastada dokumendi edasisaatmiseks DHX võimekust veel mitteomavale asutusele. Edasisaatmise teostab DVK.
+2. DVK pakub teenust `sendDocument`, millega DHX-i võimekuse loonud asutus saab edastada dokumendi edasisaatmiseks DHX võimekust veel mitteomavale asutusele. Edasisaatmise teostab DVK.
 
 3. DHX-i võimekuse loonud asutusele adresseeritud dokumendi laekumisel DVK-sse üritab DVK seda kohe edasi saata.
 

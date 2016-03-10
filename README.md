@@ -4,7 +4,6 @@ DHX on X-tee taristut kasutav uus dokumendivahetusprotokoll. DHX võimaldab Eest
 
 ###[Protokolli tekst](Protokoll.md)
 
-### TL:DR
 [Lähteolukord (AS IS)](https://github.com/e-gov/DHX/blob/gh-pages/img/DHXLahteolukord.PNG)
 
 [Sihtolukord (TO BE)](https://github.com/e-gov/DHX/blob/gh-pages/img/Sihtolukord.PNG)

@@ -1,6 +1,6 @@
 ###  Dokumendivahetusprotokoll DHX
 
-v 04
+v 0.5
 
 ####  Ülevaade
 
@@ -25,6 +25,8 @@ _DHS_ &nbsp;&nbsp; Dokumendihaldussüsteem, asutuse elektroonilise dokumendihald
 _DHS-i teenus_ &nbsp;&nbsp; Suhe, kus üks organisatsioon (ettevõte või teine asutus) pakub asutusele DHS-i tehnilist keskkonda. Ühes tehnilises keskkonnas võib olla mitu "virtuaalset" DHS-i. Näiteks Majandus- ja Kommunikatsiooniministeerium pakub DHS-i teenust ministeeriumi haldusala asutustele; Koolide infosüsteem KIS pakub DHS-i teenust reale lasteaedadele.
  
 _DVK_ &nbsp;&nbsp; Dokumendivahetuskeskus [DVK].
+
+_RIA_ &nbsp;&nbsp; Riigi Infosüsteemi Amet.
 
 _Registrikood_ &nbsp;&nbsp; RKOARR-is asutusele antud registrikood. Nt `70002093` `Kadrioru lasteaed`.
 
@@ -202,17 +204,21 @@ Tühipäringute arvu vähendamiseks on soovitatav kasutada hästituntud eksponen
 
 4.	Üleminekuperioodil niipea, kui asutuse DHS-is on tekkinud DHX protokolli võimekus (arendus on lõppenud), kohustatud hakkama dokumendi saatmisel esimese võimalusena kasutama DHX-teenust.
 
-5.	Kui osutub, et adressaat ei ole veel dokumentide vastuvõtmise DHX-teenust loonud (teenus ei ole X-teel leitav), siis tuleb kasutada DVK protokolli (saata dokument DVK kaudu).
+5.	Kui osutub, et adressaat ei ole veel dokumentide vastuvõtmise DHX-teenust loonud (teenus ei ole X-teel leitav), siis saadetakse dokument DVK kaudu, kasutades DVK teenust sendDocument ja märkides adressaadi dokumendi metaandmete kapslis.
 
 6.	Alates esimesest edukast DHX-protokolli kohasest dokumendiedastusest teise asutusse tuleb edaspidi sellesse asutusse saatmiseks kasutada ainult DHX-i (mitte DVK-d).
 
 7.	Asutus, kes on DHX teenuse käivitanud, ei tohi seda enam maha võtta.
 
-8.	Üleminekuperioodil peab asutus dokumente vastu võtma nii DVK kui ka DHX protokolli kaudu.
+#### DVK toimimine üleminekuperioodil
 
-9.	Asutuse DHS-is tuleb tagada, et sama dokumendi saabumisel nii DVK kui ka DHX protokolli kaudu ei käsitleta dokumenti äriprotsessis kahekordselt. (Idempotentsus s.t sama dokumendi uuestisaatmine ei tohi tekitada ebasoovitavaid kõrvalefekte).
+1. DVK-d hoitakse töös kogu üleminekuperioodi vältel. DVK-d täiendatakse üleminekuperioodil toimimiseks vajaliku funktsionaalsusega.
 
-10.	DVK lülitatakse välja siis, kui kõik asutused on DHX protokolli võimekuse tõestatult loonud (asutus on vastu võtnud ja saatnud vähemalt ühe dokumendi). See tehakse kindlaks RIA DHS-st vastavate DHX kontrollpäringute saatmisega.
+2. DVK pakub teenust sendDocument, millega DHX-i võimekuse loonud asutus saab edastada dokumendi edasisaatmiseks DHX võimekust veel mitteomavale asutusele. Edasisaatmise teostab DVK.
+
+3. DHX-i võimekuse loonud asutusele adresseeritud dokumendi laekumisel DVK-sse üritab DVK seda kohe edasi saata.
+
+4.	DVK lülitatakse välja siis, kui kõik asutused on DHX protokolli võimekuse tõestatult loonud (asutus on vastu võtnud ja saatnud vähemalt ühe dokumendi). See tehakse kindlaks RIA DHS-st vastavate DHX kontrollpäringute saatmisega.
 
 #### Viited
 

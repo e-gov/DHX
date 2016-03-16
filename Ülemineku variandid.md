@@ -1,5 +1,7 @@
 # Ülemineku variandid
 
+*Märkus. Valitud on variant 3. - 16.03.2016*
+
 DHX protokollile ülemineku tehnilisi lahendusvariante on kaalumisel kolm. 
 
 1 &nbsp; DHS arendab DHX-i võimekuse iseseisvalt, ilma RIA poolt arendatava tarkvarakomponendita. Üleminekuperioodil peab DHS üheaegselt toetama nii DVK kui ka DHX protokolli.

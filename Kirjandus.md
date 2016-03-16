@@ -18,7 +18,9 @@
 - Microsoft (2001) Note: Reliable messaging http://www.w3.org/2001/03/WSWS-popa/paper40
 - Guaranteed delivery/Reliable messaging: https://en.wikipedia.org/wiki/Reliable_messaging 
 - Daigneau (2011) Design Solutions for SOAP/WSDL and RESTful Web Services. Veebisait: http://www.servicedesignpatterns.com/ 
-- Idempotent Retry pattern http://www.servicedesignpatterns.com/WebServiceInfrastructures/IdempotentRetry 
+- Idempotent Retry pattern http://www.servicedesignpatterns.com/WebServiceInfrastructures/IdempotentRetry
+- Adam Ierymenko. [Firewalls, deperimeterization, and the nature of digital media](https://www.zerotier.com/misc/BorderNone2014-AdamIerymenko-DENY_ALL.pdf); http://adamierymenko.com/author/adam-ierymenko/; https://www.zerotier.com/blog/;
+- [Ask HN: Why don't more apps use peer to peer networking?](https://news.ycombinator.com/item?id=8175453)
 
 
 

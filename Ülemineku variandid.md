@@ -1,6 +1,6 @@
 # Ülemineku variandid
 
-*Märkus. Valitud on variant 3. - 16.03.2016*
+*Märkus. Valitud on lahendus 3. - 16.03.2016*
 
 DHX protokollile ülemineku tehnilisi lahendusvariante on kaalumisel kolm. 
 

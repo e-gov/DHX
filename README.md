@@ -22,6 +22,4 @@ Esitlused
 
 ----
 
-[Kirjandust](https://github.com/e-gov/DHX/blob/master/Kirjandus.md)
-
-Märkuste ja ettepanekute esitamiseks palun loo _Issue_ või _Pull request_.
+[Kirjandus](https://github.com/e-gov/DHX/blob/master/Kirjandus.md)

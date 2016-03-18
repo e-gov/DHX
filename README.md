@@ -10,9 +10,9 @@
 
 ### [Protokolli tekst](Protokoll.md)
 
-*Document exchange protocol DHX allows large number of Estonian public sector agencies to exchange documents with each other in a standardised and simple manner. DHX is designed to support smooth transition from post-office style document exchange (via Document Exchange Centre DVK) to direct, P2P model.
+Document exchange protocol DHX allows large number of Estonian public sector agencies to exchange documents with each other in a standardised and simple manner. DHX is designed to support smooth transition from post-office style document exchange (via Document Exchange Centre DVK) to direct, P2P model.
 
-DHX uses the X-Road v6 as its underlying transport layer mechanism.*
+DHX uses the X-Road v6 as its underlying transport layer mechanism.
 
 ----
 Esitlused

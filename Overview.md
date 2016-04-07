@@ -1,7 +1,3 @@
----
-layout: default
----
-
 # Document exchange protocol DHX
 
 ### Purpose
@@ -22,7 +18,7 @@ layout: default
 
 ### Builds on unique capabilities of X-Road
 
-![](https://cdn.rawgit.com/e-gov/DHX/gh-pages/img//Stack.svg)
+![](img//Stack.svg)
 
 X-Road, the Estonian national public sector data exchange layer, solves:
 *addressability

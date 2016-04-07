@@ -14,6 +14,8 @@ Document exchange protocol DHX allows large number of Estonian public sector age
 
 DHX uses the X-Road v6 as its underlying transport layer mechanism.
 
+* [Overview](https://github.com/e-gov/DHX/blob/gh-pages/Overview.md) (in English)
+
 * [Dokumendivahetustaristu (DVK) üleviimine hajusarhitektuurile](http://slides.com/priitparmakson/dhx/fullscreen)
 * [E-arvete liikluse võimalik tulevikuarhitektuur](https://github.com/e-gov/DHX/blob/gh-pages/E-arvete.md)
 

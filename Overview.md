@@ -18,7 +18,7 @@
 
 ### Builds on unique capabilities of X-Road
 
-![](img//Stack.PNG)
+![](img//Stack01.PNG)
 
 X-Road, the Estonian national public sector data exchange layer, solves:
 *addressability

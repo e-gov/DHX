@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 # Document exchange protocol DHX
 
 ### Purpose
@@ -37,6 +38,6 @@ X-Road, the Estonian national public sector data exchange layer, solves:
 * processing rules
 
 ### Schedule
-2015 - Draft version of the protocol
-2016 - Reference implementation, verification, development of universal adapter component, migration planning
-2017-2018 - Migration to DHX
+* 2015 - Draft version of the protocol
+* 2016 - Reference implementation, verification, development of universal adapter component, migration planning
+* 2017-2018 - Migration to DHX

@@ -9,11 +9,12 @@
 * Transpordikihina kasutab DHX X-tee v6.
 * [Lähteolukord (AS IS)](https://github.com/e-gov/DHX/blob/gh-pages/img/DHXLahteolukord.PNG)
 * [Sihtolukord (TO BE)](https://github.com/e-gov/DHX/blob/gh-pages/img/Sihtolukord.PNG)
-* [Sihtolukord (TO BE) universaalse tarkvarakomponendi kasutamisega](https://github.com/e-gov/DHX/blob/gh-pages/img/DHXSihtolukord.PNG)
+* [Sihtolukord (TO BE) universaalse tarkvarakomponendiga](https://github.com/e-gov/DHX/blob/gh-pages/img/DHXSihtolukord.PNG)
 * [Üleminek](https://github.com/e-gov/DHX/blob/gh-pages/img/DHXYleminek03.PNG)
 
-
+### Esitlused 
 * [Dokumendivahetustaristu (DVK) üleviimine hajusarhitektuurile](http://slides.com/priitparmakson/dhx/fullscreen)
 * [E-arvete liikluse võimalik tulevikuarhitektuur](https://github.com/e-gov/DHX/blob/gh-pages/E-arvete.md)
 
+### Kirjandus
 [Kirjandus](https://github.com/e-gov/DHX/blob/master/Kirjandus.md)

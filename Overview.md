@@ -21,11 +21,11 @@
 ![](img//Stack01.PNG)
 
 X-Road, the Estonian national public sector data exchange layer, solves:
-*addressability
-*service discovery
-*identity
-*security
-*legal
+* addressability
+* service discovery
+* identity
+* security
+* legal
 
 ### Elements of DHX
 * DHX web service

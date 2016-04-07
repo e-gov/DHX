@@ -17,4 +17,4 @@
 * [E-arvete liikluse võimalik tulevikuarhitektuur](https://github.com/e-gov/DHX/blob/gh-pages/E-arvete.md)
 
 ### Kirjandus
-[Kirjandus](https://github.com/e-gov/DHX/blob/master/Kirjandus.md)
+* [Kirjandus](https://github.com/e-gov/DHX/blob/master/Kirjandus.md)

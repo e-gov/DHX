@@ -5,14 +5,14 @@
 
 ### Target group
 * all Estonian public sector organisations (mandatory)
-* companies who have lot of business with public sector (optional)
+* companies who have a lot of business with public sector (optional)
 
 ### Motivation
 * faster and simpler document ecxhange
 * lower operating costs
 * no Single Point of Failure
 
-###... by
+### Architecture
 * moving from centralised to distributed model
 * using advanced capabilities of X-Road v6
 

@@ -1,5 +1,7 @@
 # Document exchange protocol DHX
 
+Developed by Estonian Information System Agency 2015-2016
+
 ### Purpose
 * standardised and simple method to exchange documents
 
@@ -13,15 +15,13 @@
 * no Single Point of Failure
 
 ### Architecture
-* moving from centralised to distributed model
+* from centralised to distributed model
 
 ![](img//AsIs.PNG) 
 
 ![](img//ToBe.PNG) 
 
 ![](img//Transition.PNG) 
-
-* using advanced capabilities of X-Road v6
 
 ### Builds on unique capabilities of X-Road
 

@@ -14,11 +14,18 @@
 
 ### Architecture
 * moving from centralised to distributed model
+
+![](img//AsIs.PNG) 
+
+![](img//ToBe.PNG) 
+
+![](img//Transition.PNG) 
+
 * using advanced capabilities of X-Road v6
 
 ### Builds on unique capabilities of X-Road
 
-![](img//Stack01.PNG)
+![](img//ProtocolStack.PNG)
 
 X-Road, the Estonian national public sector data exchange layer, solves:
 * addressability

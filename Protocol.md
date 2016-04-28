@@ -5,6 +5,26 @@ Estonian Information System Authority
 
 v 0.5
 
+#### Table of Contents
+
+- [Overview](https://github.com/e-gov/DHX/edit/gh-pages/Protocol.md#Overview)
+- [Definitions and abbreviations](https://github.com/e-gov/DHX/edit/gh-pages/Protocol.md#Definitions-and-abbreviations)
+- [Main characteristics](https://github.com/e-gov/DHX/edit/gh-pages/Protocol.md#)
+- [Motivation](https://github.com/e-gov/DHX/edit/gh-pages/Protocol.md#)
+- [Aim (”TO BE” situation)](https://github.com/e-gov/DHX/edit/gh-pages/Protocol.md#)
+- [Parties](https://github.com/e-gov/DHX/edit/gh-pages/Protocol.md#)
+- [DMS service](https://github.com/e-gov/DHX/edit/gh-pages/Protocol.md#)
+- [Name rule](https://github.com/e-gov/DHX/edit/gh-pages/Protocol.md#)
+- [Messages](https://github.com/e-gov/DHX/edit/gh-pages/Protocol.md#)
+- [Message format](https://github.com/e-gov/DHX/edit/gh-pages/Protocol.md#)
+- [Assessing the DHX capability of the addressee](https://github.com/e-gov/DHX/edit/gh-pages/Protocol.md#)
+- [Processing logic](https://github.com/e-gov/DHX/edit/gh-pages/Protocol.md#)
+- [Enforcement](https://github.com/e-gov/DHX/edit/gh-pages/Protocol.md#)
+- [Extension options](https://github.com/e-gov/DHX/edit/gh-pages/Protocol.md#)
+- [Transition](https://github.com/e-gov/DHX/edit/gh-pages/Protocol.md#)
+- [Functioning of DEC during the transition period](https://github.com/e-gov/DHX/edit/gh-pages/Protocol.md#)
+- [References](https://github.com/e-gov/DHX/edit/gh-pages/Protocol.md#)
+
 #### Overview
 The protocol provides a technical solution, which allows the document management systems (DMS) of the Estonian public sector, but also the information systems of the private and third sector that communicate with the public sector, to exchange documents, based on the distributed or decentralised principle.
 

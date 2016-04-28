@@ -6,7 +6,7 @@
 
 * [Overview](https://github.com/e-gov/DHX/blob/gh-pages/Overview.md)
 * [Text of the Protocol](Protocol.md)
-* Check out the [Discussion Page](https://github.com/e-gov/DHX/issues)
+* Dont' forget to check out the [Discussion Page](https://github.com/e-gov/DHX/issues)
 
 #### ET
 

@@ -6,23 +6,23 @@ Estonian Information System Authority
 v 0.5
 
 #### Overview
-The protocol provides a technical solution, which allows the document management systems (DMS) of the Estonian public sector, but also the information systems of the private and third sector that communicate with the public sector, to exchange documents, based on the so called distributed or decentralised principle.
+The protocol provides a technical solution, which allows the document management systems (DMS) of the Estonian public sector, but also the information systems of the private and third sector that communicate with the public sector, to exchange documents, based on the distributed or decentralised principle.
 
 DHX is a new document exchange protocol which uses the X-Road infrastructure.
 
 Unlike the old document exchange centre (DEC), DHX does not require visiting “the post office” any longer for mail collection, but brings documents to the doorstep.
 
-DHX is intended for the safe organisation of the public sector’s document exchange.
+DHX is intended for the secure organisation of the public sector’s document exchange.
 
 The compilation of the protocol is based on the best practice in protocol specification  [RIA-PP].
 
 The text has a normative meaning. The other content of the GitHub repository has an informative purpose.
 
-The protocol has been developed by the Information System Authority. Please send proposals and comments to priit.parmakson@ria.ee or create Issue in this repository. 
+The protocol has been developed by the Estonian Information System Authority. Please send proposals and comments to priit.parmakson@ria.ee or create Issue in this repository. 
 
 #### Definitions and abbreviations
 
-_Institution_ &nbsp;&nbsp; An organisation entered in the national register of state and local government (RKOARR).
+_Institution_ &nbsp;&nbsp; An organisation entered into the national register of state and local government institutions (RKOARR).
 
 _Document_ &nbsp;&nbsp; A document processed in an institution within the meaning of document management in the Estonian public sector.
 
@@ -36,7 +36,7 @@ _RIA_ &nbsp;&nbsp; Estonian Information System Authority.
 
 _Registry code_ &nbsp;&nbsp; A registry code granted to an institution in RKOARR. E.g. `70002093` `Kadrioru kindergarten`.
 
-_Service identifier_ &nbsp;&nbsp; X-Road service identifier under the requirements of X-Road [X-Road] version 6. Uniquely identifies the X-Road service both on the Estonian X-Road and in the international network of X-Road implementations. Consists of an X-road member identifier, a service code denomination and an optional version number. For example: `EE/GOV/70003158/DMS/sendDocument`.
+_Service identifier_ &nbsp;&nbsp; X-Road service identifier under the requirements of X-Road version 6 [X-Road]. Uniquely identifies the X-Road service both on the Estonian X-Road and in the international federation of X-Road instances. Consists of an X-road member identifier, a service code denomination and an optional version number. For example: `EE/GOV/70003158/DMS/sendDocument`.
 
 #### Main characteristics
 
@@ -92,7 +92,7 @@ Figure 1 is a conceptual diagram of the interaction. The dashed lines represent 
 
 1.	An institution develops their own DMS and opens an X-Road service on X-Road for all other public sector institutions – namely a DHX service, whereby other institutions send documents to that particular institution.
 
-Note. If an institution uses DMS as a service, then the service is developed by the DMS service provider. An institution authorizes the service provider to run the DHX service on behalf of the institution. This is conducted pursuant to the X-Road certificate management procedure.
+   Note. If an institution uses DMS as a service, then the service is developed by the DMS service provider. An institution authorizes the service provider to run the DHX service on behalf of the institution. This is conducted pursuant to the X-Road certificate management procedure.
 
 2.	For an institution, the DHX service is the official channel for receiving documents on X-Road.
 
@@ -112,13 +112,13 @@ Note. If an institution uses DMS as a service, then the service is developed by 
 
 3.	The full name of the service pursuant to the X-Road v6 name rules is `EE/GOV/< registry code >/DHS/sendDocument`
 
-where `DHS` (DMS in English) is the name fixed with this protocol ensuring service discovery and `<registrikood>` is the registry code of the institution.
+   where `DHS` (DMS in English) is the name fixed with this protocol ensuring service discovery and `<registrikood>` is the registry code of the institution.
 
-Note. `EE/GOV` is a type name for an Estonian public sector institution in X-Road v6.
+   Note. `EE/GOV` is a type name for an Estonian public sector institution in X-Road v6.
 
-No version number is added to the technical code name of the service.
+   No version number is added to the technical code name of the service.
 
-Example: `EE/GOV/70003158/DMS/sendDocument`
+   Example: `EE/GOV/70003158/DMS/sendDocument`
 
 #### Messages
 
@@ -142,19 +142,17 @@ Example: `EE/GOV/70003158/DMS/sendDocument`
 
 2.	Assessing the DHX capability of the addressee with a transmitting attempt.
 
-The transmitting system attempts to send a document;
+   The transmitting system attempts to send a document; if it is expressed in the response that the service does not exist, then the addressee has no DHX capability and the document will be sent via DEC.
 
-if it is expressed in the response that the service does not exist, then the addressee has no DHX capability and the document will be sent via DEC.
-
-The method does not require the maintenance of status information regarding the capability of addressees in the transmitting system.
+   The method does not require the maintenance of status information regarding the capability of addressees in the transmitting system.
 
 3.	Identification of the addressee’s DHX capability before a transmitting attempt.
 
-The security server of the sender periodically downloads information about the configuration of X-Road [PR-GCONF], including information about the subsystems (e.g. DMS) identified by the members of X-Road, and security servers. The sender’s security server determines, based on the aforementioned configuration data, whether the addressee has identified the DMS subsystem. If the results are negative, then DHX capability is absent. If the results are positive, then the transmitting system queries the addressee’s X-Road meta service `allowedMethods` [PR-META] for the list of services offered by the addressee. If the list contains `sendDocument`, then the addressee has DHX capability and the document will be sent. If the list does not contain the service, then the addressee has no DHX capability and the document will be sent via DEC.
+   The security server of the sender periodically downloads information about the configuration of X-Road [PR-GCONF], including information about the subsystems (e.g. DMS) identified by the members of X-Road, and security servers. The sender’s security server determines, based on the aforementioned configuration data, whether the addressee has identified the DMS subsystem. If the results are negative, then DHX capability is absent. If the results are positive, then the transmitting system queries the addressee’s X-Road meta service `allowedMethods` [PR-META] for the list of services offered by the addressee. If the list contains `sendDocument`, then the addressee has DHX capability and the document will be sent. If the list does not contain the service, then the addressee has no DHX capability and the document will be sent via DEC.
 
 4.	Identification of the DHX capability before sending, with buffering.
 
-Equivalent to the previous method, but the results of queries are buffered (not repeated over time, the results of the first query are relied upon instead). The method requires the maintenance of status information regarding the capability of addressees in the transmitting system.
+   Equivalent to the previous method, but the results of queries are buffered (not repeated over time, the results of the first query are relied upon instead). The method requires the maintenance of status information regarding the capability of addressees in the transmitting system.
 
 #### Processing logic
 
@@ -168,7 +166,7 @@ Equivalent to the previous method, but the results of queries are buffered (not 
 
 5.	Instead of a confirmation, a corresponding message is sent to the sender regarding incorrectly addressed documents.
 
-#### Liability
+#### Enforcement
 
 1.	The effect resulting from the use of the protocol is the greatest if all institutions adopt the protocol. Upon developing the protocol, the assumption is that the vast majority of institutions will start using DHX.
 

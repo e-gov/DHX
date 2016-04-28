@@ -1,6 +1,6 @@
 # Document exchange protocol DHX
 
-Developed by Estonian Information System Agency 2015-2016
+Developed by Estonian Information System Authority in 2015-2016
 
 ### Purpose
 * standardised and simple method to exchange documents

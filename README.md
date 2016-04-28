@@ -5,7 +5,8 @@
 #### EN
 
 * [Overview](https://github.com/e-gov/DHX/blob/gh-pages/Overview.md)
-* [Text of the Protocol](Protocol.md) 
+* [Text of the Protocol](Protocol.md)
+* Check out the [Discussion Page](https://github.com/e-gov/DHX/issues)
 
 #### ET
 
@@ -15,6 +16,8 @@ DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimalda
 * [Sihtolukord (TO BE)](https://github.com/e-gov/DHX/blob/gh-pages/img/Sihtolukord.PNG)
 * [Sihtolukord (TO BE) universaalse tarkvarakomponendiga](https://github.com/e-gov/DHX/blob/gh-pages/img/DHXSihtolukord.PNG)
 * [Üleminek](https://github.com/e-gov/DHX/blob/gh-pages/img/DHXYleminek03.PNG)
+
+* vt ka [Arutelu lehte](https://github.com/e-gov/DHX/issues)
 
 Esitlused 
 * [Dokumendivahetustaristu (DVK) üleviimine hajusarhitektuurile](http://slides.com/priitparmakson/dhx/fullscreen)

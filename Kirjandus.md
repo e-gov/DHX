@@ -1,4 +1,5 @@
 ## Kirjandus
+- Thaler D (2016) [Out With the Old and In With the New: Planning for Protocol Transitions](https://datatracker.ietf.org/doc/draft-iab-protocol-transitions/?include_text=1)
 - Internet Mail 2000, D. J. Bernstein's project "to design a new Internet mail infrastructure around the following concept: Mail storage is the sender's responsibility." -- [Hacker News](https://news.ycombinator.com/item?id=10406040); Aaron Schwartz on D. J. Bernstein: [http://www.aaronsw.com/weblog/djb](http://www.aaronsw.com/weblog/djb).
 - Two general’s problem https://en.wikipedia.org/wiki/Two_Generals%27_Problem
 - Understanding trade-offs is distributed messaging http://bravenewgeek.com/what-you-want-is-what-you-dont-understanding-trade-offs-in-distributed-messaging/ 

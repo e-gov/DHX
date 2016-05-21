@@ -3,7 +3,7 @@
 #### EN
 
 * [Overview](https://github.com/e-gov/DHX/blob/gh-pages/Overview.md)
-* [Presentation](https://github.com/e-gov/DHX/blob/gh-pages/DHX_EN%20%282%29.pdf) (including a brief overview of X-Road)
+* [Presentation](https://github.com/e-gov/DHX/blob/gh-pages/DHX_EN%20%282%29.pdf) (with a very brief discussion of X-Road)
 * [__TEXT OF THE PROTOCOL__](Protocol.md)
 * Dont' forget to check out the [Discussion Page](https://github.com/e-gov/DHX/issues)
 * [How to contribute](https://github.com/e-gov/DHX/blob/gh-pages/CONTRIBUTING.md)

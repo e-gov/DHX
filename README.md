@@ -6,6 +6,7 @@
 * [Presentation](https://github.com/e-gov/DHX/blob/gh-pages/DHX_EN%20%282%29.pdf) (including a brief overview of X-Road)
 * [__TEXT OF THE PROTOCOL__](Protocol.md)
 * Dont' forget to check out the [Discussion Page](https://github.com/e-gov/DHX/issues)
+* [How to contribute](https://github.com/e-gov/DHX/blob/gh-pages/CONTRIBUTING.md)
 
 #### ET
 
@@ -20,3 +21,4 @@ DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimalda
 * [Dokumendivahetustaristu (DVK) üleviimine hajusarhitektuurile](http://slides.com/priitparmakson/dhx/fullscreen)
 * [E-arvete liikluse võimalik tulevikuarhitektuur](https://github.com/e-gov/DHX/blob/gh-pages/E-arvete.md)
 * [Kirjandus](https://github.com/e-gov/DHX/blob/gh-pages/Kirjandus.md)
+* [Löö kaasa](https://github.com/e-gov/DHX/blob/gh-pages/CONTRIBUTING.md)

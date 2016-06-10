@@ -206,7 +206,7 @@ Tühipäringute arvu vähendamiseks on soovitatav kasutada hästituntud eksponen
 
 1. DVK-d hoitakse töös kogu üleminekuperioodi vältel. DVK-d täiendatakse üleminekuperioodil toimimiseks vajaliku funktsionaalsusega.
 
-![](img/DHX-Yleminek03.PNG)
+![](img/DHX-Yleminek.PNG)
 
 Joonis
 

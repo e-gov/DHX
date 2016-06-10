@@ -29,7 +29,7 @@ Joonised:
 
 6. Käesolev dokument määratleb nõuded, andmevormingud, töötlus- ja menetlusloogikad kõigile osapooltele - DHX-i rakendavatele asutustele, DHX-i vahendajatele ja X-tee keskusele. Samuti käsitletakse üleminekut seni DVK kaudu korraldatud dokumendivahetuselt DHX-i kasutamisele.
 
-7. Protokolli koostamisel on aluseks [protokollide spetsifitseerimise parim praktika](https://github.com/e-gov/Open-Workflow/blob/master/ProtokollideParimPraktika.md) [RIA-PP].
+7. Protokolli koostamisel on aluseks protokollide spetsifitseerimise parim praktika [RIA-PP].
 
 8. Protokolli on välja töötanud Riigi Infosüsteemi Amet. Ettepanekud ja märkused saata help@ria.ee või luua käesolevas varamus `Issue`.
 

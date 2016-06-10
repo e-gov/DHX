@@ -8,6 +8,13 @@ v 0.6
 
 [Ülevaade](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#%C3%9Clevaade) | [Mõisted ja lühendid](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#m%C3%B5isted-ja-l%C3%BChendid) |  [Osapooled](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#osapooled) | [Interaktsioon](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#interaktsioon) | [DHX teenus](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#dhx-teenus) | [Üleminek](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#%C3%9Cleminek) | [DVK toimimine üleminekuperioodil](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#dvk-toimimine-%C3%BCleminekuperioodil) | [Viited](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#viited)
 
+#### Joonised
+- Joonis 1. [Lähteolukord: dokumendivahetus DVK kaudu]()
+- Joonis 2. [DHX põhiskeem]()
+- Joonis 3. [DHX dokumendivahetusteenuse vahendamine]()
+- Joonis 4. [Vahendajate nimekiri]()
+- Joonis 5  [Toimimine üleminekuperioodil]() 
+
 ####  Ülevaade
 
 Dokumendivahetusprotokoll DHX on standardiseeritud tehniline ja organisatsiooniline lahendus, mis võimaldab asutustel vahetada dokumente hajus- e detsentraliseeritud põhimõttel.
@@ -71,11 +78,13 @@ Läbiva suurtähega esitatud sõnu tuleb tõlgendada järgmiselt (vrdl [RFC 2119
 
 ![](img/DHX-Lahteolukord.PNG)
 
+Joonis 1. Lähteolukord: dokumendivahetus DVK kaudu
+
 #### DHX teenus
 
 ![](img/DHX-Sihtolukord.PNG)
 
-Joonis 1
+Joonis 2. DHX põhiskeem
 
 1  DHX teenus on standardse nimemustri ja töötlusloogikaga X-tee teenus, millega asutus saab saata teisele asutusele dokumente.
 
@@ -111,11 +120,11 @@ Joonis 1
 
 4  Vahendamise korral kuulub DHX teenuse juurde ka vahendusnimekirja teenus.
 
-![](img/DHX-i%20vahendus%2001.PNG)
+![](img/DHX-Vahendamine.PNG)
 
-Joonis 2
+Joonis 3 Vahendamine
 
-Joonisel 2 on esitatud interaktsiooni põhimõtteskeem vahendamise korral.
+Joonisel 3 on esitatud interaktsiooni põhimõtteskeem vahendamise korral.
  
 5  DHX rakendamisel läbi vahendaja PEAB asutus sõlmima lepingu DHX vahendajaga. Kasutada TOHIB AINULT X-tee keskuse poolt DHX vahendajate nimekirja lisatud vahendajaid.
 
@@ -149,6 +158,10 @@ Näide: `EE/PRI/40001111/DHX/representationList`
 2  Vahendajate nimekirja peab X-tee keskus (RIA).
 
 3  Tehniliselt teostatakse vahendajate nimekiri DHX vahendajate grupina. DHX vahendajate grupp on osa X-tee globaalsest konfiguratsioonist. Vahendajate nimekiri on X-tee globaalse konfiguratsiooni osana avalikult kättesaadav kõigile X-tee liikmetele. 
+
+![](img/DHX-Global.PNG)
+
+Joonis 5. Vahendajate nimekiri
 
 4  Vahendajana tegutseda sooviv asutus või ettevõte PEAB end vahendajana X-teel registreerima. Registreerimise täpse korra kehtestab X-tee keskus.
 
@@ -188,6 +201,10 @@ Tühipäringute arvu vähendamiseks on soovitatav kasutada hästituntud eksponen
 
 #### Üleminek
 
+![](img/DHX-Yleminek.PNG)
+
+Joonis 6. Toimimine üleminekuperioodil
+
 1.	Üleminek DHX protokollile toimub etteantud perioodi jooksul. Üleminekuperiood algab kõigile asutustele üheaegselt. Perioodi algusest teavitab X-tee keskus.
 
 2.	Üleminekuperioodil arendavad asutused välja oma DHS-des DHX protokolli kohase dokumentide saatmise ja vastuvõtmise võimekuse. Tehniliselt tähendab "DHX-i võimekus" DHX protokolli kohase X-tee teenuse pakkumist ja võimet teiste asutuste samasuguse teenuse poole pöörduda.
@@ -205,10 +222,6 @@ Tühipäringute arvu vähendamiseks on soovitatav kasutada hästituntud eksponen
 #### DVK toimimine üleminekuperioodil
 
 1. DVK-d hoitakse töös kogu üleminekuperioodi vältel. DVK-d täiendatakse üleminekuperioodil toimimiseks vajaliku funktsionaalsusega.
-
-![](img/DHX-Yleminek.PNG)
-
-Joonis
 
 2. DVK pakub teenust `sendDocument`, millega DHX-i võimekuse loonud asutus saab edastada dokumendi edasisaatmiseks DHX võimekust veel mitteomavale asutusele. Edasisaatmise teostab DVK.
 

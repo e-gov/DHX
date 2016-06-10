@@ -68,19 +68,24 @@ Läbiva suurtähega esitatud sõnu tuleb tõlgendada järgmiselt (vrdl [RFC 2119
 |---|---|
 
 #### DHX teenus
-1  DHX teenus on standardse nimemustri ja töötlusloogikaga X-tee teenus, millega asutus (joonistel Asutus 1) saab saata teisele asutusele (joonistel Asutus 2) dokumente.
 
-2  Dokument saadetakse teenuse kasutamisega, tehniliselt X-tee päringsõnumi saatmisega dokumendi saatja poolt.
+![](img/Sihtolukord.PNG)
 
-3  DHX teenuse arendab välja, avab teistele asutustele ja käitab teenust DHX-i rakendav asutus.
+Joonis 1
 
-4  DHX vahendamisel arendab DHX teenuse välja, avab teistele asutustele ja käitab teenust vahendaja.
+1  DHX teenus on standardse nimemustri ja töötlusloogikaga X-tee teenus, millega asutus saab saata teisele asutusele dokumente.
 
-5  Vahendamise korral kuulub DHX teenuse juurde ka vahendusnimekirja teenus.
+2  DHX teenuse kasutamine on interaktsioon, mis koosneb kahest sõnumisaatmisest:
+- dokumenti saatja saadab teenusele `sendDocument` X-tee päringusõnumi (päringu)
+- dokumendi saaja saadab vastussõnumi kinnitusega dokumendi kättesaamise kohta.
 
-6  "DHX" on reserveeritud nimi. DHX teenus PEAB kasutama X-tee alamsüsteemi "DHX". X-tee keskus EI TOHI registreerida ühegi asutuse alamsüsteemi "DHX" teiseks otstarbeks.
+3	Dokument edastatakse päringus.
 
-7 	DHX teenuse nimi PEAB järgima mustrit `EE/<liikmeklass>/<registrikood>/DHX/sendDocument`, kus
+4  Iga DHX-i rakendav asutus PEAB arendama oma DHS-is välja DHX teenuse, avama selle teenuse teistele asutustele ja käitama teenust.
+
+5  "DHX" on reserveeritud nimi. DHX teenus PEAB kasutama X-tee alamsüsteemi "DHX". X-tee keskus EI TOHI registreerida ühegi asutuse alamsüsteemi "DHX" teiseks otstarbeks.
+
+6 	DHX teenuse nimi PEAB järgima mustrit `EE/<liikmeklass>/<registrikood>/DHX/sendDocument`, kus
  
 - `EE` on X-tee Eesti instantsi nimi
 - `<liikmeklass>` on X-tee liikmeklass (vastavalt vahendaja õiguslikule vormile kas `GOV` või `PRI`) 
@@ -89,20 +94,30 @@ Läbiva suurtähega esitatud sõnu tuleb tõlgendada järgmiselt (vrdl [RFC 2119
 
    Näide: `EE/GOV/70003158/DHX/sendDocument`
 
-#### DHX rakendamine otse või vahendaja kaudu
-1  Asutus rakendab DHX-i kas otse või vahendaja kaudu.
+7	 Dokument edastatakse metaandmeid sisaldavas "kapslis", mis PEAB vastama ametlikult kinnitatud Elektroonilise andmevahetuse metaandmete loendile [Kapsel]. Dokumendi kapslis edastatakse muuhulgas adressaadiks oleva asutuse registrikood.
+
+8 	Väljasaatev DHS annab dokumendile identifikaatori (numbri), mis on unikaalne vähemalt DHS-i piires.
+
+#### Vahendamine
+1  Asutus VÕIB rakendada DHX-i ka vahendaja kaudu.
+
+2  Vahendamise korral osutab dokumentide X-teel saatmise ja vastuvõtmise teenust asutusele vahendaja oma infosüsteemi kaudu. Asutus ise X-teega ei suhtle. Vahendaja esineb X-teel oma nime all. Vahendaja võib olla nii erasektori ettevõte kui ka avaliku sektori asutus.
+
+3  DHX vahendamisel arendab DHX teenuse välja, avab teistele asutustele ja käitab teenust vahendaja.
+
+4  Vahendamise korral kuulub DHX teenuse juurde ka vahendusnimekirja teenus.
+
+![](img/DHX-i%20vahendus%2001.PNG)
+
+Joonis 2
+
+Joonisel 2 on esitatud interaktsiooni põhimõtteskeem vahendamise korral.
  
-2  Otserakendamisel PEAB asutus välja arendama ja avama teistele avaliku sektori asutustele standarditud nimemustriga `EE/GOV/<registrikood>/DHS/sendDocument` X-tee teenuse (DHX teenuse) ja selle teenuse kaudu vastavalt käesolevale protokollile dokumente vastu võtma.
- 
-3  Vahendamise korral osutab dokumentide X-teel saatmise ja vastuvõtmise teenust asutusele vahendaja oma infosüsteemi kaudu. Asutus ise X-teega ei suhtle. Vahendaja esineb X-teel oma nime all. Vahendaja võib olla nii erasektori ettevõte kui ka avaliku sektori asutus.
+5  DHX rakendamisel läbi vahendaja PEAB asutus sõlmima lepingu DHX vahendajaga. Kasutada TOHIB AINULT X-tee keskuse poolt DHX vahendajate nimekirja lisatud vahendajaid.
 
-2  Vahendamise korral arendab DHX teenuse välja ja käitab teenust vahendaja.
+6  Vahendaja PEAB X-tee teenuse vormis avalikustama vahendusnimekirja - nimekirja asutustest, keda ta esindab.
 
-3  DHX rakendamisel läbi vahendaja PEAB asutus sõlmima lepingu DHX vahendajaga. Kasutada TOHIB AINULT X-tee keskuse poolt DHX vahendajate nimekirja lisatud vahendajaid.
-
-4  Vahendaja PEAB X-tee teenuse vormis avalikustama vahendusnimekirja - nimekirja asutustest, keda ta esindab.
-
-5  Vahendamisele kehtivad X-tee määrusest tulenevad nõuded: vahendajana end X-teel registreerimise kohustus, andmeteenuse vahendamise korra (poliitika) koostamise ja avalikustamise kohustus jm (vt [X-tee määrus] § 13).
+7  Vahendamisele kehtivad X-tee määrusest tulenevad nõuded: vahendajana end X-teel registreerimise kohustus, andmeteenuse vahendamise korra (poliitika) koostamise ja avalikustamise kohustus jm (vt [X-tee määrus] § 13).
 
 #### Vahendusnimekiri
 1  Vahendusnimekiri on vahendaja peetav nimekiri asutustest, keda ta vahendab.
@@ -134,30 +149,6 @@ Näide: `EE/PRI/40001111/DHX/representationList`
 4  Vahendajana tegutseda sooviv asutus või ettevõte PEAB end vahendajana X-teel registreerima. Registreerimise täpse korra kehtestab X-tee keskus.
 
 4  X-tee keskus PEAB pidama DHX vahendajate nimekirja ajakohasena. 
-
-#### Interaktsioon
-
-![](img/DHX-i%20vahendus%2001.PNG)
-
-Joonis 1
-
-Joonisel 1 on esitatud interaktsiooni põhimõtteskeem.
-
-#### Sõnumid
-
-1.	Interaktsioonis liiguvad kaht tüüpi sõnumid: teenusele `sendDocument` saadetud X-tee päringusõnum (päring) ja sellele vastu saadetav vastussõnum (vastus).
-
-2.	Dokument edastatakse päringus.
-
-3.	Dokumendi kättesaamise kohta saadetakse X-tee päringu vastuses kinnitus.
-
-#### Sõnumivorming
-
-1.	Dokument edastatakse metaandmeid sisaldavas "kapslis", mis peab vastama ametlikult kinnitatud Elektroonilise andmevahetuse metaandmete loendile [Kapsel].
-
-2.	Dokumendi kapslis edastatakse muuhulgas adressaadiks oleva asutuse registrikood.
-
-3.	Väljasaatev DHS annab dokumendile identifikaatori (numbri), mis on unikaalne vähemalt DHS-i piires.
 
 #### Adressaadi DHX võimekuse kindlakstegemine
 

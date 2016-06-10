@@ -6,7 +6,7 @@ v 0.6
 
 #### Sisukord
 
-[Ülevaade](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#%C3%9Clevaade) | [Mõisted ja lühendid](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#m%C3%B5isted-ja-l%C3%BChendid) |  [Osapooled](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#osapooled) | [Interaktsioon](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#interaktsioon) | [DHX teenus](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#dhx-teenus) | [Sõnumid](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#s%C3%B5numid) | [Sõnumivorming](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#s%C3%B5numivorming) | [Adressaadi DHX võimekuse kindlakstegemine](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#adressaadi-dhx-v%C3%B5imekuse-kindlakstegemine) | [Töötlusloogika](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#t%C3%B6%C3%B6tlusloogika) | [Üleminek](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#%C3%9Cleminek) | [DVK toimimine üleminekuperioodil](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#dvk-toimimine-%C3%BCleminekuperioodil) | [Viited](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#viited)
+[Ülevaade](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#%C3%9Clevaade) | [Mõisted ja lühendid](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#m%C3%B5isted-ja-l%C3%BChendid) |  [Osapooled](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#osapooled) | [Interaktsioon](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#interaktsioon) | [DHX teenus](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#dhx-teenus) | [Üleminek](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#%C3%9Cleminek) | [DVK toimimine üleminekuperioodil](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#dvk-toimimine-%C3%BCleminekuperioodil) | [Viited](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#viited)
 
 ####  Ülevaade
 
@@ -66,6 +66,10 @@ Läbiva suurtähega esitatud sõnu tuleb tõlgendada järgmiselt (vrdl [RFC 2119
 | _vahendusnimekiri_ | DHX dokumendivahendusteenuse vahendaja poolt X-teel teenusena pakutav nimekiri asutustest, keda ta vahendab. |
 | _X-tee keskus_ | X-tee haldaja. X-tee keskuse rolli täitab RIA. X-tee keskus peab DHX vahendajate nimekirja. |
 |---|---|
+
+#### Lähteolukord
+
+![](img/DHXLahteolukord.PNG)
 
 #### DHX teenus
 
@@ -184,7 +188,7 @@ Tühipäringute arvu vähendamiseks on soovitatav kasutada hästituntud eksponen
 
 #### Üleminek
 
-1.	Üleminek DHX protokollile toimub etteantud perioodi jooksul. Üleminekuperiood algab kõigile asutustele üheaegselt. Perioodi algusest teavitab RIA.
+1.	Üleminek DHX protokollile toimub etteantud perioodi jooksul. Üleminekuperiood algab kõigile asutustele üheaegselt. Perioodi algusest teavitab X-tee keskus.
 
 2.	Üleminekuperioodil arendavad asutused välja oma DHS-des DHX protokolli kohase dokumentide saatmise ja vastuvõtmise võimekuse. Tehniliselt tähendab "DHX-i võimekus" DHX protokolli kohase X-tee teenuse pakkumist ja võimet teiste asutuste samasuguse teenuse poole pöörduda.
 
@@ -201,6 +205,10 @@ Tühipäringute arvu vähendamiseks on soovitatav kasutada hästituntud eksponen
 #### DVK toimimine üleminekuperioodil
 
 1. DVK-d hoitakse töös kogu üleminekuperioodi vältel. DVK-d täiendatakse üleminekuperioodil toimimiseks vajaliku funktsionaalsusega.
+
+![](img/DHXYleminek03.PNG)
+
+Joonis
 
 2. DVK pakub teenust `sendDocument`, millega DHX-i võimekuse loonud asutus saab edastada dokumendi edasisaatmiseks DHX võimekust veel mitteomavale asutusele. Edasisaatmise teostab DVK.
 

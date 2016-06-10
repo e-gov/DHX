@@ -101,6 +101,10 @@ Joonised:
 
 4. Kui asutus turvapoliitika vm kaalutlustel ei pea otstarbekaks DHX teenuse avamist kõigile X-tee liikmetele, siis VÕIB ta DHX teenuse avada konkreetsetele X-tee liikmetele (pääsuõiguste andmisega X-tee turvaserveris).
 
+5. Üleminekuperioodiks PEAB DHX teenuse avama ka DVK-le.
+
+ _DVK edastab dokumente asutustelt, kes ei ole veel DHX-i võimekust loonud._ 
+
 5. "DHX" on reserveeritud nimi. DHX teenus PEAB kasutama X-tee alamsüsteemi "DHX". X-tee keskus EI TOHI registreerida ühegi asutuse alamsüsteemi "DHX" teiseks otstarbeks.
 
 6.	DHX teenuse nimi PEAB järgima mustrit `EE/<liikmeklass>/<registrikood>/DHX/sendDocument`, kus
@@ -260,6 +264,8 @@ function saadaDokument(d Dokument, a Registrikood) {
 2.	Mitut asutust teenindav DHS tehniline süsteem peab tagama DHX teenuse kaudu saabunud dokumendi toimetamise õige adressaadi "virtuaalsesse" DHS-i.
 
 3. Vastuvõttev süsteem PEAB kontrollima, et dokument on saadetud õigele aadressile. Muuhulgas PEAB vahendaja süsteem kontrollima, kas adressaat on tema klient (on tema vahendusnimekirjas).
+
+4. Üleminekuperioodil PEAB dokumente vastu võtma ka DVK-lt. 
 
 4.	Valesti adresseeritud dokumendi korral PEAB vastuvõttev süsteem saatma saatjale kinnituse asemel vastusteate `Vale aadress`.
 

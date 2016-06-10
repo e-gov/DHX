@@ -6,7 +6,7 @@ v 0.6
 
 #### Sisukord
 
-[Ülevaade](Protokoll.md#%C3%9Clevaade) | [Nõuete keel](Protokoll.md#n%C3%B5uete-keel) | [Mõisted ja lühendid](Protokoll.md#m%C3%B5isted-ja-l%C3%BChendid) |  | [DHX teenus](Protokoll.md#dhx-teenus) | [Vahendamine](Protokoll.md#vahendamine) | [Vahendusnimekiri](Protokoll.md#vahendusnimekiri) | [Vahendajate nimekiri](Protokoll.md#vahendajate-nimekiri) | [Saatmisalgoritm](Protokoll.md#saatmisalgoritm) | [Vastuvõtmisalgoritm](Protokoll.md#vastu) | [Üleminek](Protokoll.md#%C3%9Cleminek) | [DVK toimimine üleminekuperioodil](Protokoll.md#dvk-toimimine-%C3%BCleminekuperioodil) | [Viited](Protokoll.md#viited) | [Lisa 1. DHX teenuse spetsifikatsioon](Protokoll.md#lisa-1-dhx-teenuse-spetsifikatsioon) | [Lisa 2. Vahendusnimekirja teenuse spetsifikatsioon](Protokoll.md#lisa-2-vahendusnimekirja-teenuse-spetsifikatsioon)
+[Ülevaade](Protokoll.md#%C3%9Clevaade) | [Nõuete keel](Protokoll.md#n%C3%B5uete-keel) | [Mõisted ja lühendid](Protokoll.md#m%C3%B5isted-ja-l%C3%BChendid) | [DHX teenus](Protokoll.md#dhx-teenus) | [Vahendamine](Protokoll.md#vahendamine) | [Vahendusnimekiri](Protokoll.md#vahendusnimekiri) | [Vahendajate nimekiri](Protokoll.md#vahendajate-nimekiri) | [Saatmisalgoritm](Protokoll.md#saatmisalgoritm) | [Vastuvõtmisalgoritm](Protokoll.md#vastuvõtmisalgoritm) | [Üleminek](Protokoll.md#%C3%9Cleminek) | [DVK toimimine üleminekuperioodil](Protokoll.md#dvk-toimimine-%C3%BCleminekuperioodil) | [Viited](Protokoll.md#viited) | [Lisa 1. DHX teenuse spetsifikatsioon](Protokoll.md#lisa-1-dhx-teenuse-spetsifikatsioon) | [Lisa 2. Vahendusnimekirja teenuse spetsifikatsioon](Protokoll.md#lisa-2-vahendusnimekirja-teenuse-spetsifikatsioon)
 
 Joonised:
  - Joonis 1. [Lähteolukord: dokumendivahetus DVK kaudu](Protokoll.md#l%C3%A4hteolukord)
@@ -179,7 +179,9 @@ Joonised:
 
 2. Saatev süsteem PEAKS otsevõimekust kontrollima X-tee globaalse konfiguratsioonifaili põhjal. Otsevõimekuse tunnus on DHX alamsüsteemi olemasolu asutusel. Globaalse konfiguratsiooni VÕIB alla laadida X-tee keskusest või kasutada X-tee turvaserveri poolt allalaetud, turvaserveri liidese poolt pakutud globaalset konfiguratsioonifaili.
 
-3. Kui saatev süsteem peab DHX otsevõimekuse kontrollimist X-tee globaalse konfiguratsioonifaili põhjal tehniliset liiga keerukaks, siis VÕIB otsevõimekust kontrollida ka otsese saatmisüritusega. Kui turvaserver vastab, et adressaadil alamsüsteem DHX puudub, siis adressaadil DHX otsevõimekus puudub.
+3. Kui saatev süsteem peab DHX otsevõimekuse kontrollimist X-tee globaalse konfiguratsioonifaili põhjal tehniliselt liiga keerukaks, siis VÕIB otsevõimekust kontrollida ka otsese saatmisüritusega.
+ 
+ _Kui turvaserver vastab, et adressaadil alamsüsteem DHX puudub, siis sellest võib järeldada, et adressaadil DHX otsevõimekus puudub._
 
  _Saatja turvaserver laeb perioodiliselt X-tee keskserverist alla teavet X-tee konfiguratsiooni kohta [PR-GCONF], sh teavet X-tee liikmete poolt määratletud alamsüsteemide ja turvaserverite kohta. Saatja turvaserver teeb ülalnimetatud konfiguratsiooniteabe põhjal kindlaks, kas adressaat on määratlenud DHX alamsüsteemi. Kui ei ole, siis DHX võimekus puudub._
 
@@ -205,7 +207,7 @@ Joonised:
 
 12. Kui saatev süsteem on kindlaks teinud, et adressaadil puudub DHX võimekus ja käimas on üleminekuperiood, siis PEAB saatev süsteem üritama dokumenti saata DVK `sendDocument` teenusesse. 
 
- _Tegu on juhuga, kus adressaat ei ole veel DHX-i võimekust loonud. Adressaat võib olla veel DVK kasutaja. DVK saadab `sendDocument` teenusesse saadetud dokumendi adressaadile edasi. Kui adressaat ei ole DVK kasutaja, siis teatab DVK "adressaat tundmatu". Saatev süsteem on kõik võimalused ammendanud ja tuleb konstateerida, et dokumenti ei saa edastada - vähemalt seni, kuni adressaat ei ole DHX võimekust loonud._
+ _Tegu on juhuga, kus adressaat ei ole veel DHX-i võimekust loonud. Adressaat võib olla veel DVK kasutaja. DVK saadab_ `sendDocument` _teenusesse saadetud dokumendi adressaadile edasi. Kui adressaat ei ole DVK kasutaja, siis teatab DVK_ `adressaat tundmatu`_. Saatev süsteem on kõik võimalused ammendanud ja tuleb konstateerida, et dokumenti ei saa edastada - vähemalt seni, kuni adressaat ei ole DHX võimekust loonud._
 
 13. Dokument loetakse edastatuks kui saatev süsteem on saanud `sendDocument` teenuselt positiivse vastuskoodiga vastussõnumi.
 
@@ -258,7 +260,11 @@ function saadaDokument(d Dokument, a Registrikood) {
 
 2.	Mitut asutust teenindav DHS tehniline süsteem peab tagama DHX teenuse kaudu saabunud dokumendi toimetamise õige adressaadi "virtuaalsesse" DHS-i.
 
-3.	Valesti adresseeritud dokumentide kohta saadetakse saatjale kinnituse asemel vastav teade.
+3. Vastuvõttev süsteem PEAB kontrollima, et dokument on saadetud õigele aadressile. Muuhulgas PEAB vahendaja süsteem kontrollima, kas adressaat on tema klient (on tema vahendusnimekirjas).
+
+4.	Valesti adresseeritud dokumendi korral PEAB vastuvõttev süsteem saatma saatjale kinnituse asemel vastusteate `Vale aadress`.
+
+5. Vastuvõttev süsteem PEAB kontrollima, et dokument tuli nõuetekohases kapslis. Vigase kapsli korral PEAB saatma vastava vastusteate.
 
 #### Üleminek
 
@@ -267,6 +273,8 @@ function saadaDokument(d Dokument, a Registrikood) {
  ![](img/DHX-Yleminek.PNG)
 
  Joonis 5. Toimimine üleminekuperioodil
+ 
+ _UK tähistab RIA poolt väljatöötatavat "universaalset tarkvarakomponenti", mille eesmärgiks on kergendada DHS-de ümberhäälestamist DHX-i kasutamisele. UK kasutamine ei ole kohustuslik._
 
 2.	Üleminekuperioodil arendavad asutused välja oma DHS-des DHX protokolli kohase dokumentide saatmise ja vastuvõtmise võimekuse. Tehniliselt tähendab "DHX-i võimekus" DHX protokolli kohase X-tee teenuse pakkumist ja võimet teiste asutuste samasuguse teenuse poole pöörduda.
 

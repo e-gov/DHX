@@ -6,14 +6,14 @@ v 0.6
 
 #### Sisukord
 
-[Ülevaade](Protokoll.md#%C3%9Clevaade) | [Nõuete keel](Protokoll.md#n%C3%B5uete-keel) | [Mõisted ja lühendid](Protokoll.md#m%C3%B5isted-ja-l%C3%BChendid) |  | [DHX teenus](Protokoll.md#dhx-teenus) | [Vahendamine](Protokoll.md#vahendamine) | [Vahendusnimekiri](Protokoll.md#vahendusnimekiri) | [Vahendajate nimekiri](Protokoll.md#vahendajate-nimekiri) | [Üleminek](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#%C3%9Cleminek) | [DVK toimimine üleminekuperioodil](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#dvk-toimimine-%C3%BCleminekuperioodil) | [Viited](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#viited)
+[Ülevaade](Protokoll.md#%C3%9Clevaade) | [Nõuete keel](Protokoll.md#n%C3%B5uete-keel) | [Mõisted ja lühendid](Protokoll.md#m%C3%B5isted-ja-l%C3%BChendid) |  | [DHX teenus](Protokoll.md#dhx-teenus) | [Vahendamine](Protokoll.md#vahendamine) | [Vahendusnimekiri](Protokoll.md#vahendusnimekiri) | [Vahendajate nimekiri](Protokoll.md#vahendajate-nimekiri) | [Üleminek](Protokoll.md#%C3%9Cleminek) | [DVK toimimine üleminekuperioodil](Protokoll.md#dvk-toimimine-%C3%BCleminekuperioodil) | [Viited](Protokoll.md#viited)
 
 #### Joonised
 - Joonis 1. [Lähteolukord: dokumendivahetus DVK kaudu](Protokoll.md#l%C3%A4hteolukord)
-- Joonis 2. [DHX põhiskeem]()
-- Joonis 3. [DHX dokumendivahetusteenuse vahendamine]()
-- Joonis 4. [Vahendajate nimekiri]()
-- Joonis 5  [Toimimine üleminekuperioodil]() 
+- Joonis 2. [DHX põhiskeem](Protokoll.md#dhx-teenus)
+- Joonis 3. [DHX dokumendivahetusteenuse vahendamine](Protokoll.md#vahendamine)
+- Joonis 4. [Vahendajate nimekiri](Protokoll.md#vahendajate-nimekiri)
+- Joonis 5  [Toimimine üleminekuperioodil](Protokoll.md#%C3%9Cleminek) 
 
 ####  Ülevaade
 
@@ -122,7 +122,7 @@ Joonis 2. DHX põhiskeem
 
 ![](img/DHX-Vahendamine.PNG)
 
-Joonis 3 Vahendamine
+Joonis 3 DHX dokumendivahetusteenuse vahendamine
 
 Joonisel 3 on esitatud interaktsiooni põhimõtteskeem vahendamise korral.
  
@@ -161,7 +161,7 @@ Näide: `EE/PRI/40001111/DHX/representationList`
 
 ![](img/DHX-Global.PNG)
 
-Joonis 5. Vahendajate nimekiri
+Joonis 4. Vahendajate nimekiri
 
 4  Vahendajana tegutseda sooviv asutus või ettevõte PEAB end vahendajana X-teel registreerima. Registreerimise täpse korra kehtestab X-tee keskus.
 
@@ -203,7 +203,7 @@ Tühipäringute arvu vähendamiseks on soovitatav kasutada hästituntud eksponen
 
 ![](img/DHX-Yleminek.PNG)
 
-Joonis 6. Toimimine üleminekuperioodil
+Joonis 5. Toimimine üleminekuperioodil
 
 1.	Üleminek DHX protokollile toimub etteantud perioodi jooksul. Üleminekuperiood algab kõigile asutustele üheaegselt. Perioodi algusest teavitab X-tee keskus.
 

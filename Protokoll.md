@@ -6,7 +6,7 @@ v 0.6
 
 #### Sisukord
 
-[Ülevaade](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#%C3%9Clevaade) | [Mõisted ja lühendid](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#m%C3%B5isted-ja-l%C3%BChendid) |  [Osapooled](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#osapooled) | [Interaktsioon](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#interaktsioon) | [DHX teenus](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#dhx-teenus) | [Nimereegel](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#nimereegel) | [Sõnumid](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#s%C3%B5numid) | [Sõnumivorming](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#s%C3%B5numivorming) | [Adressaadi DHX võimekuse kindlakstegemine](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#adressaadi-dhx-v%C3%B5imekuse-kindlakstegemine) | [Töötlusloogika](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#t%C3%B6%C3%B6tlusloogika) | [Üleminek](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#%C3%9Cleminek) | [DVK toimimine üleminekuperioodil](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#dvk-toimimine-%C3%BCleminekuperioodil) | [Viited](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#viited)
+[Ülevaade](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#%C3%9Clevaade) | [Mõisted ja lühendid](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#m%C3%B5isted-ja-l%C3%BChendid) |  [Osapooled](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#osapooled) | [Interaktsioon](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#interaktsioon) | [DHX teenus](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#dhx-teenus) | [Sõnumid](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#s%C3%B5numid) | [Sõnumivorming](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#s%C3%B5numivorming) | [Adressaadi DHX võimekuse kindlakstegemine](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#adressaadi-dhx-v%C3%B5imekuse-kindlakstegemine) | [Töötlusloogika](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#t%C3%B6%C3%B6tlusloogika) | [Üleminek](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#%C3%9Cleminek) | [DVK toimimine üleminekuperioodil](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#dvk-toimimine-%C3%BCleminekuperioodil) | [Viited](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#viited)
 
 ####  Ülevaade
 
@@ -80,6 +80,22 @@ Läbiva suurtähega esitatud sõnu tuleb tõlgendada järgmiselt (vrdl [RFC 2119
 
 6  "DHX" on reserveeritud nimi. DHX teenus PEAB kasutama X-tee alamsüsteemi "DHX". X-tee keskus EI TOHI registreerida ühegi asutuse alamsüsteemi "DHX" teiseks otstarbeks.
 
+2  Vahendusnimekirja teenuse nimi PEAB järgima mustrit `EE/<liikmeklass>/<registrikood>/DHX/representationList`, kus
+
+- `EE` on X-tee Eesti instantsi nimi
+- `<liikmeklass>` on X-tee liikmeklass (vastavalt vahendaja õiguslikule vormile kas `GOV` või `PRI`) 
+- `DHX` on teenuse ülesleidmist tagav, käesoleva protokolliga fikseeritud X-tee alamsüsteeminimi ja
+- `<registrikood>` on asutuse registrikood.
+
+7 	DHX teenuse nimi PEAB järgima mustrit `EE/<liikmeklass>/<registrikood>/DHX/sendDocument`, kus
+ 
+- `EE` on X-tee Eesti instantsi nimi
+- `<liikmeklass>` on X-tee liikmeklass (vastavalt vahendaja õiguslikule vormile kas `GOV` või `PRI`) 
+- `DHX` on teenuse ülesleidmist tagav, käesoleva protokolliga fikseeritud X-tee alamsüsteemi nimi ja
+- `<registrikood>` on asutuse registrikood.
+
+   Näide: `EE/GOV/70003158/DHX/sendDocument`
+
 #### DHX rakendamine
 1  Asutus rakendab DHX-i kas otse või läbi vahendaja.
  
@@ -139,23 +155,6 @@ Näide: `EE/PRI/40001111/DHX/representationList`
 Joonis 1
 
 Joonisel 1 on esitatud interaktsiooni põhimõtteskeem.
-
-#### Nimereegel
-
-1.	DHX teenuse nimetus peab vastama käesolevas jaotises määratletud kujule. Nimekuju fikseerimisega tagatakse teenuse ülesleitavus ja selle kaudu asutuse adresseeritavus.
-
-2.	DHX teenuse tehniline koodnimetus X-tee mõistes on `sendDocument`.
-
-3.	Teenuse täisnimetus vastavalt X-tee v6 nimereeglitele on kujul
- `EE/GOV/<registrikood>/DHS/sendDocument`
- 
-   kus `DHS` on teenuse ülesleidmist tagav, käesoleva protokolliga fikseeritud nimi ja `<registrikood>` on asutuse registrikood.
-
-   Märkus. `EE/GOV` on X-tee v6 Eesti avaliku sektori asutuse liiginimetus.
-
-   Teenuse tehnilisele koodnimetusele ei lisata versiooninumbrit.
-
-   Näide: `EE/GOV/70003158/DHS/sendDocument`
 
 #### Sõnumid
 

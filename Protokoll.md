@@ -69,11 +69,11 @@ Läbiva suurtähega esitatud sõnu tuleb tõlgendada järgmiselt (vrdl [RFC 2119
 
 #### Lähteolukord
 
-![](img/DHXLahteolukord.PNG)
+![](img/DHX-Lahteolukord.PNG)
 
 #### DHX teenus
 
-![](img/DHXSihtolukord.PNG)
+![](img/DHX-Sihtolukord.PNG)
 
 Joonis 1
 
@@ -206,7 +206,7 @@ Tühipäringute arvu vähendamiseks on soovitatav kasutada hästituntud eksponen
 
 1. DVK-d hoitakse töös kogu üleminekuperioodi vältel. DVK-d täiendatakse üleminekuperioodil toimimiseks vajaliku funktsionaalsusega.
 
-![](img/DHXYleminek03.PNG)
+![](img/DHX-Yleminek03.PNG)
 
 Joonis
 

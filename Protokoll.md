@@ -73,7 +73,7 @@ Läbiva suurtähega esitatud sõnu tuleb tõlgendada järgmiselt (vrdl [RFC 2119
 
 #### DHX teenus
 
-![](img/Sihtolukord.PNG)
+![](img/DHXSihtolukord.PNG)
 
 Joonis 1
 

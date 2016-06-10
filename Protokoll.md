@@ -80,13 +80,6 @@ Läbiva suurtähega esitatud sõnu tuleb tõlgendada järgmiselt (vrdl [RFC 2119
 
 6  "DHX" on reserveeritud nimi. DHX teenus PEAB kasutama X-tee alamsüsteemi "DHX". X-tee keskus EI TOHI registreerida ühegi asutuse alamsüsteemi "DHX" teiseks otstarbeks.
 
-2  Vahendusnimekirja teenuse nimi PEAB järgima mustrit `EE/<liikmeklass>/<registrikood>/DHX/representationList`, kus
-
-- `EE` on X-tee Eesti instantsi nimi
-- `<liikmeklass>` on X-tee liikmeklass (vastavalt vahendaja õiguslikule vormile kas `GOV` või `PRI`) 
-- `DHX` on teenuse ülesleidmist tagav, käesoleva protokolliga fikseeritud X-tee alamsüsteeminimi ja
-- `<registrikood>` on asutuse registrikood.
-
 7 	DHX teenuse nimi PEAB järgima mustrit `EE/<liikmeklass>/<registrikood>/DHX/sendDocument`, kus
  
 - `EE` on X-tee Eesti instantsi nimi
@@ -96,8 +89,8 @@ Läbiva suurtähega esitatud sõnu tuleb tõlgendada järgmiselt (vrdl [RFC 2119
 
    Näide: `EE/GOV/70003158/DHX/sendDocument`
 
-#### DHX rakendamine
-1  Asutus rakendab DHX-i kas otse või läbi vahendaja.
+#### DHX rakendamine otse või vahendaja kaudu
+1  Asutus rakendab DHX-i kas otse või vahendaja kaudu.
  
 2  Otserakendamisel PEAB asutus välja arendama ja avama teistele avaliku sektori asutustele standarditud nimemustriga `EE/GOV/<registrikood>/DHS/sendDocument` X-tee teenuse (DHX teenuse) ja selle teenuse kaudu vastavalt käesolevale protokollile dokumente vastu võtma.
  
@@ -141,12 +134,6 @@ Näide: `EE/PRI/40001111/DHX/representationList`
 4  Vahendajana tegutseda sooviv asutus või ettevõte PEAB end vahendajana X-teel registreerima. Registreerimise täpse korra kehtestab X-tee keskus.
 
 4  X-tee keskus PEAB pidama DHX vahendajate nimekirja ajakohasena. 
-
-####	Osapooled
-
-1 Organisatsioonilisel tasandil on osapoolteks asutused ja vahendajad.
-
-2	Süsteemide tasandil on osapoolteks DHS-d ja X-tee turvaserverid.  
 
 #### Interaktsioon
 

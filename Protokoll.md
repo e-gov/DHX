@@ -6,24 +6,7 @@ v 0.6
 
 #### Sisukord
 
-- [Ülevaade](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#%C3%9Clevaade)
-- [Mõisted ja lühendid](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#m%C3%B5isted-ja-l%C3%BChendid)
-- [Põhijooned](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#p%C3%B5hijooned)
-- [Motivatsioon](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#motivatsioon)
-- [Eesmärk ("TO BE" olukord)](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#eesm%C3%A4rk-to-be-olukord)
-- [Osapooled](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#osapooled)
-- [Interaktsioon](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#interaktsioon)
-- [DHX teenus](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#dhx-teenus)
-- [Nimereegel](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#nimereegel)
-- [Sõnumid](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#s%C3%B5numid)
-- [Sõnumivorming](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#s%C3%B5numivorming)
-- [Adressaadi DHX võimekuse kindlakstegemine](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#adressaadi-dhx-v%C3%B5imekuse-kindlakstegemine)
-- [Töötlusloogika](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#t%C3%B6%C3%B6tlusloogika)
-- [Kohustuslikkus](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#kohustuslikkus)
-- [Laiendamisvõimalused](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#laiendamisv%C3%B5imalused)
-- [Üleminek](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#%C3%9Cleminek)
-- [DVK toimimine üleminekuperioodil](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#dvk-toimimine-%C3%BCleminekuperioodil)
-- [Viited](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#viited)
+[Ülevaade](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#%C3%9Clevaade) | [Mõisted ja lühendid](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#m%C3%B5isted-ja-l%C3%BChendid) |  [Osapooled](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#osapooled) | [Interaktsioon](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#interaktsioon) | [DHX teenus](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#dhx-teenus) | [Nimereegel](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#nimereegel) | [Sõnumid](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#s%C3%B5numid) | [Sõnumivorming](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#s%C3%B5numivorming) | [Adressaadi DHX võimekuse kindlakstegemine](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#adressaadi-dhx-v%C3%B5imekuse-kindlakstegemine) | [Töötlusloogika](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#t%C3%B6%C3%B6tlusloogika) | [Üleminek](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#%C3%9Cleminek) | [DVK toimimine üleminekuperioodil](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#dvk-toimimine-%C3%BCleminekuperioodil) | [Viited](https://github.com/e-gov/DHX/blob/gh-pages/Protokoll.md#viited)
 
 ####  Ülevaade
 
@@ -34,6 +17,10 @@ DHX kasutab X-tee taristut. Erinevalt vanemast Dokumendivahetuskeskusest (DVK) e
 DHX on mõeldud eelkõige avaliku sektori dokumendivahetuse turvaliseks ja kuluefektiivseks korraldamiseks, kuid skeem on laiendatav ka era- ja vabasektori organisatsioonidele.
 
 DHX toetab andmeteenuse vahendamist (X-tee mõistes).
+
+DHX võimaldab elektroonilist dokumendivahetust korraldada detsentraliseeritult, ilma keskse postitöötlemissõlmeta.
+
+Protokoll ei nõua individuaalseid (bilateraalseid) kokkuleppeid, häälestusi, liideste ehitamist vms dokumente vahetavate asutuste vahel. Protokolli järgiv asutus saab teisele asutusele saata dokumendi ilma mingi varasema kontaktita kahe asutuse vahel.
 
 Käesolev dokument määratleb nõuded, andmevormingud, töötlus- ja menetlusloogikad kõigile osapooltele - DHX-i rakendavatele asutustele, DHX-i vahendajatele ja X-tee keskusele.
 
@@ -79,11 +66,6 @@ Läbiva suurtähega esitatud sõnu tuleb tõlgendada järgmiselt (vrdl [RFC 2119
 | _vahendusnimekiri_ | DHX dokumendivahendusteenuse vahendaja poolt X-teel teenusena pakutav nimekiri asutustest, keda ta vahendab. |
 | _X-tee keskus_ | X-tee haldaja. X-tee keskuse rolli täitab RIA. X-tee keskus peab DHX vahendajate nimekirja. |
 |---|---|
-
-#### Põhijooned
-
-1. DHX võimaldab elektroonilist dokumendivahetust korraldada detsentraliseeritult, ilma keskse postitöötlemissõlmeta.
-2. Protokoll ei nõua individuaalseid (bilateraalseid) kokkuleppeid, häälestusi, liideste ehitamist vms dokumente vahetavate asutuste vahel. Protokolli järgiv asutus saab teisele asutusele saata dokumendi ilma mingi varasema kontaktita kahe asutuse vahel.
 
 #### DHX teenus
 1  DHX teenus on standardse nimemustri ja töötlusloogikaga X-tee teenus, millega asutus (joonistel Asutus 1) saab saata teisele asutusele (joonistel Asutus 2) dokumente.
@@ -222,22 +204,6 @@ Tühipäringute arvu vähendamiseks on soovitatav kasutada hästituntud eksponen
 4.	Mitut asutust teenindav DHS tehniline süsteem peab tagama DHX teenuse kaudu saabunud dokumendi toimetamise õige adressaadi "virtuaalsesse" DHS-i.
 
 5.	Valesti adresseeritud dokumentide kohta saadetakse saatjale kinnituse asemel vastav teade.
-
-#### Kohustuslikkus
-
-1.	Protokollist saadav efekt on suurim, kui kõik asutused võtavad selle kasutusele. Protokolli kujundamisel on eeldatud, et valdav enamus asutusi hakkab DHX-i kasutama.
-
-2.	Samas DHX-i mittekasutavate asutuste olemasolu ei häiri DHX-i kasutamist.
-
-3.	Protokoll ei nõua kõigi asutuste üheaegset lülitumist DHX protokollile (vt jaotis "Üleminek").
-
-4.	Protokolli kasutamise kohustuse kehtestamine ei ole käesoleva protokolli käsitlusalas (skoobis).
-
-#### Laiendamisvõimalused
-
-1.	DHX protokolli olemuslikud elemendid on: 1) teenuste lihtsat ülesleidmist (_Service Discovery_) võimaldav nimereegel; 2) standarditud sõnumivorming (dokumendiga koos edastatavad metaandmed, nn "kapsel" ); 3) kohaletoimetamist (_Quaranteed Delivery_) praktiliselt tagav töötlusloogika; 4) X-tee kasutamine.
-
-2.	DHX protokolli kasutamine Eesti erasektoris kui ka rahvusvahelises dokumendivahetuses on edasise standardimise objekt.
 
 #### Üleminek
 

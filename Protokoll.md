@@ -144,94 +144,19 @@ Näide: `EE/PRI/40001111/DHX/representationList`
 
 4  X-tee keskus PEAB pidama DHX vahendajate nimekirja ajakohasena. 
 
-####	Motivatsioon
-
-1. DHS-id vahetavad praegu dokumente DVK kaudu, kasutades tingliku nimetusega "DVK protokolli".
-
-2. "DVK protokolli" määravad elektroonilise andmevahetuse metaandmete loend [Kapsel], DVK liideste spetsifikatsioon [DVK spetsifikatsioon] ja [DVK pidamise kord], laiemas plaanis ka "Asjaajamise ühtsed alused" [AÜK].
-
-3. Väiksemal arvul on dokumendivahetusliideseid loodud ka muude dokumente töötlevate infosüsteemide vahele. Need liidesed ei ole standarditud.
-
-4. Laienev dokumendiringlus ja dokumente vahetavate infosüsteemide tihenev võrgustik (dokumendivahetus tänapäeval ei piirdu „puhaste“ DHS-dega – dokumente vahetavad ka infosüsteemid, kus dokumendihaldus klassikalises mõttes on ainult üks andmetöötluse liik) nõuab alternatiivi ühe keskse postkastiserveri kaudu toimuvale dokumendiliiklusele.
-
-#### Eesmärk ("TO BE" olukord)
-
-1. DHS-id vahetavad dokumente, kasutades dokumendivahetusteenuseid, mis järgivad hajusdokumendivahetuse protokolli DHX.
-
-2. Iga DHS pakub ise ja kasutab teiste asutuste samasugust DHX dokumendivahetusteenust.
-
-3. Kõik DHS-id pakuvad ühesugust teenust — süsteem on sümmeetriline.
-
-4. Kogu dokumendivahetus asutuste vahel toimub ülalnimetatud viisil. DVK on käigust kõrvaldatud. Vahelülisid ega kesksõlmi ei kasutata.
-
 ####	Osapooled
 
-1. Organisatsioonilisel tasandil on osapoolteks: 1) asutused; 2) vahendajad.
-2.	Süsteemide tasandil on osapoolteks DHS-d.  
+1 Organisatsioonilisel tasandil on osapoolteks asutused ja vahendajad.
+
+2	Süsteemide tasandil on osapoolteks DHS-d ja X-tee turvaserverid.  
 
 #### Interaktsioon
-1. Joonistel 1-2 on esitatud interaktsiooni põhimõtteskeem. Katkendjooned esitavad dokumentide liikumist.
 
-a) asutuse tasand
-```
-+-----------+      dokument        +-----------+
-|           |<---------------------|           |
-| Asutus 1  |       X-tee          |  Asutus 2 |
-|           |--------------------->|           |
-+-----------+      dokument        +-----------+
-``` 
-b) süsteemitasand
-```
-+-----------+ sendDocument        +-----------+
-|           |---O)----------------|           |
-|    DHS 1  |        X-tee        |    DHS 2  |
-|           |----------------(O---|           |
-+-----------+        sendDocument +-----------+
-```
-Joonis 1 Otserakendamisel
+![](img/DHX-i%20vahendus%2001.PNG)
 
-a) asutuse tasand
-```
-+-----------+                      +-----------+    +-----------+
-|           |<---------------------|           |<---|           |
-| Asutus 1  |       X-tee          | Vahendaja |    |  Asutus 2 |
-|           |--------------------->|           |--->|           |
-+-----------+                      +-----------+    +-----------+
-```
+Joonis 1
 
-b) süsteemi tasand 
-```
-+-----------+ sendDocument        +-----------+    +-----------+
-|           |---O)----------------|           |<---|           |
-|    DHS 1  |       X-tee         | Majutus - |    |   DHS 2   |
-|           |----------------(O---| süsteem   |--->|(majutuses)|
-+-----------+        sendDocument +-----------+    +-----------+
-```
-Joonis 2  Vahendamisel
-
-
-2. Organisatsioonide abstraktsioonitasandil vahetavad asutused dokumente neid vahetult üksteisele saates ja vastu võttes.
-
-3. Süsteemide tasandil teostatakse dokumendivahetus DHS-de omavahelise suhtlusega X-teel.
-
-4. Suuremal asutuse on tavaliselt oma DHS. Kuid paljud asutused, eriti väikesed, kasutavad DHS-i teenusena. Sellisel juhul võib tehniline DHS keskkond "majutada" mitmete asutuste DHS-e. DHX protokoll toimib mõlemal juhul, aga ka  harvaesinevates olukordades, kus asutusel on mitu DHS-i.
-
-#### DHX teenus
-
-1.	Asutus arendab oma DHS-is välja ja avab X-teel kõigile teistele avaliku sektori asutustele X-tee teenuse — DHX teenuse, millega teised asutused saavad asutusele dokumente saata.
-
-Märkus. Kui asutus kasutab DHS-i teenusena, siis arendab teenuse välja DHS teenusepakkuja. 
-Asutus volitab teenusepakkujat käitama DHX teenust asutuse nimel. See teostatakse vastavalt X-tee sertifikaatide haldamise korrale.
-
-2.	DHX teenus on asutuse ametlik dokumentide vastuvõtmise kanal X-teel.
-
-3.	Dokumentide saatmiseks teise asutusse kasutab DHS teise asutuse pakutavat DHX teenust.
-
-4.	Teenus peab olema üleval vähemalt 8 h päevas. DHS, mille võimekus on väiksem, peab looma kõrgema käideldavusega puhverkomponendi, selleks sobivad hästi järjekorrahalduri (_Message Queue_) lahendused. Viimaseid on turul mitmeid.
-
-5.	DHX teenusele võivad dokumente saata mitte ainult teised DHS-id, vaid kõik X-teega liitunud organisatsioonid. Põhjendatud juhtudel võib asutus DHX teenusele juurdepääsu piirata X-tee liikmetele, kes ei ole asutused.
-
-6.	DHX on standarditud dokumendivahetusskeem, mis võimaldab lihtsat suhtlust suure osapoolte arvu vahel. Kuid asutused võivad konkreetsetest ärivajadustest lähtudes luua X-teed kasutavaid muid, spetsiaalseid liideseid dokumentide ja muu teabe vahetamiseks nii DHS-de kui ka muude infosüsteemide vahel.
+Joonisel 1 on esitatud interaktsiooni põhimõtteskeem.
 
 #### Nimereegel
 

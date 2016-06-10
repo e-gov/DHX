@@ -85,14 +85,25 @@ Läbiva suurtähega esitatud sõnu tuleb tõlgendada järgmiselt (vrdl [RFC 2119
 1. DHX võimaldab elektroonilist dokumendivahetust korraldada detsentraliseeritult, ilma keskse postitöötlemissõlmeta.
 2. Protokoll ei nõua individuaalseid (bilateraalseid) kokkuleppeid, häälestusi, liideste ehitamist vms dokumente vahetavate asutuste vahel. Protokolli järgiv asutus saab teisele asutusele saata dokumendi ilma mingi varasema kontaktita kahe asutuse vahel.
 
+#### DHX teenus
+1  DHX teenus on standardse nimemustri ja töötlusloogikaga X-tee teenus, millega asutus (joonistel Asutus 1) saab saata teisele asutusele (joonistel Asutus 2) dokumente.
+
+2  Dokument saadetakse teenuse kasutamisega, tehniliselt X-tee päringsõnumi saatmisega dokumendi saatja poolt.
+
+3  DHX teenuse arendab välja, avab teistele asutustele ja käitab teenust DHX-i rakendav asutus.
+
+4  DHX vahendamisel arendab DHX teenuse välja, avab teistele asutustele ja käitab teenust vahendaja.
+
+5  Vahendamise korral kuulub DHX teenuse juurde ka vahendusnimekirja teenus.
+
+6  "DHX" on reserveeritud nimi. DHX teenus PEAB kasutama X-tee alamsüsteemi "DHX". X-tee keskus EI TOHI registreerida ühegi asutuse alamsüsteemi "DHX" teiseks otstarbeks.
+
 #### DHX rakendamine
-Asutus rakendab DHX-i kas otse või läbi vahendaja.
+1  Asutus rakendab DHX-i kas otse või läbi vahendaja.
  
-#### Otserakendamine
-Otserakendamisel PEAB asutus välja arendama ja avama teistele avaliku sektori asutustele standarditud nimemustriga `EE/GOV/<registrikood>/DHS/sendDocument` X-tee teenuse (DHX teenuse) ja selle teenuse kaudu vastavalt käesolevale protokollile dokumente vastu võtma.
+2  Otserakendamisel PEAB asutus välja arendama ja avama teistele avaliku sektori asutustele standarditud nimemustriga `EE/GOV/<registrikood>/DHS/sendDocument` X-tee teenuse (DHX teenuse) ja selle teenuse kaudu vastavalt käesolevale protokollile dokumente vastu võtma.
  
-#### Vahendamine
-1  Vahendamise korral vahetab asutus dokumente läbi vahendaja. Vahendaja infosüsteem edastab dokumente X-teel. Asutus ise otseselt X-teega ei suhtle.
+3  Vahendamise korral osutab dokumentide X-teel saatmise ja vastuvõtmise teenust asutusele vahendaja oma infosüsteemi kaudu. Asutus ise X-teega ei suhtle. Vahendaja esineb X-teel oma nime all. Vahendaja võib olla nii erasektori ettevõte kui ka avaliku sektori asutus.
 
 2  Vahendamise korral arendab DHX teenuse välja ja käitab teenust vahendaja.
 
@@ -103,13 +114,15 @@ Otserakendamisel PEAB asutus välja arendama ja avama teistele avaliku sektori a
 5  Vahendamisele kehtivad X-tee määrusest tulenevad nõuded: vahendajana end X-teel registreerimise kohustus, andmeteenuse vahendamise korra (poliitika) koostamise ja avalikustamise kohustus jm (vt [X-tee määrus] § 13).
 
 #### Vahendusnimekiri
-1  Vahendusnimekiri on vahendaja peetav nimekiri tema vahendatavatest asutustest. Iga vahendaja peab oma vahendusnimekirja.
+1  Vahendusnimekiri on vahendaja peetav nimekiri asutustest, keda ta vahendab.
+
+2  Iga vahendaja PEAB pidama vahendusnimekirja.
 
 2  Vahendaja PEAB hoidma vahendusnimekirja ajakohasena. Ajakohasus tähendab seda, et vahendusnimekirjas on need ja ainult need asutused, kellega vahendajal on kehtivad vahenduslepingud.
 
 3  Vahendaja PEAB vahendusnimekirja tegema kättesaadavaks X-tee teenusena.
 
-2  Vahendusnimekirja teenuse nimi on `EE/<liikmeklass>/<registrikood>/DHX/representationList`, kus
+2  Vahendusnimekirja teenuse nimi PEAB järgima mustrit `EE/<liikmeklass>/<registrikood>/DHX/representationList`, kus
 
 - `EE` on X-tee Eesti instantsi nimi
 - `<liikmeklass>` on X-tee liikmeklass (vastavalt vahendaja õiguslikule vormile kas `GOV` või `PRI`) 
@@ -118,16 +131,18 @@ Otserakendamisel PEAB asutus välja arendama ja avama teistele avaliku sektori a
 
 Näide: `EE/PRI/40001111/DHX/representationList`
 
-3  Vahendatavad asutused esitatakse vahendusnimekirjas registrikoodide abil. Vahendusnimekirja teenus PEAB vastama lisas esitatud täpsemale spetsifikatsioonile.
+3  Vahendusnimekirja teenus PEAB vastama lisas esitatud täpsemale spetsifikatsioonile.
 
 #### Vahendajate nimekiri
-1  Vahendajana tegutseda sooviv asutus või ettevõte PEAB end vahendajana X-teel registreerima.
+1  Vahendajate nimekiri on nimekiri DHX dokumendivahetusteenuse vahendajatest.
 
-2  Vahendajate nimekiri on X-tee keskuse (RIA) poolt peetav nimekiri DHX dokumendivahetusteenuse vahendajatest.
+2  Vahendajate nimekirja peab X-tee keskus (RIA).
 
-3  Tehniliselt teostatakse vahendajate nimekiri DHX vahendajate grupina. DHX vahendajate grupp on osa X-tee globaalsest konfiguratsioonist.
+3  Tehniliselt teostatakse vahendajate nimekiri DHX vahendajate grupina. DHX vahendajate grupp on osa X-tee globaalsest konfiguratsioonist. Vahendajate nimekiri on X-tee globaalse konfiguratsiooni osana avalikult kättesaadav kõigile X-tee liikmetele. 
 
-4  X-tee keskus lisab vahendaja DHX vahendajate gruppi. 
+4  Vahendajana tegutseda sooviv asutus või ettevõte PEAB end vahendajana X-teel registreerima. Registreerimise täpse korra kehtestab X-tee keskus.
+
+4  X-tee keskus PEAB pidama DHX vahendajate nimekirja ajakohasena. 
 
 ####	Motivatsioon
 

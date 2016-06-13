@@ -6,7 +6,7 @@ v 0.6
 
 #### Sisukord
 
-[Ülevaade](Protokoll.md#%C3%9Clevaade) | [Nõuete keel](Protokoll.md#n%C3%B5uete-keel) | [Mõisted ja lühendid](Protokoll.md#m%C3%B5isted-ja-l%C3%BChendid) | [DHX teenus](Protokoll.md#dhx-teenus) | [Vahendamine](Protokoll.md#vahendamine) | [Vahendusnimekiri](Protokoll.md#vahendusnimekiri) | [Vahendajate nimekiri](Protokoll.md#vahendajate-nimekiri) | [Saatmisalgoritm](Protokoll.md#saatmisalgoritm) | [Vastuvõtmisalgoritm](Protokoll.md#vastuvõtmisalgoritm) | [Üleminek](Protokoll.md#%C3%9Cleminek) | [DVK toimimine üleminekuperioodil](Protokoll.md#dvk-toimimine-%C3%BCleminekuperioodil) | [Viited](Protokoll.md#viited) | [Lisa 1. DHX teenuse spetsifikatsioon](Protokoll.md#lisa-1-dhx-teenuse-spetsifikatsioon) | [Lisa 2. Vahendusnimekirja teenuse spetsifikatsioon](Protokoll.md#lisa-2-vahendusnimekirja-teenuse-spetsifikatsioon)
+[1 Ülevaade](Protokoll.md#%C3%9Clevaade) | [2 Nõuete keel](Protokoll.md#n%C3%B5uete-keel) | [3 Mõisted ja lühendid](Protokoll.md#m%C3%B5isted-ja-l%C3%BChendid) | [4 Lähteolukord](Protokoll.md#l%C3%A4hteolukord) | [5 DHX teenus](Protokoll.md#dhx-teenus) | [6 Vahendamine](Protokoll.md#vahendamine) | [7 Vahendusnimekiri](Protokoll.md#vahendusnimekiri) | [8 Vahendajate nimekiri](Protokoll.md#vahendajate-nimekiri) | [9 Saatmisalgoritm](Protokoll.md#saatmisalgoritm) | [10 Vastuvõtmisalgoritm](Protokoll.md#vastuvõtmisalgoritm) | [11 Üleminek](Protokoll.md#%C3%9Cleminek) | [12 DVK toimimine üleminekuperioodil](Protokoll.md#dvk-toimimine-%C3%BCleminekuperioodil) | [Viited](Protokoll.md#viited) | [Lisa 1. DHX teenuse spetsifikatsioon](Protokoll.md#lisa-1-dhx-teenuse-spetsifikatsioon) | [Lisa 2. Vahendusnimekirja teenuse spetsifikatsioon](Protokoll.md#lisa-2-vahendusnimekirja-teenuse-spetsifikatsioon)
 
 Joonised:
  - Joonis 1. [Lähteolukord: dokumendivahetus DVK kaudu](Protokoll.md#l%C3%A4hteolukord)
@@ -15,7 +15,7 @@ Joonised:
  - Joonis 4. [Vahendajate nimekiri](Protokoll.md#vahendajate-nimekiri)
  - Joonis 5  [Toimimine üleminekuperioodil](Protokoll.md#%C3%9Cleminek) 
 
-####  Ülevaade
+####  1 Ülevaade
 
 1. Dokumendivahetusprotokoll DHX on standardiseeritud tehniline ja organisatsiooniline lahendus, mis võimaldab asutustel vahetada dokumente hajus- e detsentraliseeritud põhimõttel.
 
@@ -33,16 +33,16 @@ Joonised:
 
 8. Protokolli on välja töötanud Riigi Infosüsteemi Amet. Ettepanekud ja märkused saata help@ria.ee või luua käesolevas varamus `Issue`.
 
-#### Nõuete keel
+#### 2 Nõuete keel
 
 1. Normatiivse tähendusega on käesolev tekst. GitHub-i varamu muul sisul on informatiivne tähendus.
 
 2. Läbiva suurtähega esitatud sõnu tuleb tõlgendada järgmiselt (vrdl [RFC 2119]):
  - "PEAB", "TOHIB AINULT" - protokolli implementeerija ei saa deklareerida protokollile vastavust, kui nõue on täitmata.
- - "PEAKS" - implementatsiooni saab lugeda protokollile vastavaks ainult siis, kui nõude täitmisest kõrvalekaldumiseks on kaalukas põhjus.
+ - "PEAKS" - nõue ei pea tingimata olema implementeeritud, kuidimplementatsiooni saab lugeda protokollile vastavaks ainult siis, kui nõude täitmisest kõrvalekaldumiseks on kaalukas põhjus.
  - "VÕIB" - omadust võib implementeerida; mitteimplementeerimist ei pea põhjendama.
 
-#### Mõisted ja lühendid
+#### 3 Mõisted ja lühendid
 
 | | |
 |---|---|
@@ -75,7 +75,7 @@ Joonised:
 | _üleminekuperiood_ | Dokumendivahetuskeskuse (DVK) kasutamiselt DHX kasutamisele ülemineku periood. Perioodi alguse ja lõpu määrab X-tee keskus. |
 | _X-tee keskus_ | X-tee haldaja. X-tee keskuse rolli täitab RIA. X-tee keskus peab DHX vahendajate nimekirja. |
 
-#### Lähteolukord
+#### 4 Lähteolukord
 
 1. DHS-id vahetavad praegu dokumente DVK kaudu, kasutades tingliku nimetusega "DVK protokolli". "DVK protokolli" määravad elektroonilise andmevahetuse metaandmete loend [Kapsel], DVK liideste spetsifikatsioon [DVK spetsifikatsioon] ja [DVK pidamise kord], laiemas plaanis ka "Asjaajamise ühtsed alused" [AÜK]. Väiksemal arvul on dokumendivahetusliideseid loodud ka muude dokumente töötlevate infosüsteemide vahele. Need liidesed ei ole standarditud. Laienev dokumendiringlus ja dokumente vahetavate infosüsteemide tihenev võrgustik (dokumendivahetus tänapäeval ei piirdu „puhaste“ DHS-dega – dokumente vahetavad ka infosüsteemid, kus dokumendihaldus klassikalises mõttes on ainult üks andmetöötluse liik) nõuab alternatiivi ühe keskse postkastiserveri kaudu toimuvale dokumendiliiklusele.
 
@@ -83,7 +83,7 @@ Joonised:
 
  Joonis 1. Lähteolukord: dokumendivahetus DVK kaudu
 
-#### DHX teenus
+#### 5 DHX teenus
 
 1. DHX teenus on standardse nimemustri ja töötlusloogikaga X-tee teenus, millega asutus saab saata teisele asutusele dokumente.
 
@@ -121,18 +121,19 @@ Joonised:
 
 9. DHX-i rakendaja teostatud DHX teenus PEAB vastama lisas 1 esitatud täpsemale spetsifikatsioonile.
 
-#### Vahendamine
+#### 6 Vahendamine
+
 1. Asutus VÕIB rakendada DHX-i ka vahendaja kaudu.
 
-2. Vahendamise korral osutab dokumentide X-teel saatmise ja vastuvõtmise teenust asutusele vahendaja oma infosüsteemi kaudu. Asutus ise X-teega ei suhtle. Vahendaja esineb X-teel oma nime all. Vahendaja võib olla nii erasektori ettevõte kui ka avaliku sektori asutus.
+2. Vahendamise korral osutab dokumentide X-teel saatmise ja vastuvõtmise teenust asutusele vahendaja oma infosüsteemi kaudu. Asutus ise X-teega DHX kontekstis ei suhtle. Asutus ei pea isegi olema X-tee liige. Vahendaja esineb X-teel oma nime all. Vahendaja võib olla nii erasektori ettevõte kui ka avaliku sektori asutus.
 
 3. DHX vahendamisel arendab DHX teenuse välja, avab teistele asutustele ja käitab teenust vahendaja.
 
 4. Vahendamise korral kuulub DHX teenuse juurde ka vahendusnimekirja teenus.
 
- ![](img/DHX-Vahendamine.PNG)
+ ![](img/Liideste%20skeem%2002.PNG)
 
- Joonis 3 DHX dokumendivahetusteenuse vahendamine
+ Joonis 3 DHX teenusevahendamine
 
  Joonisel 3 on esitatud interaktsiooni põhimõtteskeem vahendamise korral.
  
@@ -142,7 +143,8 @@ Joonised:
 
 7. Vahendamisele kehtivad X-tee määrusest tulenevad nõuded: vahendajana end X-teel registreerimise kohustus, andmeteenuse vahendamise korra (poliitika) koostamise ja avalikustamise kohustus jm (vt [X-tee määrus] § 13).
 
-#### Vahendusnimekiri
+#### 7 Vahendusnimekiri
+
 1. Vahendusnimekiri on vahendaja peetav nimekiri asutustest, keda ta vahendab.
 
 2. Iga vahendaja PEAB pidama vahendusnimekirja.
@@ -153,30 +155,27 @@ Joonised:
 
 2. Vahendusnimekirja teenuse nimi PEAB järgima mustrit `EE/<liikmeklass>/<registrikood>/DHX/representationList`, kus
  - `EE` on X-tee Eesti instantsi nimi
- - `<liikmeklass>` on X-tee liikmeklass (vastavalt vahendaja õiguslikule vormile kas `GOV` või `PRI`) 
+ - `<liikmeklass>` on X-tee liikmeklass (väärtus vastavalt X-tee protokollile - vastavalt vahendaja õiguslikule vormile kas `GOV`, `COM`, `NGO` või `NEE`) 
  - `DHX` on teenuse ülesleidmist tagav, käesoleva protokolliga fikseeritud X-tee alamsüsteeminimi ja
  - `<registrikood>` on asutuse registrikood.
 
- Näide: `EE/PRI/40001111/DHX/representationList`
+ Näide: `EE/COM/40001111/DHX/representationList`
 
 3. DHX-i rakendaja teostatud vahendusnimekirja teenus PEAB vastama lisas 2 esitatud täpsemale spetsifikatsioonile.
 
-#### Vahendajate nimekiri
+#### 8 Vahendajate nimekiri
+
 1. Vahendajate nimekiri on nimekiri DHX dokumendivahetusteenuse vahendajatest.
 
 2. Vahendajate nimekirja peab X-tee keskus (RIA).
 
 3. Tehniliselt teostatakse vahendajate nimekiri DHX vahendajate grupina. DHX vahendajate grupp on osa X-tee globaalsest konfiguratsioonist. Vahendajate nimekiri on X-tee globaalse konfiguratsiooni osana avalikult kättesaadav kõigile X-tee liikmetele. 
 
- ![](img/DHX-Global.PNG)
-
- Joonis 4. Vahendajate nimekiri
-
 4. Vahendajana tegutseda sooviv asutus või ettevõte PEAB end vahendajana X-teel registreerima. Registreerimise täpse korra kehtestab X-tee keskus.
 
 5. X-tee keskus PEAB pidama DHX vahendajate nimekirja ajakohasena. 
 
-#### Saatmisalgoritm
+#### 9 Saatmisalgoritm
 
 1. Saatev süsteem PEAB kontrollima, kas adressaadil on DHX võimekus. DHX võimekus võib olla otsevõimekus või võimekus vahendaja kaudu.
 
@@ -206,7 +205,7 @@ Joonised:
 
 10. Punktides 3, 7 ja 8 nimetatud puhvrite või lokaalse aadressiraamatu värskendamise periood PEAB olema konfigureeritav.
 
-11. Kui adressaadil on DHX võimekus läbi vahendaja, siis PEAB saatev süsteem saatma dokumendi vahendajale.
+11. Kui adressaadil puudub DHX otsevõimekus, kuid on DHX võimekus läbi vahendaja, siis PEAB saatev süsteem saatma dokumendi vahendajale.
 
 12. Kui saatev süsteem on kindlaks teinud, et adressaadil puudub DHX võimekus ja käimas on üleminekuperiood, siis PEAB saatev süsteem üritama dokumenti saata DVK `sendDocument` teenusesse. 
 
@@ -257,7 +256,7 @@ function saadaDokument(d Dokument, a Registrikood) {
 }
 ```
 
-#### Vastuvõtmisalgoritm
+#### 10 Vastuvõtmisalgoritm
 
 1.	Dokumenti vastuvõttev süsteem PEAB kontrollima, kas tegu on teist korda saadetud dokumendiga ja vältima ühe ja sama dokumendi äriloogikalist korduvmenetlemist, nt arve kahekordset kandmist raamatupidamissüsteemi. Duplikaatide kindlakstegemist võimaldab dokumendi unikaalne identifikaator.
 
@@ -271,13 +270,13 @@ function saadaDokument(d Dokument, a Registrikood) {
 
 5. Vastuvõttev süsteem PEAB kontrollima, et dokument tuli nõuetekohases kapslis. Vigase kapsli korral PEAB saatma vastava vastusteate.
 
-#### Üleminek
+#### 11 Üleminek
 
 1.	Üleminek DHX protokollile toimub etteantud perioodi jooksul. Üleminekuperiood algab kõigile asutustele üheaegselt. Perioodi algusest teavitab X-tee keskus.
 
  ![](img/DHX-Yleminek.PNG)
 
- Joonis 5. Toimimine üleminekuperioodil
+ Joonis 4. Toimimine üleminekuperioodil
  
  _UK tähistab RIA poolt väljatöötatavat "universaalset tarkvarakomponenti", mille eesmärgiks on kergendada DHS-de ümberhäälestamist DHX-i kasutamisele. UK kasutamine ei ole kohustuslik._
 
@@ -293,7 +292,7 @@ function saadaDokument(d Dokument, a Registrikood) {
 
 7.	DHX võimekuse saavutanud asutus PEAB DVK kasutamisest loobuma.
 
-#### DVK toimimine üleminekuperioodil
+#### 12 DVK toimimine üleminekuperioodil
 
 1. DVK-d hoitakse töös kogu üleminekuperioodi vältel. DVK-d täiendatakse üleminekuperioodil toimimiseks vajaliku funktsionaalsusega.
 
@@ -333,6 +332,6 @@ function saadaDokument(d Dokument, a Registrikood) {
 
 [X-tee määrus] Vabariigi Valitsuse määrus "Infosüsteemide andmevahetuskiht" (eelnõu 09.03.2016). 
 
-#### Lisa 1. DHX teenuse spetsifikatsioon
+#### Lisa 1. DHX teenuse spetsifikatsioon [lisatakse järgmises versioonis]
 
-#### Lisa 2. Vahendusnimekirja teenuse spetsifikatsioon
+#### Lisa 2. Vahendusnimekirja teenuse spetsifikatsioon [lisatakse järgmises versioonis]

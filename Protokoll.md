@@ -123,29 +123,37 @@ Joonised:
 
 #### 5 DHX teenus
 
-1. DHX teenus on standardse nimemustri ja töötlusloogikaga X-tee teenus, millega asutus saab saata teisele asutusele dokumente.
+##### 5.1 Üldiseloomustus
+DHX teenus on standardse nimemustri ja töötlusloogikaga X-tee teenus, millega asutus saab saata teisele asutusele dokumente.
 
  ![](img/DHX-Sihtolukord.PNG)
 
  Joonis 2. DHX põhiskeem
 
-2. DHX teenuse kasutamine on interaktsioon, mis koosneb kahest sõnumisaatmisest:
+DHX teenuse kasutamine on interaktsioon, mis koosneb kahest sõnumisaatmisest:
  - dokumenti saatja saadab teenusele `sendDocument` X-tee päringusõnumi (päringu)
  - dokumendi saaja saadab vastussõnumi kinnitusega dokumendi kättesaamise kohta.
+  
+  _Kui dokument on valesti adresseeritud või valesti formeeritud, siis saadetakse vastussõnumis asjakohane veateade._
 
-3.	Dokument edastatakse päringus.
+Dokument edastatakse päringsõnumis.
 
-4. Iga DHX-i rakendav asutus PEAB arendama oma DHS-is välja DHX teenuse, avama selle teenuse teistele asutustele ja käitama teenust.
+  _Dokumendid edastatakse nn tõukemeetodil (ingl push). Dokumendi saatja algatab saatmise pöördumisega adressaadi_ `sendDocument` _teenuse poole._
 
-4. Kui asutus turvapoliitika vm kaalutlustel ei pea otstarbekaks DHX teenuse avamist kõigile X-tee liikmetele, siis VÕIB ta DHX teenuse avada konkreetsetele X-tee liikmetele (pääsuõiguste andmisega X-tee turvaserveris).
+##### 5.2 DHX teenuse väljaarendamine
+Iga DHX-i rakendav asutus (või DHS teenusepakkuja) PEAB arendama oma DHS-is välja DHX teenuse ja käitama seda.
 
-5. Üleminekuperioodiks PEAB DHX teenuse avama ka DVK-le.
+DHX-i rakendaja teostatud DHX teenus PEAB vastama lisas 1 esitatud täpsemale spetsifikatsioonile.
+
+##### 5.3 DHX teenuse avamine
+DHX-i rakendav asutus PEAB avama DHX teenuse kõigile asutustele, kellega ta soovib dokumente vahetada. Kui asutus turvapoliitika vm kaalutlustel ei pea otstarbekaks DHX teenuse avamist kõigile X-tee liikmetele, siis VÕIB ta DHX teenuse avada konkreetsetele X-tee liikmetele (pääsuõiguste andmisega X-tee turvaserveris).
+
+Üleminekuperioodiks PEAB DHX teenuse avama ka DVK-le.
 
  _DVK edastab dokumente asutustelt, kes ei ole veel DHX-i võimekust loonud._ 
 
-5. "DHX" on reserveeritud nimi. DHX teenus PEAB kasutama X-tee alamsüsteemi "DHX". X-tee keskus EI TOHI registreerida ühegi asutuse alamsüsteemi "DHX" teiseks otstarbeks.
-
-6.	DHX teenuse nimi PEAB järgima mustrit `EE/<liikmeklass>/<registrikood>/DHX/sendDocument`, kus
+##### 5.4 Nimemuster
+DHX teenuse nimi PEAB järgima mustrit `EE/<liikmeklass>/<registrikood>/DHX/sendDocument`, kus
  - `EE` on X-tee Eesti instantsi nimi
  - `<liikmeklass>` on X-tee liikmeklass (vastavalt vahendaja õiguslikule vormile kas `GOV` või `PRI`) 
  - `DHX` on teenuse ülesleidmist tagav, käesoleva protokolliga fikseeritud X-tee alamsüsteemi nimi ja
@@ -153,11 +161,14 @@ Joonised:
 
  Näide: `EE/GOV/70003158/DHX/sendDocument`
 
-7. Dokumendi PEAB edastama ametlikult kinnitatud elektroonilise andmevahetuse metaandmete loendile vastavas "kapslis" [Kapsel]. Dokumendi kapslis edastatakse muuhulgas adressaadiks oleva asutuse registrikood.
+##### 5.5 Reserveeritud nimi "DHX"
+DHX teenus PEAB kasutama X-tee alamsüsteemi "DHX". X-tee keskus EI TOHI registreerida ühegi asutuse alamsüsteemi "DHX" teiseks otstarbeks.
 
-8. Saatev süsteem PEAB andma dokumendile identifikaatori, mis on unikaalne vähemalt DHS-i piires.
+##### 5.6 Kapsli kasutamine
+Dokumendi PEAB edastama ametlikult kinnitatud elektroonilise andmevahetuse metaandmete loendile vastavas "kapslis" [Kapsel]. Dokumendi kapslis edastatakse muuhulgas adressaadiks oleva asutuse registrikood.
 
-9. DHX-i rakendaja teostatud DHX teenus PEAB vastama lisas 1 esitatud täpsemale spetsifikatsioonile.
+##### 5.7 Unikaalne identifikaator
+Saatev süsteem PEAB andma dokumendile identifikaatori, mis on unikaalne vähemalt DHS-i piires.
 
 #### 6 Vahendamine
 

@@ -2,7 +2,7 @@
 
 Riigi Infosüsteemi Amet
 
-v 0.6
+v 0.7
 
 #### Sisukord
 

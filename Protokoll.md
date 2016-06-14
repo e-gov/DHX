@@ -145,12 +145,16 @@ DHX teenus on standardse nimemustri ja töötlusloogikaga X-tee teenus, millega 
 DHX teenuse kasutamine on interaktsioon, mis koosneb kahest sõnumisaatmisest:
  - dokumendi saatja saadab teenusele `sendDocument` X-tee päringusõnumi (päringu)
  - dokumendi saaja saadab vastussõnumi kinnitusega dokumendi kättesaamise kohta.
-  
-  _Kui dokument on valesti adresseeritud või valesti formeeritud, siis saadetakse vastussõnumis asjakohane veateade._
+   ```
+   Kui dokument on valesti adresseeritud või valesti formeeritud, siis 
+   saadetakse vastussõnumis asjakohane veateade.
+   ```
 
 Dokument edastatakse päringsõnumis.
-
-  _Dokumendid edastatakse nn tõukemeetodil (ingl push). Dokumendi saatja algatab saatmise pöördumisega adressaadi_ `sendDocument` _teenuse poole._
+   ```
+   Dokumendid edastatakse nn tõukemeetodil (ingl push). Dokumendi saatja 
+   algatab saatmise pöördumisega adressaadi_ `sendDocument` _teenuse poole.
+   ```
 
 ##### 5.2 DHX teenuse väljaarendamine
 Iga DHX-i rakendav asutus (või DHS teenusepakkuja) PEAB arendama oma DHS-is välja DHX teenuse ja käitama seda.
@@ -290,7 +294,7 @@ Kui saatev süsteem on kindlaks teinud, et adressaadil puudub DHX võimekus ja k
    ei ole DVK kasutaja, siis teatab DVK_ `adressaat tundmatu`_. 
    Saatev süsteem on kõik võimalused ammendanud ja tuleb konstateerida, 
    et dokumenti ei saa edastada - vähemalt seni, kuni adressaat ei 
-   ole DHX võimekust loonud._
+   ole DHX võimekust loonud.
    ```
 
 ##### 7.5 Dokumendi lugemine edastatuks
@@ -370,7 +374,8 @@ Vahendajana tegutsev süsteem PEAB mitmele aadressile saadetud dokumendi edastam
 
 #### 9 Üleminek
 
-1.	Üleminek DHX protokollile toimub etteantud perioodi jooksul. Üleminekuperiood algab kõigile asutustele üheaegselt. Perioodi algusest teavitab X-tee keskus.
+###### 9.1 Üleminekuperiood
+Üleminek DHX protokollile toimub etteantud perioodi jooksul. Üleminekuperiood algab kõigile asutustele üheaegselt. Perioodi algusest teavitab X-tee keskus.
 
  ![](img/DHX-Yleminek.PNG)
 
@@ -381,27 +386,24 @@ Vahendajana tegutsev süsteem PEAB mitmele aadressile saadetud dokumendi edastam
     UK kasutamine ei ole kohustuslik.
     ```
 
-2.	Üleminekuperioodil arendavad asutused välja oma DHS-des DHX protokolli kohase dokumentide saatmise ja vastuvõtmise võimekuse. Tehniliselt tähendab "DHX-i võimekus" DHX protokolli kohase X-tee teenuse pakkumist ja võimet teiste asutuste samasuguse teenuse poole pöörduda.
+Üleminekuperioodil arendavad asutused välja oma DHS-des DHX protokolli kohase dokumentide saatmise ja vastuvõtmise võimekuse. Tehniliselt tähendab "DHX-i võimekus" DHX protokolli kohase X-tee teenuse pakkumist ja võimet teiste asutuste samasuguse teenuse poole pöörduda.
 
-3.	DHX protokolli kohane dokumentide saatmise ja vastuvõtmise võimekus arendatakse DHS-is välja ja võetakse kasutusele üheaegselt. Kuid arendused erinevates DHS-des valmivad erinevatel aegadel.
+DHX protokolli kohane dokumentide saatmise ja vastuvõtmise võimekus arendatakse DHS-is välja ja võetakse kasutusele üheaegselt. Kuid arendused erinevates DHS-des valmivad erinevatel aegadel.
 
-4.	Üleminekuperioodil niipea, kui asutuse DHS-is on tekkinud DHX protokolli võimekus (arendus on lõppenud), PEAB hakkama dokumendi saatmisel esimese võimalusena kasutama DHX teenust.
+Üleminekuperioodil niipea, kui asutuse DHS-is on tekkinud DHX protokolli võimekus (arendus on lõppenud), PEAB hakkama dokumendi saatmisel kasutama DHX teenust.
 
-5.	Kui osutub, et adressaat ei ole veel dokumentide vastuvõtmise DHX-teenust loonud (teenus ei ole X-teel leitav), siis saadetakse dokument DVK kaudu, kasutades DVK teenust `sendDocument` ja märkides adressaadi dokumendi metaandmete kapslis.
+Kui osutub, et adressaat ei ole veel dokumentide vastuvõtmise DHX-teenust loonud (teenus ei ole X-teel leitav), siis saadetakse dokument DVK kaudu, kasutades DVK teenust `sendDocument` ja märkides adressaadi dokumendi metaandmete kapslis.
 
-6.	Alates esimesest edukast DHX-protokolli kohasest dokumendiedastusest teise asutusse tuleb edaspidi sellesse asutusse saatmiseks kasutada ainult DHX-i (mitte DVK-d).
+DHX võimekuse saavutanud asutus PEAB DVK kasutamisest loobuma.
 
-7.	DHX võimekuse saavutanud asutus PEAB DVK kasutamisest loobuma.
+##### 9.2 DVK toimimine üleminekuperioodil
+DVK-d hoitakse töös kogu üleminekuperioodi vältel. DVK-d täiendatakse üleminekuperioodil toimimiseks vajaliku funktsionaalsusega.
 
-#### 12 DVK toimimine üleminekuperioodil
+DVK pakub teenust `sendDocument`, millega DHX-i võimekuse loonud asutus saab edastada dokumendi edasisaatmiseks DHX võimekust veel mitteomavale asutusele. Edasisaatmise teostab DVK.
 
-1. DVK-d hoitakse töös kogu üleminekuperioodi vältel. DVK-d täiendatakse üleminekuperioodil toimimiseks vajaliku funktsionaalsusega.
+DHX-i võimekuse loonud asutusele adresseeritud dokumendi laekumisel DVK-sse üritab DVK seda kohe edasi saata.
 
-2. DVK pakub teenust `sendDocument`, millega DHX-i võimekuse loonud asutus saab edastada dokumendi edasisaatmiseks DHX võimekust veel mitteomavale asutusele. Edasisaatmise teostab DVK.
-
-3. DHX-i võimekuse loonud asutusele adresseeritud dokumendi laekumisel DVK-sse üritab DVK seda kohe edasi saata.
-
-4.	DVK lülitatakse välja siis, kui kõik DVK asutused on DHX protokolli võimekuse loonud või üleminekuperioodi tähtaja saabudes.
+DVK lülitatakse välja siis, kui kõik DVK asutused on DHX protokolli võimekuse loonud või üleminekuperioodi tähtaja saabudes.
 
 #### Viited
 

@@ -16,4 +16,4 @@ DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimalda
 * vt ka [Arutelu lehte](https://github.com/e-gov/DHX/issues)
 * [Dokumendivahetustaristu (DVK) üleviimine hajusarhitektuurile](http://slides.com/priitparmakson/dhx/fullscreen) (esitlus)
 * [Kirjandus](https://github.com/e-gov/DHX/blob/master/files/Kirjandus.md)
-* [Löö kaasa](https://github.com/e-gov/DHX/blob/gh-pages/CONTRIBUTING.md)
+* [Löö kaasa](https://github.com/e-gov/DHX/blob/master/files/CONTRIBUTING.md)

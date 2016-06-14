@@ -60,11 +60,10 @@ v 0.6
 [Lisa 2. Vahendusnimekirja teenuse spetsifikatsioon](Protokoll.md#lisa-2-vahendusnimekirja-teenuse-spetsifikatsioon)
 
 Joonised:
- - Joonis 1. [Lähteolukord: dokumendivahetus DVK kaudu](Protokoll.md#l%C3%A4hteolukord)
- - Joonis 2. [DHX põhiskeem](Protokoll.md#dhx-teenus)
- - Joonis 3. [DHX dokumendivahetusteenuse vahendamine](Protokoll.md#vahendamine)
- - Joonis 4. [Vahendajate nimekiri](Protokoll.md#vahendajate-nimekiri)
- - Joonis 5  [Toimimine üleminekuperioodil](Protokoll.md#%C3%9Cleminek) 
+ - Joonis 1 [Lähteolukord: dokumendivahetus DVK kaudu](Protokoll.md#4-lähteolukord)
+ - Joonis 2 [DHX põhiskeem](Protokoll.md#5-dhx-teenus)
+ - Joonis 3 [DHX teenusevahendamine vahendamine](Protokoll.md#6-vahendamine)
+ - Joonis 4  [Toimimine üleminekuperioodil](Protokoll.md#9-Üleminek) 
 
 ####  1 Ülevaade
 

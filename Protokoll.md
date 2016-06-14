@@ -6,15 +6,15 @@ v 0.6
 
 #### Sisukord
 
-[1 Ülevaade](Protokoll.md#%C3%9Clevaade)
+[1 Ülevaade](Protokoll.md#1-Ülevaade)
 
-[2 Nõuete keel](Protokoll.md#n%C3%B5uete-keel)
+[2 Nõuete keel](Protokoll.md#2-nõuete-keel)
 
-[3 Mõisted ja lühendid](Protokoll.md#m%C3%B5isted-ja-l%C3%BChendid)
+[3 Mõisted ja lühendid](Protokoll.md#3-mõisted-ja-lühendid)
 
-[4 Lähteolukord](Protokoll.md#l%C3%A4hteolukord)
+[4 Lähteolukord](Protokoll.md#4-lähteolukord)
 
-[5 DHX teenus](Protokoll.md#dhx-teenus)
+[5 DHX teenus](Protokoll.md#5-dhx-teenus)
 
   - [5.1 Üldiseloomustus](Protokoll.md#51-Üldiseloomustus)
   - [5.2 DHX teenuse väljaarendamine](Protokoll.md#52-dhx-teenuse-väljaarendamine)
@@ -24,13 +24,13 @@ v 0.6
   - [5.6 Kapsli kasutamine](Protokoll.md#56-kapsli-kasutamine)
   - [5.7 Unikaalne identifikaator](Protokoll.md#57-unikaalne-identifikaator)
 
-[6 Vahendamine](Protokoll.md#vahendamine)
+[6 Vahendamine](Protokoll.md#6-vahendamine)
 
   - [6.1 Vahendamise mõiste](Protokoll.md#61-vahendamise-mõiste)
   - [6.2 Vahendajate nimekiri](Protokoll.md#62-vahendajate-nimekiri)
   - [6.3 Vahendusnimekiri](Protokoll.md#63-vahendusnimekiri)
 
-[7 Saatmine](Protokoll.md#saatmine)
+[7 Saatmine](Protokoll.md#7-saatmine)
 
   - [7.1 DHX võimekus](Protokoll.md#71-dhx-võimekus)
   - [7.2 Otsevõimekuse väljaselgitamine](Protokoll.md#72-otsevõimekuse-väljaselgitamine)
@@ -40,7 +40,7 @@ v 0.6
   - [7.6 Uuesti üritamine](Protokoll.md#76-uuesti-üritamine)
   - [7.7 Saatmisalgoritm (illustratiivne)](Protokoll.md#77-saatmisalgoritm)
 
-[8 Vastuvõtmine](Protokoll.md#vastuvõtmine)
+[8 Vastuvõtmine](Protokoll.md#8-vastuvõtmine)
 
   - [8.1 Aadressi kontroll](Protokoll.md#101-aadressi-kontroll)
   - [8.2 Valest aadressist teatamine](Protokoll.md#102-valest-aadressist-teatamine)
@@ -48,7 +48,7 @@ v 0.6
   - [8.4 Mitme aadressi käsitlus](Protokoll.md#104-mitme-aadressi-käsitlus)
   - [8.5 Vastuvõtmine DVK-st](Protokoll.md#105-vastuvõtmine-dvk-st)
 
-[9 Üleminek](Protokoll.md#%C3%9Cleminek)
+[9 Üleminek](Protokoll.md#9-Üleminek)
 
   - [9.1 Üleminekuperiood](Protokoll.md#91-Üleminekuperiood)
   - [9.2 DVK toimimine üleminekuperioodil](Protokoll.md#92-dvk-toimimine-üleminekuperioodil)

@@ -26,6 +26,16 @@ v 0.6
 
 [10 Vastuvõtmine](Protokoll.md#vastuvõtmine)
 
+  - [10.1 Aadressi kontroll](Protokoll.md#101-aadressi-kontroll)
+
+  - [10.2 Valest aadressist teatamine](Protokoll.md#102-valest-aadressist-teatamine)
+
+  - [10.3 Kapsli kontroll](Protokoll.md#103-kapsli-kontroll)
+
+  - [10.4 Mitme aadressi käsitlus](Protokoll.md#104-mitme-aadressi-käsitlus)
+
+  - [10.5 Vastuvõtmine DVK-lt](Protokoll.md#105-vastuvõtmine-dvk-lt)
+
 [11 Üleminek](Protokoll.md#%C3%9Cleminek)
 
 [12 DVK toimimine üleminekuperioodil](Protokoll.md#dvk-toimimine-%C3%BCleminekuperioodil)

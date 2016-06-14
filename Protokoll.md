@@ -16,6 +16,14 @@ v 0.6
 
 [5 DHX teenus](Protokoll.md#dhx-teenus)
 
+  - [5.1 Üldiseloomustus](Protokoll.md#51-Üldiseloomustus)
+  - [5.2 DHX teenuse väljaarendamine](Protokoll.md#52-dhx-teenuse-väljaarendamine)
+  - [5.3 DHX teenuse avamine](Protokoll.md#53-dhx-teenuse-avamine)
+  - [5.4 Nimemuster](Protokoll.md#54-nimemuster)
+  - [5.5 Reserveeritud nimi "DHX"](Protokoll.md#55-reserveeritud-nimi-dhx)
+  - [5.6 Kapsli kasutamine](Protokoll.md#56-kapsli-kasutamine)
+  - [5.7 Unikaalne identifikaator](Protokoll.md#57-unikaalne-identifikaator)
+
 [6 Vahendamine](Protokoll.md#vahendamine)
 
 [7 Vahendusnimekiri](Protokoll.md#vahendusnimekiri)
@@ -27,13 +35,9 @@ v 0.6
 [10 Vastuvõtmine](Protokoll.md#vastuvõtmine)
 
   - [10.1 Aadressi kontroll](Protokoll.md#101-aadressi-kontroll)
-
   - [10.2 Valest aadressist teatamine](Protokoll.md#102-valest-aadressist-teatamine)
-
   - [10.3 Kapsli kontroll](Protokoll.md#103-kapsli-kontroll)
-
   - [10.4 Mitme aadressi käsitlus](Protokoll.md#104-mitme-aadressi-käsitlus)
-
   - [10.5 Vastuvõtmine DVK-lt](Protokoll.md#105-vastuvõtmine-dvk-lt)
 
 [11 Üleminek](Protokoll.md#%C3%9Cleminek)

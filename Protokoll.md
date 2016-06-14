@@ -6,7 +6,35 @@ v 0.6
 
 #### Sisukord
 
-[1 Ülevaade](Protokoll.md#%C3%9Clevaade) | [2 Nõuete keel](Protokoll.md#n%C3%B5uete-keel) | [3 Mõisted ja lühendid](Protokoll.md#m%C3%B5isted-ja-l%C3%BChendid) | [4 Lähteolukord](Protokoll.md#l%C3%A4hteolukord) | [5 DHX teenus](Protokoll.md#dhx-teenus) | [6 Vahendamine](Protokoll.md#vahendamine) | [7 Vahendusnimekiri](Protokoll.md#vahendusnimekiri) | [8 Vahendajate nimekiri](Protokoll.md#vahendajate-nimekiri) | [9 Saatmisalgoritm](Protokoll.md#saatmisalgoritm) | [10 Vastuvõtmisalgoritm](Protokoll.md#vastuvõtmisalgoritm) | [11 Üleminek](Protokoll.md#%C3%9Cleminek) | [12 DVK toimimine üleminekuperioodil](Protokoll.md#dvk-toimimine-%C3%BCleminekuperioodil) | [Viited](Protokoll.md#viited) | [Lisa 1. DHX teenuse spetsifikatsioon](Protokoll.md#lisa-1-dhx-teenuse-spetsifikatsioon) | [Lisa 2. Vahendusnimekirja teenuse spetsifikatsioon](Protokoll.md#lisa-2-vahendusnimekirja-teenuse-spetsifikatsioon)
+[1 Ülevaade](Protokoll.md#%C3%9Clevaade)
+
+[2 Nõuete keel](Protokoll.md#n%C3%B5uete-keel)
+
+[3 Mõisted ja lühendid](Protokoll.md#m%C3%B5isted-ja-l%C3%BChendid)
+
+[4 Lähteolukord](Protokoll.md#l%C3%A4hteolukord)
+
+[5 DHX teenus](Protokoll.md#dhx-teenus)
+
+[6 Vahendamine](Protokoll.md#vahendamine)
+
+[7 Vahendusnimekiri](Protokoll.md#vahendusnimekiri)
+
+[8 Vahendajate nimekiri](Protokoll.md#vahendajate-nimekiri)
+
+[9 Saatmine](Protokoll.md#saatmine)
+
+[10 Vastuvõtmine](Protokoll.md#vastuvõtmine)
+
+[11 Üleminek](Protokoll.md#%C3%9Cleminek)
+
+[12 DVK toimimine üleminekuperioodil](Protokoll.md#dvk-toimimine-%C3%BCleminekuperioodil)
+
+[Viited](Protokoll.md#viited)
+
+[Lisa 1. DHX teenuse spetsifikatsioon](Protokoll.md#lisa-1-dhx-teenuse-spetsifikatsioon)
+
+[Lisa 2. Vahendusnimekirja teenuse spetsifikatsioon](Protokoll.md#lisa-2-vahendusnimekirja-teenuse-spetsifikatsioon)
 
 Joonised:
  - Joonis 1. [Lähteolukord: dokumendivahetus DVK kaudu](Protokoll.md#l%C3%A4hteolukord)
@@ -175,7 +203,7 @@ Joonised:
 
 5. X-tee keskus PEAB pidama DHX vahendajate nimekirja ajakohasena. 
 
-#### 9 Saatmisalgoritm
+#### 9 Saatmine
 
 1. Saatev süsteem PEAB kontrollima, kas adressaadil on DHX võimekus. DHX võimekus võib olla otsevõimekus või võimekus vahendaja kaudu.
 
@@ -256,19 +284,24 @@ function saadaDokument(d Dokument, a Registrikood) {
 }
 ```
 
-#### 10 Vastuvõtmisalgoritm
+#### 10 Vastuvõtmine
 
-1.	Dokumenti vastuvõttev süsteem PEAB kontrollima, kas tegu on teist korda saadetud dokumendiga ja vältima ühe ja sama dokumendi äriloogikalist korduvmenetlemist, nt arve kahekordset kandmist raamatupidamissüsteemi. Duplikaatide kindlakstegemist võimaldab dokumendi unikaalne identifikaator.
+##### 10.1 Aadressi kontroll
+Vastuvõttev süsteem PEAB kontrollima, et dokument on saadetud õigele aadressile. Vahendamise puhul PEAB vastuvõttev süsteem kontrollima, kas adressaat on vahendaja klient (on vahendusnimekirjas).
 
-2.	Mitut asutust teenindav DHS tehniline süsteem peab tagama DHX teenuse kaudu saabunud dokumendi toimetamise õige adressaadi "virtuaalsesse" DHS-i.
+##### 10.2 Valest aadressist teatamine
+Valesti adresseeritud dokumendi korral PEAB vastuvõttev süsteem saatma saatjale veateate `Vale aadress`. 
 
-3. Vastuvõttev süsteem PEAB kontrollima, et dokument on saadetud õigele aadressile. Muuhulgas PEAB vahendaja süsteem kontrollima, kas adressaat on tema klient (on tema vahendusnimekirjas).
+##### 10.3 Kapsli kontroll
+Vastuvõttev süsteem PEAB kontrollima, et dokument tuli nõuetekohases kapslis. Vigase kapsli korral PEAB saatma vastava veateate `Vigane kapsel`. Kontroll PEAB sisaldama vähemalt XML skeemile vastavuse kontrollimist. Vastuvõttev süsteem VÕIB teha täiendavaid kontrolle semantilisel või äriloogikalisel tasandil.
 
-4. Üleminekuperioodil PEAB dokumente vastu võtma ka DVK-lt. 
+##### 10.4 Mitme aadressi käsitlus
+Vahendajana tegutsev süsteem PEAB mitmele aadressile saadetud dokumendi edastama kõigile oma klientidele, kes on dokumendi kapsli transpordiblokis adressaatidena nimetatud.
 
-4.	Valesti adresseeritud dokumendi korral PEAB vastuvõttev süsteem saatma saatjale kinnituse asemel vastusteate `Vale aadress`.
+##### 10.5 Vastuvõtmine DVK-lt
+Üleminekuperioodil PEAB dokumente vastu võtma ka DVK-lt.
 
-5. Vastuvõttev süsteem PEAB kontrollima, et dokument tuli nõuetekohases kapslis. Vigase kapsli korral PEAB saatma vastava vastusteate.
+  _Tehniliselt seisneb see selles, et DHX-le üleläinud süsteem peab avama oma DHX teenuse ka DVK-le. DVK edastab dokumente nendelt asutustelt, kes ei ole veel DHX-le üle läinud._
 
 #### 11 Üleminek
 

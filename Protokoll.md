@@ -46,14 +46,12 @@ v 0.6
   - [8.2 Valest aadressist teatamine](Protokoll.md#102-valest-aadressist-teatamine)
   - [8.3 Kapsli kontroll](Protokoll.md#103-kapsli-kontroll)
   - [8.4 Mitme aadressi käsitlus](Protokoll.md#104-mitme-aadressi-käsitlus)
-  - [8.5 Vastuvõtmine DVK-lt](Protokoll.md#105-vastuvõtmine-dvk-lt)
+  - [8.5 Vastuvõtmine DVK-st](Protokoll.md#105-vastuvõtmine-dvk-st)
 
 [9 Üleminek](Protokoll.md#%C3%9Cleminek)
 
   - [9.1 Üleminekuperiood](Protokoll.md#91-Üleminekuperiood)
   - [9.2 DVK toimimine üleminekuperioodil](Protokoll.md#92-dvk-toimimine-üleminekuperioodil)
-
-[12 DVK toimimine üleminekuperioodil](Protokoll.md#dvk-toimimine-%C3%BCleminekuperioodil)
 
 [Viited](Protokoll.md#viited)
 
@@ -367,8 +365,8 @@ Vastuvõttev süsteem PEAB kontrollima, et dokument tuli nõuetekohases kapslis.
 ##### 8.4 Mitme aadressi käsitlus
 Vahendajana tegutsev süsteem PEAB mitmele aadressile saadetud dokumendi edastama kõigile oma klientidele, kes on dokumendi kapsli transpordiblokis adressaatidena nimetatud.
 
-##### 8.5 Vastuvõtmine DVK-lt
-Üleminekuperioodil PEAB dokumente vastu võtma ka DVK-lt.
+##### 8.5 Vastuvõtmine DVK-st
+Üleminekuperioodil PEAB dokumente vastu võtma ka DVK-st.
    ```
    Tehniliselt seisneb see selles, et DHX-le üleläinud süsteem peab 
    avama oma DHX teenuse ka DVK-le. DVK edastab dokumente nendelt 

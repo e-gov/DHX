@@ -26,21 +26,17 @@ v 0.6
 
 [6 Vahendamine](Protokoll.md#vahendamine)
 
-[7 Vahendusnimekiri](Protokoll.md#vahendusnimekiri)
+[7 Saatmine](Protokoll.md#saatmine)
 
-[8 Vahendajate nimekiri](Protokoll.md#vahendajate-nimekiri)
+[8 Vastuvõtmine](Protokoll.md#vastuvõtmine)
 
-[9 Saatmine](Protokoll.md#saatmine)
+  - [8.1 Aadressi kontroll](Protokoll.md#101-aadressi-kontroll)
+  - [8.2 Valest aadressist teatamine](Protokoll.md#102-valest-aadressist-teatamine)
+  - [8.3 Kapsli kontroll](Protokoll.md#103-kapsli-kontroll)
+  - [8.4 Mitme aadressi käsitlus](Protokoll.md#104-mitme-aadressi-käsitlus)
+  - [8.5 Vastuvõtmine DVK-lt](Protokoll.md#105-vastuvõtmine-dvk-lt)
 
-[10 Vastuvõtmine](Protokoll.md#vastuvõtmine)
-
-  - [10.1 Aadressi kontroll](Protokoll.md#101-aadressi-kontroll)
-  - [10.2 Valest aadressist teatamine](Protokoll.md#102-valest-aadressist-teatamine)
-  - [10.3 Kapsli kontroll](Protokoll.md#103-kapsli-kontroll)
-  - [10.4 Mitme aadressi käsitlus](Protokoll.md#104-mitme-aadressi-käsitlus)
-  - [10.5 Vastuvõtmine DVK-lt](Protokoll.md#105-vastuvõtmine-dvk-lt)
-
-[11 Üleminek](Protokoll.md#%C3%9Cleminek)
+[9 Üleminek](Protokoll.md#%C3%9Cleminek)
 
 [12 DVK toimimine üleminekuperioodil](Protokoll.md#dvk-toimimine-%C3%BCleminekuperioodil)
 
@@ -174,39 +170,51 @@ Dokumendi PEAB edastama ametlikult kinnitatud elektroonilise andmevahetuse metaa
 ##### 5.7 Unikaalne identifikaator
 Saatev süsteem PEAB andma dokumendile identifikaatori, mis on unikaalne vähemalt DHS-i piires.
 
+#### 6 Majutamine
+
+
+
 #### 6 Vahendamine
 
-1. Asutus VÕIB rakendada DHX-i ka vahendaja kaudu.
+##### 6.1 Vahendamise mõiste
+Vahendamise korral osutab dokumentide X-teel saatmise ja vastuvõtmise teenust asutusele vahendaja. Asutus ise X-teega DHX kontekstis ei suhtle. Asutus ei pea isegi olema X-tee liige. Vahendaja esineb X-teel oma nime all. Vahendaja võib olla nii erasektori ettevõte kui ka avaliku sektori asutus.
 
-2. Vahendamise korral osutab dokumentide X-teel saatmise ja vastuvõtmise teenust asutusele vahendaja oma infosüsteemi kaudu. Asutus ise X-teega DHX kontekstis ei suhtle. Asutus ei pea isegi olema X-tee liige. Vahendaja esineb X-teel oma nime all. Vahendaja võib olla nii erasektori ettevõte kui ka avaliku sektori asutus.
+Asutus VÕIB rakendada DHX-i kas otse (s.t iseseisvalt) või vahendaja kaudu.
 
-3. DHX vahendamisel arendab DHX teenuse välja, avab teistele asutustele ja käitab teenust vahendaja.
+  _Vahendamine erineb majutamisest. Paljud asutused majutavad oma DHS-e majutus- ja pilveteenuste osutajate juures. Majutamine võib hõlmata nii X-tee turvaserveri kui ka DHS-i majutamist (pilveteenusena osutamist). DHX-i seisukohalt omab tähtsust, kas asutuse DHS suhtleb X-teel asutuse X-tee sertifikaadi abil või mitte. Kõiki suhteid, kus suhtlemine X-teel toimub teenusepakkuja X-tee sertifikaadi abil, käsitletakse vahendamisena. Majutamise korral tuleb DHX-i rakendamisel tagada käesoleva protokolli nõuete täitmine. Kuidas seda teha, sõltub konkreetsest suhtest majutaja ja asutuse vahel ning ei ole käesoleva protokolli käsitlusalas._
 
-4. Vahendamise korral kuulub DHX teenuse juurde ka vahendusnimekirja teenus.
+DHX vahendamisel arendab DHX teenuse välja, avab teistele asutustele ja käitab teenust vahendaja. Joonisel 3 on esitatud interaktsiooni põhimõtteskeem vahendamise korral.
 
  ![](img/Liideste%20skeem%2002.PNG)
 
- Joonis 3 DHX teenusevahendamine
+Joonis 3 DHX teenusevahendamine
 
- Joonisel 3 on esitatud interaktsiooni põhimõtteskeem vahendamise korral.
+Vahendamisele kehtivad X-tee määrusest tulenevad nõuded: vahendajana end X-teel registreerimise kohustus, andmeteenuse vahendamise korra (poliitika) koostamise ja avalikustamise kohustus jm (vt [X-tee määrus] § 13).
  
-5. DHX rakendamisel läbi vahendaja PEAB asutus sõlmima lepingu DHX vahendajaga. Kasutada TOHIB AINULT X-tee keskuse poolt DHX vahendajate nimekirja lisatud vahendajaid.
+##### 6.2 Vahendajate nimekiri 
+DHX rakendamisel läbi vahendaja PEAB asutus sõlmima lepingu DHX vahendajaga. Kasutada TOHIB AINULT X-tee keskuse poolt DHX vahendajate nimekirja lisatud vahendajaid.
 
-6. Vahendaja PEAB X-tee teenuse vormis avalikustama vahendusnimekirja - nimekirja asutustest, keda ta esindab.
+Vahendajate nimekiri on nimekiri DHX dokumendivahetusteenuse vahendajatest.
 
-7. Vahendamisele kehtivad X-tee määrusest tulenevad nõuded: vahendajana end X-teel registreerimise kohustus, andmeteenuse vahendamise korra (poliitika) koostamise ja avalikustamise kohustus jm (vt [X-tee määrus] § 13).
+Vahendajate nimekirja peab X-tee keskus (RIA).
 
-#### 7 Vahendusnimekiri
+Tehniliselt teostatakse vahendajate nimekiri DHX vahendajate grupina. DHX vahendajate grupp on osa X-tee globaalsest konfiguratsioonist. Vahendajate nimekiri on X-tee globaalse konfiguratsiooni osana avalikult kättesaadav kõigile X-tee liikmetele. 
 
-1. Vahendusnimekiri on vahendaja peetav nimekiri asutustest, keda ta vahendab.
+Vahendajana tegutseda sooviv asutus või ettevõte PEAB end vahendajana X-teel registreerima. Registreerimise täpse korra kehtestab X-tee keskus.
 
-2. Iga vahendaja PEAB pidama vahendusnimekirja.
+X-tee keskus PEAB pidama DHX vahendajate nimekirja ajakohasena. 
 
-2. Vahendaja PEAB hoidma vahendusnimekirja ajakohasena. Ajakohasus tähendab seda, et vahendusnimekirjas on need ja ainult need asutused, kellega vahendajal on kehtivad vahenduslepingud.
+##### 6.3 Vahendusnimekiri
 
-3. Vahendaja PEAB vahendusnimekirja tegema kättesaadavaks X-tee teenusena.
+Vahendusnimekiri on vahendaja peetav nimekiri asutustest, keda ta vahendab.
 
-2. Vahendusnimekirja teenuse nimi PEAB järgima mustrit `EE/<liikmeklass>/<registrikood>/DHX/representationList`, kus
+Iga vahendaja PEAB pidama vahendusnimekirja.
+
+Vahendaja PEAB hoidma vahendusnimekirja ajakohasena. Ajakohasus tähendab seda, et vahendusnimekirjas on need ja ainult need asutused, kellega vahendajal on kehtivad vahenduslepingud.
+
+Vahendaja PEAB vahendusnimekirja tegema kättesaadavaks X-tee teenusena.
+
+Vahendusnimekirja teenuse nimi PEAB järgima mustrit `EE/<liikmeklass>/<registrikood>/DHX/representationList`, kus
  - `EE` on X-tee Eesti instantsi nimi
  - `<liikmeklass>` on X-tee liikmeklass (väärtus vastavalt X-tee protokollile - vastavalt vahendaja õiguslikule vormile kas `GOV`, `COM`, `NGO` või `NEE`) 
  - `DHX` on teenuse ülesleidmist tagav, käesoleva protokolliga fikseeritud X-tee alamsüsteeminimi ja
@@ -214,21 +222,9 @@ Saatev süsteem PEAB andma dokumendile identifikaatori, mis on unikaalne vähema
 
  Näide: `EE/COM/40001111/DHX/representationList`
 
-3. DHX-i rakendaja teostatud vahendusnimekirja teenus PEAB vastama lisas 2 esitatud täpsemale spetsifikatsioonile.
+DHX-i rakendaja teostatud vahendusnimekirja teenus PEAB vastama lisas 2 esitatud täpsemale spetsifikatsioonile.
 
-#### 8 Vahendajate nimekiri
-
-1. Vahendajate nimekiri on nimekiri DHX dokumendivahetusteenuse vahendajatest.
-
-2. Vahendajate nimekirja peab X-tee keskus (RIA).
-
-3. Tehniliselt teostatakse vahendajate nimekiri DHX vahendajate grupina. DHX vahendajate grupp on osa X-tee globaalsest konfiguratsioonist. Vahendajate nimekiri on X-tee globaalse konfiguratsiooni osana avalikult kättesaadav kõigile X-tee liikmetele. 
-
-4. Vahendajana tegutseda sooviv asutus või ettevõte PEAB end vahendajana X-teel registreerima. Registreerimise täpse korra kehtestab X-tee keskus.
-
-5. X-tee keskus PEAB pidama DHX vahendajate nimekirja ajakohasena. 
-
-#### 9 Saatmine
+#### 7 Saatmine
 
 1. Saatev süsteem PEAB kontrollima, kas adressaadil on DHX võimekus. DHX võimekus võib olla otsevõimekus või võimekus vahendaja kaudu.
 
@@ -309,26 +305,26 @@ function saadaDokument(d Dokument, a Registrikood) {
 }
 ```
 
-#### 10 Vastuvõtmine
+#### 8 Vastuvõtmine
 
-##### 10.1 Aadressi kontroll
+##### 8.1 Aadressi kontroll
 Vastuvõttev süsteem PEAB kontrollima, et dokument on saadetud õigele aadressile. Vahendamise puhul PEAB vastuvõttev süsteem kontrollima, kas adressaat on vahendaja klient (on vahendusnimekirjas).
 
-##### 10.2 Valest aadressist teatamine
+##### 8.2 Valest aadressist teatamine
 Valesti adresseeritud dokumendi korral PEAB vastuvõttev süsteem saatma saatjale veateate `Vale aadress`. 
 
-##### 10.3 Kapsli kontroll
+##### 8.3 Kapsli kontroll
 Vastuvõttev süsteem PEAB kontrollima, et dokument tuli nõuetekohases kapslis. Vigase kapsli korral PEAB saatma vastava veateate `Vigane kapsel`. Kontroll PEAB sisaldama vähemalt XML skeemile vastavuse kontrollimist. Vastuvõttev süsteem VÕIB teha täiendavaid kontrolle semantilisel või äriloogikalisel tasandil.
 
-##### 10.4 Mitme aadressi käsitlus
+##### 8.4 Mitme aadressi käsitlus
 Vahendajana tegutsev süsteem PEAB mitmele aadressile saadetud dokumendi edastama kõigile oma klientidele, kes on dokumendi kapsli transpordiblokis adressaatidena nimetatud.
 
-##### 10.5 Vastuvõtmine DVK-lt
+##### 8.5 Vastuvõtmine DVK-lt
 Üleminekuperioodil PEAB dokumente vastu võtma ka DVK-lt.
 
   _Tehniliselt seisneb see selles, et DHX-le üleläinud süsteem peab avama oma DHX teenuse ka DVK-le. DVK edastab dokumente nendelt asutustelt, kes ei ole veel DHX-le üle läinud._
 
-#### 11 Üleminek
+#### 9 Üleminek
 
 1.	Üleminek DHX protokollile toimub etteantud perioodi jooksul. Üleminekuperiood algab kõigile asutustele üheaegselt. Perioodi algusest teavitab X-tee keskus.
 

@@ -26,6 +26,10 @@ v 0.6
 
 [6 Vahendamine](Protokoll.md#vahendamine)
 
+  - [6.1 Vahendamise mõiste](Protokoll.md#61-vahendamise-mõiste)
+  - [6.2 Vahendajate nimekiri](Protokoll.md#62-vahendajate-nimekiri)
+  - [6.3 Vahendusnimekiri](Protokoll.md#63-vahendusnimekiri)
+
 [7 Saatmine](Protokoll.md#saatmine)
 
 [8 Vastuvõtmine](Protokoll.md#vastuvõtmine)
@@ -170,10 +174,6 @@ Dokumendi PEAB edastama ametlikult kinnitatud elektroonilise andmevahetuse metaa
 ##### 5.7 Unikaalne identifikaator
 Saatev süsteem PEAB andma dokumendile identifikaatori, mis on unikaalne vähemalt DHS-i piires.
 
-#### 6 Majutamine
-
-
-
 #### 6 Vahendamine
 
 ##### 6.1 Vahendamise mõiste
@@ -226,55 +226,57 @@ DHX-i rakendaja teostatud vahendusnimekirja teenus PEAB vastama lisas 2 esitatud
 
 #### 7 Saatmine
 
-1. Saatev süsteem PEAB kontrollima, kas adressaadil on DHX võimekus. DHX võimekus võib olla otsevõimekus või võimekus vahendaja kaudu.
+##### 7.1 DHX võimekus
+Saatev süsteem PEAB välja selgitama, kas adressaadil on DHX võimekus. DHX võimekus võib olla otsevõimekus või võimekus vahendaja kaudu.
 
-2. Saatev süsteem PEAKS otsevõimekust kontrollima X-tee globaalse konfiguratsioonifaili põhjal. Otsevõimekuse tunnus on DHX alamsüsteemi olemasolu asutusel. Globaalse konfiguratsiooni VÕIB alla laadida X-tee keskusest või kasutada X-tee turvaserveri poolt allalaetud, turvaserveri liidese poolt pakutud globaalset konfiguratsioonifaili.
+##### 7.2 DHX otsevõimekuse väljaselgitamine
+Saatev süsteem PEAKS otsevõimekuse välja selgitama X-tee globaalse konfiguratsioonifaili põhjal. Otsevõimekuse tunnuseks on DHX alamsüsteemi olemasolu asutusel. Globaalse konfiguratsiooni VÕIB alla laadida X-tee keskusest või kasutada X-tee turvaserveri poolt allalaetud, turvaserveri liidese poolt pakutud globaalset konfiguratsioonifaili.
 
-3. Kui saatev süsteem peab DHX otsevõimekuse kontrollimist X-tee globaalse konfiguratsioonifaili põhjal tehniliselt liiga keerukaks, siis VÕIB otsevõimekust kontrollida ka otsese saatmisüritusega.
+Kui saatev süsteem peab DHX otsevõimekuse väljaselgitamist X-tee globaalse konfiguratsioonifaili põhjal tehniliselt liiga keerukaks, siis VÕIB otsevõimekust kontrollida ka otsese saatmisüritusega.
  
  _Kui turvaserver vastab, et adressaadil alamsüsteem DHX puudub, siis sellest võib järeldada, et adressaadil DHX otsevõimekus puudub._
 
  _Saatja turvaserver laeb perioodiliselt X-tee keskserverist alla teavet X-tee konfiguratsiooni kohta [PR-GCONF], sh teavet X-tee liikmete poolt määratletud alamsüsteemide ja turvaserverite kohta. Saatja turvaserver teeb ülalnimetatud konfiguratsiooniteabe põhjal kindlaks, kas adressaat on määratlenud DHX alamsüsteemi. Kui ei ole, siis DHX võimekus puudub._
 
-4. Saatev süsteem VÕIB otsevõimekuse kontrolli tulemust puhverdada. Puhvri värskendamise periood PEAB olema konfigureeritav.
+Otsevõimekuse olemasolu korral saadetakse dokument otse.
 
-5. Otsevõimekuse olemasolu korral saadetakse dokument otse.
+##### 7.2 DHX võimekus läbi vahendaja
+Otsevõimekuse puudumise korral PEAB saatev süsteem kontrollima, kas adressaadil on DHX võimekus läbi vahendaja.
 
-6. Otsevõimekuse puudumise korral PEAB saatev süsteem kontrollima, kas adressaadil on DHX võimekus läbi vahendaja.
-
-7. DHX võimekuse läbi vahendaja kontrollimiseks PEAB saatev süsteem:
+DHX võimekuse läbi vahendaja kontrollimiseks PEAB saatev süsteem:
  - alla laadima X-tee keskusest X-tee globaalse konfiguratsiooni faili või kasutama turvaserveri poolt allalaetud globaalse konfiguratsiooni faili;
  - leidma failist vahendajate nimekirja (DHX vahendajate grupi);
  - käima kõik vahendajad läbi ning pärima X-tee kaudu vahendusnimekirjad;
  - kindlaks tegema, kas adressaat sisaldub vahendusnimekirjades.
 
-8. DHX võimekuse läbi vahendaja kontrolli tulemusi VÕIB puhverdada. Puhvri värskendamise periood PEAB olema konfigureeritav.
+Kui adressaadil puudub DHX otsevõimekus, kuid on DHX võimekus läbi vahendaja, siis PEAB saatev süsteem saatma dokumendi vahendajale.
 
-9. Saatev süsteem VÕIB DHX võimekuse kontrolli tarvis ehitada nn lokaalse aadressiraamatu, ühendades p 2 ja 6 tulemused.
+##### 7.3 Lokaalne aadressiraamat
+Saatev süsteem VÕIB DHX-i võimekuse väljaselgitamise tulemust puhverdada, moodustades nn lokaalse aadressiraamatu. Puhvri (lokaalse aadressiraamatu) värskendamise periood PEAB olema konfigureeritav.
 
-10. Punktides 3, 7 ja 8 nimetatud puhvrite või lokaalse aadressiraamatu värskendamise periood PEAB olema konfigureeritav.
-
-11. Kui adressaadil puudub DHX otsevõimekus, kuid on DHX võimekus läbi vahendaja, siis PEAB saatev süsteem saatma dokumendi vahendajale.
-
-12. Kui saatev süsteem on kindlaks teinud, et adressaadil puudub DHX võimekus ja käimas on üleminekuperiood, siis PEAB saatev süsteem üritama dokumenti saata DVK `sendDocument` teenusesse. 
+##### 7.4 Saatmine DVK-sse
+Kui saatev süsteem on kindlaks teinud, et adressaadil puudub DHX võimekus ja käimas on üleminekuperiood, siis PEAB saatev süsteem üritama dokumenti saata DVK `sendDocument` teenusesse. 
 
  _Tegu on juhuga, kus adressaat ei ole veel DHX-i võimekust loonud. Adressaat võib olla veel DVK kasutaja. DVK saadab_ `sendDocument` _teenusesse saadetud dokumendi adressaadile edasi. Kui adressaat ei ole DVK kasutaja, siis teatab DVK_ `adressaat tundmatu`_. Saatev süsteem on kõik võimalused ammendanud ja tuleb konstateerida, et dokumenti ei saa edastada - vähemalt seni, kuni adressaat ei ole DHX võimekust loonud._
 
-13. Dokument loetakse edastatuks kui saatev süsteem on saanud `sendDocument` teenuselt positiivse vastuskoodiga vastussõnumi.
+##### 7.5 Dokumendi lugemine edastatuks
+Dokument loetakse edastatuks kui saatev süsteem on saanud `sendDocument` teenuselt positiivse vastuskoodiga vastussõnumi.
 
  _Kinnitus dokumendi kättesaamise kohta saadetakse X-tee päring-vastus (request-response) vastussõnumis. Kui osapooled vajavad kõrgema äriloogika kihi taseme kinnitusi, siis neid võib realiseerida DHX protokolli väliselt või DHX protokolli pealiskihina._
 
-14. Kui adressaadiga ei saa ühendust või kättesaamise kinnitust ei tule, siis PEAB mõne aja pärast saatmist uuesti üritama.
+##### 7.6 Uuesti üritamine
+Kui adressaadiga ei saa ühendust või kättesaamise kinnitust ei tule, siis PEAB mõne aja pärast saatmist uuesti üritama.
 
  _Sarnaselt DVK liideses kasutatule._
 
-15. Tühipäringute arvu vähendamiseks PEAKS kasutada eksponentsiaalse taganemise (_exponential back-off_) algoritmi [EXP].
+Tühipäringute arvu vähendamiseks PEAKS kasutada eksponentsiaalse taganemise (_exponential back-off_) algoritmi [EXP].
 
-16. Saatev süsteem PEAB dokumendi saatmisürituste seeriale andma unikaalse identifikaatori.
+Saatev süsteem PEAB dokumendi saatmisürituste seeriale andma unikaalse identifikaatori.
 
-17. Saatmisürituste arv PEAB olema lõplik ja saatva süsteemi konfiguratsioonis määratav. 
+Saatmisürituste arv PEAB olema lõplik ja saatva süsteemi konfiguratsioonis määratav. 
 
-18. Saatmisalgoritmi esitus pseudokoodina (illustratiivne):
+##### 7.7 Saatmisalgoritm
+Saatmisalgoritmi esitus pseudokoodina (illustratiivne):
 
 ```Go
 /* SISEND:

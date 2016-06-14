@@ -50,6 +50,9 @@ v 0.6
 
 [9 Üleminek](Protokoll.md#%C3%9Cleminek)
 
+  - [9.1 Üleminekuperiood](Protokoll.md#91-Üleminekuperiood)
+  - [9.2 DVK toimimine üleminekuperioodil](Protokoll.md#92-dvk-toimimine-üleminekuperioodil)
+
 [12 DVK toimimine üleminekuperioodil](Protokoll.md#dvk-toimimine-%C3%BCleminekuperioodil)
 
 [Viited](Protokoll.md#viited)
@@ -374,17 +377,17 @@ Vahendajana tegutsev süsteem PEAB mitmele aadressile saadetud dokumendi edastam
 
 #### 9 Üleminek
 
-###### 9.1 Üleminekuperiood
+##### 9.1 Üleminekuperiood
 Üleminek DHX protokollile toimub etteantud perioodi jooksul. Üleminekuperiood algab kõigile asutustele üheaegselt. Perioodi algusest teavitab X-tee keskus.
 
  ![](img/DHX-Yleminek.PNG)
 
- Joonis 4. Toimimine üleminekuperioodil
-    ```
+Joonis 4. Toimimine üleminekuperioodil
+   ```
     UK tähistab RIA poolt väljatöötatavat "universaalset tarkvarakomponenti",
     mille eesmärgiks on kergendada DHS-de ümberhäälestamist DHX-i kasutamisele. 
     UK kasutamine ei ole kohustuslik.
-    ```
+   ```
 
 Üleminekuperioodil arendavad asutused välja oma DHS-des DHX protokolli kohase dokumentide saatmise ja vastuvõtmise võimekuse. Tehniliselt tähendab "DHX-i võimekus" DHX protokolli kohase X-tee teenuse pakkumist ja võimet teiste asutuste samasuguse teenuse poole pöörduda.
 

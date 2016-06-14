@@ -32,6 +32,14 @@ v 0.6
 
 [7 Saatmine](Protokoll.md#saatmine)
 
+  - [7.1 DHX võimekus](Protokoll.md#71-dhx-võimekus)
+  - [7.2 Otsevõimekuse väljaselgitamine](Protokoll.md#72-otsevõimekuse-väljaselgitamine)
+  - [7.3 Võimekus läbi vahendaja](Protokoll.md#72-dhx-võimekus-läbi-vahendaja)
+  - [7.4 Lokaalne aadressiraamat](Protokoll.md#73-lokaalne-aadressiraamat)
+  - [7.5 Dokumendi lugemine edastatuks](Protokoll.md#75-dokumendi-lugemine-edastatuks)
+  - [7.6 Uuesti üritamine](Protokoll.md#76-uuesti-üritamine)
+  - [7.7 Saatmisalgoritm (illustratiivne)](Protokoll.md#77-saatmisalgoritm)
+
 [8 Vastuvõtmine](Protokoll.md#vastuvõtmine)
 
   - [8.1 Aadressi kontroll](Protokoll.md#101-aadressi-kontroll)
@@ -229,7 +237,7 @@ DHX-i rakendaja teostatud vahendusnimekirja teenus PEAB vastama lisas 2 esitatud
 ##### 7.1 DHX võimekus
 Saatev süsteem PEAB välja selgitama, kas adressaadil on DHX võimekus. DHX võimekus võib olla otsevõimekus või võimekus vahendaja kaudu.
 
-##### 7.2 DHX otsevõimekuse väljaselgitamine
+##### 7.2 Otsevõimekuse väljaselgitamine
 Saatev süsteem PEAKS otsevõimekuse välja selgitama X-tee globaalse konfiguratsioonifaili põhjal. Otsevõimekuse tunnuseks on DHX alamsüsteemi olemasolu asutusel. Globaalse konfiguratsiooni VÕIB alla laadida X-tee keskusest või kasutada X-tee turvaserveri poolt allalaetud, turvaserveri liidese poolt pakutud globaalset konfiguratsioonifaili.
 
 Kui saatev süsteem peab DHX otsevõimekuse väljaselgitamist X-tee globaalse konfiguratsioonifaili põhjal tehniliselt liiga keerukaks, siis VÕIB otsevõimekust kontrollida ka otsese saatmisüritusega.
@@ -240,7 +248,7 @@ Kui saatev süsteem peab DHX otsevõimekuse väljaselgitamist X-tee globaalse ko
 
 Otsevõimekuse olemasolu korral saadetakse dokument otse.
 
-##### 7.2 DHX võimekus läbi vahendaja
+##### 7.2 Võimekus läbi vahendaja
 Otsevõimekuse puudumise korral PEAB saatev süsteem kontrollima, kas adressaadil on DHX võimekus läbi vahendaja.
 
 DHX võimekuse läbi vahendaja kontrollimiseks PEAB saatev süsteem:
@@ -275,7 +283,7 @@ Saatev süsteem PEAB dokumendi saatmisürituste seeriale andma unikaalse identif
 
 Saatmisürituste arv PEAB olema lõplik ja saatva süsteemi konfiguratsioonis määratav. 
 
-##### 7.7 Saatmisalgoritm
+##### 7.7 Saatmisalgoritm (illustratiivne)
 Saatmisalgoritmi esitus pseudokoodina (illustratiivne):
 
 ```Go

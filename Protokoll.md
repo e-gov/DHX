@@ -384,6 +384,10 @@ Vahendajana tegutsev süsteem PEAB mitmele aadressile saadetud dokumendi edastam
 
 Joonis 4. Toimimine üleminekuperioodil
    ```
+    Asutused 1 ja 3 on üle läinud DHX protokollile ja vahetavad dokumente üksteisega DHX-i abil otse.
+    Asutus 2 kasutab veel vana, "DVK protokolli". Asutustega 1 ja 3 dokumentide vahetamisel täidab 
+    DVK uue ja vana protokolli vahelise teisendaja rolli. 
+
     UK tähistab RIA poolt väljatöötatavat "universaalset tarkvarakomponenti",
     mille eesmärgiks on kergendada DHS-de ümberhäälestamist DHX-i kasutamisele. 
     UK kasutamine ei ole kohustuslik.

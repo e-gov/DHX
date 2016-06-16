@@ -3,7 +3,9 @@
 
 Estonian Information System Authority
 
-v 0.5
+Draft v 0.5
+
+_Note. Newer draft(s) exist in Estonian. These have not been translated yet._
 
 #### Table of Contents
 

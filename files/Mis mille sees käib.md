@@ -12,6 +12,7 @@ _ja mis mille otsas istub ja mis millega seotud on_
 - DVK spetsifikatsioonis nimetatakse dokumendi faile kohati samuti dokumentideks
 - edastatakse X-tee SOAP ümbrikus
 - asetseb "DVK konteineris"
+- kirjeldatud [DVK spetsifikatsioonis](https://github.com/e-gov/DVK/tree/master/doc)
 
 #### "DVK konteiner" e "kapsel"
 - seotud (lõdvalt) "Elektroonilise andmevahetuse metaandmete loendiga"

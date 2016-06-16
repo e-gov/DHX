@@ -2,6 +2,51 @@
 
 _ja mis mille otsas istub ja mis millega seotud on_
 
+#### HTTP sõnum, _HTTP message_
+- võib olla:
+  - päring(sõnum), _request (message)_
+  - vastus(sõnum), _response (message)_
+- edastuse osapooled:
+  - klient (HTTP), _client_
+  - server (HTTP), _server_
+- [RFC 2616 HTTP/1.1](https://tools.ietf.org/html/rfc2616) jaotis 4.1
+
+#### SOAP sõnum, _SOAP messsage_
+- koosneb:
+  - ümbrik, _envelope_
+  - päis, _header_
+  - keha, _body_
+  - veablokk, _fault_ (valikuline)
+- Simple Object Access Protocol (SOAP) 1.1, http://www.w3.org/TR/2000/NOTE-SOAP-20000508/
+- https://www.w3.org/TR/soap/
+- http://www.tutorialspoint.com/soap/soap_quick_guide.htm 
+
+#### X-tee sõnum, _X-Road message
+- määratletud kahe protokolliga:
+  - [X-tee sõnumiprotokoll](http://x-road.eu/docs/x-road_message_protocol_v4.0.pdf) (X-Road Message Protocol)
+  - [X-tee sõnumitranspordi protokoll](http://x-road.eu/docs/x-road_message_transport_protocol.pdf) (X-Road Message Transport Protocol)
+- a profile of the SOAP 1.1 protocol
+- edastuse osapooled:
+  - X-tee teenuse klient, _service client_
+  - X-tee teenuse osutaja, _service provider_
+- kaht liiki:
+  - päring(sõnum), _request (message)_
+  - vastus(sõnum), _response (message)_
+  - kuna X-tee on SOAP profiil ja SOAP transpordikihiks on HTTP, siis on üksüheselt seotud HTTP päringu ja vastusega
+- struktuur:
+  - päis, _header_
+    - X-Road message headers = additional SOAp headers used by the X-Road
+      - nt ``id`, X-tee sõnumi unikaalne identifikaator. 
+      ```
+      id - string - M(andatory)  - Unique identifier for this message.
+          The recommended form of message ID is UUID.
+      -- X-Road Message Protocol v4.0
+      ```
+  - keha, _body_
+    - MUST use Document/Literal-Wrapped SOAP encoding convention 
+  - manus, _attachment_
+    - MIME multipart standardil 
+
 #### X-tee SOAP ümbrik (_envelope_)
 - dokumendivahetuse kontekstis sisaldab gzip-ga kokkupakitud, seejärel base64 kodeeritud "DVK dokumenti"
 
@@ -37,6 +82,7 @@ _ja mis mille otsas istub ja mis millega seotud on_
    - 1.0 - [ametlik publikatsioon RIHAs](https://riha.eesti.ee/riha/main/xml/elektroonilise_andmevahetuse_metaandmete_loend)
      - mõned pole veel 2.1-le üle läinud (nt Riigi Teataja)
    - DVK transleerib vanast uude
+
 
 
 

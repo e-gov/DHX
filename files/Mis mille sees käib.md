@@ -32,7 +32,7 @@ _ja mis mille otsas istub ja mis millega seotud on_
  - vt DVK konteiner e "kapsel"
  - kaks versiooni:
    - 2.1
-    - [ametlik publikatsioon RIHAs](https://riha.eesti.ee/riha/main/xml/elektroonilise_andmevahetuse_metaandmete_loend/1)
+     - [ametlik publikatsioon RIHAs](https://riha.eesti.ee/riha/main/xml/elektroonilise_andmevahetuse_metaandmete_loend/1)
    - 1.0 - [ametlik publikatsioon RIHAs](https://riha.eesti.ee/riha/main/xml/elektroonilise_andmevahetuse_metaandmete_loend)
      - mõned pole veel 2.1-le üle läinud (nt Riigi Teataja)
    - DVK transleerib vanast uude

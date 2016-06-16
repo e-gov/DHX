@@ -21,7 +21,7 @@ _ja mis mille otsas istub ja mis millega seotud on_
 - https://www.w3.org/TR/soap/
 - http://www.tutorialspoint.com/soap/soap_quick_guide.htm 
 
-#### X-tee sõnum, _X-Road message
+#### X-tee sõnum, _X-Road message_
 - määratletud kahe protokolliga:
   - [X-tee sõnumiprotokoll](http://x-road.eu/docs/x-road_message_protocol_v4.0.pdf) (X-Road Message Protocol)
   - [X-tee sõnumitranspordi protokoll](http://x-road.eu/docs/x-road_message_transport_protocol.pdf) (X-Road Message Transport Protocol)
@@ -47,7 +47,7 @@ _ja mis mille otsas istub ja mis millega seotud on_
   - manus, _attachment_
     - MIME multipart standardil 
 
-#### X-tee SOAP ümbrik (_envelope_)
+#### X-tee SOAP ümbrik (_X-Road SOAP envelope_)
 - dokumendivahetuse kontekstis sisaldab gzip-ga kokkupakitud, seejärel base64 kodeeritud "DVK dokumenti"
 
 #### DVK dokument

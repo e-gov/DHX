@@ -129,7 +129,7 @@ Joonised:
 
 1. DHS-id vahetavad praegu dokumente DVK kaudu, kasutades tingliku nimetusega "DVK protokolli". "DVK protokolli" määravad elektroonilise andmevahetuse metaandmete loend [Kapsel], DVK liideste spetsifikatsioon [DVK spetsifikatsioon] ja [DVK pidamise kord], laiemas plaanis ka "Asjaajamise ühtsed alused" [AÜK]. Väiksemal arvul on dokumendivahetusliideseid loodud ka muude dokumente töötlevate infosüsteemide vahele. Need liidesed ei ole standarditud. Laienev dokumendiringlus ja dokumente vahetavate infosüsteemide tihenev võrgustik (dokumendivahetus tänapäeval ei piirdu „puhaste“ DHS-dega – dokumente vahetavad ka infosüsteemid, kus dokumendihaldus klassikalises mõttes on ainult üks andmetöötluse liik) nõuab alternatiivi ühe keskse postkastiserveri kaudu toimuvale dokumendiliiklusele.
 
- ![](img/DHX-Lahteolukord.PNG)
+ ![](img/DHX-Lahteolukord01.PNG)
 
  Joonis 1. Lähteolukord: dokumendivahetus DVK kaudu
 
@@ -138,7 +138,7 @@ Joonised:
 ##### 5.1 Üldiseloomustus
 DHX teenus on standardse nimemustri ja töötlusloogikaga X-tee teenus, millega asutus saab saata teisele asutusele dokumente.
 
- ![](img/DHX-Sihtolukord.PNG)
+ ![](img/DHX-Sihtolukord01.PNG)
 
  Joonis 2. DHX põhiskeem
 
@@ -381,9 +381,8 @@ Vahendajana tegutsev süsteem PEAB mitmele aadressile saadetud dokumendi edastam
 
 Joonis 4. Toimimine üleminekuperioodil
    ```
-    Asutused 1 ja 3 on üle läinud DHX protokollile ja vahetavad dokumente üksteisega DHX-i abil otse.
-    Asutus 2 kasutab veel vana, "DVK protokolli". Asutustega 1 ja 3 dokumentide vahetamisel täidab 
-    DVK uue ja vana protokolli vahelise teisendaja rolli. 
+    Asutused 1 ja 2 on üle läinud DHX protokollile ja vahetavad dokumente üksteisega DHX-i abil otse.
+    Asutus 3 kasutab veel vana, "DVK protokolli". DVK täidab üleminekuperioodil uue ja vana protokolli vahelise teisendaja rolli. 
 
     UK tähistab RIA poolt väljatöötatavat "universaalset tarkvarakomponenti",
     mille eesmärgiks on kergendada DHS-de ümberhäälestamist DHX-i kasutamisele. 

@@ -131,7 +131,7 @@ Joonised:
 
  ![](img/DHX-Lahteolukord01.PNG)
 
- Joonis 1. Lähteolukord: dokumendivahetus DVK kaudu
+Joonis 1. Lähteolukord: dokumendivahetus DVK kaudu
 
 #### 5 DHX teenus
 
@@ -140,7 +140,7 @@ DHX teenus on standardse nimemustri ja töötlusloogikaga X-tee teenus, millega 
 
  ![](img/DHX-Sihtolukord01.PNG)
 
- Joonis 2. DHX põhiskeem
+Joonis 2. DHX põhiskeem
 
 DHX teenuse kasutamine on interaktsioon, mis koosneb kahest sõnumisaatmisest:
  - dokumendi saatja saadab teenusele `sendDocument` X-tee päringusõnumi (päringu)
@@ -382,7 +382,9 @@ Vahendajana tegutsev süsteem PEAB mitmele aadressile saadetud dokumendi edastam
 Joonis 4. Toimimine üleminekuperioodil
    ```
     Asutused 1 ja 2 on üle läinud DHX protokollile ja vahetavad dokumente üksteisega DHX-i abil otse.
-    Asutus 3 kasutab veel vana, "DVK protokolli". DVK täidab üleminekuperioodil uue ja vana protokolli vahelise teisendaja rolli. 
+    Asutus 3 kasutab veel vana, "DVK protokolli".
+    
+    DVK täidab üleminekuperioodil uue - DHX - ja vana - DVK - protokolli vahelise teisendaja rolli. 
 
     UK tähistab RIA poolt väljatöötatavat "universaalset tarkvarakomponenti",
     mille eesmärgiks on kergendada DHS-de ümberhäälestamist DHX-i kasutamisele. 

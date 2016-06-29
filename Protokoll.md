@@ -42,11 +42,11 @@ v 0.7
 
 [8 Vastuvõtmine](Protokoll.md#8-vastuvõtmine)
 
-  - [8.1 Aadressi kontroll](Protokoll.md#101-aadressi-kontroll)
-  - [8.2 Valest aadressist teatamine](Protokoll.md#102-valest-aadressist-teatamine)
-  - [8.3 Kapsli kontroll](Protokoll.md#103-kapsli-kontroll)
-  - [8.4 Mitme aadressi käsitlus](Protokoll.md#104-mitme-aadressi-käsitlus)
-  - [8.5 Vastuvõtmine DVK-st](Protokoll.md#105-vastuvõtmine-dvk-st)
+  - [8.1 Aadressi kontroll](Protokoll.md#81-aadressi-kontroll)
+  - [8.2 Valest aadressist teatamine](Protokoll.md#82-valest-aadressist-teatamine)
+  - [8.3 Kapsli kontroll](Protokoll.md#83-kapsli-kontroll)
+  - [8.4 Mitme aadressi käsitlus](Protokoll.md#84-mitme-aadressi-käsitlus)
+  - [8.5 Vastuvõtmine DVK-st](Protokoll.md#85-vastuvõtmine-dvk-st)
 
 [9 Üleminek](Protokoll.md#9-Üleminek)
 
@@ -439,6 +439,10 @@ DVK lülitatakse välja siis, kui kõik DVK asutused on DHX protokolli võimekus
 
 [X-tee määrus] Vabariigi Valitsuse määrus "Infosüsteemide andmevahetuskiht" (eelnõu 09.03.2016). 
 
-#### Lisa 1. DHX teenuse spetsifikatsioon [lisatakse järgmises versioonis]
+#### Lisa 1. DHX teenuse spetsifikatsioon
 
-#### Lisa 2. Vahendusnimekirja teenuse spetsifikatsioon [lisatakse järgmises versioonis]
+_lisatakse järgmises versioonis_
+
+#### Lisa 2. Vahendusnimekirja teenuse spetsifikatsioon
+
+_lisatakse järgmises versioonis_

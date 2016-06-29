@@ -377,7 +377,7 @@ Vahendajana tegutsev süsteem PEAB mitmele aadressile saadetud dokumendi edastam
 ##### 9.1 Üleminekuperiood
 Üleminek DHX protokollile toimub etteantud perioodi jooksul. Üleminekuperiood algab kõigile asutustele üheaegselt. Perioodi algusest teavitab X-tee keskus.
 
- ![](img/DHX-Yleminek.PNG)
+ ![](img/DHX-Yleminek01.PNG)
 
 Joonis 4. Toimimine üleminekuperioodil
    ```

@@ -132,7 +132,7 @@ Joonised:
 
 1. DHS-id vahetavad praegu dokumente DVK kaudu, kasutades tingliku nimetusega "DVK protokolli". "DVK protokolli" määravad elektroonilise andmevahetuse metaandmete loend [Kapsel], DVK liideste spetsifikatsioon [DVK spetsifikatsioon] ja [DVK pidamise kord], laiemas plaanis ka "Asjaajamise ühtsed alused" [AÜK]. Väiksemal arvul on dokumendivahetusliideseid loodud ka muude dokumente töötlevate infosüsteemide vahele. Need liidesed ei ole standarditud. Laienev dokumendiringlus ja dokumente vahetavate infosüsteemide tihenev võrgustik (dokumendivahetus tänapäeval ei piirdu „puhaste“ DHS-dega – dokumente vahetavad ka infosüsteemid, kus dokumendihaldus klassikalises mõttes on ainult üks andmetöötluse liik) nõuab alternatiivi ühe keskse postkastiserveri kaudu toimuvale dokumendiliiklusele.
 
- ![](../img/DHX-Lahteolukord01.PNG)
+ ![](../img/DHX-Lahteolukord02.PNG)
 
 Joonis 1. Lähteolukord: dokumendivahetus DVK kaudu
 
@@ -141,7 +141,7 @@ Joonis 1. Lähteolukord: dokumendivahetus DVK kaudu
 ##### 5.1 Üldiseloomustus
 DHX teenus on standardse nimemustri ja töötlusloogikaga X-tee teenus, millega asutus saab saata teisele asutusele dokumente.
 
- ![](../img/DHX-Sihtolukord01.PNG)
+ ![](../img/DHX-Sihtolukord02.PNG)
 
 Joonis 2. DHX põhiskeem
 
@@ -212,7 +212,7 @@ Asutus VÕIB rakendada DHX-i kas otse (s.t iseseisvalt) või vahendaja kaudu.
   
 DHX vahendamisel arendab DHX teenuse välja, avab teistele asutustele ja käitab teenust vahendaja. Joonisel 3 on esitatud interaktsiooni põhimõtteskeem vahendamise korral.
 
- ![](../img/Liideste%20skeem%2002.PNG)
+ ![](../img/DHX-Vahendamine01.PNG)
 
 Joonis 3 DHX teenusevahendamine
 

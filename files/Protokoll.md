@@ -53,8 +53,7 @@ v 0.7
   - [9.1 Üleminekuperiood](Protokoll.md#91-Üleminekuperiood)
   - [9.2 DVK toimimine üleminekuperioodil](Protokoll.md#92-dvk-toimimine-üleminekuperioodil)
  
-[10 Vastavuskriteeriumid](Protokoll.md#91-Vastavuskriteeriumid)  
-
+[10 Vastavuskriteeriumid](Protokoll.md#10-vastavusn%C3%B5uded)  
 
 [Viited](Protokoll.md#viited)
 
@@ -97,7 +96,7 @@ Joonised:
 
 #### 3 Mõisted ja lühendid
 
-| | |
+| mõiste | seletus |
 |---|---|
 | _adressaat_ | asutus, kellele tahetakse dokumenti saata. Adressaadi määrab üheselt asutuse registrikood. |
 | _asutus_ | DHX dokumendivahetuses osalev organisatsioon. Eelkõige Eesti avaliku sektori asutus, aga võib olla ka ettevõte või vabasektori organisatsioon. Asutuselt eeldatakse ametlikku registrisse (riigi ja kohaliku omavalitsuse asutuste riiklik register (RKOARR), äriregister, mittetulundusasutuste register) kantust ja registrikoodi olemasolu. |
@@ -133,7 +132,7 @@ Joonised:
 
 1. DHS-id vahetavad praegu dokumente DVK kaudu, kasutades tingliku nimetusega "DVK protokolli". "DVK protokolli" määravad elektroonilise andmevahetuse metaandmete loend [Kapsel], DVK liideste spetsifikatsioon [DVK spetsifikatsioon] ja [DVK pidamise kord], laiemas plaanis ka "Asjaajamise ühtsed alused" [AÜK]. Väiksemal arvul on dokumendivahetusliideseid loodud ka muude dokumente töötlevate infosüsteemide vahele. Need liidesed ei ole standarditud. Laienev dokumendiringlus ja dokumente vahetavate infosüsteemide tihenev võrgustik (dokumendivahetus tänapäeval ei piirdu „puhaste“ DHS-dega – dokumente vahetavad ka infosüsteemid, kus dokumendihaldus klassikalises mõttes on ainult üks andmetöötluse liik) nõuab alternatiivi ühe keskse postkastiserveri kaudu toimuvale dokumendiliiklusele.
 
- ![](img/DHX-Lahteolukord01.PNG)
+ ![](../img/DHX-Lahteolukord01.PNG)
 
 Joonis 1. Lähteolukord: dokumendivahetus DVK kaudu
 
@@ -142,7 +141,7 @@ Joonis 1. Lähteolukord: dokumendivahetus DVK kaudu
 ##### 5.1 Üldiseloomustus
 DHX teenus on standardse nimemustri ja töötlusloogikaga X-tee teenus, millega asutus saab saata teisele asutusele dokumente.
 
- ![](img/DHX-Sihtolukord01.PNG)
+ ![](../img/DHX-Sihtolukord01.PNG)
 
 Joonis 2. DHX põhiskeem
 
@@ -213,7 +212,7 @@ Asutus VÕIB rakendada DHX-i kas otse (s.t iseseisvalt) või vahendaja kaudu.
   
 DHX vahendamisel arendab DHX teenuse välja, avab teistele asutustele ja käitab teenust vahendaja. Joonisel 3 on esitatud interaktsiooni põhimõtteskeem vahendamise korral.
 
- ![](img/Liideste%20skeem%2002.PNG)
+ ![](../img/Liideste%20skeem%2002.PNG)
 
 Joonis 3 DHX teenusevahendamine
 
@@ -383,7 +382,7 @@ Vahendajana tegutsev süsteem PEAB mitmele aadressile saadetud dokumendi edastam
 ##### 9.1 Üleminekuperiood
 Üleminek DHX protokollile toimub etteantud perioodi jooksul. Üleminekuperiood algab kõigile asutustele üheaegselt. Perioodi algusest teavitab X-tee keskus.
 
- ![](img/DHX-Yleminek01.PNG)
+ ![](../img/DHX-Yleminek01.PNG)
 
 Joonis 4. Toimimine üleminekuperioodil
    ```
@@ -491,6 +490,8 @@ Käesolev jaotis võtab kokku nõuded (ingl _conformance criteria_, vt nt RFC 20
 [RIA-PP] [Protokollide spetsifitseerimise parim praktika](https://github.com/e-gov/Open-Workflow/blob/master/ProtokollideParimPraktika.md). Riigi Infosüsteemi Amet. 2015.
 
 [RFC 2119] [Key words for use in RFCs to Indicate Requirement Levels](https://www.ietf.org/rfc/rfc2119.txt).
+
+[RFC 2049] [RFC 2045 Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies](https://tools.ietf.org/html/rfc2049).
 
 [UG-SIGDOC] [X-Road: Signed Document Download and Verification Manual](http://x-road.eu/docs/x-road_signed_document_download_and_verification_manual.pdf). 
 

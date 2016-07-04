@@ -4,7 +4,7 @@
 
 #### EN
 
-[Text](Protocol.md) | [Overview](https://github.com/e-gov/DHX/blob/master/files/Overview.md) |  [Presentation](https://github.com/e-gov/DHX/blob/master/files/DHX_EN%20%282%29.pdf) (with a very brief discussion of X-Road) | [Discussion page](https://github.com/e-gov/DHX/issues) | [How to contribute](https://github.com/e-gov/DHX/blob/master/CONTRIBUTING.md)
+[Text](files/Protocol.md) | [Overview](https://github.com/e-gov/DHX/blob/master/files/Overview.md) |  [Presentation](https://github.com/e-gov/DHX/blob/master/files/DHX_EN%20%282%29.pdf) (with a very brief discussion of X-Road) | [Discussion page](https://github.com/e-gov/DHX/issues) | [How to contribute](https://github.com/e-gov/DHX/blob/master/CONTRIBUTING.md) | [Reference implementation](https://github.com/e-gov/DHX-etalon)
 
 Protocol is published with [MIT licence](LICENCE.txt).
 
@@ -12,7 +12,7 @@ Protocol is published with [MIT licence](LICENCE.txt).
 
 DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimaldab Eesti avaliku sektori dokumendihaldussüsteemidel vahetada dokumente hajus- e detsentraliseeritud põhimõttel.
 
-[Tekst](Protokoll.md) | vt ka [Foorum](https://github.com/e-gov/DHX/issues) | [Esitlus](http://slides.com/priitparmakson/dhx/fullscreen) | [Kirjandus](files/Kirjandus.md) | [Osale arenduses](CONTRIBUTING.md) | [Dokumendihalduse "ökosüsteem"](files/DOK-S.md)
+[Tekst](files/Protokoll.md) | vt ka [Foorum](https://github.com/e-gov/DHX/issues) | [Esitlus](http://slides.com/priitparmakson/dhx/fullscreen) | [Kirjandus](files/Kirjandus.md) | [Osale arenduses](CONTRIBUTING.md) | [Dokumendihalduse "ökosüsteem"](files/DOK-S.md) | [Etalonteostus](https://github.com/e-gov/DHX-etalon)
 
 Protokolli saab kasutada [MIT litsentsi alusel](LICENCE.txt).
 

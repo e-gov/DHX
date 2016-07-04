@@ -52,6 +52,9 @@ v 0.7
 
   - [9.1 Üleminekuperiood](Protokoll.md#91-Üleminekuperiood)
   - [9.2 DVK toimimine üleminekuperioodil](Protokoll.md#92-dvk-toimimine-üleminekuperioodil)
+ 
+[10 Vastavuskriteeriumid](Protokoll.md#91-Vastavuskriteeriumid)  
+
 
 [Viited](Protokoll.md#viited)
 
@@ -117,6 +120,7 @@ Joonised:
 | _RIA_ | Riigi Infosüsteemi Amet. |
 | _registrikood_ | asutuse ametlik registrikood. Nt `70002093` `Kadrioru lasteaed`. |
 | _vastuvõttev süsteem_ | dokumenti X-teel DHX protokolli kohaselt vastuvõttev infosüsteem (võib olla ka vahendaja infosüsteem ja üleminekuperioodil DVK) |
+| _saadetis_ | ingl _consignment_, dokument, mida saatev süsteem üritab vastuvõtvale süsteemile saata. Ebaõnnestumise korral tehakse mitu üritust. |
 | _saatev süsteem_ | dokumenti X-teel DHX protokolli kohaselt saatev infosüsteem (võib olla ka vahendaja infosüsteem) |
 | _teenuse identifikaator_ | X-tee [X-tee] versiooni 6 nõuete kohane X-tee teenuse identifikaator. Identifitseerib unikaalselt X-tee teenuse nii Eesti X-teel kui ka X-tee implementatsioonide rahvusvahelises võrgus. Koosneb X-tee liikme identifikaatorist, teenuse koodnimetusest ja valikulisest versiooninumbrist. Näiteks: `EE/GOV/70003158/DHX/sendDocument`. |
 | _vahendaja_ | vt DHX vahendaja|
@@ -157,7 +161,7 @@ Dokument edastatakse päringsõnumis.
    ```
 
 ##### 5.2 DHX teenuse väljaarendamine
-Iga DHX-i rakendav asutus (või DHS teenusepakkuja) PEAB arendama oma DHS-is välja DHX teenuse ja käitama seda.
+Iga DHX-i rakendav asutus (või tema DHS vahendusteenuse või DHS majutusteenuse pakkuja) PEAB arendama oma DHS-is välja DHX teenuse ja käitama seda.
 
 DHX-i rakendaja teostatud DHX teenus PEAB vastama lisas 1 esitatud täpsemale spetsifikatsioonile.
 
@@ -254,6 +258,8 @@ DHX-i rakendaja teostatud vahendusnimekirja teenus PEAB vastama lisas 2 esitatud
 Saatev süsteem PEAB välja selgitama, kas adressaadil on DHX võimekus. DHX võimekus võib olla otsevõimekus või võimekus vahendaja kaudu.
 
 ##### 7.2 Otsevõimekuse väljaselgitamine
+Otsevõimekust PEAB välja selgitama esimeses järjekorras (enne vahendaja kaudu võimekuse tuvastamist).
+
 Saatev süsteem PEAKS otsevõimekuse välja selgitama X-tee globaalse konfiguratsioonifaili põhjal. Otsevõimekuse tunnuseks on DHX alamsüsteemi olemasolu asutusel. Globaalse konfiguratsiooni VÕIB alla laadida X-tee keskusest või kasutada X-tee turvaserveri poolt allalaetud, turvaserveri liidese poolt pakutud globaalset konfiguratsioonifaili.
 
 Kui saatev süsteem peab DHX otsevõimekuse väljaselgitamist X-tee globaalse konfiguratsioonifaili põhjal tehniliselt liiga keerukaks, siis VÕIB otsevõimekust kontrollida ka otsese saatmisüritusega.
@@ -269,9 +275,9 @@ Kui saatev süsteem peab DHX otsevõimekuse väljaselgitamist X-tee globaalse ko
   alamsüsteemi. Kui ei ole, siis DHX võimekus puudub.
   ```
 
-Otsevõimekuse olemasolu korral saadetakse dokument otse.
+Adressaadil otsevõimekuse olemasolul PEAB dokumendi saatma adressaadile otse.
 
-##### 7.2 Võimekus läbi vahendaja
+##### 7.3 Võimekus läbi vahendaja
 Otsevõimekuse puudumise korral PEAB saatev süsteem kontrollima, kas adressaadil on DHX võimekus läbi vahendaja.
 
 DHX võimekuse läbi vahendaja kontrollimiseks PEAB saatev süsteem:
@@ -282,10 +288,10 @@ DHX võimekuse läbi vahendaja kontrollimiseks PEAB saatev süsteem:
 
 Kui adressaadil puudub DHX otsevõimekus, kuid on DHX võimekus läbi vahendaja, siis PEAB saatev süsteem saatma dokumendi vahendajale.
 
-##### 7.3 Lokaalne aadressiraamat
+##### 7.4 Lokaalne aadressiraamat
 Saatev süsteem VÕIB DHX-i võimekuse väljaselgitamise tulemust puhverdada, moodustades nn lokaalse aadressiraamatu. Puhvri (lokaalse aadressiraamatu) värskendamise periood PEAB olema konfigureeritav.
 
-##### 7.4 Saatmine DVK-sse
+##### 7.5 Saatmine DVK-sse
 Kui saatev süsteem on kindlaks teinud, et adressaadil puudub DHX võimekus ja käimas on üleminekuperiood, siis PEAB saatev süsteem üritama dokumenti saata DVK `sendDocument` teenusesse. 
    ```
    Tegu on juhuga, kus adressaat ei ole veel DHX-i võimekust loonud. 
@@ -297,8 +303,8 @@ Kui saatev süsteem on kindlaks teinud, et adressaadil puudub DHX võimekus ja k
    ole DHX võimekust loonud.
    ```
 
-##### 7.5 Dokumendi lugemine edastatuks
-Dokument loetakse edastatuks kui saatev süsteem on saanud `sendDocument` teenuselt positiivse vastuskoodiga vastussõnumi.
+##### 7.6 Dokumendi lugemine edastatuks
+Saatev süsteem PEAB lugema dokumendi edastatuks, kui on saanud `sendDocument` teenuselt positiivse vastuskoodiga vastussõnumi.
    ```
    Kinnitus dokumendi kättesaamise kohta saadetakse X-tee päring-vastus 
    (request-response) vastussõnumis. Kui osapooled vajavad kõrgema 
@@ -306,7 +312,7 @@ Dokument loetakse edastatuks kui saatev süsteem on saanud `sendDocument` teenus
    protokolli väliselt või DHX protokolli pealiskihina.
    ```
 
-##### 7.6 Uuesti üritamine
+##### 7.7 Uuesti üritamine
 Kui adressaadiga ei saa ühendust või kättesaamise kinnitust ei tule, siis PEAB mõne aja pärast saatmist uuesti üritama.
    ```
    Sarnaselt DVK liideses kasutatule.
@@ -314,11 +320,11 @@ Kui adressaadiga ei saa ühendust või kättesaamise kinnitust ei tule, siis PEA
 
 Tühipäringute arvu vähendamiseks PEAKS kasutada eksponentsiaalse taganemise (_exponential back-off_) algoritmi [EXP].
 
-Saatev süsteem PEAB dokumendi saatmisürituste seeriale andma unikaalse identifikaatori.
+Saatev süsteem PEAB dokumendi saatmisürituste seeriale andma unikaalse identifikaatori (saadetise id, ingl _consignment id_).
 
 Saatmisürituste arv PEAB olema lõplik ja saatva süsteemi konfiguratsioonis määratav. 
 
-##### 7.7 Saatmisalgoritm (illustratiivne)
+##### 7.8 Saatmisalgoritm (illustratiivne)
 Saatmisalgoritmi esitus pseudokoodina (illustratiivne):
 
 ```Go
@@ -359,7 +365,7 @@ Vastuvõttev süsteem PEAB kontrollima, et dokument on saadetud õigele aadressi
 Valesti adresseeritud dokumendi korral PEAB vastuvõttev süsteem saatma saatjale veateate `Vale aadress`. 
 
 ##### 8.3 Kapsli kontroll
-Vastuvõttev süsteem PEAB kontrollima, et dokument tuli nõuetekohases kapslis. Vigase kapsli korral PEAB saatma vastava veateate `Vigane kapsel`. Kontroll PEAB sisaldama vähemalt XML skeemile vastavuse kontrollimist. Vastuvõttev süsteem VÕIB teha täiendavaid kontrolle semantilisel või äriloogikalisel tasandil.
+Vastuvõttev süsteem PEAB kontrollima, et dokument tuli nõuetekohases kapslis. Kontroll PEAB sisaldama vähemalt XML skeemile vastavuse kontrollimist. Vigase kapsli korral PEAB saatma vastava veateate `Vigane kapsel`. Vastuvõttev süsteem VÕIB teha täiendavaid kontrolle semantilisel või äriloogikalisel tasandil.
 
 ##### 8.4 Mitme aadressi käsitlus
 Vahendajana tegutsev süsteem PEAB mitmele aadressile saadetud dokumendi edastama kõigile oma klientidele, kes on dokumendi kapsli transpordiblokis adressaatidena nimetatud.
@@ -397,7 +403,7 @@ DHX protokolli kohane dokumentide saatmise ja vastuvõtmise võimekus arendataks
 
 Üleminekuperioodil niipea, kui asutuse DHS-is on tekkinud DHX protokolli võimekus (arendus on lõppenud), PEAB hakkama dokumendi saatmisel kasutama DHX teenust.
 
-Kui osutub, et adressaat ei ole veel dokumentide vastuvõtmise DHX-teenust loonud (teenus ei ole X-teel leitav), siis saadetakse dokument DVK kaudu, kasutades DVK teenust `sendDocument` ja märkides adressaadi dokumendi metaandmete kapslis.
+Üleminekuperioodil kui osutub, et adressaat ei ole veel dokumentide vastuvõtmise DHX-teenust loonud (teenus ei ole X-teel leitav), siis PEAB dokumendi saatma DVK kaudu, kasutades DVK teenust `sendDocument` ja märkides adressaadi dokumendi metaandmete kapslis.
 
 DHX võimekuse saavutanud asutus PEAB DVK kasutamisest loobuma.
 
@@ -409,6 +415,58 @@ DVK pakub teenust `sendDocument`, millega DHX-i võimekuse loonud asutus saab ed
 DHX-i võimekuse loonud asutusele adresseeritud dokumendi laekumisel DVK-sse üritab DVK seda kohe edasi saata.
 
 DVK lülitatakse välja siis, kui kõik DVK asutused on DHX protokolli võimekuse loonud või üleminekuperioodi tähtaja saabudes.
+
+#### 10 Vastavusnõuded
+Käesolev jaotis võtab kokku nõuded (ingl _conformance criteria_, vt nt RFC 2049), mis peavad olema täidetud, et dokumente vahetava süsteemi saaks deklareerida DHX-le vastavaks. Alljärgnev käsitlus piirdub koostalitlusvõimet tagavate tarkvaratehniliselt rakendatavate meetmetega ja süsteemide tehniliste omadustega. DHX dokumendivahetuse korraldamiseks võivad dokumendivahetuse osapooled ja koordinaatorid kehtestada mitmesuguseid (täiendavaid) organisatsioonilisi meetmeid. Need ei ole protokolli käsitlusalas.  
+
+##### 10.1 Vastavusnõuded kõigile DHX dokumente vahetavatele süsteemidele
+
+| jaotis | nõue |
+|--------|------|
+| 5.2  |  Iga DHX-i rakendav asutus (või tema DHS vahendusteenuse või DHS majutusteenuse pakkuja) PEAB arendama oma DHS-is välja DHX teenuse ja käitama seda. |
+| 5.2 | DHX-i rakendaja teostatud DHX teenus PEAB vastama lisas 1 esitatud täpsemale spetsifikatsioonile. |
+| 5.3 | DHX-i rakendav asutus PEAB avama DHX teenuse kõigile asutustele, kellega ta soovib dokumente vahetada. Kui asutus turvapoliitika vm kaalutlustel ei pea otstarbekaks DHX teenuse avamist kõigile X-tee liikmetele, siis VÕIB ta DHX teenuse avada konkreetsetele X-tee liikmetele (pääsuõiguste andmisega X-tee turvaserveris). |
+| 5.3 | Üleminekuperioodiks PEAB DHX teenuse avama ka DVK-le. |
+| 5.4 | DHX teenuse nimi PEAB järgima mustrit `EE/<liikmeklass>/<registrikood>/DHX/sendDocument`. |
+| 5.5 | DHX teenus PEAB kasutama X-tee alamsüsteemi "DHX". |
+| 5.6 | Dokumendi PEAB edastama ametlikult kinnitatud elektroonilise andmevahetuse metaandmete loendile vastavas "kapslis". |
+| 5.7 | Saatev süsteem PEAB andma dokumendile identifikaatori, mis on unikaalne vähemalt DHS-i piires. |
+| 6.2 | DHX rakendamisel läbi vahendaja PEAB asutus sõlmima lepingu DHX vahendajaga. Kasutada TOHIB AINULT X-tee keskuse poolt DHX vahendajate nimekirja lisatud vahendajaid. |
+| 7.1 | Saatev süsteem PEAB välja selgitama, kas adressaadil on DHX võimekus. |
+| 7.2 | Otsevõimekust PEAB välja selgitama esimeses järjekorras (enne vahendaja kaudu võimekuse tuvastamist). |
+| 7.2 | Saatev süsteem PEAKS otsevõimekuse välja selgitama X-tee globaalse konfiguratsioonifaili põhjal. |
+| 7.2 | Adressaadil otsevõimekuse olemasolul PEAB dokumendi saatma adressaadile otse. |
+| 7.3 | DHX võimekuse läbi vahendaja kontrollimiseks PEAB saatev süsteem: a) alla laadima X-tee keskusest X-tee globaalse konfiguratsiooni faili või kasutama turvaserveri poolt allalaetud globaalse konfiguratsiooni faili; b) leidma failist vahendajate nimekirja (DHX vahendajate grupi); c) käima kõik vahendajad läbi ning pärima X-tee kaudu vahendusnimekirjad; d)     kindlaks tegema, kas adressaat sisaldub vahendusnimekirjades. |
+| 7.3 | Kui adressaadil puudub DHX otsevõimekus, kuid on DHX võimekus läbi vahendaja, siis PEAB saatev süsteem saatma dokumendi vahendajale. |
+| 7.4 | Puhvri (lokaalse aadressiraamatu) kasutamisel PEAB värskendamise periood olema konfigureeritav.|
+| 7.5 | Kui saatev süsteem on kindlaks teinud, et adressaadil puudub DHX võimekus ja käimas on üleminekuperiood, siis PEAB saatev süsteem üritama dokumenti saata DVK sendDocument teenusesse. |
+| 7.6 | Saatev süsteem PEAB lugema dokumendi edastatuks, kui on saanud `sendDocument` teenuselt positiivse vastuskoodiga vastussõnumi. |
+| 7.7 | Kui adressaadiga ei saa ühendust või kättesaamise kinnitust ei tule, siis PEAB mõne aja pärast saatmist uuesti üritama. |
+| 7.7 | Tühipäringute arvu vähendamiseks PEAKS kasutada eksponentsiaalse taganemise (exponential back-off) algoritmi [EXP]. |
+| 7.7 | Saatev süsteem PEAB dokumendi saatmisürituste seeriale andma unikaalse identifikaatori (saadetise id, ingl _consignment id_). |
+| 7.7 | Saatmisürituste arv PEAB olema lõplik ja saatva süsteemi konfiguratsioonis määratav. |
+| 8.1 | Vastuvõttev süsteem PEAB kontrollima, et dokument on saadetud õigele aadressile. |
+| 8.2 | Valesti adresseeritud dokumendi korral PEAB vastuvõttev süsteem saatma saatjale veateate Vale aadress. |
+| 8.3 | Vastuvõttev süsteem PEAB kontrollima, et dokument tuli nõuetekohases kapslis. |
+| 8.3 | Kontroll PEAB sisaldama vähemalt XML skeemile vastavuse kontrollimist. |
+| 8.3 | Vigase kapsli korral PEAB saatma vastava veateate Vigane kapsel. |
+| 8.5 | Üleminekuperioodil PEAB dokumente vastu võtma ka DVK-st. |
+| 9.1 | Üleminekuperioodil niipea, kui asutuse DHS-is on tekkinud DHX protokolli võimekus (arendus on lõppenud), PEAB hakkama dokumendi saatmisel kasutama DHX teenust. |
+| 9.1 | Üleminekuperioodil kui osutub, et adressaat ei ole veel dokumentide vastuvõtmise DHX-teenust loonud (teenus ei ole X-teel leitav), siis PEAB dokumendi saatma DVK kaudu, kasutades DVK teenust `sendDocument` ja märkides adressaadi dokumendi metaandmete kapslis. |
+| 9.1 | DHX võimekuse saavutanud asutus PEAB DVK kasutamisest loobuma. |
+
+##### 10.2 Vahendajate süsteemidele rakenduvad nõuded
+
+| jaotis | nõue |
+|--------|------|
+| 6.2 | Vahendajana tegutseda sooviv asutus või ettevõte PEAB end vahendajana X-teel registreerima. |
+| 6.3 | Iga vahendaja PEAB pidama vahendusnimekirja. |
+| 6.3 | Vahendaja PEAB hoidma vahendusnimekirja ajakohasena. |
+| 6.3 | Vahendaja PEAB vahendusnimekirja tegema kättesaadavaks X-tee teenusena. |
+| 6.3 | Vahendusnimekirja teenuse nimi PEAB järgima mustrit `EE/<liikmeklass>/<registrikood>/DHX/representationList`.  |
+| 6.3 | DHX-i rakendaja teostatud vahendusnimekirja teenus PEAB vastama lisas 2 esitatud täpsemale spetsifikatsioonile. |
+| 8.1 | Vahendamise puhul PEAB vastuvõttev süsteem kontrollima, kas adressaat on vahendaja klient (on vahendusnimekirjas). |
+| 8.4 | Vahendajana tegutsev süsteem PEAB mitmele aadressile saadetud dokumendi edastama kõigile oma klientidele, kes on dokumendi kapsli transpordiblokis adressaatidena nimetatud. |
 
 #### Viited
 

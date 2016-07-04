@@ -1,6 +1,6 @@
-##Mis mille sees käib
+##Kapseldamismudel
 
-_ja mis mille otsas istub ja mis millega seotud on_
+_ülevaade sellest, mis mille sees käib_
 
 #### HTTP sõnum, _HTTP message_
 - võib olla:
@@ -10,6 +10,11 @@ _ja mis mille otsas istub ja mis millega seotud on_
   - klient (HTTP), _client_
   - server (HTTP), _server_
 - [RFC 2616 HTTP/1.1](https://tools.ietf.org/html/rfc2616) jaotis 4.1
+
+- HTTP tugineb e-posti sõnumivormingule
+  - viimane on kirjeldatud standardites:
+    - [RFC 2822 Internet Message Format](https://tools.ietf.org/html/rfc2822) (2001)
+    - [RFC 2821 Simple Mail Transfer Protocol (SMTP)](https://tools.ietf.org/html/rfc2821#section-2.3)
 
 #### SOAP sõnum, _SOAP messsage_
 - koosneb:

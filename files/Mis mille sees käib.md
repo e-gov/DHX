@@ -2,6 +2,14 @@
 
 _ülevaade sellest, mis mille sees käib_
 
+#### Sisukord
+
+[HTTP sõnum (HTTP message)](Mis%20mille%20sees%20k%C3%A4ib.md#http-s%C3%B5num-http-message)
+[interneti sõnumivorming (Internet Message Format)](Mis%20mille%20sees%20k%C3%A4ib.md#interneti-s%C3%B5numivorming-internet-message-format)
+[SOAP sõnum (SOAP messsage)](Mis%20mille%20sees%20k%C3%A4ib.md#soap-s%C3%B5num-soap-messsage)
+[X-tee sõnum (X-Road message)](Mis%20mille%20sees%20k%C3%A4ib.md#x-tee-s%C3%B5num-x-road-message)
+[Kapslis dokument](Mis%20mille%20sees%20k%C3%A4ib.md#kapslis-dokument)
+
 #### HTTP sõnum (_HTTP message_)
 - võib olla:
   - __päring(sõnum)__, _request (message)_
@@ -83,19 +91,17 @@ _ülevaade sellest, mis mille sees käib_
   - __manus__ (_attachment_)
     - MIME multipart standardil 
 
-#### X-tee SOAP ümbrik (_X-Road SOAP envelope_)
-- dokumendivahetuse kontekstis sisaldab gzip-ga kokkupakitud, seejärel base64 kodeeritud "DVK dokumenti"
-
-#### DVK dokument
+#### Kapslis dokument
+- "DVK dokument"
+- "DVK konteiner" e "kapsel"
 - DVK ja DHS vahel ühe teenusekasutusega (päring-vastus interaktsiooniga) edastatav dokument
 - XML vormingus
 - dokument võib koosneda mitmest failist
 - DVK spetsifikatsioonis nimetatakse dokumendi faile kohati samuti dokumentideks
-- edastatakse X-tee SOAP ümbrikus
+- edastatakse X-tee SOAP ümbrikus (_X-Road SOAP envelope_)
+  - sisaldab gzip-ga kokkupakitud, seejärel base64 kodeeritud "DVK dokumenti"
 - asetseb "DVK konteineris"
 - kirjeldatud [DVK spetsifikatsioonis](https://github.com/e-gov/DVK/tree/master/doc)
-
-#### "DVK konteiner" e "kapsel"
 - seotud (lõdvalt) "Elektroonilise andmevahetuse metaandmete loendiga"
 - kasutusel on kaks versiooni:
   - versioon 2

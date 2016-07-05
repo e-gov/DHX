@@ -2,11 +2,14 @@
 
 Riigi Infosüsteemi Amet
 
-v 0.7
+_kavand v 0.7_
 
 #### Sisukord
 
 [1 Ülevaade](Protokoll.md#1-Ülevaade)
+  - [1.1 Mis on DHX?]()
+  - [1.2 Dokumendi eesmärk]()
+  - [1.3 Väljatöötamine]()
 
 [2 Nõuete keel](Protokoll.md#2-nõuete-keel)
 
@@ -69,21 +72,40 @@ Joonised:
 
 ####  1 Ülevaade
 
-1. Dokumendivahetusprotokoll DHX on standardiseeritud tehniline ja organisatsiooniline lahendus, mis võimaldab asutustel vahetada dokumente hajus- e detsentraliseeritud põhimõttel.
+##### 1.1 Mis on DHX?
+Dokumendivahetusprotokoll DHX on standardiseeritud tehniline ja organisatsiooniline lahendus, mis võimaldab asutustel vahetada dokumente hajus- e detsentraliseeritud põhimõttel.
 
-2. DHX kasutab X-tee taristut. Erinevalt vanemast Dokumendivahetuskeskusest (DVK) ei nõua DHX dokumendihaldussüsteemidelt (DHS) enam "postkontoris" posti järel käimist, vaid dokumendid liiguvad otse saatjalt saajale.
+DHX kasutab X-tee taristut. Erinevalt vanemast Dokumendivahetuskeskusest (DVK) ei nõua DHX dokumendihaldussüsteemidelt (DHS) enam "postkontoris" posti järel käimist, vaid dokumendid liiguvad otse saatjalt saajale.
 
-3. DHX on mõeldud eelkõige avaliku sektori dokumendivahetuse turvaliseks ja kuluefektiivseks korraldamiseks, kuid skeem on laiendatav ka era- ja vabasektori organisatsioonidele.
+DHX on mõeldud eelkõige avaliku sektori dokumendivahetuse turvaliseks ja kuluefektiivseks korraldamiseks, kuid skeem on laiendatav ka era- ja vabasektori organisatsioonidele.
 
-4. DHX toetab andmeteenuse vahendamist (X-tee mõistes).
+DHX toetab andmeteenuse vahendamist (X-tee mõistes).
 
-5. DHX võimaldab elektroonilist dokumendivahetust korraldada detsentraliseeritult, ilma keskse postitöötlemissõlmeta. Protokoll ei nõua individuaalseid (bilateraalseid) kokkuleppeid, häälestusi, liideste ehitamist vms dokumente vahetavate asutuste vahel. Protokolli järgiv asutus saab teisele asutusele saata dokumendi ilma mingi varasema kontaktita kahe asutuse vahel.
+DHX võimaldab elektroonilist dokumendivahetust korraldada detsentraliseeritult, ilma keskse postitöötlemissõlmeta. Protokoll ei nõua individuaalseid (bilateraalseid) kokkuleppeid, häälestusi, liideste ehitamist vms dokumente vahetavate asutuste vahel. Protokolli järgiv asutus saab teisele asutusele saata dokumendi ilma mingi varasema kontaktita kahe asutuse vahel.
 
-6. Käesolev dokument määratleb nõuded, andmevormingud, töötlus- ja menetlusloogikad kõigile osapooltele - DHX-i rakendavatele asutustele, DHX-i vahendajatele ja X-tee keskusele. Samuti käsitletakse üleminekut seni DVK kaudu korraldatud dokumendivahetuselt DHX-i kasutamisele.
+##### 1.2 Dokumendi eesmärk
+Käesolev dokument määratleb nõuded, andmevormingud, töötlus- ja menetlusloogikad kõigile osapooltele - DHX-i rakendavatele asutustele, DHX-i vahendajatele ja X-tee keskusele. Samuti käsitletakse üleminekut seni DVK kaudu korraldatud dokumendivahetuselt DHX-i kasutamisele.
 
-7. Protokolli koostamisel on aluseks protokollide spetsifitseerimise parim praktika [RIA-PP].
+##### 1.3 Väljatöötamine
+Protokolli koostamisel on lähtutud protokollide spetsifitseerimise parimast praktikast [RIA-PP].
 
-8. Protokolli on välja töötanud Riigi Infosüsteemi Amet. Ettepanekud ja märkused saata help@ria.ee või luua käesolevas varamus `Issue`.
+Protokoll on kujundatud avastandardina.
+
+_Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl open standard) kriteeriumiteks:
+- kohast protsessi (ingl due process):
+  - otsuseid tehakse osapoolte suhtes õiglaselt
+  - standardiloome protsess on läbipaistev
+    - jälg aruteludest
+    - avaliku kommenteerimise periood enne lõplikku heakskiitmist ja kasutuselevõttu
+    - perioodilise läbivaatuse ja täiendamise protsessid on selgelt määratletud
+- laiahaardelist konsensust (ingl broad consensus)
+- läbipaistvust
+- tasakaalustatust - standardimistegevuses ei domineeri ükski konkreetne isik, ettevõte või huvirühm
+- vabatahtlikku kasutuselevõttu. IETF on seisukohal, et standardi edukuse määrab lõppkokkuvõttes turg._
+
+Protokolli on välja töötanud Riigi Infosüsteemi Amet. Ettepanekud ja märkused saata help@ria.ee või luua käesolevas varamus `Issue`.
+
+Protokolli saab kasutada MIT litsentsi [MIT] alusel.
 
 #### 2 Nõuete keel
 
@@ -483,6 +505,8 @@ Käesolev jaotis võtab kokku nõuded (ingl _conformance criteria_, vt nt RFC 20
 
 [Kapsel] Elektroonilise andmevahetuse metaandmete loend 2.1. Riigi Infosüsteemi Amet.  <https://riha.eesti.ee/riha/main/xml/elektroonilise_andmevahetuse_metaandmete_loend/1>.
 
+[MIT] MIT License. <https://github.com/e-gov/DHX/blob/master/LICENCE.txt>.
+
 [PR-GCONF] [X-Road Protocol for Downloading Configuration](http://x-road.eu/docs/x-road_protocol_for_downloading_configuration.pdf).
 
 [PR-META] X-Road Service Metadata Protocol(https://www.ria.ee/public/x_tee/pr-meta_x-road_service_metadata_protocol_2.1.3_Y-743-14.pdf).
@@ -492,6 +516,8 @@ Käesolev jaotis võtab kokku nõuded (ingl _conformance criteria_, vt nt RFC 20
 [RFC 2119] [Key words for use in RFCs to Indicate Requirement Levels](https://www.ietf.org/rfc/rfc2119.txt).
 
 [RFC 2049] [RFC 2045 Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies](https://tools.ietf.org/html/rfc2049).
+
+[RFC 6852] [RFC 6852 Affirmation of the Modern Paradigm for Standards](https://tools.ietf.org/html/rfc6852).
 
 [UG-SIGDOC] [X-Road: Signed Document Download and Verification Manual](http://x-road.eu/docs/x-road_signed_document_download_and_verification_manual.pdf). 
 

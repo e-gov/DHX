@@ -98,6 +98,7 @@ _ülevaade sellest, mis mille sees käib_
   - sisaldab gzip-ga kokkupakitud, seejärel base64 kodeeritud "DVK dokumenti"
 - asetseb "DVK konteineris"
 - kirjeldatud [DVK spetsifikatsioonis](https://github.com/e-gov/DVK/tree/master/doc)
+  - jaotis "Üldskeem [..]" lk 7-20
 - seotud (lõdvalt) "Elektroonilise andmevahetuse metaandmete loendiga"
 - kasutusel on kaks versiooni:
   - versioon 2

@@ -2,13 +2,13 @@
 
 _ülevaade sellest, mis mille sees käib_
 
-#### HTTP sõnum, _HTTP message_
+#### HTTP sõnum (_HTTP message_)
 - võib olla:
-  - päring(sõnum), _request (message)_
-  - vastus(sõnum), _response (message)_
+  - __päring(sõnum)__, _request (message)_
+  - __vastus(sõnum)__, _response (message)_
 - edastuse osapooled:
-  - klient (HTTP), _client_
-  - server (HTTP), _server_
+  - __klient__ (HTTP), _client_
+  - __server__ (HTTP), _server_
 - [RFC 2616 HTTP/1.1](https://tools.ietf.org/html/rfc2616) jaotis 4.1
 
 - HTTP tugineb e-posti e nn interneti sõnumivormingule (_Internet Message Format_)
@@ -17,11 +17,11 @@ _ülevaade sellest, mis mille sees käib_
 - [RFC 2822 Internet Message Format](https://tools.ietf.org/html/rfc2822) (2001)
   - __ümbrik__ (_envelope_) ja __sisu__ (_contents_) 
   - “messages are viewed as having an envelope and contents.  The envelope contains whatever information is needed to accomplish transmission and delivery.”
-  - __päis__ (_header_) ja __keha__ (_body_)
+  - __päis__ (_header_) - koosneb __päiseväljadest__ (_header fields_) ja __keha__ (_body_)
   - “A message consists of header fields (collectively called "the header of the message") followed, optionally, by a body.”
   - ümbriku ja päise erinevuse kohta vt [siit](http://stackoverflow.com/questions/1750194/why-does-email-need-an-envelope-and-what-does-the-envelope-mean)
 - kasutatakse e-posti transpordiprotokollis [RFC 2821 Simple Mail Transfer Protocol (SMTP)](https://tools.ietf.org/html/rfc2821#section-2.3) aga ka mujal 
-- __interneti sõnumivormingu laiendused__
+- interneti sõnumivormingu laiendused
   - [RFC 2045 Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies](https://www.ietf.org/rfc/rfc2045.txt) ja seonduvad
 
 #### SOAP sõnum, _SOAP messsage_

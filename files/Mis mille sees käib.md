@@ -10,6 +10,7 @@ _ülevaade sellest, mis mille sees käib_
   - __klient__ (HTTP), _client_
   - __server__ (HTTP), _server_
 - [RFC 2616 HTTP/1.1](https://tools.ietf.org/html/rfc2616) jaotis 4.1
+- olemas laiendamisraamistik, ebaselge, kuidas läbi löönud [RFC 2774 An HTTP Extension Framework](https://www.ietf.org/rfc/rfc2774.txt)
 
 - HTTP tugineb e-posti e nn interneti sõnumivormingule (_Internet Message Format_)
  
@@ -46,24 +47,30 @@ _ülevaade sellest, mis mille sees käib_
   - __detail__ "for carrying application specific error information related to the Body element"
     - "The absence of the detail element in the Fault element indicates that the fault is not related to processing of the Body element. This can be used to distinguish whether the Body element was processed or not in case of a fault situation."
     - "The default SOAP faultcode values are defined in an extensible manner that allows for new SOAP faultcode values to be defined". Vt standardi jaotis 4.4.1 SOAP Fault Codes.
+
 - Simple Object Access Protocol (SOAP) 1.1, http://www.w3.org/TR/2000/NOTE-SOAP-20000508/
+  - protokollina sisaldab kolme asja:
+    - ümbrik - kui raamistik sõnumite sisu ja töötlemise määratlemiseks
+    - kodeerimisreeglid
+    - protseduuride kaugväljakutsete (RPC) kokkulepe (_convention_)
+  - kasutatav kombineeritult teiste protokollidega, eelkõige HTTP-ga 
 - https://www.w3.org/TR/soap/
 - http://www.tutorialspoint.com/soap/soap_quick_guide.htm 
 
-#### X-tee sõnum, _X-Road message_
+#### X-tee sõnum (_X-Road message_)
 - määratletud kahe protokolliga:
   - [X-tee sõnumiprotokoll](http://x-road.eu/docs/x-road_message_protocol_v4.0.pdf) (X-Road Message Protocol)
   - [X-tee sõnumitranspordi protokoll](http://x-road.eu/docs/x-road_message_transport_protocol.pdf) (X-Road Message Transport Protocol)
-- a profile of the SOAP 1.1 protocol
+- SOAP 1.1 protokolli profiil
 - edastuse osapooled:
-  - X-tee teenuse klient, _service client_
-  - X-tee teenuse osutaja, _service provider_
+  - __X-tee teenuse klient__, _service client_
+  - __X-tee teenuse osutaja__, _service provider_
 - kaht liiki:
-  - päring(sõnum), _request (message)_
-  - vastus(sõnum), _response (message)_
+  - __päring(sõnum)__, _request (message)_
+  - __vastus(sõnum)__, _response (message)_
   - kuna X-tee on SOAP profiil ja SOAP transpordikihiks on HTTP, siis on üksüheselt seotud HTTP päringu ja vastusega
 - struktuur:
-  - päis, _header_
+  - __päis__ (_header_)
     - X-Road message headers = additional SOAp headers used by the X-Road
       - nt ``id`, X-tee sõnumi unikaalne identifikaator. 
       ```
@@ -71,9 +78,9 @@ _ülevaade sellest, mis mille sees käib_
           The recommended form of message ID is UUID.
       -- X-Road Message Protocol v4.0
       ```
-  - keha, _body_
-    - MUST use Document/Literal-Wrapped SOAP encoding convention 
-  - manus, _attachment_
+  - __keha__ (_body_)
+    - "MUST use Document/Literal-Wrapped SOAP encoding convention" 
+  - __manus__ (_attachment_)
     - MIME multipart standardil 
 
 #### X-tee SOAP ümbrik (_X-Road SOAP envelope_)
@@ -90,7 +97,7 @@ _ülevaade sellest, mis mille sees käib_
 
 #### "DVK konteiner" e "kapsel"
 - seotud (lõdvalt) "Elektroonilise andmevahetuse metaandmete loendiga"
-- kasutusel on kas versiooni:
+- kasutusel on kaks versiooni:
   - versioon 2
     - XML skeem: [http://www.riik.ee/schemas/dhl/dhl.2010.r1.xsd](http://www.riik.ee/schemas/dhl/dhl.2010.r1.xsd)
     - öeldakse, et <failid> formaadis

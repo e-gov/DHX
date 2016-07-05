@@ -24,12 +24,28 @@ _ülevaade sellest, mis mille sees käib_
 - interneti sõnumivormingu laiendused
   - [RFC 2045 Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies](https://www.ietf.org/rfc/rfc2045.txt) ja seonduvad
 
-#### SOAP sõnum, _SOAP messsage_
-- koosneb:
-  - ümbrik, _envelope_
-  - päis, _header_
-  - keha, _body_
-  - veablokk, _fault_ (valikuline)
+#### SOAP sõnum (_SOAP messsage_)
+- SOAP sõnum on XML dokument, mis koosneb:
+  - __SOAP ümbrik__ (_SOAP envelope_) (nõutav)
+  - __SOAP päis__ (_SOAP header_) (valikuline)
+  - __SOAP keha__ (_SOAP body_) (nõutav)
+- SOAP ümbrik - "the top element of the XML document representing the message"
+- SOAP päis - "a generic mechanism for adding features to a SOAP message in a decentralized manner without prior agreement between the communicating parties."
+  - sisaldab __päiseelemente__ (_header entries_) 
+- SOAP keha - "a container for mandatory information intended for the ultimate recipient of the message"
+  - võib sisaldada erinevaid __kehaelemente__ (_body entries_)
+  - kehas võib sisalduda __SOAP veablokk__ (_SOAP fault_)
+  - "Typical uses of the Body element include marshalling RPC calls and error reporting."
+- Laiendamise kohta vt protokolli jaotis 4.2 SOAp Header:
+  - "SOAP provides a flexible mechanism for extending a message in a decentralized and modular way without prior knowledge between the communicating parties."
+  - `mustUnderstand` atribuut
+- Veablokk
+  - "used to carry error and/or status information within a SOAP message"
+  - __faultcode__ "to provide an algorithmic mechanism for identifying the fault"
+  - __faultstring__ "to provide a human readable explanation of the fault"
+  - __detail__ "for carrying application specific error information related to the Body element"
+    - "The absence of the detail element in the Fault element indicates that the fault is not related to processing of the Body element. This can be used to distinguish whether the Body element was processed or not in case of a fault situation."
+    - "The default SOAP faultcode values are defined in an extensible manner that allows for new SOAP faultcode values to be defined". Vt standardi jaotis 4.4.1 SOAP Fault Codes.
 - Simple Object Access Protocol (SOAP) 1.1, http://www.w3.org/TR/2000/NOTE-SOAP-20000508/
 - https://www.w3.org/TR/soap/
 - http://www.tutorialspoint.com/soap/soap_quick_guide.htm 

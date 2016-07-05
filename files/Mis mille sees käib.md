@@ -4,11 +4,7 @@ _ülevaade sellest, mis mille sees käib_
 
 #### Sisukord
 
-[HTTP sõnum (HTTP message)](Mis%20mille%20sees%20k%C3%A4ib.md#http-s%C3%B5num-http-message)
-[interneti sõnumivorming (Internet Message Format)](Mis%20mille%20sees%20k%C3%A4ib.md#interneti-s%C3%B5numivorming-internet-message-format)
-[SOAP sõnum (SOAP messsage)](Mis%20mille%20sees%20k%C3%A4ib.md#soap-s%C3%B5num-soap-messsage)
-[X-tee sõnum (X-Road message)](Mis%20mille%20sees%20k%C3%A4ib.md#x-tee-s%C3%B5num-x-road-message)
-[Kapslis dokument](Mis%20mille%20sees%20k%C3%A4ib.md#kapslis-dokument)
+[HTTP sõnum (HTTP message)](Mis%20mille%20sees%20k%C3%A4ib.md#http-s%C3%B5num-http-message) | [interneti sõnumivorming (Internet Message Format)](Mis%20mille%20sees%20k%C3%A4ib.md#interneti-s%C3%B5numivorming-internet-message-format) | [SOAP sõnum (SOAP messsage)](Mis%20mille%20sees%20k%C3%A4ib.md#soap-s%C3%B5num-soap-messsage) | [X-tee sõnum (X-Road message)](Mis%20mille%20sees%20k%C3%A4ib.md#x-tee-s%C3%B5num-x-road-message) | [Kapslis dokument](Mis%20mille%20sees%20k%C3%A4ib.md#kapslis-dokument) | [Elektroonilise andmevahetuse metaandmete loend](Mis%20mille%20sees%20k%C3%A4ib.md#elektroonilise-andmevahetuse-metaandmete-loend)
 
 #### HTTP sõnum (_HTTP message_)
 - võib olla:

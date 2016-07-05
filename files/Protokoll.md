@@ -91,17 +91,17 @@ Protokolli koostamisel on lähtutud protokollide spetsifitseerimise parimast pra
 
 Protokoll on kujundatud avastandardina.
 
-_Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl open standard) kriteeriumiteks:
-- kohast protsessi (ingl due process):
+Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl _open standard_) kriteeriumiteks:
+- kohast protsessi (ingl _due process_):
   - otsuseid tehakse osapoolte suhtes õiglaselt
   - standardiloome protsess on läbipaistev
     - jälg aruteludest
     - avaliku kommenteerimise periood enne lõplikku heakskiitmist ja kasutuselevõttu
     - perioodilise läbivaatuse ja täiendamise protsessid on selgelt määratletud
-- laiahaardelist konsensust (ingl broad consensus)
+- laiahaardelist konsensust (ingl _broad consensus_)
 - läbipaistvust
 - tasakaalustatust - standardimistegevuses ei domineeri ükski konkreetne isik, ettevõte või huvirühm
-- vabatahtlikku kasutuselevõttu. IETF on seisukohal, et standardi edukuse määrab lõppkokkuvõttes turg._
+- vabatahtlikku kasutuselevõttu. IETF on seisukohal, et standardi edukuse määrab lõppkokkuvõttes turg.
 
 Protokolli on välja töötanud Riigi Infosüsteemi Amet. Ettepanekud ja märkused saata help@ria.ee või luua käesolevas varamus `Issue`.
 

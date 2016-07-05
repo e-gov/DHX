@@ -7,9 +7,9 @@ _kavand v 0.7_
 #### Sisukord
 
 [1 Ülevaade](Protokoll.md#1-Ülevaade)
-  - [1.1 Mis on DHX?]()
-  - [1.2 Dokumendi eesmärk]()
-  - [1.3 Väljatöötamine]()
+  - [1.1 Mis on DHX?](Protokoll.md#11-mis-on-dhx)
+  - [1.2 Dokumendi eesmärk](Protokoll.md#12-dokumendi-eesm%C3%A4rk)
+  - [1.3 Väljatöötamine](Protokoll.md#13-v%C3%A4ljat%C3%B6%C3%B6tamine)
 
 [2 Nõuete keel](Protokoll.md#2-nõuete-keel)
 

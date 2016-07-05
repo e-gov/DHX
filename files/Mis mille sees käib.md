@@ -76,12 +76,8 @@ _ülevaade sellest, mis mille sees käib_
 - struktuur:
   - __päis__ (_header_)
     - X-Road message headers = additional SOAp headers used by the X-Road
-      - nt ``id`, X-tee sõnumi unikaalne identifikaator. 
-      ```
-      id - string - M(andatory)  - Unique identifier for this message.
-          The recommended form of message ID is UUID.
-      -- X-Road Message Protocol v4.0
-      ```
+      - nt `id`, X-tee sõnumi unikaalne identifikaator. 
+        - "id - string - M(andatory) - Unique identifier for this message. The recommended form of message ID is UUID. --X-Road Message Protocol v4.0"
   - __keha__ (_body_)
     - "MUST use Document/Literal-Wrapped SOAP encoding convention" 
   - __manus__ (_attachment_)

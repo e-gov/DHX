@@ -22,11 +22,9 @@ Protokolli terviklikkuse ja teostatavuse kontrollimiseks (verifitseerimiseks) ol
 
 Protokolli koostamisel oleme üritanud järginud [avatud standardimise](https://github.com/e-gov/DHX/issues/37) (_open standards_) protsessi. Avastandardit iseloomustab väljatöötamise protsessi läbipaistvus, kaasamine, tasakaalustatus ja laiahaardeline konsensus. Avatud standardimise protsessi kohustuslik osa on kavandite avalik arutelu (_public review_).
 
-Avalikus arutelus osalejatele oleme kokku pannud väikese abistava juhendi.
+Avalikus arutelus osalejatele oleme kokku pannud väikese [abistava juhendi](#juhend).
 
 Ootame teie arvamusi, ettepanekuid ja hinnanguid kuni 8. augustini 2016.
-
-Arvamused palume saata: Eneli Järve, Riigi Infosüsteemi Amet, 663 0278, eneli.jarve@ria.ee.
 
 ##### Juhend
 
@@ -36,4 +34,12 @@ Palume teil tutvuda:
   - analüüsitud on protokolli vastavust dokumendivahetuse ärinõuetele, käsitletud on DVK ja dokumendivahetuse probleeme; raportis tehakse ettepanekuid protokolli täiendamiseks.
 - [protokolli etalonteostusega](https://github.com/e-gov/DHX-etalon). 
 
+Arvamused palume saata:
+- Eneli Järve, Riigi Infosüsteemi Amet, 663 0278, eneli.jarve@ria.ee
+  - arvamused avaldatakse koondatult protokolli GitHubi lehel  
+  - kui te ei soovi oma nime väljapaistmist, siis märkige seda saatmisel
+- või sisestada otse protokolli [probleemide rubriiki](https://github.com/e-gov/DHX/issues)
+  - olete oodatud kommenteerima olemasolevaid issue-sid või algatama uusi.
+ 
+ 
 

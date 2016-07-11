@@ -1,0 +1,34 @@
+![](../img/EL_struktuuri-_ja_investeerimisfondid_horisontaalne.jpg)
+
+### Dokumendivahetusprotokoll DHX
+
+#### Avalik arutelu
+
+Lugupeetud dokumendihaldussüsteemi haldaja, arendaja, poliitikakoordinaator, kasutaja!
+
+Oleme välja töötanud uue ja parema lahenduse dokumendide elektrooniliseks vahetamiseks Eesti avaliku sektori asutuste vahel.
+
+Uus lahendus põhineb dokumendihaldussüsteemide (DHS-de) otsesuhtlusel X-tee abil ja kannab nimetust dokumendivahetusprotokoll DHX.
+
+Protokollis on kasutatud X-tee versiooni 6 uusi omadusi. Protokoll peab tegema dokumendivahetuse kiiremaks, lihtsamaks ja veel turvalisemaks.
+
+Oleme hoolikalt kaalunud omadusi, mida protokollis teostada.
+
+Samuti oleme analüüsinud kasutajate soove ja vajadusi elektroonilise dokumendivahetuse korraldamisel.
+
+[Protokolli kavand](https://github.com/e-gov/DHX/blob/master/files/Protokoll.md) on läbinud mitmeid sisemisi läbivaatusi ja täiendusringe.
+
+Protokolli terviklikkuse ja teostatavuse kontrollimiseks (verifitseerimiseks) oleme teinud protokolli [etalonteostuse](https://github.com/e-gov/DHX-etalon).
+
+Protokolli koostamisel oleme üritanud järginud [avatud standardimise](https://github.com/e-gov/DHX/issues/37) (_open standards_) protsessi. Avastandardit iseloomustab väljatöötamise protsessi läbipaistvus, kaasamine, tasakaalustatus ja laiahaardeline konsensus. Avatud standardimise protsessi kohustuslik osa on kavandite avalik arutelu (_public review_).
+
+Avalikus arutelus osalejatele oleme kokku pannud väikese abistava juhendi.
+
+Ootame teie arvamusi, ettepanekuid ja hinnanguid kuni 8. augustini 2016.
+
+Arvamused palume saata: Eneli Järve, Riigi Infosüsteemi Amet, 663 0278, eneli.jarve@ria.ee.
+
+##### Juhend
+
+
+

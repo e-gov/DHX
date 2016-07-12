@@ -28,18 +28,6 @@ Projektis arendatakse välja universaalne tarkvarakomponent ja tehakse vajalikud
 
 Antud projekt tagab ettevalmistused riigile tehnoloogiliselt, organisatoorselt optimaalse ja kõige jätkusuutlikuma IT-arhitektuurseks ülesehituseks. Tulevikus paraneb tänus sellele asutuste dokumendivahetuse käideldavus, tõuseb turvalisus (konfidentsiaalsus), üldine tõrkekindlus ning kaob sõltuvus kesksest komponendist.
 
-  ```
-  Projekti eesmärgiks on valmidus hajusale dokumendivahetusele üleminekuks, kus suhtlus 
-  dokumendihaldussüsteemide (DHS) vahel toimub hajusalt ilma kesksete komponentideta e keskserverita.
-  
-  Keskse komponendi järgi pole enam vajadust, kuna asutuste internetiühendus ja DHS-de 
-  käideldavus on võrreldes 2007. aastaga (millal DVK praegusel kujul kasutusele võeti)
-  tõusnud ning X-tee, üle mille praegu dokumendivahetus käib, suudab tagada piisava ülevaate,
-  mis on vajalik dokumendihalduse koordineerimiseks. Nii nagu X-tee sõnumid ei käi läbi
-  RIA serverite, vaid otse osapoolte vahel, tuleb luua sarnane kontseptsioon ka 
-  dokumendivahetusele DHSide vahel.
-  ```
-
 Projekti hankija on Riigi Infosüsteemi Amet ja täitja BPW Consulting OÜ. Projekti rahastatakse Euroopa Liidu struktuurifondide toetusega.
 
 Projektijuht: Eneli Järve https://github.com/EneliJarve, Riigi Infosüsteemi Amet, 663 0278, eneli.jarve@ria.ee

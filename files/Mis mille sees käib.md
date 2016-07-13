@@ -20,6 +20,7 @@ _ülevaade sellest, mis mille sees käib_
  
 #### interneti sõnumivorming (_Internet Message Format_)
 - [RFC 2822 Internet Message Format](https://tools.ietf.org/html/rfc2822) (2001)
+  - vanemates standardites nimetatud ka RFC 822 sõnumivorminguks 
   - __ümbrik__ (_envelope_) ja __sisu__ (_contents_) 
   - “messages are viewed as having an envelope and contents.  The envelope contains whatever information is needed to accomplish transmission and delivery.”
   - __päis__ (_header_) - koosneb __päiseväljadest__ (_header fields_) ja __keha__ (_body_)
@@ -28,6 +29,21 @@ _ülevaade sellest, mis mille sees käib_
 - kasutatakse e-posti transpordiprotokollis [RFC 2821 Simple Mail Transfer Protocol (SMTP)](https://tools.ietf.org/html/rfc2821#section-2.3) aga ka mujal 
 - interneti sõnumivormingu laiendused
   - [RFC 2045 Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies](https://www.ietf.org/rfc/rfc2045.txt) ja seonduvad
+    - vt [ametlikku internetistandardite nimistut](https://www.rfc-editor.org/standards) 
+  - määratleb mehhanismid mittetekstilise teabe edastamiseks RFC 822 sõnumites, nn MIME päiseväljad:
+    - MIME päisevälju kasutatakse nii RFC 822 sõnumi päises kui ka mitmeosalise konstruktsiooni kehas (_body part_) 
+    - `MIME-Version` päiseväli - kinnitab, et sõnum on koostatud kooskõlas RFC 2045 standardiga.
+    - `Content-Type` päiseväli - kirjeldab kehas sisalduvat teavet
+      - selle välja väärtust nimetatakse meedia tüübiks (_media type_)
+        - "private values (starting with "X-") may be defined bilaterally between two cooperating agents without
+          outside registration or standardization. Such values cannot be registered or standardized."
+        - meediatüüpide registreerimine RFC 2048
+    - `Content-Transfer-Encoding` päiseväli
+    - `Content-ID` ja `Content-Description` päiseväljad
+  - __entity__ = __MIME-päiseväljad__ (_MIME-defined header fields_) + __sisu__ (_contents_)
+  - __body part__ - mitmeosalises olemis (_entity_) olev olem
+  - rekursiivne struktuur
+  - laiendamisvõimalus: päiseväljad, nõudeks, et peab algama `Content`
 
 #### SOAP sõnum (_SOAP messsage_)
 - SOAP sõnum on XML dokument, mis koosneb:

@@ -1,4 +1,4 @@
-##Kapseldamismudel
+##Pakendamine
 
 _ülevaade sellest, mis mille sees käib_
 

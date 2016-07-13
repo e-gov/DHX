@@ -28,10 +28,11 @@ _ülevaade sellest, mis mille sees käib_
   - ümbriku ja päise erinevuse kohta vt [siit](http://stackoverflow.com/questions/1750194/why-does-email-need-an-envelope-and-what-does-the-envelope-mean)
 - kasutatakse e-posti transpordiprotokollis [RFC 2821 Simple Mail Transfer Protocol (SMTP)](https://tools.ietf.org/html/rfc2821#section-2.3) aga ka mujal 
 
-#### laiendatud sõnumivorming (MIME)
+#### laiendatud, mitmeosaline sõnumivorming (MIME)
 - [RFC 2045 Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies](https://www.ietf.org/rfc/rfc2045.txt) ja seonduvad
   - vt [ametlikku internetistandardite nimistut](https://www.rfc-editor.org/standards) 
-- määratleb mehhanismid mittetekstilise teabe edastamiseks RFC 822 sõnumites, nn MIME päiseväljad:
+- määratleb mehhanismid mittetekstilise ja mitmeosalise (_multi-part_) teabe edastamiseks RFC 822 sõnumites
+- nn MIME päiseväljad:
   - MIME päisevälju kasutatakse nii RFC 822 sõnumi päises kui ka mitmeosalise konstruktsiooni kehas (_body part_) 
   - `MIME-Version` päiseväli - kinnitab, et sõnum on koostatud kooskõlas RFC 2045 standardiga.
   - `Content-Type` päiseväli - kirjeldab kehas sisalduvat teavet
@@ -46,6 +47,11 @@ _ülevaade sellest, mis mille sees käib_
 - rekursiivne struktuur
 - laiendamisvõimalus: päiseväljad, nõudeks, et peab algama `Content`
 - vt [näide](https://msdn.microsoft.com/en-us/library/ms526560(v=exchg.10).aspx)
+- mitmest ressursist koosnevad dokumendid (_multi-resource documents_)
+  - [RFC 2387 The MIME Multipart/Related Content-type](https://tools.ietf.org/html/rfc2387)
+  - juurressurss (_root resource_), alamressursid (_subsidiary resources_)
+- viitamine teistele osadele, eriti juurosast (_root body part_): [RFC 2557 MIME Encapsulation of Aggregate Documents, such as HTML (MHTML)](http://www.ietf.org/rfc/rfc2557.txt)
+  - `Content-Location` päiseväli
 
 #### SOAP sõnum (_SOAP messsage_)
 - SOAP sõnum on XML dokument, mis koosneb:
@@ -70,15 +76,22 @@ _ülevaade sellest, mis mille sees käib_
     - "The absence of the detail element in the Fault element indicates that the fault is not related to processing of the Body element. This can be used to distinguish whether the Body element was processed or not in case of a fault situation."
     - "The default SOAP faultcode values are defined in an extensible manner that allows for new SOAP faultcode values to be defined". Vt standardi jaotis 4.4.1 SOAP Fault Codes.
 
-- Simple Object Access Protocol (SOAP) 1.1, http://www.w3.org/TR/2000/NOTE-SOAP-20000508/
-  - protokollina sisaldab kolme asja:
-    - ümbrik - kui raamistik sõnumite sisu ja töötlemise määratlemiseks
-    - kodeerimisreeglid
-    - protseduuride kaugväljakutsete (RPC) kokkulepe (_convention_)
-  - kasutatav kombineeritult teiste protokollidega, eelkõige HTTP-ga 
-- https://www.w3.org/TR/soap/
-- http://www.tutorialspoint.com/soap/soap_quick_guide.htm
-- [SOAP Messages with Attachments](https://www.w3.org/TR/SOAP-attachments)
+- Simple Object Access Protocol (SOAP) 1.1,
+  - http://www.w3.org/TR/2000/NOTE-SOAP-20000508/
+  - https://www.w3.org/TR/soap/
+  - http://www.tutorialspoint.com/soap/soap_quick_guide.htm
+- protokollina sisaldab kolme asja:
+  - ümbrik - kui raamistik sõnumite sisu ja töötlemise määratlemiseks
+  - kodeerimisreeglid
+  - protseduuride kaugväljakutsete (RPC) kokkulepe (_convention_)
+- kasutatav kombineeritult teiste protokollidega, eelkõige HTTP-ga 
+  - standardne alus- e ülekandeprotokoll on HTTP
+
+- SOAP sõnumil võivad olla __manused__ (_attachments_)
+  - manused edastatakse MIME mitmeosalise sõnumi (_multipart_) mehhanismi abil
+  - _SOAP sõnumipakk_ (_SOAP message package_) koosneb SOAP sõnumist ja võimalikest manustest; manused ei pea olema XML vormingus
+  - SOAP sõnumipakk koostatakse `Multipart/Related` meeditüübi abil 
+  - [SOAP Messages with Attachments](https://www.w3.org/TR/SOAP-attachments)
 
 #### X-tee sõnum (_X-Road message_)
 - määratletud kahe protokolliga:

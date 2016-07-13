@@ -80,6 +80,7 @@ _ülevaade sellest, mis mille sees käib_
   - http://www.w3.org/TR/2000/NOTE-SOAP-20000508/
   - https://www.w3.org/TR/soap/
   - http://www.tutorialspoint.com/soap/soap_quick_guide.htm
+  - [SOAP Version 1.2 Usage Scenarios](https://www.w3.org/TR/xmlp-scenarios/)
 - protokollina sisaldab kolme asja:
   - ümbrik - kui raamistik sõnumite sisu ja töötlemise määratlemiseks
   - kodeerimisreeglid
@@ -90,8 +91,9 @@ _ülevaade sellest, mis mille sees käib_
 - SOAP sõnumil võivad olla __manused__ (_attachments_)
   - manused edastatakse MIME mitmeosalise sõnumi (_multipart_) mehhanismi abil
   - _SOAP sõnumipakk_ (_SOAP message package_) koosneb SOAP sõnumist ja võimalikest manustest; manused ei pea olema XML vormingus
-  - SOAP sõnumipakk koostatakse `Multipart/Related` meeditüübi abil 
+  - SOAP sõnumipakk koostatakse `Multipart/Related` meediatüübi abil 
   - [SOAP Messages with Attachments](https://www.w3.org/TR/SOAP-attachments)
+  - vt ka [https://www.w3.org/TR/xmlp-scenarios/#S19](https://www.w3.org/TR/xmlp-scenarios/#S19)
 
 #### X-tee sõnum (_X-Road message_)
 - määratletud kahe protokolliga:
@@ -107,7 +109,7 @@ _ülevaade sellest, mis mille sees käib_
   - kuna X-tee on SOAP profiil ja SOAP transpordikihiks on HTTP, siis on üksüheselt seotud HTTP päringu ja vastusega
 - struktuur:
   - __päis__ (_header_)
-    - X-Road message headers = additional SOAp headers used by the X-Road
+    - X-Road message headers = additional SOAP headers used by the X-Road
       - nt `id`, X-tee sõnumi unikaalne identifikaator. 
         - "id - string - M(andatory) - Unique identifier for this message. The recommended form of message ID is UUID. --X-Road Message Protocol v4.0"
   - __keha__ (_body_)

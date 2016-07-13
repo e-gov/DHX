@@ -77,7 +77,8 @@ _ülevaade sellest, mis mille sees käib_
     - protseduuride kaugväljakutsete (RPC) kokkulepe (_convention_)
   - kasutatav kombineeritult teiste protokollidega, eelkõige HTTP-ga 
 - https://www.w3.org/TR/soap/
-- http://www.tutorialspoint.com/soap/soap_quick_guide.htm 
+- http://www.tutorialspoint.com/soap/soap_quick_guide.htm
+- [SOAP Messages with Attachments](https://www.w3.org/TR/SOAP-attachments)
 
 #### X-tee sõnum (_X-Road message_)
 - määratletud kahe protokolliga:

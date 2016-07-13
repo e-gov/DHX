@@ -45,6 +45,7 @@ _ülevaade sellest, mis mille sees käib_
 - __body part__ - mitmeosalises olemis (_entity_) olev olem
 - rekursiivne struktuur
 - laiendamisvõimalus: päiseväljad, nõudeks, et peab algama `Content`
+- vt [näide](https://msdn.microsoft.com/en-us/library/ms526560(v=exchg.10).aspx)
 
 #### SOAP sõnum (_SOAP messsage_)
 - SOAP sõnum on XML dokument, mis koosneb:

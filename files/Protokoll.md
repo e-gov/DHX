@@ -60,7 +60,7 @@ _kavand v 0.7_
 
 [Viited](Protokoll.md#viited)
 
-[Lisa 1. DHX teenuse spetsifikatsioon](Protokoll.md#lisa-1-dhx-teenuse-spetsifikatsioon)
+[Lisa 1. sendDocument teenuse spetsifikatsioon](Protokoll.md#lisa-1-senddocument-teenuse-spetsifikatsioon)
 
 [Lisa 2. Vahendusnimekirja teenuse spetsifikatsioon](Protokoll.md#lisa-2-vahendusnimekirja-teenuse-spetsifikatsioon)
 
@@ -124,7 +124,7 @@ Protokolli saab kasutada MIT litsentsi [MIT] alusel.
 
 | mõiste | seletus |
 |---|---|
-| _adressaat_ | asutus, kellele tahetakse dokumenti saata. Adressaadi määrab üheselt asutuse registrikood. |
+| _adressaat_ | ingl _adressee_, asutus, kellele tahetakse dokumenti saata. Adressaadi määrab üheselt asutuse registrikood. |
 | _asutus_ | DHX dokumendivahetuses osalev organisatsioon. Eelkõige Eesti avaliku sektori asutus, aga võib olla ka ettevõte või vabasektori organisatsioon. Asutuselt eeldatakse ametlikku registrisse (riigi ja kohaliku omavalitsuse asutuste riiklik register (RKOARR), äriregister, mittetulundusasutuste register) kantust ja registrikoodi olemasolu. |
 | _DHX dokumendivahetus_ | dokumentide vahetus X-teel vastavalt DHX protokollile. |
 | _DHX otserakendaja_ | DHX-i otse, st ilma vahendajata rakendav (kasutav) asutus. |
@@ -146,6 +146,7 @@ Protokolli saab kasutada MIT litsentsi [MIT] alusel.
 | _registrikood_ | asutuse ametlik registrikood. Nt `70002093` `Kadrioru lasteaed`. |
 | _vastuvõttev süsteem_ | dokumenti X-teel DHX protokolli kohaselt vastuvõttev infosüsteem (võib olla ka vahendaja infosüsteem ja üleminekuperioodil DVK) |
 | _saadetis_ | ingl _consignment_, dokument, mida saatev süsteem üritab vastuvõtvale süsteemile saata. Ebaõnnestumise korral tehakse mitu üritust. |
+| _saadetise id_ | ingl _consignment id_, dokumendi saatmisürituste seeriale antud unikaalne identifikaator vt 7.7 |
 | _saatev süsteem_ | dokumenti X-teel DHX protokolli kohaselt saatev infosüsteem (võib olla ka vahendaja infosüsteem) |
 | _teenuse identifikaator_ | X-tee [X-tee] versiooni 6 nõuete kohane X-tee teenuse identifikaator. Identifitseerib unikaalselt X-tee teenuse nii Eesti X-teel kui ka X-tee implementatsioonide rahvusvahelises võrgus. Koosneb X-tee liikme identifikaatorist, teenuse koodnimetusest ja valikulisest versiooninumbrist. Näiteks: `EE/GOV/70003158/DHX/sendDocument`. |
 | _vahendaja_ | vt DHX vahendaja|
@@ -473,7 +474,9 @@ Käesolev jaotis võtab kokku nõuded (ingl _conformance criteria_, vt nt RFC 20
 
 [PR-GCONF] [X-Road Protocol for Downloading Configuration](http://x-road.eu/docs/x-road_protocol_for_downloading_configuration.pdf).
 
-[PR-META] X-Road Service Metadata Protocol(https://www.ria.ee/public/x_tee/pr-meta_x-road_service_metadata_protocol_2.1.3_Y-743-14.pdf).
+[PR-META] [X-Road Service Metadata Protocol](https://www.ria.ee/public/x_tee/pr-meta_x-road_service_metadata_protocol_2.1.3_Y-743-14.pdf).
+
+[PR-MESS] [X-Road Message Protocol v4.0](http://x-road.eu/docs/x-road_message_protocol_v4.0.pdf)
 
 [RIA-PP] [Protokollide spetsifitseerimise parim praktika](https://github.com/e-gov/Open-Workflow/blob/master/ProtokollideParimPraktika.md). Riigi Infosüsteemi Amet. 2015.
 
@@ -489,10 +492,10 @@ Käesolev jaotis võtab kokku nõuded (ingl _conformance criteria_, vt nt RFC 20
 
 [X-tee määrus] Vabariigi Valitsuse määrus "Infosüsteemide andmevahetuskiht" (eelnõu 09.03.2016). 
 
-#### Lisa 1. DHX teenuse spetsifikatsioon
+#### Lisa 1. sendDocument teenuse spetsifikatsioon
 
-_lisatakse järgmises versioonis_
+Spetsifikatsioon asub [eraldi failis](sendDocument.md).
 
 #### Lisa 2. Vahendusnimekirja teenuse spetsifikatsioon
 
-_lisatakse järgmises versioonis_
+Spetsifikatsioon asub [eraldi failis](representationList.md).

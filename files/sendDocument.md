@@ -1,6 +1,6 @@
 ### Dokumendivahetusprotokoll DHX
 
-### Lisa 1. sendDocument teenuse spetsifikatsioon
+### Lisa 1 sendDocument spetsifikatsioon
 
 Päring võimaldab saata dokumente kasutades DHX protokolli.
 

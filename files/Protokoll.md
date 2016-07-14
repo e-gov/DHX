@@ -62,7 +62,7 @@ _kavand v 0.7_
 
 [Lisa 1 sendDocument spetsifikatsioon](Protokoll.md#lisa-1-senddocument-spetsifikatsioon)
 
-[Lisa 2 representationList spetsifikatsioon](Protokoll.md#lisa-2-representationList-spetsifikatsioon)
+[Lisa 2 representationList spetsifikatsioon](#lisa-2-representationlist-spetsifikatsioon)
 
 Joonised:
  - Joonis 1 [Lähteolukord: dokumendivahetus DVK kaudu](Protokoll.md#4-lähteolukord)

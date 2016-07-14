@@ -2,49 +2,53 @@
 
 ### Lisa 1. sendDocument teenuse spetsifikatsioon
 
-Päring võimaldab saata dokumente kasutades DHX protokolli. Päringu parameeter `documentAttachment` viitab SOAP swaRef manusele, milles on edastatava dokumendi kapsel XML kujul (vt [PR-MESS]). Päringu vastuses tagastatakse dokumendi vastuvõtmisel genereeritud unikaalne id. Päring aktsepteerib manusena DHX protokollis spetsifitseeritud Kapsli versiooni. 
+Päring võimaldab saata dokumente kasutades DHX protokolli.
 
-Päringu Xtee versioon 6 täisnimi on formaadis:
+Päringu parameeter `documentAttachment` viitab SOAP swaRef manusele, milles on edastatava dokumendi kapsel XML kujul (vt [PR-MESS]). Päring aktsepteerib manusena DHX protokollis spetsifitseeritud Kapsli versiooni. 
+
+Päringu vastuses tagastatakse dokumendi vastuvõtmisel genereeritud unikaalne id. 
+
+Päringu X-tee versioon 6 täisnimi on formaadis:
 
 `<xRoadInstance>/<memberClass>/<memberCode>/DHX/sendDocument`
 
-Näiteks `EE/GOV/<registrikood>/DHX/sendDocument" või "EE/COM/<registrikood>/DHX/sendDocument`
+Näiteks `EE/GOV/<registrikood>/DHX/sendDocument` või `EE/COM/<registrikood>/DHX/sendDocument`
 
 #### Päringu sisend
 
-Päringu sisendi parameetrid "Body/sendDocument" XML elemendi sees:
+Päringu sisendi parameetrid `Body/sendDocument` XML elemendi sees:
 
 | nimetus | kirjeldus | väärtuse tüüp | väärtuse näide | kohustuslik |
 |---------|-----------|---------------|----------------|-------------|
-| recipient | Vahendatava asutuse registrikood. PEAB olema täidetud juhul kui dokument edastatakse vahendatavale asutusele. Kui toimub DHX otsevõimekusega asutusele saatmine, siis parameeter PEAB olema tühi. | String  | 10560025  | ei |
-| documentAttachment | Edastatava Kapsli XML dokument swaRef manuse viitena. Manuse `Content-Transfer-Encoding` PEAB olema `base64`. Manuse `Content-Type` PEAB olema: `text/xml; charset=UTF-8` | ref:swaRef | cid:kapsel.xml | jah |
-| consignmentId | Saadetise ID. PEAKS olema unikaalne ühe saatja saadetiste piires. Juhul kui saatmise ebaõnnestumisel edastatakse dokument korduvalt, siis consignmentId peab jääma samaks. Vastuvõttev süsteem PEAKS kontrollima, kas sellise saadetise ID-ga dokument on talle juba saabunud -- unikaalne on X-tee päringus saabunud parameetrite kombinatsioon: `Header/client: EE/MEMBERCLASS/ MEMBER1/SUBSYSTEM1` + `Body/sendDocument/consignmentId: <consignmentId>`. Kui sama saadetis on juba saabunud ja vastu võetud, siis vastuvõttev süsteem PEAB väljastama vea koodiga `DHX.Duplicate` (vaata allpool "Veakoodid"). Siin "PEAKS" tähendab unikaalsuse kontrollimist mõistliku ajaraami piires (1 nädal või 1 kuu). Vanemate saadetiste korral on VÕIB vastuvõtja süsteem talle saabunud saadetiste ID-de logi kustutada või arhiveerida. | String | 97522b98-cf27-452e-... | jah |
+| __recipient__ | Vahendatava asutuse registrikood. PEAB olema täidetud juhul kui dokument edastatakse vahendatavale asutusele. Kui toimub DHX otsevõimekusega asutusele saatmine, siis parameeter PEAB olema tühi. | String  | 10560025  | ei |
+| __documentAttachment__ | Edastatava Kapsli XML dokument swaRef manuse viitena. Manuse `Content-Transfer-Encoding` PEAB olema `base64`. Manuse `Content-Type` PEAB olema: `text/xml; charset=UTF-8`. | ref:swaRef | cid:kapsel.xml | jah |
+| __consignmentId__ | Saadetise id. PEAKS olema unikaalne ühe saatja saadetiste piires. Juhul kui saatmise ebaõnnestumisel edastatakse dokument korduvalt, siis consignmentId PEAB jääma samaks. Vastuvõttev süsteem PEAKS kontrollima, kas sellise saadetise id-ga dokument on talle juba saabunud -- unikaalne on X-tee päringus saabunud parameetrite kombinatsioon: `Header/client: EE/MEMBERCLASS/ MEMBER1/SUBSYSTEM1` + `Body/sendDocument/consignmentId: <consignmentId>`. Kui sama saadetis on juba saabunud ja vastu võetud, siis vastuvõttev süsteem PEAB väljastama vea koodiga `DHX.Duplicate` (vaata allpool "Veakoodid"). Siin "PEAKS" tähendab unikaalsuse kontrollimist mõistliku ajaraami piires (1 nädal või 1 kuu). Vanemate saadetiste korral VÕIB vastuvõtja süsteem talle saabunud saadetiste ID-de logi kustutada või arhiveerida. | String | 97522b98-cf27-452e-... | jah |
 
 #### Päringu väljund
 
-Kui vastuvõtja DHX süsteemis ilmnes ootamatu tehniline viga, siis selle PEAB tagastama `SOAP Fault` veana või madalama taseme protokoli veana (näiteks HTTP response code).
+Kui vastuvõtja DHX süsteemis ilmnes ootamatu tehniline viga, siis PEAB tagastama `SOAP Fault` vea või madalama taseme protokoli veana (näiteks HTTP `response code`).
 
-Kui vastuvõtja süsteem suutis SOAP paringu sisu avada, aga hilisemal DHX protokolli reeglite järgi valideerimisel tekkis viga, siis selle PEAB tagastama `sendDocument` päringu vastusena `Body/sendDocumentResponse/fault` XML elemendi sees (Vaata allpool "Vea koodid").
+Kui vastuvõtja süsteem suutis SOAP paringu sisu avada, aga hilisemal DHX protokolli reeglite järgi valideerimisel tekkis viga, siis PEAB tagastama `sendDocument` päringu vastusena `Body/sendDocumentResponse/fault` XML elemendi sees (Vaata allpool "Veakoodid").
 
-Väljund parameetrid `Body/sendDocumentResponse` XML elemendi sees:
+Väljundparameetrid `Body/sendDocumentResponse` XML elemendi sees:
 
 | nimetus | kirjeldus | väärtuse tüüp | väärtuse näide | kohustuslik |
 |---------|-----------|---------------|----------------|-------------|
-| receiptId | Vastuvõtva süsteemi poolt genereeritud unikaalne vastuse id või number. Kui vastuvõttev süsteem võttis saadetise vastu, siis `receiptId` PEAB olema täidetud ja `fault` element peab olema puudu või tühi. Kui ilmnes äriloogikaline viga või vastuvõtja lükkas dokumendi tagasi ja viga tagastatakse `fault` elemendis, siis `receiptId` PEAB olema tühi. `receiptId` ei pea olema dokumendi id ega number, sest vastuvõtja võib saadetisest dokumendi genereerida hiljem asünkroonselt. Saatja süsteem VÕIB vastuses saabunud `receiptId` salvestada või logida, selleks et hiljem oleks võimalik probleemide analüüs. | String | f5f28c9a-35d5-44bd-a012-... | ei |
-| fault | Vea konteiner. Olemas, kui tekkis viga dokumendi vastuvõtmisel. Mõeldud näiteks valideerimise vigade jaoks. Ootamatu tehnilise vea korral PEAB tagastama `SOAP:Fault`. |  |  | ei |
-| faultcode | Vea kood. Kui ilmnes äriloogikaline viga või vastuvõtja lükkas dokumendi tagasi, siis viga PEAB olema tagastatud `fault` elemendis ning `faultcode` PEAB olema väärtustatud. | String | Client.Validation | jah |
-| faultstring | Vea kirjeldus. PEAKS sisaldama `faultcode` väärtusele täiendavat infot, näiteks mis XML element või adressaat ei valideerunud vms. | String | Container is invalid | jah |
+| __receiptId__ | Vastuvõtva süsteemi poolt genereeritud unikaalne vastuse id või number. Kui vastuvõttev süsteem võttis saadetise vastu, siis `receiptId` PEAB olema täidetud ja `fault` element peab olema puudu või tühi. Kui ilmnes äriloogikaline viga või vastuvõtja lükkas dokumendi tagasi ja viga tagastatakse `fault` elemendis, siis `receiptId` PEAB olema tühi. `receiptId` ei pea olema dokumendi id ega number, sest vastuvõtja võib saadetisest dokumendi genereerida hiljem asünkroonselt. Saatja süsteem VÕIB vastuses saabunud `receiptId` salvestada või logida, selleks et hiljem oleks võimalik probleemide analüüs. | String | f5f28c9a-35d5-44bd-a012-... | ei |
+| __fault__ | Vea konteiner. Olemas, kui tekkis viga dokumendi vastuvõtmisel. Mõeldud näiteks valideerimise vigade jaoks. Ootamatu tehnilise vea korral PEAB tagastama `SOAP:Fault`. |  |  | ei |
+| __faultcode__ | Vea kood. Kui ilmnes äriloogikaline viga või vastuvõtja lükkas dokumendi tagasi, siis viga PEAB olema tagastatud `fault` elemendis ning `faultcode` PEAB olema väärtustatud. | String | Client.Validation | jah |
+| __faultstring__ | Vea kirjeldus. PEAKS sisaldama `faultcode` väärtusele täiendavat infot, näiteks mis XML element või adressaat ei valideerunud vms. | String | Container is invalid | jah |
 
 #### Veakoodid
 
-Vastuvõtja süsteem PEAB äriloogikalise või DHX protokolli reeglite vastu valideerimisel tekkinud vea, tagastama `sendDocuments` vastuses, `Body/sendDocumentResponse/fault` XML elemend sees, kasutades ühte järgmistest vea koodidest:
+Vastuvõtja süsteem PEAB äriloogikalise või DHX protokolli reeglite vastu valideerimisel tekkinud vea tagastama `sendDocuments` vastuses, `Body/sendDocumentResponse/fault` XML elemendi sees, kasutades ühte järgmistest veakoodidest:
 
 | faultcode | kirjeldus | faultstring väärtuse näide |
 |---------|-----------|---------------|
-| DHX.Duplicate | Samalt saatjalt saabus sama saadetise id väärtusega päring. Päringu parameetrite kombinatsioon `Header/client: EE/MEMBERCLASS/ MEMBER1/SUBSYSTEM1` + `Body/sendDocument/consignmentId: <consignmentId>` ei ole unikaalne. | Client sended duplicate document. Document with same consignmentId: 97522b98-cf27-452e-8... from EE/GOV/ MEMBER1/SUBSYSTEM1 is already received. Ignoring duplicate. |
-| DHX.Validation | Kui DHX sendDocuments päringus saabunud Kapsli valideerimine vastu XML Schemat ebaõnnestub või SOAP päringu enda parameetrite sisu valideerimine ebaõnnestub, siis vastuvõttev süsteem PEAB väljastama vea `DHX.Validation`. | Container in documentAttachment is invalid. Required XML element "DecContainer/Transport" is missing.  Container must validate against 2.1 schema. |
-| DHX.InvalidAddressee  | Kui vastuvõtva süsteemi enda registrikoodi või tema poolt vahendatava asutuse registrikoodi ei ole päringus saabunud Kapsli XML `DecContainer/Transport/DecRecipient/OrganisationCode` elementide väärtuste hulgas, siis vastuvõttev süsteem PEAB tagastama vea `DHX.InvalidAddressee`. | The container has unknown addressee 7000001. |
-| DHX.SizeLimitExceeded | Kui vastuvõttev süsteem soovib seada limiidi enda poolt vastuvõetava dokumendi suurusele, siis suuremate dokumendi saabumisel VÕIB vastuvõttev süsteem tagastada vea `DHX.SizeLimitExceeded`. Selle vea tagastamine SOAP päringu vastusena ei tihtipeale tehniliselt võimalik, sest rakendusserverites on HTTP request liimit enamasti määratud globaalsel süsteemsel tasemel. Sel juhul enamasti rakendusserver vastab HTTP staatus koodiga, näiteks `404.13` `content length too large`. | The server was not able to store the container because its bigger than server size limit (100Mb) |
+| __DHX.Duplicate__ | Samalt saatjalt saabus sama saadetise id väärtusega päring. Päringu parameetrite kombinatsioon `Header/client: EE/MEMBERCLASS/ MEMBER1/SUBSYSTEM1` + `Body/sendDocument/consignmentId: <consignmentId>` ei ole unikaalne. | Client sended duplicate document. Document with same consignmentId: 97522b98-cf27-452e-8... from EE/GOV/ MEMBER1/SUBSYSTEM1 is already received. Ignoring duplicate. |
+| __DHX.Validation__ | Kui DHX `sendDocuments` päringus saabunud Kapsli valideerimine vastu XML Schemat ebaõnnestub või SOAP päringu enda parameetrite sisu valideerimine ebaõnnestub, siis vastuvõttev süsteem PEAB väljastama vea `DHX.Validation`. | Container in documentAttachment is invalid. Required XML element "DecContainer/Transport" is missing.  Container must validate against 2.1 schema. |
+| __DHX.InvalidAddressee__ | Kui vastuvõtva süsteemi enda registrikoodi või tema poolt vahendatava asutuse registrikoodi ei ole päringus saabunud Kapsli XML `DecContainer/Transport/DecRecipient/OrganisationCode` elementide väärtuste hulgas, siis vastuvõttev süsteem PEAB tagastama vea `DHX.InvalidAddressee`. | The container has unknown addressee 7000001. |
+| __DHX.SizeLimitExceeded__ | Kui vastuvõttev süsteem soovib seada limiidi enda poolt vastuvõetava dokumendi suurusele, siis suuremate dokumendi saabumisel VÕIB vastuvõttev süsteem tagastada vea `DHX.SizeLimitExceeded`. Selle vea tagastamine SOAP päringu vastusena ei tihtipeale tehniliselt võimalik, sest rakendusserverites on HTTP request liimit enamasti määratud globaalsel süsteemsel tasemel. Sel juhul enamasti rakendusserver vastab HTTP staatuskoodiga, näiteks `404.13` `content length too large`. | The server was not able to store the container because its bigger than server size limit (100Mb) |
 
 #### Näide
 

@@ -23,7 +23,6 @@ Puuduvad.
 #### Näited
 
 Päringu näide:
-
 ```
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
     <SOAP-ENV:Header>
@@ -63,7 +62,6 @@ Päringu näide:
 ```
 
 Vastuse näide:
-
 ```
 <?xml version="1.0" encoding="utf-8" ?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
@@ -118,13 +116,4 @@ Vastuse näide:
         </ns3:representationListResponse>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
-```
-
-```
-```
-
-```
-```
-
-```
 ```

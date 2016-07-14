@@ -50,7 +50,7 @@ _kavand v 0.7_
   - [8.3 Kapsli kontroll](Protokoll.md#83-kapsli-kontroll)
   - [8.4 Mitme aadressi käsitlus](Protokoll.md#84-mitme-aadressi-käsitlus)
   - [8.5 Vastuvõtmine DVK-st](Protokoll.md#85-vastuvõtmine-dvk-st)
-  - [8.6 Saatja kindlakstegemine](#86saatja-kindlakstegemine)
+  - [8.6 Saatja kindlakstegemine](#86-saatja-kindlakstegemine)
 
 [9 Üleminek](Protokoll.md#9-Üleminek)
 

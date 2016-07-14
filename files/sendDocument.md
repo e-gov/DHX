@@ -199,7 +199,6 @@ PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pjxu
 	</SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
-
 Tehnilise vea näide: 
 ```
 <?xml version="1.0" encoding="UTF-8"?>

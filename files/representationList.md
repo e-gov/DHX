@@ -1,8 +1,10 @@
 ### Dokumendivahetusprotokoll DHX
 
-### Lisa 2. representationList teenuse spetsifikatsioon
+### Lisa 2. representationList spetsifikatsioon
 
-Päring võimaldab kätte saada asutuse poolt vahendatavate nimekirja. Koos vahendatavate asutuste koodidega antakse ka vahendamise algus- ja lõppkuupäevad. 
+X-tee teenus `representationList` tagastab vahendajana tegutseva X-tee liiklme poolt vahendatavate asutuste nimekirja (vahendusnimekirja).
+
+Asutused esitatakse vahendusnimekirjas registrikoodidega. Nimekirjas antakse iga vahendatava kohta ka vahendamise algus- ja lõppkuupäev. 
 
 Päringu Xtee v6 täisnimetus: `EE/GOV/<registrikood>/DHS/representationList`.
 

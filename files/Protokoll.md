@@ -60,9 +60,9 @@ _kavand v 0.7_
 
 [Viited](Protokoll.md#viited)
 
-[Lisa 1. sendDocument spetsifikatsioon](Protokoll.md#lisa-1-senddocument-spetsifikatsioon)
+[Lisa 1 sendDocument spetsifikatsioon](Protokoll.md#lisa-1-senddocument-spetsifikatsioon)
 
-[Lisa 2. representationList spetsifikatsioon](Protokoll.md#lisa-2-representationList-spetsifikatsioon)
+[Lisa 2 representationList spetsifikatsioon](Protokoll.md#lisa-2-representationList-spetsifikatsioon)
 
 Joonised:
  - Joonis 1 [Lähteolukord: dokumendivahetus DVK kaudu](Protokoll.md#4-lähteolukord)
@@ -492,7 +492,7 @@ Käesolev jaotis võtab kokku nõuded (ingl _conformance criteria_, vt nt RFC 20
 
 [X-tee määrus] Vabariigi Valitsuse määrus "Infosüsteemide andmevahetuskiht" (eelnõu 09.03.2016). 
 
-#### Lisa 1 sendDocument teenuse spetsifikatsioon
+#### Lisa 1 sendDocument spetsifikatsioon
 
 Spetsifikatsioon asub [eraldi failis](sendDocument.md).
 

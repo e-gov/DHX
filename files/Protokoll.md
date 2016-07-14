@@ -7,7 +7,7 @@ _kavand v 0.7_
 #### Sisukord
 
 [1 Ülevaade](Protokoll.md#1-Ülevaade)
-  - [1.1 Protokolli skoop?](Protokoll.md#11-protokolli-skoop)
+  - [1.1 Protokolli käsitlusala](Protokoll.md#11-protokolli-k%C3%A4sitlusala)
   - [1.2 Dokumendi eesmärk](Protokoll.md#12-dokumendi-eesm%C3%A4rk)
   - [1.3 Väljatöötamine](Protokoll.md#13-v%C3%A4ljat%C3%B6%C3%B6tamine)
 
@@ -41,7 +41,7 @@ _kavand v 0.7_
   - [7.4 Lokaalne aadressiraamat](Protokoll.md#73-lokaalne-aadressiraamat)
   - [7.5 Dokumendi lugemine edastatuks](Protokoll.md#75-dokumendi-lugemine-edastatuks)
   - [7.6 Uuesti üritamine](Protokoll.md#76-uuesti-üritamine)
-  - [7.7 Saatmisalgoritm (illustratiivne)](Protokoll.md#77-saatmisalgoritm)
+  - [7.7 Saatmisalgoritm (informatiivne)](Protokoll.md#77-saatmisalgoritm)
 
 [8 Vastuvõtmine](Protokoll.md#8-vastuvõtmine)
 
@@ -56,7 +56,7 @@ _kavand v 0.7_
   - [9.1 Üleminekuperiood](Protokoll.md#91-Üleminekuperiood)
   - [9.2 DVK toimimine üleminekuperioodil](Protokoll.md#92-dvk-toimimine-üleminekuperioodil)
  
-[10 Vastavuskriteeriumid](Protokoll.md#10-vastavusn%C3%B5uded)  
+[10 Vastavusnõuded](Protokoll.md#10-vastavusn%C3%B5uded)  
 
 [Viited](Protokoll.md#viited)
 
@@ -67,12 +67,12 @@ _kavand v 0.7_
 Joonised:
  - Joonis 1 [Lähteolukord: dokumendivahetus DVK kaudu](Protokoll.md#4-lähteolukord)
  - Joonis 2 [DHX põhiskeem](Protokoll.md#5-dhx-teenus)
- - Joonis 3 [DHX teenusevahendamine vahendamine](Protokoll.md#6-vahendamine)
+ - Joonis 3 [DHX teenusevahendamine](Protokoll.md#6-vahendamine)
  - Joonis 4  [Toimimine üleminekuperioodil](Protokoll.md#9-Üleminek) 
 
 ####  1 Ülevaade
 
-##### 1.1 Protokolli skoop
+##### 1.1 Protokolli käsitlusala
 Dokumendivahetusprotokoll DHX on standarditud tehniline ja organisatsiooniline lahendus, mis võimaldab asutustel vahetada dokumente hajus- e detsentraliseeritud põhimõttel.
 
 DHX võimaldab elektroonilist dokumendivahetust korraldada detsentraliseeritult, ilma keskse postitöötlemissõlmeta. Erinevalt vanemast Dokumendivahetuskeskusest (DVK) ei nõua DHX dokumendihaldussüsteemidelt (DHS) enam "postkontoris" posti järel käimist, vaid dokumendid liiguvad otse saatjalt saajale.
@@ -88,13 +88,15 @@ DHX kasutab X-tee taristut.
 Protokoll eeldab rakendavate osapoolte motivatsiooni dokumendivahetust efektiivselt ja turvaliselt korraldada: saatja tahet dokumente saata ja vastuvõtja tahet dokumente saada.
 
 ##### 1.2 Dokumendi eesmärk
-Käesolev dokument määratleb nõuded, andmevormingud, töötlus- ja menetlusloogikad kõigile osapooltele - DHX-i rakendavatele asutustele, DHX-i vahendajatele ja X-tee keskusele. Samuti käsitletakse üleminekut seni DVK kaudu korraldatud dokumendivahetuselt DHX-i kasutamisele.
+Käesolev dokument määratleb vastavusnõuded, andmevormingud, töötlus- ja menetlusloogikad kõigile DHX-i rakendamisega seotud osapooltele - DHX-i rakendavatele asutustele, DHX-i vahendajatele ja X-tee keskusele. Samuti käsitletakse üleminekut seni DVK kaudu korraldatud dokumendivahetuselt DHX-i kasutamisele.
 
 ##### 1.3 Väljatöötamine
 Protokolli koostamisel on lähtutud protokollide spetsifitseerimise parimast praktikast [RIA-PP].
 
 Protokoll on kujundatud avastandardina.
 
+----
+Märkus (informatiivne).
 Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl _open standard_) kriteeriumiteks:
 - kohast protsessi (ingl _due process_):
   - otsuseid tehakse osapoolte suhtes õiglaselt
@@ -105,19 +107,21 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 - laiahaardelist konsensust (ingl _broad consensus_)
 - läbipaistvust
 - tasakaalustatust - standardimistegevuses ei domineeri ükski konkreetne isik, ettevõte või huvirühm
-- vabatahtlikku kasutuselevõttu. IETF on seisukohal, et standardi edukuse määrab lõppkokkuvõttes turg.
+- vabatahtlikku kasutuselevõttu. IETF on seisukohal, et standardi edukuse määrab lõppkokkuvõttes turg._
 
-Protokolli on välja töötanud Riigi Infosüsteemi Amet. Ettepanekud ja märkused saata help@ria.ee või luua käesolevas varamus `Issue`.
+----
+
+Protokolli on välja töötanud Riigi Infosüsteemi Amet. Ettepanekud ja märkused palume saata help@ria.ee või luua käesolevas varamus `Issue`.
 
 Protokolli saab kasutada MIT litsentsi [MIT] alusel.
 
 #### 2 Nõuete keel
 
-1. Normatiivse tähendusega on käesolev tekst. GitHub-i varamu muul sisul on informatiivne tähendus.
+1. Normatiivse tähendusega on käesolev tekst koos lisadega, v.a sõnaga "informatiivne" tähistatud osad. GitHub-i varamu muul sisul on informatiivne tähendus.
 
 2. Läbiva suurtähega esitatud sõnu tuleb tõlgendada järgmiselt (vrdl [RFC 2119]):
  - "PEAB", "TOHIB AINULT" - protokolli implementeerija ei saa deklareerida protokollile vastavust, kui nõue on täitmata.
- - "PEAKS" - nõue ei pea tingimata olema implementeeritud, kuidimplementatsiooni saab lugeda protokollile vastavaks ainult siis, kui nõude täitmisest kõrvalekaldumiseks on kaalukas põhjus.
+ - "PEAKS" - nõue ei pea tingimata olema implementeeritud, kuid implementatsiooni saab lugeda protokollile vastavaks ainult siis, kui nõude täitmisest kõrvalekaldumiseks on kaalukas põhjus.
  - "VÕIB" - omadust võib implementeerida; mitteimplementeerimist ei pea põhjendama.
 
 #### 3 Mõisted ja lühendid
@@ -126,34 +130,36 @@ Protokolli saab kasutada MIT litsentsi [MIT] alusel.
 |---|---|
 | _adressaat_ | ingl _adressee_, asutus, kellele tahetakse dokumenti saata. Adressaadi määrab üheselt asutuse registrikood. |
 | _asutus_ | DHX dokumendivahetuses osalev organisatsioon. Eelkõige Eesti avaliku sektori asutus, aga võib olla ka ettevõte või vabasektori organisatsioon. Asutuselt eeldatakse ametlikku registrisse (riigi ja kohaliku omavalitsuse asutuste riiklik register (RKOARR), äriregister, mittetulundusasutuste register) kantust ja registrikoodi olemasolu. |
-| _DHX dokumendivahetus_ | dokumentide vahetus X-teel vastavalt DHX protokollile. |
-| _DHX otserakendaja_ | DHX-i otse, st ilma vahendajata rakendav (kasutav) asutus. |
-| _DHX otsevõimekus_ | DHX-i rakendamine (e kasutamine) ilma vahendajata. |
+| _DHX-i dokumendivahetus_ | dokumentide vahetus X-teel vastavalt DHX protokollile. |
+| _DHX-i otserakendamine_ | DHX-i otse, st ilma vahendajata rakendamine. |
+| _DHX-i otsevõimekus_ | kui asutus on loonud võimekuse DHX-i rakendada ilma vahendajata, siis ütleme, et asutusel on DHX-i otsevõimekus. |
 | _DHX-i rakendaja_ | asutus, kes kasutab DHX-i |
-| _DHX teenus_ | standarditud nimemustriga `EE/GOV/<registrikood>/DHX/sendDocument` X-tee teenus, mille kaudu DHX-i otserakendaja ja või vahendaja võtavad vastu dokumente. |
-| _DHX vahendamine_ | X-tee kasutusmuster kus vahendaja rollis tegutsev X-tee liige (DHX vahendaja) võimaldab oma infosüsteemi vahendusel asutuse juurdepääsu DHX dokumendivahetusele. Vt DHX otserakendamine. |
+| _DHX-i rakendamine_ | DHX-i kasutamine, täites kõik DHX-i vastavusnõuded. DHX-i võib rakendada otse või vahendaja kaudu. |
+| _DHX teenus_ | standarditud nimemustriga `EE/GOV/<registrikood>/DHX/sendDocument` X-tee teenus, mille kaudu DHX-i otserakendaja või vahendaja võtab vastu dokumente. |
+| _DHX vahendamine_ | X-tee kasutusmuster, kus vahendaja rollis tegutsev X-tee liige (DHX vahendaja) võimaldab oma infosüsteemi vahendusel asutuse juurdepääsu DHX dokumendivahetusele. Vt DHX-i otserakendamine. |
 | _DHX vahendaja_, pikemalt _DHX dokumendivahetusteenuse vahendaja_, lühidalt lihtsalt _vahendaja_ | X-tee liige, kes osutab asutusele teenust, vahendades DHX dokumendiedastust. Tüüpiliselt DHS-i pilve- või majutusteenuse osutaja; võib olla nii erasektori teenuseosutaja kui ka avaliku sektori asutus, kes osutab teenust teisele asutusele. |
 | _DHX vahendajate grupp_ | tehniline abinõu DHX vahendajate nimekirja pidamiseks. DHX vahendajate grupp on osa X-tee globaalsest konfiguratsioonist. |
 | _DHX vahendajate nimekiri_ | X-tee keskuse (RIA) poolt peetav nimekiri DHX dokumendivahetusteenuse vahendajatest. |
-| _DHX võimekus vahendaja kaudu_ | DHX-i kasutamine läbi vahendaja. Vt DHX otsekasutus. |
+| _DHX võimekus vahendaja kaudu_ | DHX-i kasutamine läbi vahendaja. Vt DHX otserakendamine. |
 | _DHX võimekus_ | DHS-i võimekus saata ja vastu võtta dokumente vastavalt DHX protokollile. DHX võimekuse võib teostada kas otse (vt DHX otsevõimekus) või läbi vahendaja (vt DHX võimekus vahendaja kaudu). |
 | _DHS pilveteenusena_ | suhe, kus üks organisatsioon (ettevõte või teine asutus) pakub asutusele DHS-i tehnilist keskkonda. Ühes tehnilises keskkonnas võib olla mitu "virtuaalset" DHS-i. Näiteks Majandus- ja Kommunikatsiooniministeerium pakub DHS-i teenust ministeeriumi haldusala asutustele; Koolide infosüsteem KIS pakub DHS-i teenust reale lasteaedadele. DHS pilveteenusena ja DHX vahendamine võivad olla ühitatud, kuid on siiski erinevad mõisted. Majutaja ei pea alati olema vahendaja. Vahendussuhe on siis, kui X-tee liiklus käib vahendaja sertifikaadiga. |
-| _dokument_ | asutuses töödeldav dokument Eesti avaliku sektori dokumendihalduse tähenduses. |
+| _dokument_ | asutuses töödeldav dokument Eesti avaliku sektori dokumendihalduse tähenduses. Võib koosneda mitmest failist. Edastatakse elektroonilise dokumendivahetuse kapslis. |
 | _dokumendihaldussüsteem_, _DHS_ | asutuse elektroonilise dokumendihalduse, sh dokumendivahetuse teenindamisele spetsialiseerunud infosüsteem. |
+| _elektroonilise dokumendivahetuse kapsel_ | lühidalt "kapsel" - dokumenti ja metaandmeid sisaldav XML-struktuur. |
 | _globaalne konfiguratsioon_ | X-tee metaandmekogum, nimekiri X-tee liikmetest, alamsüsteemidest ja gruppidest. Vt [PR-GCONF], [PR-META]. |
 | _DVK_ | Dokumendivahetuskeskus [DVK]. |
 | _RIA_ | Riigi Infosüsteemi Amet. |
 | _registrikood_ | asutuse ametlik registrikood. Nt `70002093` `Kadrioru lasteaed`. |
 | _vastuvõttev süsteem_ | dokumenti X-teel DHX protokolli kohaselt vastuvõttev infosüsteem (võib olla ka vahendaja infosüsteem ja üleminekuperioodil DVK) |
 | _saadetis_ | ingl _consignment_, dokument, mida saatev süsteem üritab vastuvõtvale süsteemile saata. Ebaõnnestumise korral tehakse mitu üritust. |
-| _saadetise id_ | ingl _consignment id_, dokumendi saatmisürituste seeriale antud unikaalne identifikaator vt 7.7 |
+| _saadetise id_ | ingl _consignment id_, dokumendi saatmisürituste seeriale antud unikaalne identifikaator. Vt 7.7. |
 | _saatev süsteem_ | dokumenti X-teel DHX protokolli kohaselt saatev infosüsteem (võib olla ka vahendaja infosüsteem) |
 | _teenuse identifikaator_ | X-tee [X-tee] versiooni 6 nõuete kohane X-tee teenuse identifikaator. Identifitseerib unikaalselt X-tee teenuse nii Eesti X-teel kui ka X-tee implementatsioonide rahvusvahelises võrgus. Koosneb X-tee liikme identifikaatorist, teenuse koodnimetusest ja valikulisest versiooninumbrist. Näiteks: `EE/GOV/70003158/DHX/sendDocument`. |
-| _vahendaja_ | vt DHX vahendaja|
+| _vahendaja_ | vt DHX vahendaja. |
 | _vahendatav_ | asutus, kes on loonud DHX võimekuse vahendaja kaudu. DHX dokumendivahetuses X-teel oma sertifikaadiga ei osale, vaid kasutab vahendaja teenust. |
-| _vahendusnimekiri_ | DHX dokumendivahendusteenuse vahendaja poolt X-teel teenusena pakutav nimekiri asutustest, keda ta vahendab. |
+| _vahendusnimekiri_ | DHX dokumendivahendusteenuse vahendaja poolt X-teel teenusena pakutav nimekiri asutustest, keda ta vahendab. Mitte segi ajada DHX vahendajate nimekirjaga. |
 | _üleminekuperiood_ | Dokumendivahetuskeskuse (DVK) kasutamiselt DHX kasutamisele ülemineku periood. Perioodi alguse ja lõpu määrab X-tee keskus. |
-| _X-tee keskus_ | X-tee haldaja. X-tee keskuse rolli täitab RIA. X-tee keskus registreerib X-tee alamsüsteeme "DHX" ja peab DHX vahendajate nimekirja. |
+| _X-tee keskus_ | X-tee haldaja. X-tee keskuse rolli täidab RIA. X-tee keskus registreerib X-tee alamsüsteeme "DHX" ja peab DHX vahendajate nimekirja. |
 
 #### 4 Lähteolukord
 
@@ -219,9 +225,12 @@ Vahendamise korral osutab dokumentide X-teel saatmise ja vastuvõtmise teenust a
 
 Asutus VÕIB rakendada DHX-i kas otse (s.t iseseisvalt) või vahendaja kaudu.
 
-Vahendamine erineb majutamisest. Paljud asutused majutavad oma DHS-e majutus- ja pilveteenuste osutajate juures. Majutamine võib hõlmata nii X-tee turvaserveri kui ka DHS-i majutamist (pilveteenusena osutamist). DHX-i seisukohalt omab tähtsust, kas asutuse DHS suhtleb X-teel asutuse X-tee sertifikaadi abil või mitte. Kõiki suhteid, kus suhtlemine X-teel toimub mitte asutuse enda, vaid teenusepakkuja X-tee sertifikaadi abil, käsitletakse vahendamisena. 
+----
+Märkus (informatiivne). Vahendamine erineb majutamisest. Paljud asutused majutavad oma DHS-e majutus- ja pilveteenuste osutajate juures. Majutamine võib hõlmata nii X-tee turvaserveri kui ka DHS-i majutamist (pilveteenusena osutamist). DHX-i seisukohalt omab tähtsust, kas asutuse DHS suhtleb X-teel asutuse X-tee sertifikaadi abil või mitte. Kõiki suhteid, kus suhtlemine X-teel toimub mitte asutuse enda, vaid teenusepakkuja X-tee sertifikaadi abil, käsitletakse vahendamisena. 
   
 Majutamise korral tuleb DHX-i rakendamisel tagada käesoleva protokolli nõuete täitmine. Kuidas seda teha, sõltub konkreetsest suhtest majutaja ja asutuse vahel ning ei ole käesoleva protokolli käsitlusalas.
+
+----
   
 DHX vahendamisel arendab DHX teenuse välja, avab teistele asutustele ja käitab teenust vahendaja. Joonisel 3 on esitatud interaktsiooni põhimõtteskeem vahendamise korral.
 
@@ -309,7 +318,10 @@ Kinnitus dokumendi kättesaamise kohta saadetakse X-tee päring-vastus (_request
 ##### 7.7 Uuesti üritamine
 Kui adressaadiga ei saa ühendust või kättesaamise kinnitust ei tule, siis PEAB mõne aja pärast saatmist uuesti üritama.
 
-MÄRKUS. Sarnaselt DVK liideses kasutatule.
+----
+Märkus (informatiivne). Sarnaselt DVK liideses kasutatule.
+
+----
 
 Tühipäringute arvu vähendamiseks PEAKS kasutada eksponentsiaalse taganemise (_exponential back-off_) algoritmi [EXP].
 
@@ -317,35 +329,49 @@ Saatev süsteem PEAB dokumendi saatmisürituste seeriale andma unikaalse identif
 
 Saatmisürituste arv PEAB olema lõplik ja saatva süsteemi konfiguratsioonis määratav. 
 
-##### 7.8 Saatmisalgoritm (illustratiivne)
-Saatmisalgoritmi esitus pseudokoodina (illustratiivne):
+##### 7.8 Saatmisalgoritm (informatiivne)
+Alljärgnev saatmisalgoritm illustreerib üht võimalikku viisi programmiliselt teostada dokumendi saatmist. Algoritmis on kasutatud Go keele [GOLANG] konstruktsioone. Algoritm on informatiivse tähendusega. Protokolli implementeerija võib saatmisega seotud nõuded täita oma valitud viisil. Algoritm ei käsitle kapsli koostamist.
+
+- Funktsioon `adressaat_kasutab_DHXi_otse` selgitab välja, kasutades X-tee globaalset konfiguratsiooni, kas asutusel `a` on DHX-i otsevõimekus.
+- Funktsioon `adressaat_kasutab_vahendajat` selgitab välja, kasutades X-tee gruppi `DHX vahendajad` ja vahendajate X-tee teenuseid `representationList`, kas asutus `a` kasutab DHX-i teenusevahendajat.
+- Funktsioon `yritaSaata` üritab saata dokumenti `d` X-tee liikme `vastuvõtja` alamsüsteemi `DHX` teenusele `sendDocument`. Kui saatmine õnnestub, siis tagastab `true`.
+- Funktsioon `vahendaja_registrikood` leiab asutuse `a` vahendaja registrikoodi.
+- Funktsiooni `saadaDokument` kutsub välja ülalnimetatud funktsioone ja korraldab dokumendi `d` saatmise adressaadile registrikoodiga `a`. Tehakse kolm saatmisüritust, teist korda üritades peetakse vahet üks tund ja kolmandat korda üritades üks ööpäev.  
 
 ```Go
-/* SISEND:
-   edastatav dokument (d)
-   adressaadi registrikood (a)
-*/   
 function saadaDokument(d Dokument, a Registrikood) {
-    var vastuvotja // asutus, kellele dokument teele panna
-    var saatmisyritusi = 0
+    var vastuvotja // asutus, kellele süsteemile dokument teele panna (v.o vahendaja)
+    var saatmisyritus = 0 // saatmisürituse järjenumber
     var maksimaalseltSaatmisyritusi = 3 // väärtus p.o konfigureeritav
 
-    if adressaat_kasutab_DHXi_otse(a) {
-        vastuvotja = a
-    } else adressaat_kasutab_vahendajat(a) {
-        vastuvotja = vahendaja_registrikood(a)
-    } else if yleminekuperiood_kestab() {
-        vastuvotja = dokumendivahetuskeskus
+    // kõigepealt selgitatakse välja, kas adressaat rakendab DHX-i otse
+    if adressaat_kasutab_DHXi_otse(a) { 
+      vastuvotja = a
+    // kui otse ei rakenda, siis kas vahendaja kaudu?  
+    } else if adressaat_kasutab_vahendajat(a) {  
+      vastuvotja = vahendaja_registrikood(a)
+    // kui DHX-i võimekus puudub, siis üleminekuperioodil proovitakse saata veel DVK-sse  
+    } else if yleminekuperiood_kestab() { 
+      vastuvotja = DVK
     } else {
-        return "Ei saa saata." 
+      return "Ei saa saata." 
     }
-    for saatmisyritusi < maksimaalseltSaatmisyritusi {
-        if yritaSaata(d, vastuvotja) { // saatmine edukas
-            return
-        } else { // ebaedukas
-           saatmisyritusi = saatmisyritusi + 1
-        }
+    
+    // saatmisüritused
+    for saatmisyritus < maksimaalseltSaatmisyritusi {
+      saatmisyritus = saatmisyritus + 1
+      // Viivitusaeg enne saatmisürituse kordamist
+      if saatmisyritus == 2 {
+        time.Sleep(time.Hour)
+      } else if saatmisyritus == 3 {
+        time.Sleep(24 * time.Hour)
+      }
+      if yritaSaata(d, vastuvotja) { // saatmine edukas
+        return "Saatmine edukas"
+      }
     }
+    
+    return maksimaalseltSaatmisyritus + " üritust, kõik ebaõnnestusid"
 }
 ```
 
@@ -467,6 +493,8 @@ Käesolev jaotis võtab kokku nõuded (ingl _conformance criteria_, vt nt RFC 20
 [DH metaandmed] Dokumendihalduse metaandmed. Loend 3.0. Majandus- ja Kommunikatsiooniministeerium <https://www.mkm.ee/sites/default/files/dokumendihalduse_metaandmed.pdf>.
 
 [EXP] Exponential backoff. <https://en.wikipedia.org/wiki/Exponential_backoff>.
+
+[GOLANG] The Go Programming Language. <https://golang.org/>.
 
 [Kapsel] Elektroonilise andmevahetuse metaandmete loend 2.1. Riigi Infosüsteemi Amet.  <https://riha.eesti.ee/riha/main/xml/elektroonilise_andmevahetuse_metaandmete_loend/1>.
 

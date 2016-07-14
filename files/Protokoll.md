@@ -50,6 +50,7 @@ _kavand v 0.7_
   - [8.3 Kapsli kontroll](Protokoll.md#83-kapsli-kontroll)
   - [8.4 Mitme aadressi käsitlus](Protokoll.md#84-mitme-aadressi-käsitlus)
   - [8.5 Vastuvõtmine DVK-st](Protokoll.md#85-vastuvõtmine-dvk-st)
+  - [8.6 Saatja kindlakstegemine](#saatja-kindlakstegemine)
 
 [9 Üleminek](Protokoll.md#9-Üleminek)
 
@@ -394,6 +395,19 @@ Vahendajana tegutsev süsteem PEAB mitmele aadressile saadetud dokumendi edastam
 
 Tehniliselt seisneb see selles, et DHX-le üleläinud süsteem peab avama oma DHX teenuse ka DVK-le. DVK edastab dokumente nendelt asutustelt, kes ei ole veel DHX-le üle läinud.
 
+##### 8.6 Saatja kindlakstegemine
+
+Dokumendi saatja saab kindlaks teha kahel viisil: 1) dokumendi kapslis sisalduvate saatjat kirjeldavate metaandmete abil; 2) X-tee päringsõnumi X-tee päiseväljade ´client´ [PR-MESS] ja ´representedParty´ [X-EXT] abil.
+
+----
+Märkus (informatiivne). Vastavalt X-tee sõnumiprotokolli kolmanda osapoole esindamise laiendusele peab vahendaja märkima asutuse, keda ta esindab, X-tee sõnumipäisesse välja ´representedParty´ [X-EXT].
+
+----
+
+Vastuvõttev süsteem PEAB kontrollima dokumendi kapslis sisalduvate saatjat kirjeldavate metaandmete ja X-tee päringsõnumi X-tee päiseväljade ´client´ ja ´representedParty´ kooskõlalisust. Lahknevuste korral PEAB dokumendi tagasi lükkama.
+
+Vahendajalt dokumendi vastuvõtmisel PEAB kontrollima, kas vahendaja on vahendajate nimekirjas. Kontrolli tulemust VÕIB puhverdada. 
+
 #### 9 Üleminek
 
 ##### 9.1 Üleminekuperiood
@@ -458,11 +472,14 @@ Käesolev jaotis võtab kokku nõuded (ingl _conformance criteria_, vt nt RFC 20
 | 7.7 | Saatev süsteem PEAB dokumendi saatmisürituste seeriale andma unikaalse identifikaatori (saadetise id, ingl _consignment id_). |
 | 7.7 | Saatmisürituste arv PEAB olema lõplik ja saatva süsteemi konfiguratsioonis määratav. |
 | 8.1 | Vastuvõttev süsteem PEAB kontrollima, et dokument on saadetud õigele aadressile. |
+| 8.1 | Vahendamise puhul PEAB vastuvõttev süsteem kontrollima, kas adressaat on vahendaja klient (on vahendusnimekirjas). |
 | 8.2 | Valesti adresseeritud dokumendi korral PEAB vastuvõttev süsteem saatma saatjale veateate Vale aadress. |
 | 8.3 | Vastuvõttev süsteem PEAB kontrollima, et dokument tuli nõuetekohases kapslis. |
 | 8.3 | Kontroll PEAB sisaldama vähemalt XML skeemile vastavuse kontrollimist. |
 | 8.3 | Vigase kapsli korral PEAB saatma vastava veateate Vigane kapsel. |
 | 8.5 | Üleminekuperioodil PEAB dokumente vastu võtma ka DVK-st. |
+| 8.6 | Vastuvõttev süsteem PEAB kontrollima dokumendi kapslis sisalduvate saatjat kirjeldavate metaandmete ja X-tee päringsõnumi X-tee päiseväljade ´client´ ja ´representedParty´ kooskõlalisust. Lahknevuste korral PEAB dokumendi tagasi lükkama. |
+| 8.6 | Vahendajalt dokumendi vastuvõtmisel PEAB kontrollima, kas vahendaja on vahendajate nimekirjas. Kontrolli tulemust VÕIB puhverdada. |
 | 9.1 | Üleminekuperioodil niipea, kui asutuse DHS-is on tekkinud DHX protokolli võimekus (arendus on lõppenud), PEAB hakkama dokumendi saatmisel kasutama DHX teenust. |
 | 9.1 | Üleminekuperioodil kui osutub, et adressaat ei ole veel dokumentide vastuvõtmise DHX-teenust loonud (teenus ei ole X-teel leitav), siis PEAB dokumendi saatma DVK kaudu, kasutades DVK teenust `sendDocument` ja märkides adressaadi dokumendi metaandmete kapslis. |
 | 9.1 | DHX võimekuse saavutanud asutus PEAB DVK kasutamisest loobuma. |
@@ -477,7 +494,6 @@ Käesolev jaotis võtab kokku nõuded (ingl _conformance criteria_, vt nt RFC 20
 | 6.3 | Vahendaja PEAB vahendusnimekirja tegema kättesaadavaks X-tee teenusena. |
 | 6.3 | Vahendusnimekirja teenuse nimi PEAB järgima mustrit `EE/<liikmeklass>/<registrikood>/DHX/representationList`.  |
 | 6.3 | DHX-i rakendaja teostatud vahendusnimekirja teenus PEAB vastama lisas 2 esitatud täpsemale spetsifikatsioonile. |
-| 8.1 | Vahendamise puhul PEAB vastuvõttev süsteem kontrollima, kas adressaat on vahendaja klient (on vahendusnimekirjas). |
 | 8.4 | Vahendajana tegutsev süsteem PEAB mitmele aadressile saadetud dokumendi edastama kõigile oma klientidele, kes on dokumendi kapsli transpordiblokis adressaatidena nimetatud. |
 
 #### Viited
@@ -515,6 +531,8 @@ Käesolev jaotis võtab kokku nõuded (ingl _conformance criteria_, vt nt RFC 20
 [RFC 6852] [RFC 6852 Affirmation of the Modern Paradigm for Standards](https://tools.ietf.org/html/rfc6852).
 
 [UG-SIGDOC] [X-Road: Signed Document Download and Verification Manual](http://x-road.eu/docs/x-road_signed_document_download_and_verification_manual.pdf). 
+
+[X-EXT] X-tee v6 sõnumiprotokolli kolmanda osapoole esindamise laiendus, <https://www.ria.ee/public/x_tee/Third_party_representation_extension_v1.0.0.pdf>.
 
 [X-tee] Andmevahetuskiht X-tee, <https://www.ria.ee/x-tee/>.
 

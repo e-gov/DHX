@@ -37,7 +37,7 @@ Palume teil tutvuda:
 - [protokolli etalonteostusega](https://github.com/e-gov/DHX-etalon). 
 
 Arvamused palume saata:
-- Eneli Järve, Riigi Infosüsteemi Amet, 663 0278, eneli.jarve@ria.ee
+- Arvamused palume saata RIA koostööpartnerile DHX analüüsi väljatöötamisel: Evelin Kuusik, BPW Consulting OÜ, evelin.kuusik@bpw-consulting.com
   - arvamused avaldatakse koondatult protokolli GitHubi lehel  
   - kui te ei soovi oma nime väljapaistmist, siis märkige seda saatmisel
 - või sisestada otse protokolli [probleemide rubriiki](https://github.com/e-gov/DHX/issues)

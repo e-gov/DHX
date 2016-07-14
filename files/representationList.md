@@ -1,6 +1,6 @@
 ### Dokumendivahetusprotokoll DHX
 
-### Lisa 2. representationList spetsifikatsioon
+### Lisa 2 representationList spetsifikatsioon
 
 X-tee teenus `representationList` tagastab vahendajana tegutseva X-tee liiklme poolt vahendatavate asutuste nimekirja (vahendusnimekirja).
 

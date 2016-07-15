@@ -341,15 +341,15 @@ Saatja turvaserver laeb perioodiliselt X-tee keskserverist alla teavet X-tee kon
 
 Adressaadil otsevõimekuse olemasolul PEAB dokumendi saatma adressaadile otse.
 
-##### 7.3 Võimekus läbi vahendaja
+#### 7.3 Võimekus läbi vahendaja
 __Otsevõimekuse puudumise korral PEAB saatev süsteem kontrollima, kas adressaadil on DHX võimekus läbi vahendaja.__
 
 __DHX võimekuse läbi vahendaja kontrollimiseks PEAB saatev süsteem:__
  - alla laadima X-tee keskusest X-tee globaalse konfiguratsiooni faili või kasutama turvaserveri poolt allalaetud globaalse konfiguratsiooni faili;
  - leidma failist vahendajate nimekirja (DHX vahendajate grupi);
  - käima kõik vahendajad läbi ning pärima X-tee kaudu vahendusnimekirjad;
- - kindlaks tegema, kas adressaat sisaldub vahendusnimekirjades
- - kontrollima vahendussuhte ajalist kehtivust (teenuse `representationList` vastussõnumi väljade `startDate` ja `endDate` abil).__
+ - kindlaks tegema, kas adressaat sisaldub vahendusnimekirjades;
+ - kontrollima vahendussuhte ajalist kehtivust (teenuse `representationList` vastussõnumi väljade `startDate` ja `endDate` abil).
 
 __Kui adressaadil puudub DHX otsevõimekus, kuid on DHX võimekus läbi vahendaja, siis PEAB saatev süsteem saatma dokumendi vahendajale.__
 

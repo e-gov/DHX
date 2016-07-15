@@ -2,7 +2,7 @@
 
 Riigi Infosüsteemi Amet
 
-_kavand v 0.7_
+_kavand v 0.9_
 
 #### Sisukord
 
@@ -10,6 +10,7 @@ _kavand v 0.7_
   - [1.1 Protokolli käsitlusala](Protokoll.md#11-protokolli-k%C3%A4sitlusala)
   - [1.2 Dokumendi eesmärk](Protokoll.md#12-dokumendi-eesm%C3%A4rk)
   - [1.3 Väljatöötamine](Protokoll.md#13-v%C3%A4ljat%C3%B6%C3%B6tamine)
+  - [1.4 Disaini kaalutlused](#disaini-kaalutlused)
 
 [2 Nõuete keel](Protokoll.md#2-nõuete-keel)
 
@@ -112,9 +113,37 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 
 ----
 
-Protokolli on välja töötanud Riigi Infosüsteemi Amet. Ettepanekud ja märkused palume saata help@ria.ee või luua käesolevas varamus `Issue`.
+Protokolli on välja töötanud Riigi Infosüsteemi Amet.
+
+Protokollis on arvestatud projekti "Dokumendivahetustaristu hajusarhitektuurile üleviimise väljatöötamine" raames mai-juuni 2016 läbiviidud analüüsi (täitja BPW Consulting OÜ) raportis esitatud ettepanekuid ja soovitusi. 
+
+Ettepanekud ja märkused palume saata help@ria.ee või luua käesolevas varamus `Issue`.
 
 Protokolli saab kasutada MIT litsentsi [MIT] alusel.
+
+##### 1.4 Disaini kaalutlused
+
+Protokolli kavandamisel on lähtutud hajusa dokumendivahetuse lahendusele püstitatud ärinõuetest:
+
+- __hajusus__ - lahendus ei tohi nõuda keskset sõlme ega muid keskseid komponente, v.a X-tee taristu poolt pakutavad võimalused (X-tee identimis- ja adresseerimissüsteem, X-tee metateenused).
+- __kohaletoimetatavus__ - lahendus peab võimaldama dokumente garanteeritult kätte toimetada kõigile X-teega liitunud asutustele, kes DHX-i kasutusele võtavad.
+- __adresseeritavus__ - saatjal peab olema adressaadi nime järgi võimalik kergesti leida aadress, millel dokument teele panna.
+- turvalisus - saadetav dokument peab jõudma õige adressaadini ja ainult temani.
+- __kiire__ - dokumendi teeloleku aeg peab olema lühike, mitte pikem kui DVK lahenduses.
+- __õiguspärane__ - lahendus peab vastama kehtivale õigusele või esitatakse realistlikud ettepanekud õiguse muutmiseks.
+- __lihtsalt teostatav__ - tehniline teostus peab olema lihtne, DHS-des nõutavad arendustööd - minimaalse maksumusega.
+- __madala käitluskuluga__ - lahendus ei tohi panna DHS-de haldajatele täiendavat süsteemihaldamise koormust.
+- __e-arvete liiklust võimaldav__ - lahenduses peab säilitama senise DVKga samaväärse võimaluse töödelda e-arveid.
+- __agnostiline dokumenditüübi suhtes__ - protokoll ei tohi seada piiranguid vahetatavate dokumentide tüüpidele, peale dokumendivahetuse "kapsli" (vt [DHX]) kasutamise.
+- __minimaalne__ - protokollis ei tohi olla ärinõuete täitmise suhtes vähetähtsaid elemente.
+- __aluskihina toimimise võimeline__ - protokolli peale peab olema võimalik rajada edasisi kokkuleppeid.
+- __X-tee versiooni 6 toetav__ - protokoll peab toimima X-tee versioonis 6; X-tee varasemate versioonide tugi ei ole vajalik.
+- __probleemideta üleminek__ - hajuslahendusele üleminek peab olema kavandatud nii tehniliselt kui ka organisatsioonilises vaates; - üleminek peab olema sujuv; ülemineku riskid peavad olema asjakohaste meedetega maandatud.
+- __statistikavajaduse rahuldamine__ - dokumendivahetuse statistika erinevate kasutajate teabevajadused peavad olema arvesse võetud.
+- __kasutusmugavuse säilimine__ - DHX-i kasutusel ja ka üleminekuperioodil peab säilima (võib paraneda) tänane DVK kasutusmugavus kasutajale.
+
+Üksteisele vastutöötavate ärinõuete korral on püütud leida tasakaalustatud lahendus. 
+
 
 #### 2 Nõuete keel
 

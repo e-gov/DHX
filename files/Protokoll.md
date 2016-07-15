@@ -158,12 +158,12 @@ Protokolli kavandamisel on lähtutud hajusa dokumendivahetuse lahendusele püsti
 
 | mõiste | seletus |
 |---|---|
-| _adressaat_ | ingl _adressee_, asutus, kellele tahetakse dokumenti saata. Adressaadi määrab üheselt asutuse registrikood. |
+| _adressaat_ | ingl _adressee_, asutus, kellele tahetakse dokumenti saata. Adressaadi määrab üheselt asutuse registrikood. Samatähenduslik sõnaga "saaja". |
 | _asutus_ | DHX dokumendivahetuses osalev organisatsioon. Eelkõige Eesti avaliku sektori asutus, aga võib olla ka ettevõte või vabasektori organisatsioon. Asutuselt eeldatakse ametlikku registrisse (riigi ja kohaliku omavalitsuse asutuste riiklik register (RKOARR), äriregister, mittetulundusasutuste register) kantust ja registrikoodi olemasolu. |
 | _DHX-i dokumendivahetus_ | dokumentide vahetus X-teel vastavalt DHX protokollile. |
 | _DHX-i otserakendamine_ | DHX-i otse, st ilma vahendajata rakendamine. |
 | _DHX-i otsevõimekus_ | kui asutus on loonud võimekuse DHX-i rakendada ilma vahendajata, siis ütleme, et asutusel on DHX-i otsevõimekus. |
-| _DHX-i rakendaja_ | asutus, kes kasutab DHX-i |
+| _DHX-i rakendaja_ | asutus, kes kasutab DHX-i. |
 | _DHX-i rakendamine_ | DHX-i kasutamine, täites kõik DHX-i vastavusnõuded. DHX-i võib rakendada otse või vahendaja kaudu. |
 | _DHX-i võimekus vahendaja kaudu_ | DHX-i kasutamine läbi vahendaja. Vt DHX otserakendamine. |
 | _DHX-i võimekus_ | asutuse võimekus saata ja vastu võtta dokumente vastavalt DHX protokollile. DHX võimekuse võib teostada kas otse (vt DHX otsevõimekus) või läbi vahendaja (vt DHX võimekus vahendaja kaudu). |
@@ -180,12 +180,14 @@ Protokolli kavandamisel on lähtutud hajusa dokumendivahetuse lahendusele püsti
 | _DVK_ | Dokumendivahetuskeskus [DVK]. |
 | _RIA_ | Riigi Infosüsteemi Amet. |
 | _registrikood_ | asutuse ametlik registrikood. Nt `70002093` `Kadrioru lasteaed`. |
-| _vastuvõttev süsteem_ | dokumenti X-teel DHX protokolli kohaselt vastuvõttev infosüsteem (võib olla ka vahendaja infosüsteem ja üleminekuperioodil DVK) |
+| _vastuvõttev süsteem_ | dokumenti X-teel DHX protokolli kohaselt vastuvõttev infosüsteem (võib olla ka vahendaja infosüsteem ja üleminekuperioodil DVK). |
 | _saadetis_ | ingl _consignment_, dokument, mida saatev süsteem üritab vastuvõtvale süsteemile saata. Ebaõnnestumise korral tehakse mitu üritust. |
 | _saadetise id_ | ingl _consignment id_, dokumendi saatmisürituste seeriale antud unikaalne identifikaator. Vt 7.7. |
-| _saatev süsteem_ | dokumenti X-teel DHX protokolli kohaselt saatev infosüsteem (võib olla ka vahendaja infosüsteem) |
+| _saaja_ | asutuse, kellele dokument on adresseeritud. Samatähenduslik sõnaga "adressaat". Vahendamise puhul võib saajana käsitada ka vahendajat. Sõnakasutusest peab alati selguma, kumba silmas peetakse. vt "saatja". |
+| _saatja_ | dokumenti saatev asutus; saatja võib kasutada vahendajat. Vahendamise puhul võib ka vahendajat käsitada saatjana. Sõnakasutuse peab alati selguma, kumba silmas peetakse. Vt "saaja".  |
+| _saatev süsteem_ | dokumenti X-teel DHX protokolli kohaselt saatev infosüsteem (võib olla ka vahendaja infosüsteem). |
 | _teenuse identifikaator_ | X-tee [X-tee] versiooni 6 nõuete kohane X-tee teenuse identifikaator. Identifitseerib unikaalselt X-tee teenuse nii Eesti X-teel kui ka X-tee implementatsioonide rahvusvahelises võrgus. Koosneb X-tee liikme identifikaatorist, teenuse koodnimetusest ja valikulisest versiooninumbrist. Näiteks: `EE/GOV/70003158/DHX/sendDocument`. |
-| _vahendaja_ | vt DHX vahendaja. |
+| _vahendaja_ | vt "DHX vahendaja". |
 | _vahendatav_ | asutus, kes on loonud DHX võimekuse vahendaja kaudu. DHX dokumendivahetuses X-teel oma sertifikaadiga ei osale, vaid kasutab vahendaja teenust. |
 | _vahendusnimekiri_ | DHX dokumendivahendusteenuse vahendaja poolt X-teel teenusena pakutav nimekiri asutustest, keda ta vahendab. Mitte segi ajada DHX vahendajate nimekirjaga. |
 | _üleminekuperiood_ | Dokumendivahetuskeskuse (DVK) kasutamiselt DHX kasutamisele ülemineku periood. Perioodi alguse ja lõpu määrab X-tee keskus. |
@@ -211,6 +213,8 @@ Joonis 2. DHX põhiskeem
 DHX teenuse kasutamine on interaktsioon, mis koosneb kahest sõnumisaatmisest:
  - dokumendi saatja saadab teenusele `sendDocument` X-tee päringsõnumi (päringu)
  - dokumendi saaja saadab vastussõnumi kinnitusega dokumendi kättesaamise kohta.
+  
+Märkus. Päring- ja vastussõnum moodustavad X-teel standardselt kasutatava nn "sünkroonse" _request-response_ sõnumipaari.  
 
 Kui dokument on valesti adresseeritud või valesti formeeritud, siis saadetakse vastussõnumis asjakohane veateade.
 
@@ -267,7 +271,7 @@ Alloleva tabel esitab kommenteeritud nimekirja kapsli elementidest, mida DHX-i k
 ----
 
 #### 5.7 Unikaalne identifikaator
-__Saatev süsteem PEAB andma dokumendile identifikaatori, mis on unikaalne vähemalt DHS-i piires.__
+__Saatev süsteem PEAB andma saadetisele identifikaatori, mis on unikaalne vähemalt saatva süsteemi piires.__
 
 #### 6 Vahendamine
 

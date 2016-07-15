@@ -36,13 +36,13 @@ _kavand v 0.9_
 
 [7 Saatmine](Protokoll.md#7-saatmine)
 
-  - [7.1 DHX võimekus](Protokoll.md#71-dhx-võimekus)
-  - [7.2 Otsevõimekuse väljaselgitamine](Protokoll.md#72-otsevõimekuse-väljaselgitamine)
-  - [7.3 Võimekus läbi vahendaja](Protokoll.md#72-dhx-võimekus-läbi-vahendaja)
-  - [7.4 Lokaalne aadressiraamat](Protokoll.md#73-lokaalne-aadressiraamat)
-  - [7.5 Dokumendi lugemine edastatuks](Protokoll.md#75-dokumendi-lugemine-edastatuks)
-  - [7.6 Uuesti üritamine](Protokoll.md#76-uuesti-üritamine)
-  - [7.7 Saatmisalgoritm (informatiivne)](Protokoll.md#77-saatmisalgoritm)
+  - [7.1 DHX võimekus](#71-dhx-võimekus)
+  - [7.2 Otsevõimekuse väljaselgitamine](#72-otsevõimekuse-väljaselgitamine)
+  - [7.3 Võimekus läbi vahendaja](#73-v%C3%B5imekus-l%C3%A4bi-vahendaja)
+  - [7.4 Lokaalne aadressiraamat](#73-lokaalne-aadressiraamat)
+  - [7.5 Dokumendi lugemine edastatuks](#75-dokumendi-lugemine-edastatuks)
+  - [7.6 Uuesti üritamine](#76-uuesti-üritamine)
+  - [7.7 Saatmisalgoritm (informatiivne)](#77-saatmisalgoritm)
 
 [8 Vastuvõtmine](Protokoll.md#8-vastuvõtmine)
 
@@ -342,15 +342,16 @@ Saatja turvaserver laeb perioodiliselt X-tee keskserverist alla teavet X-tee kon
 Adressaadil otsevõimekuse olemasolul PEAB dokumendi saatma adressaadile otse.
 
 ##### 7.3 Võimekus läbi vahendaja
-Otsevõimekuse puudumise korral PEAB saatev süsteem kontrollima, kas adressaadil on DHX võimekus läbi vahendaja.
+__Otsevõimekuse puudumise korral PEAB saatev süsteem kontrollima, kas adressaadil on DHX võimekus läbi vahendaja.__
 
-DHX võimekuse läbi vahendaja kontrollimiseks PEAB saatev süsteem:
+__DHX võimekuse läbi vahendaja kontrollimiseks PEAB saatev süsteem:__
  - alla laadima X-tee keskusest X-tee globaalse konfiguratsiooni faili või kasutama turvaserveri poolt allalaetud globaalse konfiguratsiooni faili;
  - leidma failist vahendajate nimekirja (DHX vahendajate grupi);
  - käima kõik vahendajad läbi ning pärima X-tee kaudu vahendusnimekirjad;
- - kindlaks tegema, kas adressaat sisaldub vahendusnimekirjades.
+ - kindlaks tegema, kas adressaat sisaldub vahendusnimekirjades
+ - kontrollima vahendussuhte ajalist kehtivust (teenuse `representationList` vastussõnumi väljade `startDate` ja `endDate` abil).__
 
-Kui adressaadil puudub DHX otsevõimekus, kuid on DHX võimekus läbi vahendaja, siis PEAB saatev süsteem saatma dokumendi vahendajale.
+__Kui adressaadil puudub DHX otsevõimekus, kuid on DHX võimekus läbi vahendaja, siis PEAB saatev süsteem saatma dokumendi vahendajale.__
 
 ##### 7.4 Lokaalne aadressiraamat
 Saatev süsteem VÕIB DHX-i võimekuse väljaselgitamise tulemust puhverdada, moodustades nn lokaalse aadressiraamatu. Puhvri (lokaalse aadressiraamatu) värskendamise periood PEAB olema konfigureeritav.

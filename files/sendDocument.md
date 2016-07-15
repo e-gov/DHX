@@ -54,7 +54,7 @@ Vastuvõtja süsteem PEAB äriloogikalise või DHX protokolli reeglite vastu val
 
  Päringu näide:
  
- ```
+ ```XML
  <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
     <ns4:protocolVersion xmlns:ns2="http://dhx.x-road.eu/producer"
@@ -97,7 +97,7 @@ Vastuvõtja süsteem PEAB äriloogikalise või DHX protokolli reeglite vastu val
 ```
 
 Manus:
-```
+```HTTP
 ------=_Part_12_1312957482.1467986355580
 Content-Type: text/xml; charset=UTF-8
 Content-ID: c48e2f41-3f53-4dc6-ae69-1d16a87682e2@
@@ -109,7 +109,7 @@ PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pjxu
 ```
 
  Vastuse näide:
-```
+```XML
 <?xml version="1.0" encoding="utf-8" ?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
@@ -154,7 +154,7 @@ PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pjxu
 ```
 
 Äriloogilise vea näide:
-```
+```XML
 <?xml version="1.0" encoding="utf-8" ?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
 	<SOAP-ENV:Header>
@@ -200,7 +200,7 @@ PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pjxu
 </SOAP-ENV:Envelope>
 ```
 Tehnilise vea näide: 
-```
+```XML
 <?xml version="1.0" encoding="UTF-8"?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
 	<SOAP-ENV:Body>

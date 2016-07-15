@@ -41,9 +41,9 @@ _kavand v 0.9_
   - [7.3 Võimekus läbi vahendaja](#73-v%C3%B5imekus-l%C3%A4bi-vahendaja)
   - [7.4 Lokaalne aadressiraamat](#74-lokaalne-aadressiraamat)
   - [7.5 Saatmine DVK-sse](#75-saatmine-dvk-sse) 
-  - [7.6 Dokumendi lugemine edastatuks](#75-dokumendi-lugemine-edastatuks)
-  - [7.7 Uuesti üritamine](#76-uuesti-üritamine)
-  - [7.8 Saatmisalgoritm (informatiivne)](#77-saatmisalgoritm-informatiivne)
+  - [7.6 Dokumendi lugemine edastatuks](#76-dokumendi-lugemine-edastatuks)
+  - [7.7 Uuesti üritamine](#77-uuesti-üritamine)
+  - [7.8 Saatmisalgoritm (informatiivne)](#78-saatmisalgoritm-informatiivne)
 
 [8 Vastuvõtmine](Protokoll.md#8-vastuvõtmine)
 

@@ -25,7 +25,7 @@ Puuduvad.
 #### Näited
 
 Päringu näide:
-```
+```XML
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
     <SOAP-ENV:Header>
         <ns4:protocolVersion xmlns:ns2="http://dhx.x-road.eu/producer"
@@ -64,7 +64,7 @@ Päringu näide:
 ```
 
 Vastuse näide:
-```
+```XML
 <?xml version="1.0" encoding="utf-8" ?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
     <SOAP-ENV:Header>

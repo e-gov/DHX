@@ -245,6 +245,21 @@ DHX teenus PEAB kasutama X-tee alamsüsteemi "DHX". X-tee keskus EI TOHI registr
 ##### 5.6 Kapsli kasutamine
 Dokumendi PEAB edastama ametlikult kinnitatud elektroonilise andmevahetuse metaandmete loendile vastavas "kapslis" [Kapsel]. Dokumendi kapslis edastatakse muuhulgas adressaadiks oleva asutuse registrikood.
 
+----
+Märkus (informatiivne).
+
+DHX-i kasutuselevõtmisel tekib vajadus täpsustada kapsli [Kapsel] metaandmete elementide tähendust või isegi anda välja uus redaktsioon. Uus redaktsioon on tõenäoliselt mõtet anda välja pärast DHX-ile üleminekuaja lõppu (kui DVK lõplikult käigust eemaldatakse).
+
+Alloleva tabel esitab kommenteeritud nimekirja kapsli elementidest, mida DHX-i kasutuselevõtmine puudutab. Täieliku kapsli elementide spetsifikatsiooniga on võimalik tutvuda [Kapsel].
+
+| element | tähendus DHX-i kasutamisel |
+|---------|----------------------------|
+| Transport  1. DVK Saatja | Transport  1. Dokumendi saatja |
+| Transport  2. DVK Saaja | Transport  2. Dokumendi saaja |
+| XI DVK dokumendi metaandmed | _ei kasutata_ |
+
+----
+
 ##### 5.7 Unikaalne identifikaator
 Saatev süsteem PEAB andma dokumendile identifikaatori, mis on unikaalne vähemalt DHS-i piires.
 

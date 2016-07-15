@@ -10,7 +10,7 @@ _kavand v 0.9_
   - [1.1 Protokolli käsitlusala](Protokoll.md#11-protokolli-k%C3%A4sitlusala)
   - [1.2 Dokumendi eesmärk](Protokoll.md#12-dokumendi-eesm%C3%A4rk)
   - [1.3 Väljatöötamine](Protokoll.md#13-v%C3%A4ljat%C3%B6%C3%B6tamine)
-  - [1.4 Disaini kaalutlused](#disaini-kaalutlused)
+  - [1.4 Disaini kaalutlused](#14-disaini-kaalutlused)
 
 [2 Nõuete keel](Protokoll.md#2-nõuete-keel)
 

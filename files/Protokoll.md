@@ -271,7 +271,7 @@ Alloleva tabel esitab kommenteeritud nimekirja kapsli elementidest, mida DHX-i k
 ----
 
 #### 5.7 Unikaalne identifikaator
-__Saatev süsteem PEAB andma saadetisele identifikaatori, mis on unikaalne vähemalt saatva süsteemi piires.__
+__Saatev süsteem PEAB dokumendi saatmisürituste seeriale andma unikaalse identifikaatori (saadetise id, ingl _consignment id_).__ (Vt ka jaotis 7.7 Uuesti üritamine.)
 
 #### 6 Vahendamine
 
@@ -387,8 +387,6 @@ Märkus (informatiivne). Uuestisaatmise teostamisel võib võrdluseks võtta DVK
 ----
 
 __Tühipäringute arvu vähendamiseks PEAKS kasutada eksponentsiaalse taganemise (_exponential back-off_) algoritmi [EXP].__
-
-__Saatev süsteem PEAB dokumendi saatmisürituste seeriale andma unikaalse identifikaatori (saadetise id, ingl _consignment id_).__
 
 __Saatmisürituste arv PEAB olema lõplik ja saatva süsteemi konfiguratsioonis määratav.__ 
 
@@ -529,7 +527,7 @@ Alljärgnev käsitlus piirdub koostalitlusvõimet tagavate tarkvaratehniliselt r
 | 5.4 | DHX teenuse nimi PEAB järgima mustrit `EE/<liikmeklass>/<registrikood>/DHX/sendDocument`. |
 | 5.5 | DHX teenus PEAB kasutama X-tee alamsüsteemi "DHX". |
 | 5.6 | Dokumendi PEAB edastama ametlikult kinnitatud elektroonilise andmevahetuse metaandmete loendile vastavas "kapslis". |
-| 5.7 | Saatev süsteem PEAB andma dokumendile identifikaatori, mis on unikaalne vähemalt DHS-i piires. |
+| 5.7 | Saatev süsteem PEAB dokumendi saatmisürituste seeriale andma unikaalse identifikaatori (saadetise id, ingl _consignment id_). |
 | 6.2 | DHX rakendamisel läbi vahendaja PEAB asutus sõlmima lepingu DHX vahendajaga. Kasutada TOHIB AINULT X-tee keskuse poolt DHX vahendajate nimekirja lisatud vahendajaid. |
 | 7.1 | Saatev süsteem PEAB välja selgitama, kas adressaadil on DHX võimekus. |
 | 7.2 | Otsevõimekust PEAB välja selgitama esimeses järjekorras (enne vahendaja kaudu võimekuse tuvastamist). |
@@ -542,7 +540,6 @@ Alljärgnev käsitlus piirdub koostalitlusvõimet tagavate tarkvaratehniliselt r
 | 7.6 | Saatev süsteem PEAB lugema dokumendi edastatuks, kui on saanud `sendDocument` teenuselt positiivse vastuskoodiga vastussõnumi. |
 | 7.7 | Kui adressaadiga ei saa ühendust või kättesaamise kinnitust ei tule, siis PEAB mõne aja pärast saatmist uuesti üritama. |
 | 7.7 | Tühipäringute arvu vähendamiseks PEAKS kasutada eksponentsiaalse taganemise (_exponential back-off_) algoritmi [EXP]. |
-| 7.7 | Saatev süsteem PEAB dokumendi saatmisürituste seeriale andma unikaalse identifikaatori (saadetise id, ingl _consignment id_). |
 | 7.7 | Saatmisürituste arv PEAB olema lõplik ja saatva süsteemi konfiguratsioonis määratav. |
 | 8.1 | Vastuvõttev süsteem PEAB kontrollima, et dokument on saadetud õigele aadressile. |
 | 8.1 | Vahendamise puhul PEAB vastuvõttev süsteem kontrollima, kas adressaat on vahendaja klient (on vahendusnimekirjas). |

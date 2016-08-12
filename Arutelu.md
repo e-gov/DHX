@@ -14,7 +14,7 @@ Protokolli väljatöötamise eesmärk on teha dokumendivahetus kiiremaks, lihtsa
 
 Oleme hoolikalt kaalunud omadusi, mida protokollis teostada ja lähtunud protokollide parimast praktikast.
 
-Samuti oleme [analüüsinud DHSde kasutajate soove ja vajadusi](https://github.com/e-gov/DHX/blob/master/files/Anal%C3%BC%C3%BCs.md) elektroonilise dokumendivahetuse korraldamisel.
+Samuti oleme [analüüsinud DHSde kasutajate soove ja vajadusi](https://github.com/e-gov/DHX/raw/master/files/Hajusa_dokumendivahetuse_andmevahetusprotokolli_DHX_anal%C3%BC%C3%BCs_1.2.pdf) elektroonilise dokumendivahetuse korraldamisel.
 
 [Protokolli kavand](files/Protokoll.md) on läbinud mitmed sisemised läbivaatused ja täiendusringid.
 

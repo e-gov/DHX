@@ -12,7 +12,7 @@ Protocol is published with [MIT licence](LICENCE.txt).
 
 DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimaldab Eesti avaliku sektori dokumendihaldussüsteemidel vahetada dokumente hajus- e detsentraliseeritud põhimõttel.
 
-[Tekst](files/Protokoll.md) | vt ka [Foorum](https://github.com/e-gov/DHX/issues) | [Esitlus](http://slides.com/priitparmakson/dhx/fullscreen) | [Kirjandus](files/Kirjandus.md) | [Osale arenduses](CONTRIBUTING.md) | [Dokumendihalduse "ökosüsteem"](files/DOK-S.md) | [Etalonteostus](https://github.com/e-gov/DHX-etalon)
+[Tekst](files/Protokoll.md) | vt ka [Foorum](https://github.com/e-gov/DHX/issues) | [Esitlus](http://slides.com/priitparmakson/dhx/fullscreen) | [Kirjandus](files/Kirjandus.md) | [Osale arenduses](CONTRIBUTING.md) | [Dokumendihalduse "ökosüsteem"](files/DOK-S.md) | [Etalonteostus](https://dhxdemo.eesti.ee/)
 
 Protokolli saab kasutada [MIT litsentsi alusel](LICENCE.txt).
 

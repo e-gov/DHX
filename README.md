@@ -2,17 +2,18 @@
 
 ### Dokumendivahetusprotokoll DHX / Document exchange protocol DHX
 
-#### EN
-
-[Text](files/Protocol.md) | [Overview](https://github.com/e-gov/DHX/blob/master/files/Overview.md) |  [Presentation](https://github.com/e-gov/DHX/blob/master/files/DHX_EN%20%282%29.pdf) (with a very brief discussion of X-Road) | [Discussion page](https://github.com/e-gov/DHX/issues) | [How to contribute](https://github.com/e-gov/DHX/blob/master/CONTRIBUTING.md) | [Reference implementation](https://github.com/e-gov/DHX-etalon)
-
-Protocol is published with [MIT licence](LICENCE.txt).
-
 #### ET
 
 DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimaldab Eesti avaliku sektori dokumendihaldussüsteemidel vahetada dokumente hajus- e detsentraliseeritud põhimõttel.
 
-[Tekst](files/Protokoll.md) | vt ka [Foorum](https://github.com/e-gov/DHX/issues) | [Esitlus](http://slides.com/priitparmakson/dhx/fullscreen) | [Kirjandus](files/Kirjandus.md) | [Osale arenduses](CONTRIBUTING.md) | [Dokumendihalduse "ökosüsteem"](files/DOK-S.md) | [Etalonteostus](https://dhxdemo.eesti.ee/)
+- [Tekst](files/Protokoll.md)
+- [Foorum](https://github.com/e-gov/DHX/issues)
+- [Esitlus](http://slides.com/priitparmakson/dhx/fullscreen)
+- [Kirjandus](files/Kirjandus.md)
+- [Osale arenduses](CONTRIBUTING.md)
+- [Dokumendihalduse "ökosüsteem"](files/DOK-S.md)
+- [Etalonteostus](https://dhxdemo.eesti.ee/)
+- [Analüüs](https://github.com/e-gov/DHX/blob/master/files/Hajusa_dokumendivahetuse_andmevahetusprotokolli_DHX_anal%C3%BC%C3%BCs_1.2.pdf)
 
 Protokolli saab kasutada [MIT litsentsi alusel](LICENCE.txt).
 
@@ -31,3 +32,14 @@ Antud projekt tagab ettevalmistused riigile tehnoloogiliselt, organisatoorselt o
 Projekti hankija on Riigi Infosüsteemi Amet ja täitja BPW Consulting OÜ. Projekti rahastatakse Euroopa Liidu struktuurifondide toetusega.
 
 Projektijuht: Eneli Järve https://github.com/EneliJarve, Riigi Infosüsteemi Amet, 663 0278, eneli.jarve@ria.ee
+
+#### EN
+
+- [Text](files/Protocol.md)
+- [Overview](https://github.com/e-gov/DHX/blob/master/files/Overview.md)
+- [Presentation](https://github.com/e-gov/DHX/blob/master/files/DHX_EN%20%282%29.pdf) (with a very brief discussion of X-Road)
+- [Discussion page](https://github.com/e-gov/DHX/issues)
+- [How to contribute](https://github.com/e-gov/DHX/blob/master/CONTRIBUTING.md)
+- [Reference implementation](https://github.com/e-gov/DHX-etalon)
+
+Protocol is published with [MIT licence](LICENCE.txt).

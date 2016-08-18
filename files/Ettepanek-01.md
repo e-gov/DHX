@@ -21,7 +21,7 @@ Dokumentide edastamine DHX-is tugineb X-tee standardsele "sünkroonsele" päring
 
 Siiski võib olla süsteeme, mis vajavad kättesaamiskinnituse koostamiseks rohkem aega. Kui kättesaamise osaks loetakse ka dokumendi hõlmamist vm tegevusi, mis nõuavad inimese sekkumist või pöördumist kolmanda andmetöötlusseadme või -süsteemi poole (dokumendi edastamine vahendaja poolt lõppadressaadile), siis võib X-tee standardne "sünkroonse" sõnumimustri rakendamine olla raskendatud või isegi võimatu.
 
-__Asünkroonse meetodi kasutamisel PEAB Vastuvõttev süsteem teenuse `sendDocument` vastussõnumis teatama, et saadab kättesaamiskinnituse asünkroonselt.__
+__Asünkroonse meetodi kasutamisel PEAB vastuvõttev süsteem teenuse `sendDocument` vastussõnumis teatama, et saadab kättesaamiskinnituse asünkroonselt.__
 __Teate vorming on määratletud protokolli lisas 1 olevas teenuse `sendDocument` spetsifikatsioonis.__
 
 __Vastuvõttev süsteem saadab asünkroonne kättesaamiskinnituse saatva süsteemi teenuse `sendAsyncReceipt` poole pöördumisega.__

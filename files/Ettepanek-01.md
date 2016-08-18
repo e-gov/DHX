@@ -39,7 +39,7 @@ Märkus. Kättesaamiskinnituse edastamine sünkroonselt (teenuse `sendDocument` 
 
 HINNANG
 
-äriline vajadus - kas sellist teenust on vaja?
-
-lahenduse tehniline kvaliteet; 
+1. __Äriline vajadus__ (kas sellist omadust on vaja?) Praeguse teave vajaduse kohta on mittetäielik ja osalt vastukäiv (kas dokumendi registreerimisnumbri tagastamist on vaja või mitte. Kättesaamiskinnituse asünkroonne edastamine oleks tõenäoliselt vajalik vahendajate puhul, kes ei majuta klientide DHSe, vaid on ühenduslüliks X-tee ja kliendi DHSi vahel. Ei ole teada kas ja kui palju selliseid juhte võiks olla.
+2. __Tasakaalustatus__ Peab arvestama, et `sendAsyncReceipt` teenuse ja sellega seonduva loogika teostamine on kulu igale saatjale.
+3. __Lahenduse tehniline kvaliteet__. Hea oleks hinnata X-teel kasutatavate analoogiliste asünkroonsete kinnitusmehhanismide praktikaga võrdluses.
 

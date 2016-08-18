@@ -1,5 +1,7 @@
 DHX protokolli täiendamise ettepanek 01
 
+### Asünkroonne kättesaamiskinnitus
+
 Vt ka https://github.com/e-gov/DHX/issues/38 "Kättesaamise semantika".
 
 Täiendada DHX protokolli järgmiselt:

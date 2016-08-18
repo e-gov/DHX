@@ -1,6 +1,10 @@
-![](../img/DHX-SendAsyncReceipt.PNG)
+DHX protokolli täiendamise ettepanek 01
 
 Täiendada DHX protokolli järgmiselt:
+
+//////////////////////////////////////////////////
+
+![](../img/DHX-SendAsyncReceipt.PNG)
 
 #### 7.6 Kättesaamiskinnitus
 __Vastuvõttev süsteem PEAB saatma kinnituse dokumendi kättesaamise kohta .__
@@ -30,9 +34,12 @@ Märkus. DHX ei võta seisukohta kättesaamise semantika osas (nt kas kättesaam
 
 Märkus. Kättesaamiskinnituse edastamine sünkroonselt (teenuse `sendDocument` vastussõnumis) ja asünkroonselt (teenuse `sendAsyncReceipt` päringsõnumis) on tehnilises mõttes võrdselt turvalised ja pakuvad võrdse jõuga garantiid. Küsimus on ainult sünkroonsuses-asünkroonsuses.  Ei saa väita üldistatul kumb on parem - (sünkroonne või asünkroonne. Küsimus on kumb on sobivam - vastus sõltub konkreetse süsteemi võimekusest.
 
-----
+//////////////////////////////////////////////////
+
 
 HINNANG
 
-Ettepanekut tuleks hinnata kahest aspektist: 1) äriline vajadus - kas sellist teenust on vaja? 2) lahenduse tehniline kvaliteet; 
+äriline vajadus - kas sellist teenust on vaja?
+
+lahenduse tehniline kvaliteet; 
 

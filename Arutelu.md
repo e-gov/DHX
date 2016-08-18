@@ -32,7 +32,7 @@ Teie arvamus on oluline, et saaksime protokolli "lukku lüüa" ja 2017. a alusta
 
 Palume teil tutvuda:
 - [protokolli kavandiga](files/Protokoll.md)
-- hajusa dokumendivahetuse andmevahetusprotokolli DHX [analüüsi raportiga](files/Anal%C3%BC%C3%BCs.md)
+- hajusa dokumendivahetuse andmevahetusprotokolli DHX [analüüsi raportiga](https://github.com/e-gov/DHX/blob/master/files/Hajusa_dokumendivahetuse_andmevahetusprotokolli_DHX_anal%C3%BC%C3%BCs_1.2.pdf)
   - analüüsitud on protokolli vastavust dokumendivahetuse ärinõuetele, käsitletud on DVK ja dokumendivahetuse probleeme; raportis tehakse ettepanekuid protokolli täiendamiseks.
 - [protokolli etalonteostusega](https://github.com/e-gov/DHX-etalon). 
 

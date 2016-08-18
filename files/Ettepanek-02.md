@@ -1,5 +1,7 @@
 DHX protokolli täiendamise ettepanek 02
 
+### Mitut DHS-i toetav nimemuster
+
 Vt ka:
 - https://github.com/e-gov/DHX/issues/1 "Kui asutusel on mitu DHSi?"
 - https://github.com/e-gov/DHX/issues/29 "Mitmes asutuses on 2 või enam infosüsteemi, mis kasutavad DVK-d eraldi kausta alusel. Mis saab?"

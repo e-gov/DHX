@@ -24,10 +24,15 @@ __DHX-i rakendav asutus (või tema DHS vahendusteenuse või DHS majutusteenuse p
 
 __DHX-i rakendaja teostatud asünkroonse kättesaamiskinnituse teenus PEAB vastama lisas 3 esitatud täpsemale spetsifikatsioonile.__
 
+----
+
+Märkus. DHX ei võta seisukohta kättesaamise semantika osas (nt kas kättesaamine eeldab ka dokumendi hõlmamist või mitte), vaid lähtub selle sõna üldlevinud tähendusest. 
+
+Märkus. Kättesaamiskinnituse edastamine sünkroonselt (teenuse `sendDocument` vastussõnumis) ja asünkroonselt (teenuse `sendAsyncReceipt` päringsõnumis) on tehnilises mõttes võrdselt turvalised ja pakuvad võrdse jõuga garantiid. Küsimus on ainult sünkroonsuses-asünkroonsuses.  Ei saa väita üldistatul kumb on parem - (sünkroonne või asünkroonne. Küsimus on kumb on sobivam - vastus sõltub konkreetse süsteemi võimekusest.
+
+----
+
 HINNANG
 
 Ettepanekut tuleks hinnata kahest aspektist: 1) äriline vajadus - kas sellist teenust on vaja? 2) lahenduse tehniline kvaliteet; 
 
-Märgime, et DHX ei võta seisukohta kättesaamise semantika osas (nt kas kättesaamine eeldab ka dokumendi hõlmamist või mitte), vaid lähtub selle sõna üldlevinud tähendusest. 
-
-Märgime, et kättesaamiskinnituse edastamine teenuse `sendDocument` vastussõnumis ja teenuse `sendAsyncReceipt` päringsõnumis on tehnilises mõttes võrdselt turvalised ja pakuvad võrdse jõuga garantiid. Küsimus on ainult sünkroonsuses-asünkroonsuses. Üldjuhul ei saa öelda, kumb (sünkroonne või asünkroonne) on parem, küsimus on kumb on sobivam - see aga sõltub konkreetse süsteemi võimekusest.

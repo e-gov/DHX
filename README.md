@@ -7,15 +7,22 @@
 DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimaldab Eesti avaliku sektori dokumendihaldussüsteemidel vahetada dokumente hajus- e detsentraliseeritud põhimõttel.
 
 - [Tekst](files/Protokoll.md)
-- [Foorum](https://github.com/e-gov/DHX/issues)
 - [Esitlus](http://slides.com/priitparmakson/dhx/fullscreen)
-- [Kirjandus](files/Kirjandus.md)
-- [Osale arenduses](CONTRIBUTING.md)
-- [Dokumendihalduse "ökosüsteem"](files/DOK-S.md)
 - [Etalonteostus](https://dhxdemo.eesti.ee/)
 - [Analüüs](https://github.com/e-gov/DHX/blob/master/files/Hajusa_dokumendivahetuse_andmevahetusprotokolli_DHX_anal%C3%BC%C3%BCs_1.2.pdf)
 
 Protokolli saab kasutada [MIT litsentsi alusel](LICENCE.txt).
+
+### Protokolli arendamine
+- [Foorum](https://github.com/e-gov/DHX/issues)
+- [Osale arenduses](CONTRIBUTING.md)
+- Menetluses olevad ettepanekud:
+  - 01 [Asünkroonne kättesaamiskinnitus](files/Ettepanek-01.md#as%C3%BCnkroonne-k%C3%A4ttesaamiskinnitus)
+  - 02 [Mitut DHS-i toetav nimemuster](files/Ettepanek-02.md#mitut-dhs-i-toetav-nimemuster)
+
+#### Taustamaterjale
+- [Kirjandus](files/Kirjandus.md)
+- [Dokumendihalduse "ökosüsteem"](files/DOK-S.md)
 
 #### Projekt "Dokumendivahetustaristu hajusarhitektuurile üleviimise väljatöötamine"
 

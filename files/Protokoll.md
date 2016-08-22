@@ -2,7 +2,7 @@
 
 Riigi Infosüsteemi Amet
 
-_kavand v 1.0_
+v 1.0
 
 #### Sisukord
 

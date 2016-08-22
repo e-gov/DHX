@@ -2,7 +2,7 @@
 
 Riigi Infosüsteemi Amet
 
-_kavand v 0.9_
+_kavand v 1.0_
 
 #### Sisukord
 
@@ -226,7 +226,9 @@ Dokumendid edastatakse nn tõukemeetodil (ingl _push_). Dokumendi saatja algatab
 #### 5.2 DHX teenuse väljaarendamine
 __DHX-i rakendav asutus (või tema DHS vahendusteenuse või DHS majutusteenuse pakkuja) PEAB arendama oma DHS-is välja DHX teenuse ja käitama seda.__
 
-Protokoll ei välista olukordi, kus DHS-is luuakse ainult DHX protokolli nõuetele vastav saatmis- või vastuvõtmisvõimekus. Tehniliselt selleks takistusi ei ole. Tehniliselt selleks takistusi pole. Kuna selliste ebasümmeetriliste lahenduste ärivajadus pole selge, siis lihtsuse hoidmise eesmärgist lähtudes protokoll ei sätesta eraldi profiile süsteemidele, mis piirduvad ainult saatmise või vastuvõtmisega.
+Protokoll ei välista olukordi, kus DHS-is luuakse ainult DHX protokolli nõuetele vastav saatmis- või vastuvõtmisvõimekus. Tehniliselt selleks takistusi pole. Kuna selliste ebasümmeetriliste lahenduste ärivajadus pole selge, siis lihtsuse hoidmise eesmärgist lähtudes protokoll ei sätesta eraldi profiile süsteemidele, mis piirduvad ainult saatmise või vastuvõtmisega.
+
+__DHX-i rakendav asutust VÕIB DHX-i võimekuse luua ka enamas kui ühes oma infosüsteemis.__
 
 __DHX-i rakendaja teostatud DHX teenus PEAB vastama lisas 1 esitatud täpsemale spetsifikatsioonile.__
 
@@ -240,16 +242,23 @@ __Üleminekuperioodiks PEAB DHX teenuse avama ka DVK-le.__
 DVK edastab dokumente asutustelt, kes ei ole veel DHX-i võimekust loonud.
 
 #### 5.4 Nimemuster
-__DHX teenuse nimi PEAB järgima mustrit `EE/<liikmeklass>/<registrikood>/DHX/sendDocument`, kus__
+__DHX teenuse nimi PEAB järgima mustrit `EE/<liikmeklass>/<registrikood>/DHX.<täpsustus>/sendDocument`, kus__
  - `EE` on X-tee Eesti instantsi nimi
  - `<liikmeklass>` on X-tee liikmeklass (vastavalt vahendaja õiguslikule vormile kas `GOV` või `PRI`) 
- - `DHX` on teenuse ülesleidmist tagav, käesoleva protokolliga fikseeritud X-tee alamsüsteemi nimi ja
+ - `DHX` on teenuse ülesleidmist tagav, käesoleva protokolliga fikseeritud X-tee alamsüsteemi nimi
+ - `.<täpsustus>` on mittekohustuslik nimetäpsustus asutustele, kes kasutavad mitut DHS-i ja
  - `<registrikood>` on asutuse registrikood.
 
- Näide: `EE/GOV/70003158/DHX/sendDocument`
+ Näited:
+ 
+`EE/GOV/70003158/DHX/sendDocument`
+
+`EE/GOV/70000906/DHX.viru/sendDocument` (Viru Ringkonnaprokuratuur)
+
+`EE/GOV/70000906/DHX.laane/sendDocument` (Lääne Ringkonnaprokuratuur)
 
 #### 5.5 Reserveeritud nimi "DHX"
-__DHX teenus PEAB kasutama X-tee alamsüsteemi "DHX". X-tee keskus EI TOHI registreerida ühegi asutuse alamsüsteemi "DHX" teiseks otstarbeks.__
+__DHX teenus PEAB kasutama X-tee alamsüsteemi "DHX" või "DHX.<täpsustus>". X-tee keskus EI TOHI registreerida ühegi asutuse sellise nimemustriga alamsüsteemi teiseks otstarbeks.__
 
 #### 5.6 Kapsli kasutamine
 __Dokumendi PEAB edastama ametlikult kinnitatud elektroonilise andmevahetuse metaandmete loendile vastavas "kapslis" [Kapsel].__

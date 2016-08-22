@@ -485,9 +485,6 @@ __Vahendajalt dokumendi vastuvõtmisel PEAB kontrollima, kas vahendaja on vahend
 #### 9.1 Üleminekuperiood
 Üleminek DHX protokollile toimub etteantud perioodi jooksul. Üleminekuperiood algab kõigile asutustele üheaegselt. Perioodi algusest teavitab X-tee keskus. Üleminekuperiood lõpeb DVK tegevuse lõpetamisega.
 
-----
-Toimimine üleminekuperioodil (informatiivne)
-
 Üleminekuperioodil arendavad asutused välja oma DHS-des DHX protokolli kohase dokumentide saatmise ja vastuvõtmise võimekuse. Tehniliselt tähendab "DHX-i võimekus" DHX protokolli kohase X-tee teenuse pakkumist ja võimet teiste asutuste samasuguse teenuse poole pöörduda.
 
 DHX-i võimekus ei teki asutustes üheaegselt, sest arendused valmivad erinevatel aegadel. Joonis 4 selgitab DHX-le üle läinud ja veel üle minemata süsteemide koostoimimist üleminekuperioodil.
@@ -501,8 +498,6 @@ Asutused 1 ja 2 on üle läinud DHX protokollile ja vahetavad dokumente üksteis
 DVK täidab üleminekuperioodil uue ja vana protokolli (DHX-i ja DVK) vahelise teisendaja rolli. 
 
 UK tähistab RIA poolt väljatöötatavat "universaalset tarkvarakomponenti", mille eesmärgiks on kergendada DHS-de ümberhäälestamist DHX-i kasutamisele. UK kasutamine ei ole kohustuslik.
-
-----
 
 __Üleminekuperioodil niipea, kui asutuse DHS-is on tekkinud DHX protokolli võimekus (arendus on lõppenud), PEAB hakkama dokumendi saatmisel kasutama DHX teenust.__
 

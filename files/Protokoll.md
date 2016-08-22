@@ -221,7 +221,7 @@ Kui dokument on valesti adresseeritud või valesti formeeritud, siis saadetakse 
 
 Dokument edastatakse päringsõnumis.
 
-Dokumendid edastatakse nn tõukemeetodil (ingl _push_). Dokumendi saatja algatab saatmise pöördumisega adressaadi_ `sendDocument` _teenuse poole.
+Dokumendid edastatakse nn tõukemeetodil (ingl _push_). Dokumendi saatja algatab saatmise pöördumisega adressaadi `sendDocument` teenuse poole.
 
 #### 5.2 DHX teenuse väljaarendamine
 __DHX-i rakendav asutus (või tema DHS vahendusteenuse või DHS majutusteenuse pakkuja) PEAB arendama oma DHS-is välja DHX teenuse ja käitama seda.__

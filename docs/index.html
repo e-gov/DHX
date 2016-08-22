@@ -5,12 +5,8 @@
   <title>DHX</title>
   <meta name="viewport" content="width=1024, user-scalable=no">
 
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="RESPEC.css">
-  <link rel="stylesheet" href="STIILID.css">
-  <!-- link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/W3C-ED" -->
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="lisa.css">
 
 </head>
 
@@ -23,88 +19,78 @@
 
 <h1 id="dokumendivahetusprotokoll-dhx">Dokumendivahetusprotokoll DHX</h1>
 
-<p>Riigi Infosüsteemi Amet</p>
-
-<p><em>kavand v 0.9</em></p>
+<p><em>v 1.0</em></p>
 
 <h2 id="sisukord">Sisukord</h2>
 
-<p><a href="Protokoll.md#1-Ülevaade">1 Ülevaade</a> <br>
-  - <a href="Protokoll.md#11-protokolli-k%C3%A4sitlusala">1.1 Protokolli käsitlusala</a> <br>
-  - <a href="Protokoll.md#12-dokumendi-eesm%C3%A4rk">1.2 Dokumendi eesmärk</a> <br>
-  - <a href="Protokoll.md#13-v%C3%A4ljat%C3%B6%C3%B6tamine">1.3 Väljatöötamine</a> <br>
-  - <a href="#14-disaini-kaalutlused">1.4 Disaini kaalutlused</a></p>
+<p>
+  <a href="#1-Ülevaade">1 Ülevaade</a> <br>
+  <a href="#11-protokolli-k%C3%A4sitlusala">1.1 Protokolli käsitlusala</a> <br>
+  <a href="#12-dokumendi-eesm%C3%A4rk">1.2 Dokumendi eesmärk</a> <br>
+  <a href="#13-v%C3%A4ljat%C3%B6%C3%B6tamine">1.3 Väljatöötamine</a> <br>
+  <a href="#14-disaini-kaalutlused">1.4 Disaini kaalutlused</a>
+</p>
 
-<p><a href="Protokoll.md#2-nõuete-keel">2 Nõuete keel</a></p>
+<p><a href="#2-nõuete-keel">2 Nõuete keel</a></p>
 
-<p><a href="Protokoll.md#3-mõisted-ja-lühendid">3 Mõisted ja lühendid</a></p>
+<p><a href="#3-mõisted-ja-lühendid">3 Mõisted ja lühendid</a></p>
 
-<p><a href="Protokoll.md#4-lähteolukord">4 Lähteolukord</a></p>
+<p><a href="#4-lähteolukord">4 Lähteolukord</a></p>
 
-<p><a href="Protokoll.md#5-dhx-teenus">5 DHX teenus</a></p>
+<p><a href="#5-dhx-teenus">5 DHX teenus</a><br>
+  <a href="#51-Üldiseloomustus">5.1 Üldiseloomustus</a><br>
+  <a href="#52-dhx-teenuse-väljaarendamine">5.2 DHX teenuse väljaarendamine</a><br>
+  <a href="#53-dhx-teenuse-avamine">5.3 DHX teenuse avamine</a><br>
+  <a href="#54-nimemuster">5.4 Nimemuster</a><br>
+  <a href="#55-reserveeritud-nimi-dhx">5.5 Reserveeritud nimi “DHX”</a><br>
+  <a href="#56-kapsli-kasutamine">5.6 Kapsli kasutamine</a><br>
+  <a href="#57-unikaalne-identifikaator">5.7 Unikaalne identifikaator</a>
+</p>
 
-<ul>
-<li><a href="Protokoll.md#51-Üldiseloomustus">5.1 Üldiseloomustus</a></li>
-<li><a href="Protokoll.md#52-dhx-teenuse-väljaarendamine">5.2 DHX teenuse väljaarendamine</a></li>
-<li><a href="Protokoll.md#53-dhx-teenuse-avamine">5.3 DHX teenuse avamine</a></li>
-<li><a href="Protokoll.md#54-nimemuster">5.4 Nimemuster</a></li>
-<li><a href="Protokoll.md#55-reserveeritud-nimi-dhx">5.5 Reserveeritud nimi “DHX”</a></li>
-<li><a href="Protokoll.md#56-kapsli-kasutamine">5.6 Kapsli kasutamine</a></li>
-<li><a href="Protokoll.md#57-unikaalne-identifikaator">5.7 Unikaalne identifikaator</a></li>
-</ul>
+<p><a href="#6-vahendamine">6 Vahendamine</a><br>
+  <a href="#61-vahendamise-mõiste">6.1 Vahendamise mõiste</a><br>
+  <a href="#62-vahendajate-nimekiri">6.2 Vahendajate nimekiri</a><br>
+  <a href="#63-vahendusnimekiri">6.3 Vahendusnimekiri</a><br>
+</p>
 
-<p><a href="Protokoll.md#6-vahendamine">6 Vahendamine</a></p>
+<p><a href="#7-saatmine">7 Saatmine</a><br>
+  <a href="#71-dhx-võimekus">7.1 DHX võimekus</a><br>
+  <a href="#72-otsevõimekuse-väljaselgitamine">7.2 Otsevõimekuse väljaselgitamine</a><br>
+  <a href="#73-v%C3%B5imekus-l%C3%A4bi-vahendaja">7.3 Võimekus läbi vahendaja</a><br>
+  <a href="#74-lokaalne-aadressiraamat">7.4 Lokaalne aadressiraamat</a><br>
+  <a href="#75-saatmine-dvk-sse">7.5 Saatmine DVK-sse</a><br>
+  <a href="#76-dokumendi-lugemine-edastatuks">7.6 Dokumendi lugemine edastatuks</a><br>
+  <a href="#77-uuesti-üritamine">7.7 Uuesti üritamine</a><br>
+  <a href="#78-saatmisalgoritm-informatiivne">7.8 Saatmisalgoritm (informatiivne)</a><br>
+</p>
 
-<ul>
-<li><a href="Protokoll.md#61-vahendamise-mõiste">6.1 Vahendamise mõiste</a></li>
-<li><a href="Protokoll.md#62-vahendajate-nimekiri">6.2 Vahendajate nimekiri</a></li>
-<li><a href="Protokoll.md#63-vahendusnimekiri">6.3 Vahendusnimekiri</a></li>
-</ul>
+<p><a href="#8-vastuvõtmine">8 Vastuvõtmine</a><br>
+  <a href="#81-aadressi-kontroll">8.1 Aadressi kontroll</a><br>
+  <a href="#82-valest-aadressist-teatamine">8.2 Valest aadressist teatamine</a><br>
+  <a href="#83-kapsli-kontroll">8.3 Kapsli kontroll</a><br>
+  <a href="#84-mitme-aadressi-käsitlus">8.4 Mitme aadressi käsitlus</a><br>
+  <a href="#85-vastuvõtmine-dvk-st">8.5 Vastuvõtmine DVK-st</a><br>
+  <a href="#86-saatja-kindlakstegemine">8.6 Saatja kindlakstegemine</a><br>
+</p>
 
-<p><a href="Protokoll.md#7-saatmine">7 Saatmine</a></p>
+<p><a href="#9-Üleminek">9 Üleminek</a><br>
+  <a href="#91-Üleminekuperiood">9.1 Üleminekuperiood</a><br>
+  <a href="#92-dvk-toimimine-üleminekuperioodil">9.2 DVK toimimine üleminekuperioodil</a><br>
+</p>
 
-<ul>
-<li><a href="#71-dhx-võimekus">7.1 DHX võimekus</a></li>
-<li><a href="#72-otsevõimekuse-väljaselgitamine">7.2 Otsevõimekuse väljaselgitamine</a></li>
-<li><a href="#73-v%C3%B5imekus-l%C3%A4bi-vahendaja">7.3 Võimekus läbi vahendaja</a></li>
-<li><a href="#74-lokaalne-aadressiraamat">7.4 Lokaalne aadressiraamat</a></li>
-<li><a href="#75-saatmine-dvk-sse">7.5 Saatmine DVK-sse</a> </li>
-<li><a href="#76-dokumendi-lugemine-edastatuks">7.6 Dokumendi lugemine edastatuks</a></li>
-<li><a href="#77-uuesti-üritamine">7.7 Uuesti üritamine</a></li>
-<li><a href="#78-saatmisalgoritm-informatiivne">7.8 Saatmisalgoritm (informatiivne)</a></li>
-</ul>
+<p><a href="#10-vastavusn%C3%B5uded">10 Vastavusnõuded</a>  </p>
 
-<p><a href="Protokoll.md#8-vastuvõtmine">8 Vastuvõtmine</a></p>
+<p><a href="#viited">Viited</a></p>
 
-<ul>
-<li><a href="Protokoll.md#81-aadressi-kontroll">8.1 Aadressi kontroll</a></li>
-<li><a href="Protokoll.md#82-valest-aadressist-teatamine">8.2 Valest aadressist teatamine</a></li>
-<li><a href="Protokoll.md#83-kapsli-kontroll">8.3 Kapsli kontroll</a></li>
-<li><a href="Protokoll.md#84-mitme-aadressi-käsitlus">8.4 Mitme aadressi käsitlus</a></li>
-<li><a href="Protokoll.md#85-vastuvõtmine-dvk-st">8.5 Vastuvõtmine DVK-st</a></li>
-<li><a href="#86-saatja-kindlakstegemine">8.6 Saatja kindlakstegemine</a></li>
-</ul>
-
-<p><a href="Protokoll.md#9-Üleminek">9 Üleminek</a></p>
-
-<ul>
-<li><a href="Protokoll.md#91-Üleminekuperiood">9.1 Üleminekuperiood</a></li>
-<li><a href="Protokoll.md#92-dvk-toimimine-üleminekuperioodil">9.2 DVK toimimine üleminekuperioodil</a></li>
-</ul>
-
-<p><a href="Protokoll.md#10-vastavusn%C3%B5uded">10 Vastavusnõuded</a>  </p>
-
-<p><a href="Protokoll.md#viited">Viited</a></p>
-
-<p><a href="Protokoll.md#lisa-1-senddocument-spetsifikatsioon">Lisa 1 sendDocument spetsifikatsioon</a></p>
+<p><a href="#lisa-1-senddocument-spetsifikatsioon">Lisa 1 sendDocument spetsifikatsioon</a></p>
 
 <p><a href="#lisa-2-representationlist-spetsifikatsioon">Lisa 2 representationList spetsifikatsioon</a></p>
 
 <p>Joonised: <br>
- - Joonis 1 <a href="Protokoll.md#4-lähteolukord">Lähteolukord: dokumendivahetus DVK kaudu</a> <br>
- - Joonis 2 <a href="Protokoll.md#5-dhx-teenus">DHX põhiskeem</a> <br>
- - Joonis 3 <a href="Protokoll.md#6-vahendamine">DHX teenusevahendamine</a> <br>
- - Joonis 4  <a href="Protokoll.md#9-Üleminek">Toimimine üleminekuperioodil</a> </p>
+Joonis 1 <a href="#4-lähteolukord">Lähteolukord: dokumendivahetus DVK kaudu</a> <br>
+Joonis 2 <a href="#5-dhx-teenus">DHX põhiskeem</a> <br>
+Joonis 3 <a href="#6-vahendamine">DHX teenusevahendamine</a> <br>
+Joonis 4  <a href="#9-Üleminek">Toimimine üleminekuperioodil</a> </p>
 
 <h2 id="1-ülevaade">1 Ülevaade</h2>
 
@@ -134,8 +120,6 @@
 
 <p>Protokoll on kujundatud avastandardina.</p>
 
-<hr>
-
 <div class="note">Märkus (informatiivne). <br>
 Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl <em>open standard</em>) kriteeriumiteks: <br>
 - kohast protsessi (ingl <em>due process</em>): <br>
@@ -148,8 +132,6 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 - läbipaistvust <br>
 - tasakaalustatust - standardimistegevuses ei domineeri ükski konkreetne isik, ettevõte või huvirühm <br>
 - vabatahtlikku kasutuselevõttu. IETF on seisukohal, et standardi edukuse määrab lõppkokkuvõttes turg.</div>
-
-<hr>
 
 <p>Protokolli on välja töötanud Riigi Infosüsteemi Amet.</p>
 
@@ -344,11 +326,9 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 
 <h2 id="4-lähteolukord">4 Lähteolukord</h2>
 
-<ol>
-<li><p>DHS-id vahetavad praegu dokumente DVK kaudu, kasutades tingliku nimetusega “DVK protokolli”. “DVK protokolli” määravad elektroonilise andmevahetuse metaandmete loend [Kapsel], DVK liideste spetsifikatsioon [DVK spetsifikatsioon] ja [DVK pidamise kord], laiemas plaanis ka “Asjaajamise ühtsed alused” [AÜK]. Väiksemal arvul on dokumendivahetusliideseid loodud ka muude dokumente töötlevate infosüsteemide vahele. Need liidesed ei ole standarditud. Laienev dokumendiringlus ja dokumente vahetavate infosüsteemide tihenev võrgustik (dokumendivahetus tänapäeval ei piirdu „puhaste“ DHS-dega – dokumente vahetavad ka infosüsteemid, kus dokumendihaldus klassikalises mõttes on ainult üks andmetöötluse liik) nõuab alternatiivi ühe keskse postkastiserveri kaudu toimuvale dokumendiliiklusele.</p>
+<p>DHS-id vahetavad praegu dokumente DVK kaudu, kasutades tingliku nimetusega “DVK protokolli”. “DVK protokolli” määravad elektroonilise andmevahetuse metaandmete loend [Kapsel], DVK liideste spetsifikatsioon [DVK spetsifikatsioon] ja [DVK pidamise kord], laiemas plaanis ka “Asjaajamise ühtsed alused” [AÜK]. Väiksemal arvul on dokumendivahetusliideseid loodud ka muude dokumente töötlevate infosüsteemide vahele. Need liidesed ei ole standarditud. Laienev dokumendiringlus ja dokumente vahetavate infosüsteemide tihenev võrgustik (dokumendivahetus tänapäeval ei piirdu „puhaste“ DHS-dega – dokumente vahetavad ka infosüsteemid, kus dokumendihaldus klassikalises mõttes on ainult üks andmetöötluse liik) nõuab alternatiivi ühe keskse postkastiserveri kaudu toimuvale dokumendiliiklusele.</p>
 
-<p><img src="DHX-Lahteolukord02.PNG" alt="" title=""></p></li>
-</ol>
+<p><img src="DHX-Lahteolukord02.PNG" alt="" title=""></p>
 
 <p>Joonis 1. Lähteolukord: dokumendivahetus DVK kaudu</p>
 
@@ -366,7 +346,7 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
  - dokumendi saatja saadab teenusele <code>sendDocument</code> X-tee päringsõnumi (päringu) <br>
  - dokumendi saaja saadab vastussõnumi kinnitusega dokumendi kättesaamise kohta.</p>
 
-<p>Märkus. Päring- ja vastussõnum moodustavad X-teel standardselt kasutatava nn “sünkroonse” <em>request-response</em> sõnumipaari.  </p>
+<div class="note">Märkus. Päring- ja vastussõnum moodustavad X-teel standardselt kasutatava nn “sünkroonse” <em>request-response</em> sõnumipaari.  </div>
 
 <p>Kui dokument on valesti adresseeritud või valesti formeeritud, siis saadetakse vastussõnumis asjakohane veateade.</p>
 
@@ -376,51 +356,54 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 
 <h3 id="52-dhx-teenuse-väljaarendamine">5.2 DHX teenuse väljaarendamine</h3>
 
-<p><strong>DHX-i rakendav asutus (või tema DHS vahendusteenuse või DHS majutusteenuse pakkuja) PEAB arendama oma DHS-is välja DHX teenuse ja käitama seda.</strong></p>
+<p class="advisement">DHX-i rakendav asutus (või tema DHS vahendusteenuse või DHS majutusteenuse pakkuja) PEAB arendama oma DHS-is välja DHX teenuse ja käitama seda.</p>
 
-<p>Protokoll ei välista olukordi, kus DHS-is luuakse ainult DHX protokolli nõuetele vastav saatmis- või vastuvõtmisvõimekus. Tehniliselt selleks takistusi ei ole. Tehniliselt selleks takistusi pole. Kuna selliste ebasümmeetriliste lahenduste ärivajadus pole selge, siis lihtsuse hoidmise eesmärgist lähtudes protokoll ei sätesta eraldi profiile süsteemidele, mis piirduvad ainult saatmise või vastuvõtmisega.</p>
+<p>Protokoll ei välista olukordi, kus DHS-is luuakse ainult DHX protokolli nõuetele vastav saatmis- või vastuvõtmisvõimekus. Tehniliselt selleks takistusi pole. Kuna selliste ebasümmeetriliste lahenduste ärivajadus pole selge, siis lihtsuse hoidmise eesmärgist lähtudes protokoll ei sätesta eraldi profiile süsteemidele, mis piirduvad ainult saatmise või vastuvõtmisega.</p>
 
-<p><strong>DHX-i rakendaja teostatud DHX teenus PEAB vastama lisas 1 esitatud täpsemale spetsifikatsioonile.</strong></p>
+<p class="advisement">DHX-i rakendav asutust VÕIB DHX-i võimekuse luua ka enamas kui ühes oma infosüsteemis.</p>
+
+<p class="advisement">DHX-i rakendaja teostatud DHX teenus PEAB vastama lisas 1 esitatud täpsemale spetsifikatsioonile.</p>
 
 <h3 id="53-dhx-teenuse-avamine">5.3 DHX teenuse avamine</h3>
 
-<p><strong>DHX-i rakendav asutus PEAB avama DHX teenuse kõigile asutustele, kellega ta soovib dokumente vahetada. Kui asutus turvapoliitika vm kaalutlustel ei pea otstarbekaks DHX teenuse avamist kõigile X-tee liikmetele, siis VÕIB ta DHX teenuse avada konkreetsetele X-tee liikmetele (pääsuõiguste andmisega X-tee turvaserveris).</strong></p>
+<p class="advisement">DHX-i rakendav asutus PEAB avama DHX teenuse kõigile asutustele, kellega ta soovib dokumente vahetada. Kui asutus turvapoliitika vm kaalutlustel ei pea otstarbekaks DHX teenuse avamist kõigile X-tee liikmetele, siis VÕIB ta DHX teenuse avada konkreetsetele X-tee liikmetele (pääsuõiguste andmisega X-tee turvaserveris).</p>
 
 <p>DHX on mõeldud eelkõige universaalse dokumendivahetuskokkuleppena.</p>
 
-<p><strong>Üleminekuperioodiks PEAB DHX teenuse avama ka DVK-le.</strong></p>
+<p class="advisement">Üleminekuperioodiks PEAB DHX teenuse avama ka DVK-le.</p>
 
 <p>DVK edastab dokumente asutustelt, kes ei ole veel DHX-i võimekust loonud.</p>
 
 <h3 id="54-nimemuster">5.4 Nimemuster</h3>
 
-<p><strong>DHX teenuse nimi PEAB järgima mustrit <code>EE/&lt;liikmeklass&gt;/&lt;registrikood&gt;/DHX/sendDocument</code>, kus</strong> <br>
+<p class="advisement">DHX teenuse nimi PEAB järgima mustrit <code>EE/&lt;liikmeklass&gt;/&lt;registrikood&gt;/DHX.&lt;täpsustus&gt;/sendDocument</code>, kus<br>
  - <code>EE</code> on X-tee Eesti instantsi nimi <br>
  - <code>&lt;liikmeklass&gt;</code> on X-tee liikmeklass (vastavalt vahendaja õiguslikule vormile kas <code>GOV</code> või <code>PRI</code>)  <br>
- - <code>DHX</code> on teenuse ülesleidmist tagav, käesoleva protokolliga fikseeritud X-tee alamsüsteemi nimi ja <br>
+ - <code>DHX</code> on teenuse ülesleidmist tagav, käesoleva protokolliga fikseeritud X-tee alamsüsteemi nimeprefiks<br>
+ - <code>.&lt;täpsustus&gt;</code> on nimetäpsustus, mille eesmärk on võimaldada asutusel rakendada DHX-i oma mitmes infosüsteemis; kui asutusel on ainult üks DHS, siis nimetäpsustust kasutada ei ole vaja ja alamsüsteemi nimi võib olla lihtsalt DHX<br>
  - <code>&lt;registrikood&gt;</code> on asutuse registrikood.</p>
 
-<div class="example">Näide: <code>EE/GOV/70003158/DHX/sendDocument</code></div>
+<div class="example">Näited:<br>
+ <code>EE/GOV/70003158/DHX/sendDocument</code><br>
+ <code>EE/GOV/70000906/DHX.viru/sendDocument</code> (Viru Ringkonnaprokuratuur)<br>
+ <code>EE/GOV/70000906/DHX.laane/sendDocument</code> (Lääne Ringkonnaprokuratuur)<br>
+</div>
 
 <h3 id="55-reserveeritud-nimi-dhx">5.5 Reserveeritud nimi “DHX”</h3>
 
-<p><strong>DHX teenus PEAB kasutama X-tee alamsüsteemi “DHX”. X-tee keskus EI TOHI registreerida ühegi asutuse alamsüsteemi “DHX” teiseks otstarbeks.</strong></p>
+<p class="advisement">DHX teenus PEAB kasutama X-tee alamsüsteemi “DHX” või "DHX.&lt;täpsustus&gt;". X-tee keskus EI TOHI registreerida ühegi asutuse sellise nimemustriga alamsüsteemi “DHX” teiseks otstarbeks.</strong></p>
 
 <h3 id="56-kapsli-kasutamine">5.6 Kapsli kasutamine</h3>
 
-<p><strong>Dokumendi PEAB edastama ametlikult kinnitatud elektroonilise andmevahetuse metaandmete loendile vastavas “kapslis” [Kapsel].</strong></p>
+<p class="advisement">Dokumendi PEAB edastama ametlikult kinnitatud elektroonilise andmevahetuse metaandmete loendile vastavas “kapslis” [Kapsel].</p>
 
 <p>Dokumendi kapslis edastatakse muuhulgas adressaadiks oleva asutuse registrikood.</p>
 
-<hr>
-
-<p>Märkus (informatiivne).</p>
-
-<p>DHX-i kasutuselevõtmisel tekib vajadus täpsustada kapsli [Kapsel] metaandmete elementide tähendust või isegi anda välja uus redaktsioon. Uus redaktsioon on tõenäoliselt mõtet anda välja pärast DHX-ile üleminekuaja lõppu (kui DVK lõplikult käigust eemaldatakse).</p>
+<div class="issue">DHX-i kasutuselevõtmisel tekib vajadus täpsustada kapsli [Kapsel] metaandmete elementide tähendust või isegi anda välja uus redaktsioon. Uus redaktsioon on tõenäoliselt mõtet anda välja pärast DHX-ile üleminekuaja lõppu (kui DVK lõplikult käigust eemaldatakse).</div>
 
 <p>Alloleva tabel esitab kommenteeritud nimekirja kapsli elementidest, mida DHX-i kasutuselevõtmine puudutab. Täieliku kapsli elementide spetsifikatsiooniga on võimalik tutvuda [Kapsel].</p>
 
-<h2 id="element-tähendus-dhx-i-kasutamisel-transport-1-dvk-saatja-transport-1-dokumendi-saatja-transport-2-dvk-saaja-transport-2-dokumendi-saaja-xi-dvk-dokumendi-metaandmed-ei-kasutata"><table>
+<table>
 <thead>
 <tr>
   <th>element</th>
@@ -444,7 +427,7 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 
 <h3 id="57-unikaalne-identifikaator">5.7 Unikaalne identifikaator</h3>
 
-<p><strong>Saatev süsteem PEAB dokumendi saatmisürituste seeriale andma unikaalse identifikaatori (saadetise id, ingl <em>consignment id</em>).</strong> (Vt ka jaotis 7.7 Uuesti üritamine.)</p>
+<p class="advisement">Saatev süsteem PEAB dokumendi saatmisürituste seeriale andma unikaalse identifikaatori (saadetise id, ingl <em>consignment id</em>).</strong> (Vt ka jaotis 7.7 Uuesti üritamine.)</p>
 
 <h2 id="6-vahendamine">6 Vahendamine</h2>
 
@@ -454,13 +437,11 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 
 <p><strong>Asutus VÕIB rakendada DHX-i kas otse (s.t iseseisvalt) või vahendaja kaudu.</strong></p>
 
-<hr>
+<div class="note">
+  <p>Märkus (informatiivne). Vahendamine erineb majutamisest. Paljud asutused majutavad oma DHS-e majutus- ja pilveteenuste osutajate juures. Majutamine võib hõlmata nii X-tee turvaserveri kui ka DHS-i majutamist (pilveteenusena osutamist). DHX-i seisukohalt omab tähtsust, kas asutuse DHS suhtleb X-teel asutuse X-tee sertifikaadi abil või mitte. Kõiki suhteid, kus suhtlemine X-teel toimub mitte asutuse enda, vaid teenusepakkuja X-tee sertifikaadi abil, käsitletakse vahendamisena.</p>
 
-<p>Märkus (informatiivne). Vahendamine erineb majutamisest. Paljud asutused majutavad oma DHS-e majutus- ja pilveteenuste osutajate juures. Majutamine võib hõlmata nii X-tee turvaserveri kui ka DHS-i majutamist (pilveteenusena osutamist). DHX-i seisukohalt omab tähtsust, kas asutuse DHS suhtleb X-teel asutuse X-tee sertifikaadi abil või mitte. Kõiki suhteid, kus suhtlemine X-teel toimub mitte asutuse enda, vaid teenusepakkuja X-tee sertifikaadi abil, käsitletakse vahendamisena. </p>
-
-<p>Majutamise korral tuleb DHX-i rakendamisel tagada käesoleva protokolli nõuete täitmine. Kuidas seda teha, sõltub konkreetsest suhtest majutaja ja asutuse vahel ning ei ole käesoleva protokolli käsitlusalas.</p>
-
-<hr>
+  <p>Majutamise korral tuleb DHX-i rakendamisel tagada käesoleva protokolli nõuete täitmine. Kuidas seda teha, sõltub konkreetsest suhtest majutaja ja asutuse vahel ning ei ole käesoleva protokolli käsitlusalas.</p>
+</div>
 
 <p>DHX vahendamisel arendab DHX teenuse välja, avab teistele asutustele ja käitab teenust vahendaja. Joonisel 3 on esitatud interaktsiooni põhimõtteskeem vahendamise korral.</p>
 
@@ -472,7 +453,7 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 
 <h3 id="62-vahendajate-nimekiri">6.2 Vahendajate nimekiri</h3>
 
-<p><strong>DHX rakendamisel läbi vahendaja PEAB asutus sõlmima lepingu DHX vahendajaga. Kasutada TOHIB AINULT X-tee keskuse poolt DHX vahendajate nimekirja lisatud vahendajaid.</strong></p>
+<p class="advisement">DHX rakendamisel läbi vahendaja PEAB asutus sõlmima lepingu DHX vahendajaga. Kasutada TOHIB AINULT X-tee keskuse poolt DHX vahendajate nimekirja lisatud vahendajaid.</strong></p>
 
 <p>Vahendajate nimekiri on nimekiri DHX dokumendivahetusteenuse vahendajatest.</p>
 
@@ -480,21 +461,21 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 
 <p>Tehniliselt teostatakse vahendajate nimekiri DHX vahendajate grupina. DHX vahendajate grupp on osa X-tee globaalsest konfiguratsioonist. Vahendajate nimekiri on X-tee globaalse konfiguratsiooni osana avalikult kättesaadav kõigile X-tee liikmetele. </p>
 
-<p><strong>Vahendajana tegutseda sooviv asutus või ettevõte PEAB end vahendajana X-teel registreerima.</strong> Registreerimise täpse korra kehtestab X-tee keskus.</p>
+<p class="advisement">Vahendajana tegutseda sooviv asutus või ettevõte PEAB end vahendajana X-teel registreerima.</strong> Registreerimise täpse korra kehtestab X-tee keskus.</p>
 
-<p><strong>X-tee keskus PEAB pidama DHX vahendajate nimekirja ajakohasena.</strong> </p>
+<p class="advisement">X-tee keskus PEAB pidama DHX vahendajate nimekirja ajakohasena.</p>
 
 <h3 id="63-vahendusnimekiri">6.3 Vahendusnimekiri</h3>
 
 <p>Vahendusnimekiri on vahendaja peetav nimekiri asutustest, keda ta vahendab.</p>
 
-<p><strong>Vahendaja PEAB pidama vahendusnimekirja.</strong></p>
+<p class="advisement">Vahendaja PEAB pidama vahendusnimekirja.</p>
 
-<p><strong>Vahendaja PEAB hoidma vahendusnimekirja autentsena ja ajakohasena.</strong> Autentsus tähendab seda, et vahendusnimekiri peab esitama vahendussuhteid tõeselt ja täielikult. Ajakohasus tähendab seda, et vahendusnimekiri peab igal ajahetkel esitame kõik kehtivad vahendussuhted. <strong>Vahendusnimekiri VÕIB sisaldada teavet lõppenud ja tulevikus jõustuvate vahendussuhete kohta (esitatakse väljade <code>startDate</code> ja <code>endDate</code> abil).</strong></p>
+<p class="advisement">Vahendaja PEAB hoidma vahendusnimekirja autentsena ja ajakohasena.</strong> Autentsus tähendab seda, et vahendusnimekiri peab esitama vahendussuhteid tõeselt ja täielikult. Ajakohasus tähendab seda, et vahendusnimekiri peab igal ajahetkel esitame kõik kehtivad vahendussuhted. <strong>Vahendusnimekiri VÕIB sisaldada teavet lõppenud ja tulevikus jõustuvate vahendussuhete kohta (esitatakse väljade <code>startDate</code> ja <code>endDate</code> abil).</p>
 
-<p><strong>Vahendaja PEAB vahendusnimekirja tegema kättesaadavaks X-tee teenusena.</strong></p>
+<p class="advisement">Vahendaja PEAB vahendusnimekirja tegema kättesaadavaks X-tee teenusena.</p>
 
-<p><strong>Vahendusnimekirja teenuse nimi PEAB järgima mustrit <code>EE/&lt;liikmeklass&gt;/&lt;registrikood&gt;/DHX/representationList</code>, kus</strong> <br>
+<p class="advisement">Vahendusnimekirja teenuse nimi PEAB järgima mustrit <code>EE/&lt;liikmeklass&gt;/&lt;registrikood&gt;/DHX/representationList</code>, kus</strong> <br>
  - <code>EE</code> on X-tee Eesti instantsi nimi <br>
  - <code>&lt;liikmeklass&gt;</code> on X-tee liikmeklass (väärtus vastavalt X-tee protokollile - vastavalt vahendaja õiguslikule vormile kas <code>GOV</code>, <code>COM</code>, <code>NGO</code> või <code>NEE</code>)  <br>
  - <code>DHX</code> on teenuse ülesleidmist tagav, käesoleva protokolliga fikseeritud X-tee alamsüsteeminimi ja <br>
@@ -502,78 +483,74 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 
 <p>Näide: <code>EE/COM/40001111/DHX/representationList</code></p>
 
-<p><strong>DHX-i rakendaja teostatud vahendusnimekirja teenus PEAB vastama lisas 2 esitatud täpsemale spetsifikatsioonile.</strong></p>
+<p class="advisement">DHX-i rakendaja teostatud vahendusnimekirja teenus PEAB vastama lisas 2 esitatud täpsemale spetsifikatsioonile.</p>
 
 <h2 id="7-saatmine">7 Saatmine</h2>
 
 <h3 id="71-dhx-võimekus">7.1 DHX võimekus</h3>
 
-<p><strong>Saatev süsteem PEAB välja selgitama, kas adressaadil on DHX võimekus.</strong></p>
+<p class="advisement">Saatev süsteem PEAB välja selgitama, kas adressaadil on DHX võimekus.</p>
 
 <p>DHX võimekus võib olla otsevõimekus või võimekus vahendaja kaudu.</p>
 
-<hr>
-
-<p>Märkus (informatiivne). Kõnelda võib ka kitsamalt <em>DHX-i saatmisvõimekusest</em> ja <em>DHX-i vastuvõtmisvõimekusest</em>. DHX ei nõua rakendamise sümmeetrilisust: tehnilisi takistusi ainult saatva DHS-i või ainult vastu võtva DHS-i loomisele ei ole. Kuid selliste lahenduste kasutusjuht (<em>use case</em>) pole selge. Sümmeetrilise võimekuse nõude kehtestamine on administratiivne otsus ja jääb käesoleva protokolli käsitlusalast väljapoole. Protokoll eeldab, et osapooled lähtuvad protokolli rakendamisulatuse valimisel reaalsest vajadusest dokumente saata ja saada.</p>
-
-<hr>
+<div class="note">Märkus (informatiivne). Kõnelda võib ka kitsamalt <em>DHX-i saatmisvõimekusest</em> ja <em>DHX-i vastuvõtmisvõimekusest</em>. DHX ei nõua rakendamise sümmeetrilisust: tehnilisi takistusi ainult saatva DHS-i või ainult vastu võtva DHS-i loomisele ei ole. Kuid selliste lahenduste kasutusjuht (<em>use case</em>) pole selge. Sümmeetrilise võimekuse nõude kehtestamine on administratiivne otsus ja jääb käesoleva protokolli käsitlusalast väljapoole. Protokoll eeldab, et osapooled lähtuvad protokolli rakendamisulatuse valimisel reaalsest vajadusest dokumente saata ja saada.</div>
 
 <h3 id="72-otsevõimekuse-väljaselgitamine">7.2 Otsevõimekuse väljaselgitamine</h3>
 
-<p><strong>Otsevõimekust PEAB välja selgitama esimeses järjekorras (enne vahendaja kaudu võimekuse tuvastamist).</strong></p>
+<p class="advisement">Otsevõimekust PEAB välja selgitama esimeses järjekorras (enne vahendaja kaudu võimekuse tuvastamist).</p>
 
-<p><strong>Saatev süsteem PEAKS otsevõimekuse välja selgitama X-tee globaalse konfiguratsioonifaili põhjal.</strong> Otsevõimekuse tunnuseks on DHX alamsüsteemi olemasolu asutusel. <strong>Globaalse konfiguratsiooni VÕIB alla laadida X-tee keskusest või kasutada X-tee turvaserveri poolt allalaetud, turvaserveri liidese poolt pakutud globaalset konfiguratsioonifaili.</strong></p>
+<p class="advisement">Saatev süsteem PEAKS otsevõimekuse välja selgitama X-tee globaalse konfiguratsioonifaili põhjal.</p>
 
-<p><strong>Kui saatev süsteem peab DHX otsevõimekuse väljaselgitamist X-tee globaalse konfiguratsioonifaili põhjal tehniliselt liiga keerukaks, siis VÕIB otsevõimekust kontrollida ka otsese saatmisüritusega.</strong></p>
+<p>Otsevõimekuse tunnuseks on DHX alamsüsteemi olemasolu asutusel.</p>
+
+<p>Globaalse konfiguratsiooni VÕIB alla laadida X-tee keskusest või kasutada X-tee turvaserveri poolt allalaetud, turvaserveri liidese poolt pakutud globaalset konfiguratsioonifaili.</p>
+
+<p>Kui saatev süsteem peab DHX otsevõimekuse väljaselgitamist X-tee globaalse konfiguratsioonifaili põhjal tehniliselt liiga keerukaks, siis VÕIB otsevõimekust kontrollida ka otsese saatmisüritusega.</p>
 
 <p>Kui turvaserver vastab, et adressaadil alamsüsteem DHX puudub, siis sellest võib järeldada, et adressaadil DHX otsevõimekus puudub.</p>
 
 <p>Saatja turvaserver laeb perioodiliselt X-tee keskserverist alla teavet X-tee konfiguratsiooni kohta [PR-GCONF], sh teavet X-tee liikmete poolt määratletud alamsüsteemide ja turvaserverite kohta. Saatja turvaserver teeb ülalnimetatud  konfiguratsiooniteabe põhjal kindlaks, kas adressaat on määratlenud DHX alamsüsteemi. Kui ei ole, siis DHX võimekus puudub.</p>
 
-<p><strong>Adressaadil otsevõimekuse olemasolul PEAB dokumendi saatma adressaadile otse.</strong></p>
+<p class="advisement">Adressaadil otsevõimekuse olemasolul PEAB dokumendi saatma adressaadile otse.</p>
 
 <h3 id="73-võimekus-läbi-vahendaja">7.3 Võimekus läbi vahendaja</h3>
 
-<p><strong>Otsevõimekuse puudumise korral PEAB saatev süsteem kontrollima, kas adressaadil on DHX võimekus läbi vahendaja.</strong></p>
+<p class="advisement">Otsevõimekuse puudumise korral PEAB saatev süsteem kontrollima, kas adressaadil on DHX võimekus läbi vahendaja.</p>
 
-<p><strong>DHX võimekuse läbi vahendaja kontrollimiseks PEAB saatev süsteem:</strong> <br>
+<p class="advisement">DHX võimekuse läbi vahendaja kontrollimiseks PEAB saatev süsteem:<br>
  - alla laadima X-tee keskusest X-tee globaalse konfiguratsiooni faili või kasutama turvaserveri poolt allalaetud globaalse konfiguratsiooni faili; <br>
  - leidma failist vahendajate nimekirja (DHX vahendajate grupi); <br>
  - käima kõik vahendajad läbi ning pärima X-tee kaudu vahendusnimekirjad; <br>
  - kindlaks tegema, kas adressaat sisaldub vahendusnimekirjades; <br>
  - kontrollima vahendussuhte ajalist kehtivust (teenuse <code>representationList</code> vastussõnumi väljade <code>startDate</code> ja <code>endDate</code> abil).</p>
 
-<p><strong>Kui adressaadil puudub DHX otsevõimekus, kuid on DHX võimekus läbi vahendaja, siis PEAB saatev süsteem saatma dokumendi vahendajale.</strong></p>
+<p class="advisement">Kui adressaadil puudub DHX otsevõimekus, kuid on DHX võimekus läbi vahendaja, siis PEAB saatev süsteem saatma dokumendi vahendajale.</p>
 
 <h3 id="74-lokaalne-aadressiraamat">7.4 Lokaalne aadressiraamat</h3>
 
-<p><strong>Saatev süsteem VÕIB DHX-i võimekuse väljaselgitamise tulemust puhverdada, moodustades nn lokaalse aadressiraamatu. Puhvri (lokaalse aadressiraamatu) värskendamise periood PEAB olema konfigureeritav.</strong></p>
+<p class="advisement">Saatev süsteem VÕIB DHX-i võimekuse väljaselgitamise tulemust puhverdada, moodustades nn lokaalse aadressiraamatu. Puhvri (lokaalse aadressiraamatu) värskendamise periood PEAB olema konfigureeritav.</p>
 
 <h3 id="75-saatmine-dvk-sse">7.5 Saatmine DVK-sse</h3>
 
-<p><strong>Kui saatev süsteem on kindlaks teinud, et adressaadil puudub DHX võimekus ja käimas on üleminekuperiood, siis PEAB saatev süsteem üritama dokumenti saata DVK <code>sendDocument</code> teenusesse.</strong></p>
+<p class="advisement">Kui saatev süsteem on kindlaks teinud, et adressaadil puudub DHX võimekus ja käimas on üleminekuperiood, siis PEAB saatev süsteem üritama dokumenti saata DVK <code>sendDocument</code> teenusesse.</p>
 
-<p>Tegu on juhuga, kus adressaat ei ole veel DHX-i võimekust loonud. Adressaat võib olla veel DVK kasutaja. DVK saadab <code>sendDocument</code> teenusesse saadetud dokumendi adressaadile edasi. Kui adressaat ei ole DVK kasutaja, siis teatab DVK_ <code>adressaat tundmatu</code>_. Saatev süsteem on kõik võimalused ammendanud ja tuleb konstateerida, et dokumenti ei saa edastada - vähemalt seni, kuni adressaat ei ole DHX võimekust loonud.</p>
+<p>Tegu on juhuga, kus adressaat ei ole veel DHX-i võimekust loonud. Adressaat võib olla veel DVK kasutaja. DVK saadab <code>sendDocument</code> teenusesse saadetud dokumendi adressaadile edasi. Kui adressaat ei ole DVK kasutaja, siis teatab DVK <code>adressaat tundmatu</code>. Saatev süsteem on kõik võimalused ammendanud ja tuleb konstateerida, et dokumenti ei saa edastada &ndash; vähemalt seni, kuni adressaat ei ole DHX võimekust loonud.</p>
 
 <h3 id="76-dokumendi-lugemine-edastatuks">7.6 Dokumendi lugemine edastatuks</h3>
 
-<p><strong>Saatev süsteem PEAB lugema dokumendi edastatuks, kui on saanud <code>sendDocument</code> teenuselt positiivse vastuskoodiga vastussõnumi.</strong></p>
+<p class="advisement">Saatev süsteem PEAB lugema dokumendi edastatuks, kui on saanud <code>sendDocument</code> teenuselt positiivse vastuskoodiga vastussõnumi.</p>
 
 <p>Kinnitus dokumendi kättesaamise kohta saadetakse X-tee päring-vastus (<em>request</em>-<em>response</em>) sõnumipaari vastussõnumis. Kui osapooled vajavad kõrgema äriloogika kihi taseme kinnitusi, siis neid võib realiseerida DHX protokolli väliselt või DHX protokolli pealiskihina.</p>
 
 <h3 id="77-uuesti-üritamine">7.7 Uuesti üritamine</h3>
 
-<p><strong>Kui adressaadiga ei saa ühendust või kättesaamise kinnitust ei tule, siis PEAB mõne aja pärast saatmist uuesti üritama.</strong></p>
+<p class="advisement">Kui adressaadiga ei saa ühendust või kättesaamise kinnitust ei tule, siis PEAB mõne aja pärast saatmist uuesti üritama.</p>
 
-<hr>
+<div class="note">Märkus (informatiivne). Uuestisaatmise teostamisel võib võrdluseks võtta DVK-ga liidestatud DHS-des kasutatud loogikat.</div>
 
-<p>Märkus (informatiivne). Uuestisaatmise teostamisel võib võrdluseks võtta DVK-ga liidestatud DHS-des kasutatud loogikat.</p>
+<p class="advisement">Tühipäringute arvu vähendamiseks PEAKS kasutada eksponentsiaalse taganemise (<em>exponential back-off</em>) algoritmi [EXP].</p>
 
-<hr>
-
-<p><strong>Tühipäringute arvu vähendamiseks PEAKS kasutada eksponentsiaalse taganemise (<em>exponential back-off</em>) algoritmi [EXP].</strong></p>
-
-<p><strong>Saatmisürituste arv PEAB olema lõplik ja saatva süsteemi konfiguratsioonis määratav.</strong> </p>
+<p class="advisement">Saatmisürituste arv PEAB olema lõplik ja saatva süsteemi konfiguratsioonis määratav.</p>
 
 <h3 id="78-saatmisalgoritm-informatiivne">7.8 Saatmisalgoritm (informatiivne)</h3>
 
@@ -626,25 +603,27 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 
 <h3 id="81-aadressi-kontroll">8.1 Aadressi kontroll</h3>
 
-<p><strong>Vastuvõttev süsteem PEAB kontrollima, et dokument on saadetud õigele aadressile.</strong></p>
+<p class="advisement">Vastuvõttev süsteem PEAB kontrollima, et dokument on saadetud õigele aadressile.</p>
 
-<p><strong>Vahendamise puhul PEAB vastuvõttev süsteem kontrollima, kas adressaat on vahendaja klient (on vahendusnimekirjas).</strong></p>
+<p class="advisement">Vahendamise puhul PEAB vastuvõttev süsteem kontrollima, kas adressaat on vahendaja klient (on vahendusnimekirjas).</p>
 
 <h3 id="82-valest-aadressist-teatamine">8.2 Valest aadressist teatamine</h3>
 
-<p><strong>Valesti adresseeritud dokumendi korral PEAB vastuvõttev süsteem saatma saatjale veateate <code>Vale aadress</code>.</strong></p>
+<p class="advisement">Valesti adresseeritud dokumendi korral PEAB vastuvõttev süsteem saatma saatjale veateate <code>Vale aadress</code>.</p>
 
 <h3 id="83-kapsli-kontroll">8.3 Kapsli kontroll</h3>
 
-<p><strong>Vastuvõttev süsteem PEAB kontrollima, et dokument tuli nõuetekohases kapslis. Kontroll PEAB sisaldama vähemalt XML skeemile vastavuse kontrollimist. Vigase kapsli korral PEAB saatma vastava veateate <code>Vigane kapsel</code>. Vastuvõttev süsteem VÕIB teha täiendavaid kontrolle semantilisel või äriloogikalisel tasandil.</strong></p>
+<p class="advisement">Vastuvõttev süsteem PEAB kontrollima, et dokument tuli nõuetekohases kapslis. Kontroll PEAB sisaldama vähemalt XML skeemile vastavuse kontrollimist. Vigase kapsli korral PEAB saatma vastava veateate <code>Vigane kapsel</code>.</p>
+
+<p>Vastuvõttev süsteem VÕIB teha täiendavaid kontrolle semantilisel või äriloogikalisel tasandil.</p>
 
 <h3 id="84-mitme-aadressi-käsitlus">8.4 Mitme aadressi käsitlus</h3>
 
-<p><strong>Vahendajana tegutsev süsteem PEAB mitmele aadressile saadetud dokumendi edastama kõigile oma klientidele, kes on dokumendi kapsli transpordiblokis adressaatidena nimetatud.</strong></p>
+<p class="advisement">Vahendajana tegutsev süsteem PEAB mitmele aadressile saadetud dokumendi edastama kõigile oma klientidele, kes on dokumendi kapsli transpordiblokis adressaatidena nimetatud.</p>
 
 <h3 id="85-vastuvõtmine-dvk-st">8.5 Vastuvõtmine DVK-st</h3>
 
-<p><strong>DHX-i võimekuse loonud süsteem PEAB üleminekuperioodil dokumente vastu võtma ka DVK-st.</strong></p>
+<p class="advisement">DHX-i võimekuse loonud süsteem PEAB üleminekuperioodil dokumente vastu võtma ka DVK-st.</p>
 
 <p>Tehniliselt seisneb see selles, et DHX-le üleläinud süsteem peab avama oma DHX teenuse ka DVK-le. DVK edastab dokumente nendelt asutustelt, kes ei ole veel DHX-le üle läinud.</p>
 
@@ -652,25 +631,17 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 
 <p>Dokumendi saatja saab kindlaks teha kahel viisil: 1) dokumendi kapslis sisalduvate saatjat kirjeldavate metaandmete abil; 2) X-tee päringsõnumi X-tee päiseväljade <code>client</code> [PR-MESS] ja <code>representedParty</code> [X-EXT] abil.</p>
 
-<hr>
+<div class="note">Märkus (informatiivne). Vastavalt X-tee sõnumiprotokolli kolmanda osapoole esindamise laiendusele peab vahendaja märkima asutuse, keda ta esindab, X-tee sõnumipäisesse välja <code>representedParty</code> [X-EXT].</div>
 
-<p>Märkus (informatiivne). Vastavalt X-tee sõnumiprotokolli kolmanda osapoole esindamise laiendusele peab vahendaja märkima asutuse, keda ta esindab, X-tee sõnumipäisesse välja <code>representedParty</code> [X-EXT].</p>
+<p class="advisement">Vastuvõttev süsteem PEAB kontrollima dokumendi kapslis sisalduvate saatjat kirjeldavate metaandmete ja X-tee päringsõnumi X-tee päiseväljade <code>client</code> ja <code>representedParty</code> kooskõlalisust. Lahknevuste korral PEAB dokumendi tagasi lükkama.</p>
 
-<hr>
-
-<p>Vastuvõttev süsteem PEAB kontrollima dokumendi kapslis sisalduvate saatjat kirjeldavate metaandmete ja X-tee päringsõnumi X-tee päiseväljade <code>client</code> ja <code>representedParty</code> kooskõlalisust. Lahknevuste korral PEAB dokumendi tagasi lükkama.</p>
-
-<p><strong>Vahendajalt dokumendi vastuvõtmisel PEAB kontrollima, kas vahendaja on vahendajate nimekirjas. Kontrolli tulemust VÕIB puhverdada.</strong></p>
+<p class="advisement">Vahendajalt dokumendi vastuvõtmisel PEAB kontrollima, kas vahendaja on vahendajate nimekirjas. Kontrolli tulemust VÕIB puhverdada.</p>
 
 <h2 id="9-üleminek">9 Üleminek</h2>
 
 <h3 id="91-üleminekuperiood">9.1 Üleminekuperiood</h3>
 
 <p>Üleminek DHX protokollile toimub etteantud perioodi jooksul. Üleminekuperiood algab kõigile asutustele üheaegselt. Perioodi algusest teavitab X-tee keskus. Üleminekuperiood lõpeb DVK tegevuse lõpetamisega.</p>
-
-<hr>
-
-<p>Toimimine üleminekuperioodil (informatiivne)</p>
 
 <p>Üleminekuperioodil arendavad asutused välja oma DHS-des DHX protokolli kohase dokumentide saatmise ja vastuvõtmise võimekuse. Tehniliselt tähendab “DHX-i võimekus” DHX protokolli kohase X-tee teenuse pakkumist ja võimet teiste asutuste samasuguse teenuse poole pöörduda.</p>
 
@@ -686,13 +657,11 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 
 <p>UK tähistab RIA poolt väljatöötatavat “universaalset tarkvarakomponenti”, mille eesmärgiks on kergendada DHS-de ümberhäälestamist DHX-i kasutamisele. UK kasutamine ei ole kohustuslik.</p>
 
-<hr>
+<p class="advisement">Üleminekuperioodil niipea, kui asutuse DHS-is on tekkinud DHX protokolli võimekus (arendus on lõppenud), PEAB hakkama dokumendi saatmisel kasutama DHX teenust.</p>
 
-<p><strong>Üleminekuperioodil niipea, kui asutuse DHS-is on tekkinud DHX protokolli võimekus (arendus on lõppenud), PEAB hakkama dokumendi saatmisel kasutama DHX teenust.</strong></p>
+<p class="advisement">Üleminekuperioodil kui osutub, et adressaat ei ole veel dokumentide vastuvõtmise DHX-teenust loonud (teenus ei ole X-teel leitav), siis PEAB dokumendi saatma DVK kaudu, kasutades DVK teenust <code>sendDocument</code> ja märkides adressaadi dokumendi metaandmete kapslis.</p>
 
-<p><strong>Üleminekuperioodil kui osutub, et adressaat ei ole veel dokumentide vastuvõtmise DHX-teenust loonud (teenus ei ole X-teel leitav), siis PEAB dokumendi saatma DVK kaudu, kasutades DVK teenust <code>sendDocument</code> ja märkides adressaadi dokumendi metaandmete kapslis.</strong></p>
-
-<p><strong>DHX võimekuse saavutanud asutus PEAB DVK kasutamisest loobuma.</strong></p>
+<p class="advisement">DHX võimekuse saavutanud asutus PEAB DVK kasutamisest loobuma.</p>
 
 <h3 id="92-dvk-toimimine-üleminekuperioodil">9.2 DVK toimimine üleminekuperioodil</h3>
 
@@ -710,7 +679,7 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 
 <p>Käesolev jaotis võtab kokku nõuded (ingl <em>conformance criteria</em>, vt nt RFC 2049), mis peavad olema täidetud, et dokumente vahetava süsteemi saaks deklareerida DHX-le vastavaks.</p>
 
-<p>Alljärgnev käsitlus piirdub koostalitlusvõimet tagavate tarkvaratehniliselt rakendatavate meetmetega ja süsteemide tehniliste omadustega. DHX dokumendivahetuse korraldamiseks võivad dokumendivahetuse osapooled ja koordinaatorid kehtestada mitmesuguseid (täiendavaid) organisatsioonilisi meetmeid. Need ei ole protokolli käsitlusalas.  </p>
+<p>Alljärgnev käsitlus piirdub koostalitlusvõimet tagavate tarkvaratehniliselt rakendatavate meetmetega ja süsteemide tehniliste omadustega. DHX dokumendivahetuse korraldamiseks võivad dokumendivahetuse osapooled ja koordinaatorid kehtestada mitmesuguseid (täiendavaid) organisatsioonilisi meetmeid. Need ei ole protokolli käsitlusalas.</p>
 
 <h3 id="101-vastavusnõuded-kõigile-dhx-dokumente-vahetavatele-süsteemidele">10.1 Vastavusnõuded kõigile DHX dokumente vahetavatele süsteemidele</h3>
 
@@ -739,7 +708,7 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 </tr>
 <tr>
   <td>5.4</td>
-  <td>DHX teenuse nimi PEAB järgima mustrit <code>EE/&lt;liikmeklass&gt;/&lt;registrikood&gt;/DHX/sendDocument</code>.</td>
+  <td>DHX teenuse nimi PEAB järgima mustrit <code>EE/&lt;liikmeklass&gt;/&lt;registrikood&gt;/DHX.&lt;täpsustus&gt;/sendDocument</code>.</td>
 </tr>
 <tr>
   <td>5.5</td>
@@ -938,11 +907,11 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 
 <h2 id="lisa-1-senddocument-spetsifikatsioon">Lisa 1 sendDocument spetsifikatsioon</h2>
 
-<p>Spetsifikatsioon asub <a href="sendDocument.md">eraldi failis</a>.</p>
+<p>Spetsifikatsioon asub <a href="https://github.com/e-gov/DHX/blob/master/files/sendDocument.md">eraldi failis</a>.</p>
 
 <h2 id="lisa-2-representationlist-spetsifikatsioon">Lisa 2 representationList spetsifikatsioon</h2>
 
-<p>Spetsifikatsioon asub <a href="representationList.md">eraldi failis</a>.</p>
+<p>Spetsifikatsioon asub <a href="https://github.com/e-gov/DHX/blob/master/files/representationList.md">eraldi failis</a>.</p>
 
 			</div>
 		</div>

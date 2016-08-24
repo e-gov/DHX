@@ -25,6 +25,10 @@ Päringu sisendi parameetrid `Body/sendDocument` XML elemendi sees:
 | __documentAttachment__ | Edastatava Kapsli XML dokument swaRef manuse viitena. Manuse `Content-Transfer-Encoding` PEAB olema `base64`. Manuse `Content-Type` PEAB olema: `text/xml; charset=UTF-8`. | ref:swaRef | cid:kapsel.xml | jah |
 | __consignmentId__ | Saadetise id. PEAKS olema unikaalne ühe saatja saadetiste piires. Juhul kui saatmise ebaõnnestumisel edastatakse dokument korduvalt, siis consignmentId PEAB jääma samaks. Vastuvõttev süsteem PEAKS kontrollima, kas sellise saadetise id-ga dokument on talle juba saabunud -- unikaalne on X-tee päringus saabunud parameetrite kombinatsioon: `Header/client: EE/MEMBERCLASS/ MEMBER1/SUBSYSTEM1` + `Body/sendDocument/consignmentId: <consignmentId>`. Kui sama saadetis on juba saabunud ja vastu võetud, siis vastuvõttev süsteem PEAB väljastama vea koodiga `DHX.Duplicate` (vaata allpool "Veakoodid"). Siin "PEAKS" tähendab unikaalsuse kontrollimist mõistliku ajaraami piires (1 nädal või 1 kuu). Vanemate saadetiste korral VÕIB vastuvõtja süsteem talle saabunud saadetiste ID-de logi kustutada või arhiveerida. | String | 97522b98-cf27-452e-... | jah |
 
+Lisaks ülalnimetatud parameetritele VÕIB saatev süsteem kasutada `Body/sendDocument` XML elemendis muid parameetreid.
+
+Vastuvõttev süsteem PEAB päringu töötlemisel parameetrid, millest ta aru ei saa, vahele jätma.
+
 #### Päringu väljund
 
 Kui vastuvõtja DHX süsteemis ilmnes ootamatu tehniline viga, siis PEAB tagastama `SOAP Fault` vea või madalama taseme protokoli veana (näiteks HTTP `response code`).

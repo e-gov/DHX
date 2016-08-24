@@ -42,7 +42,7 @@
   <a href="#52-dhx-teenuse-väljaarendamine">5.2 DHX teenuse väljaarendamine</a><br>
   <a href="#53-dhx-teenuse-avamine">5.3 DHX teenuse avamine</a><br>
   <a href="#54-nimemuster">5.4 Nimemuster</a><br>
-  <a href="#55-reserveeritud-nimi-dhx">5.5 Reserveeritud nimi “DHX”</a><br>
+  <a href="#55-reserveeritud-nimi-dhx">5.5 Reserveeritud nimi “DHX*”</a><br>
   <a href="#56-kapsli-kasutamine">5.6 Kapsli kasutamine</a><br>
   <a href="#57-unikaalne-identifikaator">5.7 Unikaalne identifikaator</a>
 </p>
@@ -376,11 +376,10 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 
 <h3 id="54-nimemuster">5.4 Nimemuster</h3>
 
-<p class="advisement">DHX teenuse nimi PEAB järgima mustrit <code>EE/&lt;liikmeklass&gt;/&lt;registrikood&gt;/DHX.&lt;täpsustus&gt;/sendDocument</code>, kus<br>
- - <code>EE</code> on X-tee Eesti instantsi nimi <br>
- - <code>&lt;liikmeklass&gt;</code> on X-tee liikmeklass (vastavalt vahendaja õiguslikule vormile kas <code>GOV</code> või <code>PRI</code>)  <br>
- - <code>DHX</code> on teenuse ülesleidmist tagav, käesoleva protokolliga fikseeritud X-tee alamsüsteemi nimeprefiks<br>
- - <code>.&lt;täpsustus&gt;</code> on nimetäpsustus, mille eesmärk on võimaldada asutusel rakendada DHX-i oma mitmes infosüsteemis; kui asutusel on ainult üks DHS, siis nimetäpsustust kasutada ei ole vaja ja alamsüsteemi nimi võib olla lihtsalt DHX<br>
+<p class="advisement">DHX teenuse nimi PEAB järgima mustrit <code>EE/&lt;liikmeklass&gt;/&lt;registrikood&gt;/&lt;DHX* nimi&gt;/sendDocument</code>, kus<br>
+ - <code>EE</code> on X-tee Eesti instantsi nimi; <br>
+ - <code>&lt;liikmeklass&gt;</code> on X-tee liikmeklass (vastavalt vahendaja õiguslikule vormile kas <code>GOV</code> või <code>PRI</code>);<br>
+ - <code>&lt;DHX* nimi&gt;</code> on teenuse ülesleidmist tagav, käesoleva protokolliga fikseeritud X-tee alamsüsteemi nimi kujul DHX* s.t nime kolm algussümbolit peavad olema <code>DHX</code>. Fikseeritud algussümbolitele võib järgneda muid sümboleid s.t. nimi peab algama "DHX"-ga, kui võib olla pikem. Kui asutus rakendab DHX-i ainult ühes oma infosüsteemis (asutuse DHS-is), siis piisab X-tee alamsüsteemi nimeks <code>DHX</code>. Kui aga asutus soovib rakendada DHX-i mitmes infosüsteemis, siis PEAB eristamiseks valima erinevad X-tee alamsüsteemi nimed. Kõigi DHX-i rakendavate süsteemide X-tee alamsüsteeminimi PEAB algama sümbolitega "DHX".<br>
  - <code>&lt;registrikood&gt;</code> on asutuse registrikood.</p>
 
 <div class="example">Näited:<br>
@@ -389,9 +388,11 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
  <code>EE/GOV/70000906/DHX.laane/sendDocument</code> (Lääne Ringkonnaprokuratuur)<br>
 </div>
 
-<h3 id="55-reserveeritud-nimi-dhx">5.5 Reserveeritud nimi “DHX”</h3>
+<h3 id="55-reserveeritud-nimi-dhx">5.5 Reserveeritud nimi “DHX*”</h3>
 
-<p class="advisement">DHX teenus PEAB kasutama X-tee alamsüsteemi “DHX” või "DHX.&lt;täpsustus&gt;". X-tee keskus EI TOHI registreerida ühegi asutuse sellise nimemustriga alamsüsteemi “DHX” teiseks otstarbeks.</strong></p>
+<p class="advisement">DHX teenus PEAB kasutama X-tee alamsüsteemi nimega “DHX*”, kus "*" on sümbolite jada, mis võib olla ka tühi. X-tee keskus EI TOHI registreerida ühegi asutuse sellise nimemustriga alamsüsteemi “DHX” teiseks otstarbeks.</strong></p>
+
+<p class="advisement">Kui asutus rakendab DHX-i ainult ühes oma infosüsteemis (asutuse DHS-is), siis PEAKS X-tee alamsüsteemi nimeks olema<code>DHX</code> (aga mitte pikem).</p>
 
 <h3 id="56-kapsli-kasutamine">5.6 Kapsli kasutamine</h3>
 
@@ -712,11 +713,11 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 </tr>
 <tr>
   <td>5.4</td>
-  <td>DHX teenuse nimi PEAB järgima mustrit <code>EE/&lt;liikmeklass&gt;/&lt;registrikood&gt;/DHX.&lt;täpsustus&gt;/sendDocument</code>.</td>
+  <td>DHX teenuse nimi PEAB järgima mustrit <code>EE/&lt;liikmeklass&gt;/&lt;registrikood&gt;/&lt;DHX*&gt;/sendDocument</code>.</td>
 </tr>
 <tr>
   <td>5.5</td>
-  <td>DHX teenus PEAB kasutama X-tee alamsüsteemi “DHX”.</td>
+  <td>DHX teenus PEAB kasutama X-tee alamsüsteemi nimega “DHX*”, kus "*" on sümbolijada, mis võib olla ka tühi.</td>
 </tr>
 <tr>
   <td>5.6</td>

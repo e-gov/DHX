@@ -28,7 +28,7 @@
   <a href="#11-protokolli-k%C3%A4sitlusala">1.1 Protokolli käsitlusala</a> <br>
   <a href="#12-dokumendi-eesm%C3%A4rk">1.2 Dokumendi eesmärk</a> <br>
   <a href="#13-v%C3%A4ljat%C3%B6%C3%B6tamine">1.3 Väljatöötamine</a> <br>
-  <a href="#14-disaini-kaalutlused">1.4 Disaini kaalutlused</a>
+  <a href="#14-disaini-kaalutlused">1.4 Disaini kaalutlused</a> <br>
   <a href="#15-laiendatavus">1.5 Laiendatavus</a>
 </p>
 
@@ -173,13 +173,13 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 
 <p>DHX protokollis on laiendatavuse tagamiseks kasutusel üks põhimõte ja kaks konkreetset mehhanismi:</p>
 
-<p><strong>Kihilisuse põhimõte</strong>. Sõltuvusi siduskihtidest on püütud minimeerida. Teadlikult välditud selliste probleemide lahendamist protokollis, mille lahendamise õige koht on mõnes teises kihis.</p>
+<p><strong>Kihilisuse põhimõte</strong>. Teadlikult on välditud selliste probleemide lahendamist protokollis, mille lahendamise õige koht on mõnes teises kihis. Samas on sõltuvusi siduskihtidest püütud minimeerida - kasutades ainult neid siduskihtide elemente, mille kasutamine on põhjendatud.</p>
 
 <p><strong>Versioneerimine</strong>. Näeme ette võimaluse, et protokolli tulevikus täiendatakse. Täiendamine peab olema väga harv ja väga põhjendatud. Täiendamise võimaldamiseks on protokoll versioneeritud. Versioneerimisel lähtutakse semantilise versioneerimise [SEMVER] mustrist. Esimene ametlikult avaldatud versioon on 1.0.</p>
 
-<p class="advisement">Dokumenti saatev süsteem PEAB määratlema kasutatava DXH protokolli versiooni.</a>
+<p class="advisement">Dokumenti saatev süsteem PEAB määratlema kasutatava DXH protokolli versiooni.</p>
 
-<p><strong><strong>. Protokoll pakub mehhanismi täiendavate parameetrite kasutamiseks nii dokumenti saatvas päringsõnumis kui ka vastussõnumis. Täpsemalt vt teenuse <code>sendDocument</code> spetsifikatsioonis lisas 1.</p>
+<p><strong>Kasutajaspetsiifilised elemendid sõnumites</strong>. Protokoll pakub mehhanismi täiendavate parameetrite kasutamiseks nii dokumenti saatvas päringsõnumis kui ka vastussõnumis. Täpsemalt vt teenuse <code>sendDocument</code> spetsifikatsioonis lisas 1.</p>
 
 <h2 id="2-nõuete-keel">2 Nõuete keel</h2>
 

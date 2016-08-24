@@ -44,6 +44,10 @@ Väljundparameetrid `Body/sendDocumentResponse` XML elemendi sees:
 | __faultcode__ | Vea kood. Kui ilmnes äriloogikaline viga või vastuvõtja lükkas dokumendi tagasi, siis viga PEAB olema tagastatud `fault` elemendis ning `faultcode` PEAB olema väärtustatud. | String | Client.Validation | jah |
 | __faultstring__ | Vea kirjeldus. PEAKS sisaldama `faultcode` väärtusele täiendavat infot, näiteks mis XML element või adressaat ei valideerunud vms. | String | Container is invalid | jah |
 
+Lisaks ülalnimetatud parameetritele VÕIB vastussõnumi XML elemendis `Body/sendDocument` kasutada muid parameetreid.
+
+Vastussõnumit töötlev süsteem PEAB sõnumi töötlemisel parameetrid, millest ta aru ei saa, vahele jätma.
+
 #### Veakoodid
 
 Vastuvõtja süsteem PEAB äriloogikalise või DHX protokolli reeglite vastu valideerimisel tekkinud vea tagastama `sendDocuments` vastuses, `Body/sendDocumentResponse/fault` XML elemendi sees, kasutades ühte järgmistest veakoodidest:

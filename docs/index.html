@@ -19,7 +19,7 @@
 
 <h1 id="dokumendivahetusprotokoll-dhx">Dokumendivahetusprotokoll DHX</h1>
 
-<p><em>v 1.0</em></p>
+<p><em>v 1.0.1</em></p>
 
 <h2 id="sisukord">Sisukord</h2>
 
@@ -86,6 +86,8 @@
 <p><a href="#lisa-1-senddocument-spetsifikatsioon">Lisa 1 sendDocument spetsifikatsioon</a></p>
 
 <p><a href="#lisa-2-representationlist-spetsifikatsioon">Lisa 2 representationList spetsifikatsioon</a></p>
+
+<p><a href='#lisa-3-muutelugu'>Lisa 3 Muutelugu</a></p>
 
 <p>Joonised: <br>
 Joonis 1 <a href="#4-lähteolukord">Lähteolukord: dokumendivahetus DVK kaudu</a> <br>
@@ -640,7 +642,9 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 
 <h3 id="84-mitme-aadressi-käsitlus">8.4 Mitme aadressi käsitlus</h3>
 
-<p class="advisement">Vahendajana tegutsev süsteem PEAB mitmele aadressile saadetud dokumendi edastama kõigile oma klientidele, kes on dokumendi kapsli transpordiblokis adressaatidena nimetatud.</p>
+<p class="advisement">Kui saatja DHS soovib dokumenti saata mitmele adressaadile (otsevõimekusega asutusele või vahendatavale asutusele) korraga, siis ta PEAB dokumendi kapsli saatma igale adresaadile eraldi, eraldi DHX <code>sendDocument</code> väljakutsega.</p>
+
+<p class="note">Märkus (informatiivne). Kapsli saatmiseks kasutatakse adresseerimisel ainult DHX <code>sendDocument</code> teenuse parameetreid <code>memberCode</code> ja <code>recipient</code>. Kapsli enda sees määratletud täiendavad adressaadid on DHX dokumendi edastamisel informatiivse väärtusega (nagu cc väli e-kirja avamisel). Saatja DHS süsteem ei tohi eeldada, et teine otsevõimekusega adressaat edastab kapsli muudele kapslis sees toodud adressaatidele. Vahendaja kohustus on edastada kapsel ainult <code>sendDocument</code> teenuses märgitud <code>recipient</code> elemendis toodud adresaadile. Vahendaja ei pea edastama kapslit muudele kapsli sees toodud adressaatidele.</p>
 
 <h3 id="85-vastuvõtmine-dvk-st">8.5 Vastuvõtmine DVK-st</h3>
 
@@ -941,6 +945,22 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 <h2 id="lisa-2-representationlist-spetsifikatsioon">Lisa 2 representationList spetsifikatsioon</h2>
 
 <p>Spetsifikatsioon asub <a href="https://github.com/e-gov/DHX/blob/master/files/representationList.md">eraldi failis</a>.</p>
+
+<h2 id="lisa-3-muutelugu">Lisa 3 Muutelugu</h2>
+
+<table>
+<thead>
+<tr>
+  <th>versioon</th>
+  <th>muudatus</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>1.0.1</td>
+  <td>Täpsustatud mitmele adressaadile saatmist. Vt <a href='https://github.com/e-gov/DHX/blob/master/files/Ettepanek-03.md'>Ettepanek 03</a></td>
+</tr>
+</tbody>
+</table>
 
 			</div>
 		</div>

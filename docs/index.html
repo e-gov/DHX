@@ -828,6 +828,10 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
   <td>Vigase kapsli korral PEAB saatma vastava veateate <code>Vigane kapsel</code>.</td>
 </tr>
 <tr>
+  <td>8.4</td>
+  <td>Kui saatja DHS soovib dokumenti saata mitmele adressaadile (otsevõimekusega asutusele või vahendatavale asutusele) korraga, siis ta PEAB dokumendi kapsli saatma igale adresaadile eraldi, eraldi DHX <code>sendDocument</code> väljakutsega.</td>
+</tr>
+<tr>
   <td>8.5</td>
   <td>DHX-i võimekuse loonud süsteem PEAB üleminekuperioodil dokumente vastu võtma ka DVK-st.</td>
 </tr>
@@ -885,10 +889,6 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 <tr>
   <td>6.3</td>
   <td>DHX-i rakendaja teostatud vahendusnimekirja teenus PEAB vastama lisas 2 esitatud täpsemale spetsifikatsioonile.</td>
-</tr>
-<tr>
-  <td>8.4</td>
-  <td>Vahendajana tegutsev süsteem PEAB mitmele aadressile saadetud dokumendi edastama kõigile oma klientidele, kes on dokumendi kapsli transpordiblokis adressaatidena nimetatud.</td>
 </tr>
 </tbody></table>
 
@@ -951,13 +951,18 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 <table>
 <thead>
 <tr>
-  <th>versioon</th>
+  <th>versioon, kuupäev</th>
   <th>muudatus</th>
 </tr>
 </thead>
-<tbody><tr>
-  <td>1.0.1</td>
+<tbody>
+<tr>
+  <td>1.0.1, 30.08.2016</td>
   <td>Täpsustatud mitmele adressaadile saatmist. Vt <a href='https://github.com/e-gov/DHX/blob/master/files/Ettepanek-03.md'>Ettepanek 03</a></td>
+</tr>
+<tr>
+  <td>1.0, 23.08.2016</td>
+  <td>Esimene kinnitatud versioon. Lisatud mitut DHS-i toetav nimemuster. Vt <a href='https://github.com/e-gov/DHX/blob/master/files/Ettepanek-02.md'>Ettepanek 02</a></td>
 </tr>
 </tbody>
 </table>

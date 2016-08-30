@@ -16,7 +16,8 @@ See on problemaatiline, sest adressaat näidatakse ka teenuse `sendDocument` pä
 
 Seetõttu on ettepanek nõue 8.4 kõrvaldada. Igale adressaadile saadetakse dokument eraldi sõnumiga. Küll aga peab säiluma DHS-ides inimkasutajale pakutav võimalus valida mitu aadressi ja käivitada saatmine ühe nupuvajutusega. See tuleb selgelt välja öelda
 
-Muuta j 8.4 järgmiselt
+Muuta jaotist 8.4 järgmiselt
+
 //////////////////////////////////////////////////
 
 Kui saatja DHS soovib dokumenti saata mitmele adressaadile (otsevõimekusega asutusele või vahendatavale asutusele) korraga, siis ta PEAB dokumendi kapsli saatma igale adresaadile eraldi, eraldi DHX `sendDocument` väljakutsega.

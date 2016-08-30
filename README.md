@@ -16,9 +16,10 @@ Protokolli saab kasutada [MIT litsentsi alusel](LICENCE.txt).
 ### Protokolli arendamine
 - [Foorum](https://github.com/e-gov/DHX/issues)
 - [Osale arenduses](CONTRIBUTING.md)
-- Menetluses olevad ettepanekud:
-  - 01 [Asünkroonne kättesaamiskinnitus](files/Ettepanek-01.md#as%C3%BCnkroonne-k%C3%A4ttesaamiskinnitus)
-  - 02 [Mitut DHS-i toetav nimemuster](files/Ettepanek-02.md#mitut-dhs-i-toetav-nimemuster)
+- Ettepanekud
+  - 01 [Asünkroonne kättesaamiskinnitus](files/Ettepanek-01.md#as%C3%BCnkroonne-k%C3%A4ttesaamiskinnitus) TAGASI LÜKATUD
+  - 02 [Mitut DHS-i toetav nimemuster](files/Ettepanek-02.md#mitut-dhs-i-toetav-nimemuster) SISSE VIIDUD v 1.0
+  - 03 [Mitme aadressi käsitlus](files/Ettepanek-03.md) SISSE VIIDUD v 1.0.1
 
 #### Taustamaterjale
 - [Kirjandus](files/Kirjandus.md)

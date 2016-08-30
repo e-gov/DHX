@@ -14,7 +14,16 @@ See on problemaatiline, sest adressaat näidatakse ka teenuse `sendDocument` pä
 
 Ärivajaduseks on pakkuda DHS-is kasutajale võimalust ühe nupuvajutusega saata dokumente mitmele adressaadile. Tehniliselt võib see olla teostatud üksikute sõnumite saatmise teel. (X-tee sõnumivahetuste minimeerimine pole kõige suurem argument).
 
-Seetõttu on ettepanek nõue 8.4 kõrvaldada. Igale adressaadile saadetakse dokument eraldi sõnumiga. Küll aga peab säiluma DHS-ides inimkasutajale pakutav võimalus valida mitu aadressi ja käivitada saatmine ühe nupuvajutusega.
+Seetõttu on ettepanek nõue 8.4 kõrvaldada. Igale adressaadile saadetakse dokument eraldi sõnumiga. Küll aga peab säiluma DHS-ides inimkasutajale pakutav võimalus valida mitu aadressi ja käivitada saatmine ühe nupuvajutusega. See tuleb selgelt välja öelda
+
+Muuta j 8.4 järgmiselt
+//////////////////////////////////////////////////
+
+Kui saatja DHS soovib dokumenti saata mitmele adressaadile (otsevõimekusega asutusele või vahendatavale asutusele) korraga, siis ta PEAB dokumendi kapsli saatma igale adresaadile eraldi, eraldi DHX `sendDocument` väljakutsega.
+
+Märkus (informatiivne). Kapsli saatmiseks kasutatakse adresseerimisel ainult DHX `sendDocument` teenuse parameetreid `memberCode` ja `recipient`. Kapsli enda sees määratletud täiendavad adressaadid on DHX dokumendi edastamisel informatiivse väärtusega (nagu cc väli e-kirja avamisel). Saatja DHS süsteem ei tohi eeldada, et teine otsevõimekusega adressaat edastab kapsli muudele kapslis sees toodud adressaatidele. Vahendaja kohustus on edastada kapsel ainult `sendDocument` teenuses märgitud `recipient` elemendis toodud adresaadile. Vahendaja ei pea edastama kapslit muudele kapsli sees toodud adressaatidele.
+
+//////////////////////////////////////////////////
 
 HINNANG
 

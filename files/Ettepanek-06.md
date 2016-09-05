@@ -1,6 +1,6 @@
 DHX protokolli täiendamise ettepanek 06
 
-### Muuta teenuse representationList laiendatavaks, sarnaselt teenusega sendDocument.
+### Muuta teenuse representationList laiendatavaks, sarnaselt teenusega sendDocument
 
 Täiendada teenuse representationList spetsifikatsiooni: 
 

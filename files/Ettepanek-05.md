@@ -1,6 +1,6 @@
 DHX protokolli täiendamise ettepanek 05
 
-### Teenuse sendDocument spetsifikatsiooni täiendamine mittekohustusliku väljaga recipientSystem.
+### Teenuse sendDocument spetsifikatsiooni täiendamine mittekohustusliku väljaga recipientSystem
 
 Täiendada teenuse sendDocument spetsifikatsiooni 
 

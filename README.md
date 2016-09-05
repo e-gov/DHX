@@ -20,6 +20,9 @@ Protokolli saab kasutada [MIT litsentsi alusel](LICENCE.txt).
   - 01 [Asünkroonne kättesaamiskinnitus](files/Ettepanek-01.md#as%C3%BCnkroonne-k%C3%A4ttesaamiskinnitus) TAGASI LÜKATUD
   - 02 [Mitut DHS-i toetav nimemuster](files/Ettepanek-02.md#mitut-dhs-i-toetav-nimemuster) SISSE VIIDUD v 1.0
   - 03 [Mitme aadressi käsitlus](files/Ettepanek-03.md) SISSE VIIDUD v 1.0.1
+  - 04 [Mitme alamsüsteemi kasutamine](files/Ettepanek-04.md) SISSE VIIDUD v 1.0.2
+  - 05 [Teenuse sendDocument spetsifikatsiooni täiendamine mittekohustusliku väljaga recipientSystem](files/Ettepanek-05.md) SISSE VIIDUD v 1.0.2
+  - 06 [Muuta teenuse representationList laiendatavaks, sarnaselt teenusega sendDocument](files/Ettepanek-06.md) SISSE VIIDUD v 1.0.2
 
 #### Taustamaterjale
 - [Kirjandus](files/Kirjandus.md)

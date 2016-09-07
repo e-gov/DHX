@@ -59,7 +59,7 @@
   <a href="#72-otsevõimekuse-väljaselgitamine">7.2 Otsevõimekuse väljaselgitamine</a><br>
   <a href="#73-v%C3%B5imekus-l%C3%A4bi-vahendaja">7.3 Võimekus läbi vahendaja</a><br>
   <a href="#74-lokaalne-aadressiraamat">7.4 Lokaalne aadressiraamat</a><br>
-  <a href="#75-saatmine-dvk-sse">7.5 Saatmine DVK-sse</a><br>
+  <a href="#75-saatmine-dvk-sse">7.5 (kehtetu)</a><br>
   <a href="#76-dokumendi-lugemine-edastatuks">7.6 Dokumendi lugemine edastatuks</a><br>
   <a href="#77-uuesti-üritamine">7.7 Uuesti üritamine</a><br>
   <a href="#78-saatmisalgoritm-informatiivne">7.8 Saatmisalgoritm (informatiivne)</a><br>
@@ -568,11 +568,7 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 
 <p class="advisement">Saatev süsteem VÕIB DHX-i võimekuse väljaselgitamise tulemust puhverdada, moodustades nn lokaalse aadressiraamatu. Puhvri (lokaalse aadressiraamatu) värskendamise periood PEAB olema konfigureeritav.</p>
 
-<h3 id="75-saatmine-dvk-sse">7.5 Saatmine DVK-sse</h3>
-
-<p class="advisement">Kui saatev süsteem on kindlaks teinud, et adressaadil puudub DHX võimekus ja käimas on üleminekuperiood, siis PEAB saatev süsteem üritama dokumenti saata DVK <code>sendDocument</code> teenusesse.</p>
-
-<p>Tegu on juhuga, kus adressaat ei ole veel DHX-i võimekust loonud. Adressaat võib olla veel DVK kasutaja. DVK saadab <code>sendDocument</code> teenusesse saadetud dokumendi adressaadile edasi. Kui adressaat ei ole DVK kasutaja, siis teatab DVK <code>adressaat tundmatu</code>. Saatev süsteem on kõik võimalused ammendanud ja tuleb konstateerida, et dokumenti ei saa edastada &ndash; vähemalt seni, kuni adressaat ei ole DHX võimekust loonud.</p>
+<h3 id="75-saatmine-dvk-sse">7.5 (kehtetu)</h3>
 
 <h3 id="76-dokumendi-lugemine-edastatuks">7.6 Dokumendi lugemine edastatuks</h3>
 
@@ -976,7 +972,9 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 <tr>
   <td>1.0.3, 07.08.2016</td>
   <td>Täpsustatud teenuse <code>representationList</code> väljade koosseisu. Vt <a href='https://github.com/e-gov/DHX/blob/master/files/Ettepanek-07.md'>Ettepanek 07</a><br>
-      Täpsustatud joonist 4 (üleminekuperiood): teenuse <code>representationList</code> osutamine DVK poolt
+      Täpsustatud DVK tegutsemist DHX vahendajana üleminekuperioodil:<br>
+      - joonisel 4 (üleminekuperiood) näidatud: teenuse <code>representationList</code> osutamine DVK poolt<br>
+      - jaotise 7.5 muutmine kehtetuks
   </td>
 </tr>	
 <tr>

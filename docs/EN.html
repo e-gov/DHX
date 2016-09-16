@@ -595,7 +595,7 @@ DHX direct implementation Implementation of DHX directly, i.e. without an interm
 <ul>
 <li>Function <code>adresseeHasDirectDHXCapability</code> finds out, using X-Road global configuration, whether institution <code>a</code> has DHX direct capability.</li>
 <li>Function <code>adresseeUsesIntermediary</code> finds out, using X-Road group <code>DHX intermediaries</code> and X-Road services <code>representationList</code> of the intermediaries, whether institution <code>a</code> uses DHX intermediary.</li>
-<li>Function <code>tryToSend</code> tries to send document <code>d</code> to service <code>sendDocument</code> of subsystem <code>DHX</code> of X-Road member <code>recipient</code>. If sending succeeds, then returns <code>true</code>.</li>
+<li>Function <code>trySend</code> tries to send document <code>d</code> to service <code>sendDocument</code> of subsystem <code>DHX</code> of X-Road member <code>recipient</code>. If sending succeeds, then returns <code>true</code>.</li>
 <li>Function <code>intermediaryRegistryCode</code> finds registry code of the intermediary of institution <code>a</code>.</li>
 <li>Function <code>sendDocument</code> calls abovementioned functions and arranges sending of document <code>d</code> to adressee with registry code <code>a</code>. Three sending attempts are made, second attempt is made an hour after the first; the third attempt is made 24h after the second.  </li>
 </ul>

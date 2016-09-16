@@ -348,186 +348,186 @@ DHX direct implementation Implementation of DHX directly, i.e. without an interm
 </tr>
 </tbody></table>
 
-<h2 id="4-lähteolukord">4 Lähteolukord</h2>
+<h2 id="4-lähteolukord">4 Initial situation</h2>
 
-<p>DHS-id vahetavad praegu dokumente DVK kaudu, kasutades tingliku nimetusega “DVK protokolli”. “DVK protokolli” määravad elektroonilise andmevahetuse metaandmete loend [Kapsel], DVK liideste spetsifikatsioon [DVK spetsifikatsioon] ja [DVK pidamise kord], laiemas plaanis ka “Asjaajamise ühtsed alused” [AÜK]. Väiksemal arvul on dokumendivahetusliideseid loodud ka muude dokumente töötlevate infosüsteemide vahele. Need liidesed ei ole standarditud. Laienev dokumendiringlus ja dokumente vahetavate infosüsteemide tihenev võrgustik (dokumendivahetus tänapäeval ei piirdu „puhaste“ DHS-dega – dokumente vahetavad ka infosüsteemid, kus dokumendihaldus klassikalises mõttes on ainult üks andmetöötluse liik) nõuab alternatiivi ühe keskse postkastiserveri kaudu toimuvale dokumendiliiklusele.</p>
+<p>Currently, DMSs exchange documents via DEC, by using the tentatively named “DEC protocol”. The “DEC protocol” is determined by the list of electronic data exchange meta data [Capsule], the specification of DEC interfaces [DEC specification ] and [DEC maintenance procedure], and, in a broader context, “Common Principles of Administrative and Records Management Procedures” [AÜK]. To a smaller degree, document exchange interfaces have also been established between other information systems that process documents. These interfaces have not been standardised. The extending document circulation and the tightening network of information systems that exchange documents (modern document exchange is not limited to the so-called pure DMSs – documents are also exchanged by information systems, where document management in the traditional meaning is simply one type of data processing) call for an alternative to the document circulation occurring via a central mailbox server.</p>
 
-<p><img src="DHX-Lahteolukord02.PNG" alt="" title=""></p>
+<p><img src="DHX-Initial02.PNG" alt="" title=""></p>
 
-<p>Joonis 1. Lähteolukord: dokumendivahetus DVK kaudu</p>
+<p>Joonis 1. Initial situation: document exchange via DEC</p>
 
-<h2 id="5-dhx-teenus">5 DHX teenus</h2>
+<h2 id="5-dhx-teenus">5 DHX service</h2>
 
-<h3 id="51-üldiseloomustus">5.1 Üldiseloomustus</h3>
+<h3 id="51-üldiseloomustus">5.1 General description</h3>
 
-<p>DHX teenus on standardse nimemustri ja töötlusloogikaga X-tee teenus, millega asutus saab saata teisele asutusele dokumente.</p>
+<p>The DHX service is an X-Road service with a standard name pattern and processing logic, enabling an institution to send documents to another institution.</p>
 
-<p><img src="DHX-Sihtolukord02.PNG" alt="" title=""></p>
+<p><img src="DHX-TOBE02.PNG" alt="" title=""></p>
 
-<p>Joonis 2. DHX põhiskeem</p>
+<p>Joonis 2. Basic scheme of DHX</p>
 
-<p>DHX teenuse kasutamine on interaktsioon, mis koosneb kahest sõnumisaatmisest: <br>
- - dokumendi saatja saadab teenusele <code>sendDocument</code> X-tee päringsõnumi (päringu) <br>
- - dokumendi saaja saadab vastussõnumi kinnitusega dokumendi kättesaamise kohta.</p>
+<p>The use of the DHX service is an interaction, where two messages are sent: <br>
+ - the sender of the document sends an X-Road query message (query) to the service sendDocument <br>
+ - the receiver of the document sends a response message, confirming the receipt of the document.</p>
 
-<div class="note">Märkus. Päring- ja vastussõnum moodustavad X-teel standardselt kasutatava nn “sünkroonse” <em>request-response</em> sõnumipaari.  </div>
+<div class="note">Note. Query and response messages form a synchronous <em>request-response</em> message pair used as a standard on X-Road.  </div>
 
-<p>Kui dokument on valesti adresseeritud või valesti formeeritud, siis saadetakse vastussõnumis asjakohane veateade.</p>
+<p>If a document has been incorrectly addressed or formed, a relevant error message is sent in the response message.</p>
 
-<p>Dokument edastatakse päringsõnumis.</p>
+<p>A document is transmitted in the query message.</p>
 
-<p>Dokumendid edastatakse nn tõukemeetodil (ingl <em>push</em>). Dokumendi saatja algatab saatmise pöördumisega adressaadi <code>sendDocument</code> teenuse poole.</p>
+<p>Documents are transmitted with the push method. The sender of the document initiates sending by addressing the <code>sendDocument</code> service of the addressee.</p>
 
-<h3 id="52-dhx-teenuse-väljaarendamine">5.2 DHX teenuse väljaarendamine</h3>
+<h3 id="52-dhx-teenuse-väljaarendamine">5.2 Development of the DHX service</h3>
 
-<p class="advisement">DHX-i rakendav asutus (või tema DHS vahendusteenuse või DHS majutusteenuse pakkuja) PEAB arendama oma DHS-is välja DHX teenuse ja käitama seda.</p>
+<p class="advisement">An institution implementing DHX (or their DMS mediation service or DMS accommodation service provider) MUST develop the DHX service in their DMS and operate it.</p>
 
-<p>Protokoll ei välista olukordi, kus DHS-is luuakse ainult DHX protokolli nõuetele vastav saatmis- või vastuvõtmisvõimekus. Tehniliselt selleks takistusi pole. Kuna selliste ebasümmeetriliste lahenduste ärivajadus pole selge, siis lihtsuse hoidmise eesmärgist lähtudes protokoll ei sätesta eraldi profiile süsteemidele, mis piirduvad ainult saatmise või vastuvõtmisega.</p>
+<p>The protocol does not exclude situations, where only a sending or receiving capability meeting the requirements of DHX protocol is established in DMS. Technically, there are no constraints. As the business need of such asymmetric solutions is unclear, proceeding from the objective to maintain simplicity, the protocol does not specify separate profiles for the systems limited to sending or reception.</p>
 
 <p class="advisement">DHX-i rakendav asutust VÕIB DHX-i võimekuse luua ka enamas kui ühes oma infosüsteemis.</p>
 
-<p class="advisement">DHX-i rakendaja teostatud DHX teenus PEAB vastama lisas 1 esitatud täpsemale spetsifikatsioonile.</p>
+<p class="advisement">DHX service performed by a DHX implementer MUST meet the detailed specification provided in Appendix 1.</p>
 
-<h3 id="53-dhx-teenuse-avamine">5.3 DHX teenuse avamine</h3>
+<h3 id="53-dhx-teenuse-avamine">5.3 Opening a DHX service</h3>
 
-<p class="advisement">DHX-i rakendav asutus PEAB avama DHX teenuse kõigile asutustele, kellega ta soovib dokumente vahetada. Kui asutus turvapoliitika vm kaalutlustel ei pea otstarbekaks DHX teenuse avamist kõigile X-tee liikmetele, siis VÕIB ta DHX teenuse avada konkreetsetele X-tee liikmetele (pääsuõiguste andmisega X-tee turvaserveris).</p>
+<p class="advisement">An institution implementing DHX MUST open the DHX service to all institutions with whom they want to exchange documents. If an institution does not want to open a DHX service to all members of X-Road due to security policy or other reasons, they MAY open a DHX service to specific members of X-Road (with granting access rights in the X-Road security server).</p>
 
-<p>DHX on mõeldud eelkõige universaalse dokumendivahetuskokkuleppena.</p>
+<p>DHX is intended primarily as a universal document exchange agreement.</p>
 
-<p class="advisement">Üleminekuperioodiks PEAB DHX teenuse avama ka DVK-le.</p>
+<p class="advisement">For the transition period, DHX service MUST be opened also to DEC.</p>
 
-<p>DVK edastab dokumente asutustelt, kes ei ole veel DHX-i võimekust loonud.</p>
+<p>DEC transmits documents from institutions who have not yet established DHX capability.</p>
 
-<h3 id="54-nimemuster">5.4 Nimemuster</h3>
+<h3 id="54-nimemuster">5.4 Name pattern</h3>
 
-<p class="advisement">DHX teenuse nimi PEAB järgima mustrit <code>EE/&lt;liikmeklass&gt;/&lt;registrikood&gt;/&lt;DHX*&gt;/sendDocument</code>, kus<br>
- - <code>EE</code> on X-tee Eesti instantsi nimi; <br>
- - <code>&lt;liikmeklass&gt;</code> on X-tee liikmeklass (vastavalt vahendaja õiguslikule vormile kas <code>GOV</code> või <code>PRI</code>);<br>
- - <code>&lt;DHX*&gt;</code> on teenuse ülesleidmist tagav, käesoleva protokolliga fikseeritud X-tee alamsüsteemi nimi kujul <code>DHX*</code>, s.t nime kolm algussümbolit peavad olema <code>DHX</code>. Fikseeritud algussümbolitele võib järgneda muid sümboleid, s.t. nimi peab algama <code>DHX</code>-ga, kui võib olla pikem. Kui asutus rakendab DHX-i ainult ühes oma infosüsteemis (asutuse DHS-is), siis piisab X-tee alamsüsteemi nimeks <code>DHX</code>. Kui aga asutus soovib rakendada DHX-i mitmes infosüsteemis, siis PEAB eristamiseks valima erinevad X-tee alamsüsteemi nimed. Kõigi DHX-i rakendavate süsteemide X-tee alamsüsteeminimi PEAB algama sümbolitega <code>DHX</code>.<br>
- - <code>&lt;registrikood&gt;</code> on asutuse registrikood.</p>
+<p class="advisement">The name of the DHX service MUST follow the pattern <code>EE/&lt;member class&gt;/&lt;registry code&gt;/&lt;DHX*&gt;/sendDocument</code>, wheres<br>
+ - <code>EE</code> is the name of the Estonian X-Road instance; <br>
+ - <code>&lt;member class&gt;</code> is the member class of X-Road (depending on the legal form of the intermediary, either <code>GOV</code> or <code>PRI</code>);<br>
+ - <code>&lt;DHX*&gt;</code> is the name of the X-Road subsystem ensuring detection of the service, fixed with this protocol in form <code>DHX*</code>, i.e. three inital symbols of the name MUST be <code>DHX</code>. Fixed initial symbols MAY be followed by more symbols, i.e. name MUST begin with <code>DHX</code>, but CAN be longer. If institution employes DHX only in one information system (in institution's DMS), then <code>DHX</code> is sufficient for X-Road subsystem name. However, if institution wants to employ DHX in more that ine information system., then different sybsystem names MUST be chosen.<br>
+ - <code>&lt;registrikood&gt;</code> is the registry code of the institution.</p>
 
-<div class="example">Näited:<br>
+<div class="example">Examples:<br>
  <code>EE/GOV/70003158/DHX/sendDocument</code><br>
- <code>EE/GOV/70000906/DHX.viru/sendDocument</code> (Viru Ringkonnaprokuratuur)<br>
- <code>EE/GOV/70000906/DHX.laane/sendDocument</code> (Lääne Ringkonnaprokuratuur)<br>
- (Ringkonnaprokuratuurid ei ole omaette asutused, vaid Prokuratuuri struktuuriüksused.)
+ <code>EE/GOV/70000906/DHX.viru/sendDocument</code> (Viru Regional Prosecutor's Office)<br>
+ <code>EE/GOV/70000906/DHX.laane/sendDocument</code> (Lääne Regional Prosecutor's Office)<br>
+ (Regional Prosecutor's Offices are not independent institutions but subunits of  Prosecutor's Office.)
 </div>
 
-<h3 id="55-reserveeritud-nimi-dhx">5.5 Reserveeritud nimi DHX*</h3>
+<h3 id="55-reserveeritud-nimi-dhx">5.5 Reserved name DHX*</h3>
 
-<p class="advisement">DHX teenus PEAB kasutama X-tee alamsüsteemi nimega <code>DHX*</code>, kus <code>*</code> on sümbolite jada, mis võib olla ka tühi. X-tee keskus EI TOHI registreerida ühegi asutuse sellise nimemustriga alamsüsteemi teiseks otstarbeks.</strong></p>
+<p class="advisement">DHX service MUST use the X-Road subsystem name <code>DHX*</code>, where <code>*</code> is a sequence of symbols that can be empty. The X-Road Centre MAY NOT register the subsystem “DHX” of any institution for another purpose</p>
 
-<p class="advisement">Kui asutus rakendab DHX-i ainult ühes oma infosüsteemis (asutuse DHS-is), siis PEAKS X-tee alamsüsteemi nimeks olema<code>DHX</code> (aga mitte pikem).</p>
+<p class="advisement">If institution employs DHX only in one of its information systems (in institution's DMS), then X-Road subsystem name code>DHX</code> SHOULD be used (and not a longer name).</p>
 
 <div class='note'>
-  <p>Märkus (informatiivne). Infosüsteem võib DHX alamsüsteemi nime <code>DHX*</code> alt lisaks DHX dokumendivahetusele osutada ja tarbida ka teisi X-tee teenuseid. Siiski võib nime DHX laiem kasutamine tekitada asjatut kommunikatsioonivajadust või isegi segadust. Seetõttu, kui infosüsteemil on lisaks DHX protokolli kohasele andmeliiklusele X-teel veel muud andmeliiklust, siis võib olla otstarbekas enama kui ühe X-tee alamsüsteemi sidumine infosüsteemiga.</p>
-  <p>Näiteks joonisel 3a kujutatud infosüsteemil <code>ADIT</code> on kaks X-tee alamsüsteemi: 1) <code>DHX-ADIT</code> kaudu käib DHX andmeliiklus; 2) <code>ADIT</code> kaudu osutatakse ja tarbitakse muid X-tee teenuseid.</p>
-  <p>Mitme alamsüsteemi kasutamisest ei teki lisakulutusi (ei ole vaja eraldi serte). Alamsüsteemid on käsitatavad loogiliste pääsupunktidena või väravatena.</p>
+  <p>Note (informative). Information system may provide services other than DHX document exchange under subsystem name <code>DHX*</code>. Nevertheless, wider use of the name DHX can cause a need for unnecessary communication or even confusion. Therefore, if information system has besides DHX protocol data traffic other data traffic in X-Road, then it can be suitable to bind more than one X-Road subsystem to the information system.</p>
+  <p>For example, figure 3a represents an information system - <code>ADIT</code> - that is bound to two X-Road subsystems: 1) DHX data traffic flows through <code>DHX-ADIT</code>; 2) other X-Road services are provided and consumed through <code>ADIT</code>.</p>
+  <p>Usage of multiple subsystems does not cause additional costs (no separate sertificates are needed). Subsystems can be viewed as logical access points or gates.</p>
 </div>  
 
-<p><img src="DHX-Alamsysteemid.PNG" alt="" title=""></p>
+<p><img src="DHX-Subsystems.PNG" alt="" title=""></p>
 
-<p>Joonis 3a Mitme alamsüsteemi kasutamine</p>
+<p>Joonis 3a Use of multiple subsystems</p>
 
-<h3 id="56-kapsli-kasutamine">5.6 Kapsli kasutamine</h3>
+<h3 id="56-kapsli-kasutamine">5.6 Use of capsule</h3>
 
-<p class="advisement">Dokumendi PEAB edastama ametlikult kinnitatud elektroonilise andmevahetuse metaandmete loendile vastavas “kapslis” [Kapsel].</p>
+<p class="advisement">Document MUST be transmitted in a “capsule” complying with the officially confirmed list of digital data exchange metadata [Capsule].</p>
 
-<p>Dokumendi kapslis edastatakse muuhulgas adressaadiks oleva asutuse registrikood.</p>
+<p>The registry code of the addressee-institution is also forwarded in the capsule of the document.</p>
 
-<div class="issue">DHX-i kasutuselevõtmisel tekib vajadus täpsustada kapsli [Kapsel] metaandmete elementide tähendust või isegi anda välja uus redaktsioon. Uus redaktsioon on tõenäoliselt mõtet anda välja pärast DHX-ile üleminekuaja lõppu (kui DVK lõplikult käigust eemaldatakse).</div>
+<div class="issue">Upon the adoption of DHX, a need arises to specify the meaning of elements of metadata of a capsule [Capsule] or an event to issue a new version. It is probably practical to issue a new version after the end of the transition period to DHX (when DEC is ultimately decommissioned).</div>
 
-<p>Alloleva tabel esitab kommenteeritud nimekirja kapsli elementidest, mida DHX-i kasutuselevõtmine puudutab. Täieliku kapsli elementide spetsifikatsiooniga on võimalik tutvuda [Kapsel].</p>
+<p>The table below provides a commented list of elements of the capsule affected by the adoption of DHX. The complete specification of elements of the capsule is provided in [Capsule].</p>
 
 <table>
 <thead>
 <tr>
   <th>element</th>
-  <th>tähendus DHX-i kasutamisel</th>
+  <th>meaning upon use of DHX</th>
 </tr>
 </thead>
 <tbody><tr>
-  <td>Transport  1. DVK Saatja</td>
-  <td>Transport  1. Dokumendi saatja</td>
+  <td>Transport  1. DEC Sender</td>
+  <td>Transport  1. Sender of the document</td>
 </tr>
 <tr>
-  <td>Transport  2. DVK Saaja</td>
-  <td>Transport  2. Dokumendi saaja</td>
+  <td>Transport  2. DEC Receiver</td>
+  <td>Transport  2. Receiver of the document</td>
 </tr>
 <tr>
-  <td>XI DVK dokumendi metaandmed</td>
-  <td><em>ei kasutata</em></td>
+  <td>XI DEC document metadata</td>
+  <td><em>n/a</em></td>
 </tr>
 </tbody></table>
 </h2>
 
-<h3 id="57-unikaalne-identifikaator">5.7 Unikaalne identifikaator</h3>
+<h3 id="57-unikaalne-identifikaator">5.7 Unique identifier</h3>
 
-<p class="advisement">Saatev süsteem PEAB dokumendi saatmisürituste seeriale andma unikaalse identifikaatori (saadetise id, ingl <em>consignment id</em>).</strong> (Vt ka jaotis 7.7 Uuesti üritamine.)</p>
+<p class="advisement">The sending system MUST assign a unique identifier to the series of attempts to send document (<code>consignment id</code>). (See also Section 7.7 Re-attempting).</p>
 
-<h2 id="6-vahendamine">6 Vahendamine</h2>
+<h2 id="6-vahendamine">6 Mediation</h2>
 
-<h3 id="61-vahendamise-mõiste">6.1 Vahendamise mõiste</h3>
+<h3 id="61-vahendamise-mõiste">6.1 Definition of mediation</h3>
 
-<p>Vahendamise korral osutab dokumentide X-teel saatmise ja vastuvõtmise teenust asutusele vahendaja. Asutus ise X-teega DHX kontekstis ei suhtle. Asutus ei pea isegi olema X-tee liige. Vahendaja esineb X-teel oma nime all. Vahendaja võib olla nii erasektori ettevõte kui ka avaliku sektori asutus.</p>
+<p>In the case of mediation, an intermediary provides the service of sending and receiving documents on X-Road to an institution. The institution does not communicate with X-Road in the DHX context themselves. The institution even need not to be an X-Road member. The intermediary uses their name on X-Road. An intermediary may be a company of private sector as well as an institution of public sector.</p>
 
-<p><strong>Asutus VÕIB rakendada DHX-i kas otse (s.t iseseisvalt) või vahendaja kaudu.</strong></p>
+<p><strong>An institution MAY implement DHX directly (i.e. independently) or via an intermediary</strong></p>
 
 <div class="note">
-  <p>Märkus (informatiivne). Vahendamine erineb majutamisest. Paljud asutused majutavad oma DHS-e majutus- ja pilveteenuste osutajate juures. Majutamine võib hõlmata nii X-tee turvaserveri kui ka DHS-i majutamist (pilveteenusena osutamist). DHX-i seisukohalt omab tähtsust, kas asutuse DHS suhtleb X-teel asutuse X-tee sertifikaadi abil või mitte. Kõiki suhteid, kus suhtlemine X-teel toimub mitte asutuse enda, vaid teenusepakkuja X-tee sertifikaadi abil, käsitletakse vahendamisena.</p>
+  <p>Note (informative). Mediation differs from accommodation. Many institutions accommodate their DMSs at the providers of accommodation and cloud services. Accommodation may cover the accommodation of the X-Road security server as well as DMS (provision of cloud service). From the standpoint of DHX, it is important whether DMS of an institution communicates on X-Road using the X-Road certificate of the institution or not. All relationships, where communication on X-Road takes place with the X-Road certificate of the service provider instead of the X-Road certificate of the institution, are considered mediation.</p>
 
-  <p>Majutamise korral tuleb DHX-i rakendamisel tagada käesoleva protokolli nõuete täitmine. Kuidas seda teha, sõltub konkreetsest suhtest majutaja ja asutuse vahel ning ei ole käesoleva protokolli käsitlusalas.</p>
+  <p>In the case of accommodation, fulfilment of the requirements of this protocol must be ensured the upon implementation of DHX. The method depends on the specific relationship between the accommodation service provider and the institution, and is not covered by the scope of this protocol.</p>
 </div>
 
-<p>DHX vahendamisel arendab DHX teenuse välja, avab teistele asutustele ja käitab teenust vahendaja. Joonisel 3 on esitatud interaktsiooni põhimõtteskeem vahendamise korral.</p>
+<p>Upon the mediation of DHX, an intermediary develops the DHX service, opens it to other institutions and then operates it. Figure 3 includes the scheme of interaction principles in the case of mediation.</p>
 
 <p><img src="DHX-Vahendamine01.PNG" alt="" title=""></p>
 
-<p>Joonis 3 DHX teenusevahendamine</p>
+<p>Joonis 3 Mediation of DHX service</p>
 
-<p>Vahendamisele kehtivad X-tee määrusest tulenevad nõuded: vahendajana end X-teel registreerimise kohustus, andmeteenuse vahendamise korra (poliitika) koostamise ja avalikustamise kohustus jm (vt [X-tee määrus] § 13).</p>
+<p>Requirements proceeding from the X-Road regulation are set to mediation: obligation to register on X-Road as an intermediary, obligation to develop and publish the procedure (policy) for data service mediation, etc. (see [X-Road regulation] § 13).</p>
 
-<h3 id="62-vahendajate-nimekiri">6.2 Vahendajate nimekiri</h3>
+<h3 id="62-vahendajate-nimekiri">6.2 List of intermediaries</h3>
 
-<p class="advisement">DHX rakendamisel läbi vahendaja PEAB asutus sõlmima lepingu DHX vahendajaga. Kasutada TOHIB AINULT X-tee keskuse poolt DHX vahendajate nimekirja lisatud vahendajaid.</strong></p>
+<p class="advisement">Upon the implementation of DHX via an intermediary, the institution MUST conclude a contract with the DHX intermediary. They MAY ONLY use the intermediaries entered into the list of DHX intermediaries by the X-Road Centre.</p>
 
-<p>Vahendajate nimekiri on nimekiri DHX dokumendivahetusteenuse vahendajatest.</p>
+<p>The list of intermediaries is the list of intermediaries of the DHX document exchange service.</p>
 
-<p>Vahendajate nimekirja peab X-tee keskus (RIA).</p>
+<p>The list of intermediaries is maintained by the X-Road Centre (RIA).</p>
 
-<p>Tehniliselt teostatakse vahendajate nimekiri DHX vahendajate grupina. DHX vahendajate grupp on osa X-tee globaalsest konfiguratsioonist. Vahendajate nimekiri on X-tee globaalse konfiguratsiooni osana avalikult kättesaadav kõigile X-tee liikmetele. </p>
+<p>Technically the list of intermediaries is executed as a DHX intermediary group. DHX intermediary group is part of the X-Road global configuration. As such, the list of intermediaries is available to all X-Road members. </p>
 
-<p class="advisement">Vahendajana tegutseda sooviv asutus või ettevõte PEAB end vahendajana X-teel registreerima.</strong> Registreerimise täpse korra kehtestab X-tee keskus.</p>
+<p class="advisement">An institution or a company intending to operate as an intermediary MUST register themselves on X-Road as intermediaries. Specific registration procedure is established by the X-Road Centre.</p>
 
-<p class="advisement">X-tee keskus PEAB pidama DHX vahendajate nimekirja ajakohasena.</p>
+<p class="advisement">The X-Road Centre MUST maintain an updated list of DHX intermediaries.</p>
 
-<h3 id="63-vahendusnimekiri">6.3 Vahendusnimekiri</h3>
+<h3 id="63-vahendusnimekiri">6.3 Mediation list</h3>
 
-<p>Vahendusnimekiri on vahendaja peetav nimekiri asutustest, keda ta vahendab.</p>
+<p>The mediation list is a list of institutions mediated by an intermediary and maintained by an intermediary.</p>
 
-<p class="advisement">Vahendaja PEAB pidama vahendusnimekirja.</p>
+<p class="advisement">An intermediary MUST maintain mediation list.</p>
 
 <p class="advisement">Vahendaja PEAB hoidma vahendusnimekirja autentsena ja ajakohasena.</p>
 
-<p>Autentsus tähendab seda, et vahendusnimekiri peab esitama vahendussuhteid tõeselt ja täielikult. Ajakohasus tähendab seda, et vahendusnimekiri peab igal ajahetkel esitama kõik kehtivad vahendussuhted.
+<p>An intermediary MUST keep the mediation list authentic and updated. Authenticity means that the mediation list must present mediation relationships correctly and completely. Updating means that the mediation list must present all valid mediation relationships at every given moment.</p>
 
-<p>Vahendusnimekiri VÕIB sisaldada teavet lõppenud ja tulevikus jõustuvate vahendussuhete kohta (esitatakse väljade <code>startDate</code> ja <code>endDate</code> abil).</p>
+<p>The mediation list MAY include information about expired or future mediation relationships (presented with fields <code>startDate</code> and <code>endDate</code>).</p>
 
-<p class="advisement">Vahendaja PEAB vahendusnimekirja tegema kättesaadavaks X-tee teenusena.</p>
+<p class="advisement">An intermediary MUST make the mediation list available as an X-Road service.</p>
 
-<p class="advisement">Vahendusnimekirja teenuse nimi PEAB järgima mustrit <code>EE/&lt;liikmeklass&gt;/&lt;registrikood&gt;/DHX/representationList</code>, kus</strong> <br>
- - <code>EE</code> on X-tee Eesti instantsi nimi <br>
- - <code>&lt;liikmeklass&gt;</code> on X-tee liikmeklass (väärtus vastavalt X-tee protokollile - vastavalt vahendaja õiguslikule vormile kas <code>GOV</code>, <code>COM</code>, <code>NGO</code> või <code>NEE</code>)  <br>
- - <code>DHX</code> on teenuse ülesleidmist tagav, käesoleva protokolliga fikseeritud X-tee alamsüsteeminimi ja <br>
- - <code>&lt;registrikood&gt;</code> on asutuse registrikood.</p>
+<p class="advisement">The name of the mediation list service MUST follow the pattern  <code>EE/&lt;member class&gt;/&lt;registry code&gt;/DHX/representationList</code>, where <br>
+ - <code>EE</code> is the name of the Estonian X-Road instance <br>
+ - <code>&lt;liikmeklass&gt;</code> is a member class of X-Road (value according to X-Road protocol – depending on the legal form of intermediary, either <code>GOV</code>, <code>COM</code>, <code>NGO</code> or <code>NEE</code>)  <br>
+ - <code>DHX</code> is the name of X-Road subsystem ensuring the detection of the service, fixed with this protocol, and <br>
+ - <code>&lt;registrikood&gt;</code> is the registry code of the institution.</p>
 
-<p>Näide: <code>EE/COM/40001111/DHX/representationList</code></p>
+<p>Example: <code>EE/COM/40001111/DHX/representationList</code></p>
 
-<p class="advisement">DHX-i rakendaja teostatud vahendusnimekirja teenus PEAB vastama lisas 2 esitatud täpsemale spetsifikatsioonile.</p>
+<p class="advisement">The mediation list service provided by a DHX implementer MUST meet the detailed specification provided in Appendix 2.</p>
 
-<h2 id="7-saatmine">7 Saatmine</h2>
+<h2 id="7-saatmine">7 Sending</h2>
 
-<h3 id="71-dhx-võimekus">7.1 DHX võimekus</h3>
+<h3 id="71-dhx-võimekus">7.1 DHX capability</h3>
 
 <p class="advisement">Saatev süsteem PEAB välja selgitama, kas adressaadil on DHX võimekus.</p>
 

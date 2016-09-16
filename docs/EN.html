@@ -529,68 +529,68 @@ DHX direct implementation Implementation of DHX directly, i.e. without an interm
 
 <h3 id="71-dhx-võimekus">7.1 DHX capability</h3>
 
-<p class="advisement">Saatev süsteem PEAB välja selgitama, kas adressaadil on DHX võimekus.</p>
+<p class="advisement">The sending system MUST find out if the adressee has DHX capability.</p>
 
-<p>DHX võimekus võib olla otsevõimekus või võimekus vahendaja kaudu.</p>
+<p>DHX capability may be a direct capability or capability through an intermediary.</p>
 
-<div class="note">Märkus (informatiivne). Kõnelda võib ka kitsamalt <em>DHX-i saatmisvõimekusest</em> ja <em>DHX-i vastuvõtmisvõimekusest</em>. DHX ei nõua rakendamise sümmeetrilisust: tehnilisi takistusi ainult saatva DHS-i või ainult vastu võtva DHS-i loomisele ei ole. Kuid selliste lahenduste kasutusjuht (<em>use case</em>) pole selge. Sümmeetrilise võimekuse nõude kehtestamine on administratiivne otsus ja jääb käesoleva protokolli käsitlusalast väljapoole. Protokoll eeldab, et osapooled lähtuvad protokolli rakendamisulatuse valimisel reaalsest vajadusest dokumente saata ja saada.</div>
+<div class="note">Note (informative). It possible to speak more specifically of <em>DHX sending capability</em> and <em>DHX reception capability</em>. DHX does not require symmetrical implementation: there are no technical restrictions to the establishment of only sending DMS or only receiving DMS. However, the use case of such solutions is not clear. Setting the requirement of symmetrical capability is an administrative decision and remains outside the scope of this protocol. The protocol presumes that when choosing the extent of implementation of the protocol, parties proceed from real need to send and receive documents.</div>
 
-<h3 id="72-otsevõimekuse-väljaselgitamine">7.2 Otsevõimekuse väljaselgitamine</h3>
+<h3 id="72-otsevõimekuse-väljaselgitamine">7.2 Identification of direct capability</h3>
 
-<p class="advisement">Otsevõimekust PEAB välja selgitama esimeses järjekorras (enne vahendaja kaudu võimekuse tuvastamist).</p>
+<p class="advisement">Direct capability MUST be identified as a first priority (before the identification of capability through an intermediary).</p>
 
-<p class="advisement">Saatev süsteem PEAKS otsevõimekuse välja selgitama X-tee globaalse konfiguratsioonifaili põhjal.</p>
+<p class="advisement">The sending system SHOULD determine direct capability, based on the global configuration file of X-Road.</p>
 
-<p>Otsevõimekuse tunnuseks on DHX alamsüsteemi olemasolu asutusel.</p>
+<p>The availability of the DHX subsystem in the institution is the marker of direct capability.</p>
 
-<p>Globaalse konfiguratsiooni VÕIB alla laadida X-tee keskusest või kasutada X-tee turvaserveri poolt allalaetud, turvaserveri liidese poolt pakutud globaalset konfiguratsioonifaili.</p>
+<p>The global configuration MAY BE downloaded from the X-Road Centre, or the global configuration file downloaded by the X-Road security server, offered by the security server interface, MAY BE used.</p>
 
-<p>Kui saatev süsteem peab DHX otsevõimekuse väljaselgitamist X-tee globaalse konfiguratsioonifaili põhjal tehniliselt liiga keerukaks, siis VÕIB otsevõimekust kontrollida ka otsese saatmisüritusega.</p>
+<p>If the sending system considers the identification of DHX direct capability based on the global configuration file of X-Road technically too complicated, direct capability MAY BE also checked with a direct sending attempt.</p>
 
-<p>Kui turvaserver vastab, et adressaadil alamsüsteem DHX puudub, siis sellest võib järeldada, et adressaadil DHX otsevõimekus puudub.</p>
+<p>If the security server answers that the addressee does not have a DHX subsystem, it can be concluded that the addressee is lacking DHX direct capability.</p>
 
-<p>Saatja turvaserver laeb perioodiliselt X-tee keskserverist alla teavet X-tee konfiguratsiooni kohta [PR-GCONF], sh teavet X-tee liikmete poolt määratletud alamsüsteemide ja turvaserverite kohta. Saatja turvaserver teeb ülalnimetatud  konfiguratsiooniteabe põhjal kindlaks, kas adressaat on määratlenud DHX alamsüsteemi. Kui ei ole, siis DHX võimekus puudub.</p>
+<p>The security server of the sender downloads periodically information about the X-Road configuration from the X-Road central server [PR-GCONF], including information about the subsystems and security servers specified by the X-Road members. Based on this configuration information, security server of the sender determines whether the addressee has specified the DHX subsystem. If not, then DHX capability is lacking.</p>
 
-<p class="advisement">Adressaadil otsevõimekuse olemasolul PEAB dokumendi saatma adressaadile otse.</p>
+<p class="advisement">If the addressee has direct capability, the document MUST BE sent directly to the addressee.</p>
 
-<h3 id="73-võimekus-läbi-vahendaja">7.3 Võimekus läbi vahendaja</h3>
+<h3 id="73-võimekus-läbi-vahendaja">7.3 Capability through intermediary</h3>
 
-<p class="advisement">Otsevõimekuse puudumise korral PEAB saatev süsteem kontrollima, kas adressaadil on DHX võimekus läbi vahendaja.</p>
+<p class="advisement">When direct capability is lacking, the sending system MUST check whether the addressee has DHX capability through an intermediary.</p>
 
-<p class="advisement">DHX võimekuse läbi vahendaja kontrollimiseks PEAB saatev süsteem:<br>
- - alla laadima X-tee keskusest X-tee globaalse konfiguratsiooni faili või kasutama turvaserveri poolt allalaetud globaalse konfiguratsiooni faili; <br>
- - leidma failist vahendajate nimekirja (DHX vahendajate grupi); <br>
- - käima kõik vahendajad läbi ning pärima X-tee kaudu vahendusnimekirjad; <br>
- - kindlaks tegema, kas adressaat sisaldub vahendusnimekirjades; <br>
- - kontrollima vahendussuhte ajalist kehtivust (teenuse <code>representationList</code> vastussõnumi väljade <code>startDate</code> ja <code>endDate</code> abil).</p>
+<p class="advisement">In order to check DHX capability through an intermediary, the sending system MUST:<br>
+ - download the X-Road global configuration file from the X-Road Centre or use the global configuration file downloaded by the security server; <br>
+ - find the list of intermediaries in the file (DHX intermediary group); <br>
+ - check all intermediaries and request mediation lists via X-Road; <br>
+ - find out whether the addressee is included in the mediation lists; <br>
+ - check the validity of mediation relationship (with fields <code>startDate</code> and <code>endDate</code> of the response message of the service <code>representationList</code>).</p>
 
-<p class="advisement">Kui adressaadil puudub DHX otsevõimekus, kuid on DHX võimekus läbi vahendaja, siis PEAB saatev süsteem saatma dokumendi vahendajale.</p>
+<p class="advisement">If the addressee has no DHX direct capability, but has DHX capability through an intermediary, the sending system MUST send the document to the intermediary.</p>
 
-<h3 id="74-lokaalne-aadressiraamat">7.4 Lokaalne aadressiraamat</h3>
+<h3 id="74-lokaalne-aadressiraamat">7.4 Local address book</h3>
 
-<p class="advisement">Saatev süsteem VÕIB DHX-i võimekuse väljaselgitamise tulemust puhverdada, moodustades nn lokaalse aadressiraamatu. Puhvri (lokaalse aadressiraamatu) värskendamise periood PEAB olema konfigureeritav.</p>
+<p class="advisement">The sending system MAY buffer the result of identification of DHX capability, forming a so-called local address book. It MUST be possible to configure the updating period of the buffer (local address book).</p>
 
-<h3 id="75-saatmine-dvk-sse">7.5 (kehtetu)</h3>
+<h3 id="75-saatmine-dvk-sse">7.5 (void)</h3>
 
-<h3 id="76-dokumendi-lugemine-edastatuks">7.6 Dokumendi lugemine edastatuks</h3>
+<h3 id="76-dokumendi-lugemine-edastatuks">7.6 Considering a transmitted document</h3>
 
-<p class="advisement">Saatev süsteem PEAB lugema dokumendi edastatuks, kui on saanud <code>sendDocument</code> teenuselt positiivse vastuskoodiga vastussõnumi.</p>
+<p class="advisement">The sending system MUST consider the transmitted document, when the response message with a positive response code has been received from the <code>sendDocument</code> service.</p>
 
-<p>Kinnitus dokumendi kättesaamise kohta saadetakse X-tee päring-vastus (<em>request</em>-<em>response</em>) sõnumipaari vastussõnumis. Kui osapooled vajavad kõrgema äriloogika kihi taseme kinnitusi, siis neid võib realiseerida DHX protokolli väliselt või DHX protokolli pealiskihina.</p>
+<p>A confirmation of receipt of the document is sent in the response message of a <em>request</em>-<em>response</em> message pair of X-Road. If the parties need confirmations of higher level business logic layer, these can be realised outside the DHX protocol or as cover layer of DHX protocol.</p>
 
-<h3 id="77-uuesti-üritamine">7.7 Uuesti üritamine</h3>
+<h3 id="77-uuesti-üritamine">7.7 Re-attempting</h3>
 
-<p class="advisement">Kui adressaadiga ei saa ühendust või kättesaamise kinnitust ei tule, siis PEAB mõne aja pärast saatmist uuesti üritama.</p>
+<p class="advisement">If contact is not established with the addressee or no confirmation of receipt is received, sending MUST BE attempted again after some time.</p>
 
-<div class="note">Märkus (informatiivne). Uuestisaatmise teostamisel võib võrdluseks võtta DVK-ga liidestatud DHS-des kasutatud loogikat.</div>
+<div class="note">ote (informative). When performing re-sending, the logic used in DMSs interfaced with DEC can be taken as a comparison.</div>
 
-<p class="advisement">Tühipäringute arvu vähendamiseks PEAKS kasutada eksponentsiaalse taganemise (<em>exponential back-off</em>) algoritmi [EXP].</p>
+<p class="advisement">In order to minimise the number of void queries, the exponential back-off algorithm [EXP] SHOULD be used.</p>
 
-<p class="advisement">Saatmisürituste arv PEAB olema lõplik ja saatva süsteemi konfiguratsioonis määratav.</p>
+<p class="advisement">The number of sending attempts MUST be finite and possible to determine in the configuration of the sending system.</p>
 
-<h3 id="78-saatmisalgoritm-informatiivne">7.8 Saatmisalgoritm (informatiivne)</h3>
+<h3 id="78-saatmisalgoritm-informatiivne">7.8 Sending algorithm (informative)</h3>
 
-<p>Alljärgnev saatmisalgoritm illustreerib üht võimalikku viisi programmiliselt teostada dokumendi saatmist. Algoritmis on kasutatud Go keele [GOLANG] konstruktsioone. Algoritm on informatiivse tähendusega. Protokolli implementeerija võib saatmisega seotud nõuded täita oma valitud viisil. Algoritm ei käsitle kapsli koostamist.</p>
+<p>The following sending algorithm illustrates a possible way of performing the sending of a document programmatically. The constructions of Go language [GOLANG] have been used in the algorithm. The algorithm has an informative meaning. The implementer of the protocol may fulfil the sending requirements in a way chosen by themselves. The algorithm does not cover the preparation of a capsule.</p>
 
 <ul>
 <li>Funktsioon <code>adressaat_kasutab_DHXi_otse</code> selgitab välja, kasutades X-tee globaalset konfiguratsiooni, kas asutusel <code>a</code> on DHX-i otsevõimekus.</li>
@@ -635,17 +635,17 @@ DHX direct implementation Implementation of DHX directly, i.e. without an interm
     <span class="hljs-constant">return</span> maksimaalseltSaatmisyritus + <span class="hljs-string">" üritust, kõik ebaõnnestusid"</span>
 }</code></pre>
 
-<h2 id="8-vastuvõtmine">8 Vastuvõtmine</h2>
+<h2 id="8-vastuvõtmine">8 Receiving</h2>
 
-<h3 id="81-aadressi-kontroll">8.1 Aadressi kontroll</h3>
+<h3 id="81-aadressi-kontroll">8.1 Address check</h3>
 
-<p class="advisement">Vastuvõttev süsteem PEAB kontrollima, et dokument on saadetud õigele aadressile.</p>
+<p class="advisement">The receiving system MUST check that the document has been sent to the correct address.</p>
 
-<p class="advisement">Vahendamise puhul PEAB vastuvõttev süsteem kontrollima, kas adressaat on vahendaja klient (on vahendusnimekirjas).</p>
+<p class="advisement">In the case of mediation, the receiving system MUST check whether the addressee is a customer of the intermediary (entered into the mediation list).</p>
 
-<h3 id="82-valest-aadressist-teatamine">8.2 Valest aadressist teatamine</h3>
+<h3 id="82-valest-aadressist-teatamine">8.2 Notification of a wrong address</h3>
 
-<p class="advisement">Valesti adresseeritud dokumendi korral PEAB vastuvõttev süsteem saatma saatjale veateate <code>Vale aadress</code>.</p>
+<p class="advisement">In the case of an incorrectly addressed document, the receiving system MUST send error message <code>Wrong address</code> to the sender.</p>
 
 <h3 id="83-kapsli-kontroll">8.3 Kapsli kontroll</h3>
 

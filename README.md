@@ -32,13 +32,18 @@ Protokolli saab kasutada [MIT litsentsi alusel](LICENCE.txt).
 
 mai 2016 - veebruar 2017
 
-Projekti eesmärk on välja töötatada  hajus dokumendivahetuse kontseptsioon ja vastav tehniline andmevahetusprotokoll.
+Projektis: 
 
-Projektiga täpsustatakse, detailiseeritakse ja verifitseeritakse (sh sihtrühmadega) projekti ettevalmistamisel loodud kontseptsioon; töötatakse välja andmevahetusprotokoll, lähtudes projekti ettevalmistamise tulemusel valminud kavandist;  luuakse demonstraator (_proof of concept_, töötav mudel) protokolli headuse tõestamiseks.
+- täpsustatakse, detailiseeritakse ja verifitseeritakse (sh sihtrühmadega) projekti ettevalmistamisel loodud kontseptsioon;
+- töötatakse välja andmevahetusprotokoll, lähtudes projekti ettevalmistamise tulemusel valminud kavandist;
+- luuakse demonstraator (_proof of concept_, töötav mudel) protokolli headuse tõestamiseks
+- arendatakse välja universaalne tarkvarakomponent
+- tehakse vajalikud muudatused dokumendivahetuskeskuses
+- valmistatakse ette uuele andmevahetusprotokollile üleminek:
+     - koostatakse üleminekukava (sh vajadusel õiguslikud muudatused)
+     - korraldatakse asutustele suunatud teavitustegevusi.
 
-Projektis arendatakse välja universaalne tarkvarakomponent ja tehakse vajalikud muudatused dokumendivahetuskeskuses. Lisaks teostatakse hankega uuele andmevahetusprotokollile ülemineku ettevalmistused:  koostatakse üleminekukava (sh vajadusel õiguslikud muudatused) ja korraldatakse asutustele suunatud teavitustegevusi.
-
-Antud projekt tagab ettevalmistused riigile tehnoloogiliselt, organisatoorselt optimaalse ja kõige jätkusuutlikuma IT-arhitektuurseks ülesehituseks. Tulevikus paraneb tänus sellele asutuste dokumendivahetuse käideldavus, tõuseb turvalisus (konfidentsiaalsus), üldine tõrkekindlus ning kaob sõltuvus kesksest komponendist.
+Projekt tagab ettevalmistused riigile tehnoloogiliselt, organisatoorselt optimaalse ja kõige jätkusuutlikuma IT-arhitektuurseks ülesehituseks. Tulevikus paraneb tänus sellele asutuste dokumendivahetuse käideldavus, tõuseb turvalisus (konfidentsiaalsus), üldine tõrkekindlus ning kaob sõltuvus kesksest komponendist.
 
 Projekti hankija on Riigi Infosüsteemi Amet ja täitja BPW Consulting OÜ. Projekti rahastatakse Euroopa Liidu struktuurifondide toetusega.
 
@@ -46,7 +51,7 @@ Projektijuht: Eneli Järve https://github.com/EneliJarve, Riigi Infosüsteemi Am
 
 #### EN
 
-- [Text](files/Protocol.md) - a very preliminary draft, see ET for the latest version
+- [Text](docs/EN.html)
 - [Overview](https://github.com/e-gov/DHX/blob/master/files/Overview.md)
 - [Presentation](https://github.com/e-gov/DHX/blob/master/files/DHX_EN%20%282%29.pdf) (with a very brief discussion of X-Road)
 - [Discussion page](https://github.com/e-gov/DHX/issues)

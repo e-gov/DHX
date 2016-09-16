@@ -23,6 +23,7 @@ Protokolli saab kasutada [MIT litsentsi alusel](LICENCE.txt).
   - 04 [Mitme alamsüsteemi kasutamine](files/Ettepanek-04.md) SISSE VIIDUD v 1.0.2
   - 05 [Teenuse sendDocument spetsifikatsiooni täiendamine mittekohustusliku väljaga recipientSystem](files/Ettepanek-05.md) SISSE VIIDUD v 1.0.2
   - 06 [Muuta teenuse representationList laiendatavaks, sarnaselt teenusega sendDocument](files/Ettepanek-06.md) SISSE VIIDUD v 1.0.2
+  - 07 [Parameetrite lisamine teenusesse representationList](files/Ettepanek-07.md) SISSE VIIDUD v 1.0.3
 
 #### Taustamaterjale
 - [Kirjandus](files/Kirjandus.md)

@@ -647,277 +647,277 @@ DHX direct implementation Implementation of DHX directly, i.e. without an interm
 
 <p class="advisement">In the case of an incorrectly addressed document, the receiving system MUST send error message <code>Wrong address</code> to the sender.</p>
 
-<h3 id="83-kapsli-kontroll">8.3 Kapsli kontroll</h3>
+<h3 id="83-kapsli-kontroll">8.3 Capsule check</h3>
 
-<p class="advisement">Vastuvõttev süsteem PEAB kontrollima, et dokument tuli nõuetekohases kapslis. Kontroll PEAB sisaldama vähemalt XML skeemile vastavuse kontrollimist. Vigase kapsli korral PEAB saatma vastava veateate <code>Vigane kapsel</code>.</p>
+<p class="advisement">The receiving system MUST check that document has arrived in a proper capsule. The check MUST include at least checking the compliance with the XML scheme. In the case of a defective capsule, a relevant error message <code>Defective capsule</code> MUST be sent.</p>
 
-<p>Vastuvõttev süsteem VÕIB teha täiendavaid kontrolle semantilisel või äriloogikalisel tasandil.</p>
+<p>The receiving system MAY perform additional checks on semantic or business logical level.</p>
 
-<h3 id="84-mitme-aadressi-käsitlus">8.4 Mitme aadressi käsitlus</h3>
+<h3 id="84-mitme-aadressi-käsitlus">8.4 Handling multiple addresses</h3>
 
-<p class="advisement">Kui saatja DHS soovib dokumenti saata mitmele adressaadile (otsevõimekusega asutusele või vahendatavale asutusele) korraga, siis ta PEAB dokumendi kapsli saatma igale adresaadile eraldi, eraldi DHX <code>sendDocument</code> väljakutsega.</p>
+<p class="advisement">If sender DMS wants to send a document to multiple adressees (institutions with direct DHX capability or represented institutions), then it MUST send the document to each addressee separately, by separate DHX <code>sendDocument</code> service invocation.</p>
 
-<p class="note">Märkus (informatiivne). Kapsli saatmiseks kasutatakse adresseerimisel ainult DHX <code>sendDocument</code> teenuse parameetreid <code>memberCode</code> ja <code>recipient</code>. Kapsli enda sees määratletud täiendavad adressaadid on DHX dokumendi edastamisel informatiivse väärtusega (nagu cc väli e-kirja avamisel). Saatja DHS süsteem ei tohi eeldada, et teine otsevõimekusega adressaat edastab kapsli muudele kapslis sees toodud adressaatidele. Vahendaja kohustus on edastada kapsel ainult <code>sendDocument</code> teenuses märgitud <code>recipient</code> elemendis toodud adresaadile. Vahendaja ei pea edastama kapslit muudele kapsli sees toodud adressaatidele.</p>
+<p class="note">Note (informative). In sending the capsule, only parameters <code>memberCode</code> and <code>recipient</code> of the DHX <code>sendDocument</code> service are used for addressing. Additional adressees defined in the capsule are only of informative value in sending the DHX document (similar to CC field in a received e-mail message). Sending DMS must not presume that adressee of direct DHX capability will pass on the message to other adressees specified in the capsule. Mediator is responsible only for delivery of the capsule to addressee that is specified in <code>recipient</code> element of the <code>sendDocument</code> service. Mediator is not responsible for delivery of the message to other adressees that are specified in the capsule.</p>
 
-<h3 id="85-vastuvõtmine-dvk-st">8.5 Vastuvõtmine DVK-st</h3>
+<h3 id="85-vastuvõtmine-dvk-st">8.5 Reception from DEC</h3>
 
-<p class="advisement">DHX-i võimekuse loonud süsteem PEAB üleminekuperioodil dokumente vastu võtma ka DVK-st.</p>
+<p class="advisement">In a transition period, a system having established DHX capability MUST receive documents also from DEC.</p>
 
-<p>Tehniliselt seisneb see selles, et DHX-le üleläinud süsteem peab avama oma DHX teenuse ka DVK-le. DVK edastab dokumente nendelt asutustelt, kes ei ole veel DHX-le üle läinud.</p>
+<p>Technically this means that the system having transferred to DHX must open their DHX service also to DEC. DEC transmits documents from the institutions who have not yet transferred to DHX.</p>
 
-<h3 id="86-saatja-kindlakstegemine">8.6 Saatja kindlakstegemine</h3>
+<h3 id="86-saatja-kindlakstegemine">8.6 Identification of sender</h3>
 
-<p>Dokumendi saatja saab kindlaks teha kahel viisil: 1) dokumendi kapslis sisalduvate saatjat kirjeldavate metaandmete abil; 2) X-tee päringsõnumi X-tee päiseväljade <code>client</code> [PR-MESS] ja <code>representedParty</code> [X-EXT] abil.</p>
+<p>Sender of the document can be identified in two ways: 1) using metadata describing the sender, included in the document capsule; 2) using X-Road header fields <code>client</code> [PR-MESS] and <code>representedParty</code> [X-EXT] of X-Road query message.</p>
 
-<div class="note">Märkus (informatiivne). Vastavalt X-tee sõnumiprotokolli kolmanda osapoole esindamise laiendusele peab vahendaja märkima asutuse, keda ta esindab, X-tee sõnumipäisesse välja <code>representedParty</code> [X-EXT].</div>
+<div class="note">Note (informative). Pursuant to the extension of representation of a third party of X-Road message protocol, the intermediary must specify the institution they represent in the X-Road message header, in the field <code>representedParty</code> [X-EXT].</div>
 
-<p class="advisement">Vastuvõttev süsteem PEAB kontrollima dokumendi kapslis sisalduvate saatjat kirjeldavate metaandmete ja X-tee päringsõnumi X-tee päiseväljade <code>client</code> ja <code>representedParty</code> kooskõlalisust. Lahknevuste korral PEAB dokumendi tagasi lükkama.</p>
+<p class="advisement">The receiving system MUST check the consistency of metadata describing the sender included in the document capsule and X-Road header fields <code>client</code> and <code>representedParty</code> of X-Road query message. In the case of discrepancies, the document MUST be rejected.</p>
 
-<p class="advisement">Vahendajalt dokumendi vastuvõtmisel PEAB kontrollima, kas vahendaja on vahendajate nimekirjas. Kontrolli tulemust VÕIB puhverdada.</p>
+<p class="advisement">Upon the receipt of a document from an intermediary it MUST be checked whether the intermediary has been entered into the list of intermediaries. Check result MAY be buffered.</p>
 
-<h2 id="9-üleminek">9 Üleminek</h2>
+<h2 id="9-üleminek">9 Transition</h2>
 
-<h3 id="91-üleminekuperiood">9.1 Üleminekuperiood</h3>
+<h3 id="91-üleminekuperiood">9.1 Transition period</h3>
 
-<p>Üleminek DHX protokollile toimub etteantud perioodi jooksul. Üleminekuperiood algab kõigile asutustele üheaegselt. Perioodi algusest teavitab X-tee keskus. Üleminekuperiood lõpeb DVK tegevuse lõpetamisega.</p>
+<p>Transition to the DHX protocol takes place in a predetermined period of time. The transition period will start for all institutions simultaneously. The X-Road Centre will announce the beginning of the period. The transition period will end with the termination of DEC operations.</p>
 
-<p>Üleminekuperioodil arendavad asutused välja oma DHS-des DHX protokolli kohase dokumentide saatmise ja vastuvõtmise võimekuse. Tehniliselt tähendab “DHX-i võimekus” DHX protokolli kohase X-tee teenuse pakkumist ja võimet teiste asutuste samasuguse teenuse poole pöörduda.</p>
+<p>In the transition period, institutions will develop in their DMSs the capability to send and receive documents under the DHX protocol. In technical terms, “DHX capability” refers to the provision of the X-Road service under the DHX protocol and the capability to connect to an equivalent service of other institutions</p>
 
-<p>DHX-i võimekus ei teki asutustes üheaegselt, sest arendused valmivad erinevatel aegadel. Joonis 4 selgitab DHX-le üle läinud ja veel üle minemata süsteemide koostoimimist üleminekuperioodil.</p>
+<p>DHX capability does not emerge simultaneously in institutions, because developments are completed at different times. Figure 4 explains co-functioning of the systems transferred and not yet transferred to DHX in the transition period.</p>
 
 <p><img src="DHX-Yleminek-EE-02.PNG" alt="" title=""></p>
 
-<p>Joonis 4. Toimimine üleminekuperioodil</p>
+<p>Figure 4. Functioning in the transition period</p>
 
-<p>Asutused 1 ja 2 on üle läinud DHX protokollile ja vahetavad dokumente üksteisega DHX-i abil otse. Asutus 3 kasutab veel vana, “DVK protokolli”.</p>
+<p>Institutions 1 and 2 have transferred to the DHX protocol and exchange mutually documents directly via DHX. Institution 3 is still using the old “DEC protocol”.</p>
 
-<p>DVK täidab üleminekuperioodil uue ja vana protokolli (DHX-i ja DVK) vahelise teisendaja rolli, tegutsedes DHX-i vahendajana - nende DVK klientide suhtes, kes ei ole veel DHX-i otsevõimekust loonud või teist DHX-i vahendajat valinud.</p>
+<p>In the transition period, DEC performs the function of a translator between the new and old protocols (DHX and DEC), operating as a DHX mediator - for these DEC clients who have neither attained DHX direct capability yet nor chosen another DHX mediator.</p>
 
-<p>UK tähistab RIA poolt väljatöötatavat “universaalset tarkvarakomponenti”, mille eesmärgiks on kergendada DHS-de ümberhäälestamist DHX-i kasutamisele. UK kasutamine ei ole kohustuslik.</p>
+<p>UK is the “universal software component” developed by RIA, the objective of which is to simplify the re-tuning of DMSs to the use of DHX. The use of UK is not obligatory.</p>
 
-<p class="advisement">Üleminekuperioodil niipea, kui asutuse DHS-is on tekkinud DHX protokolli võimekus (arendus on lõppenud), PEAB hakkama dokumendi saatmisel kasutama DHX teenust.</p>
+<p class="advisement">In the transition period, as soon as the DMS of an institution has developed the DHX capability (when the development is finished), the institution MUST start, at the earliest opportunity, using the DHX service for sending documents.</p>
 
-<p class="advisement">Üleminekuperioodil kui osutub, et adressaat ei ole veel dokumentide vastuvõtmise DHX-teenust loonud (teenus ei ole X-teel leitav), siis PEAB dokumendi saatma DVK kaudu, kasutades DVK teenust <code>sendDocument</code> ja märkides adressaadi dokumendi metaandmete kapslis.</p>
+<p class="advisement">If it turns out in the transition period that the addressee has not created a DHX service for receiving documents (i.e. the service cannot be found on X-Road), then the document MUST BE sent via DEC by using the DEC service <code>sendDocument</code> and marking the addressee in the capsule of metadata of the document.</p>
 
-<p class="advisement">DHX võimekuse saavutanud asutus PEAB DVK kasutamisest loobuma.</p>
+<p class="advisement">An institution having achieved DHX capability MUST quit using DEC.</p>
 
-<h3 id="92-dvk-toimimine-üleminekuperioodil">9.2 DVK toimimine üleminekuperioodil</h3>
+<h3 id="92-dvk-toimimine-üleminekuperioodil">9.2 Functioning of DEC in the transition period</h3>
 
-<p>DVK-d hoitakse töös kogu üleminekuperioodi vältel. DVK-d täiendatakse üleminekuperioodil toimimiseks vajaliku funktsionaalsusega.</p>
+<p>DEC will be kept in operation throughout the whole transition period. DEC will be implemented with necessary functionality, so it would be operational during the transition period.</p>
 
-<p>DVK pakub teenust <code>sendDocument</code>, millega DHX-i võimekuse loonud asutus saab edastada dokumendi edasisaatmiseks DHX võimekust veel mitteomavale asutusele. Edasisaatmise teostab DVK.</p>
+<p>DEC provides the service <code>sendDocument</code>, which the institution that has created the DHX capability can use to forward the document to an institution that has not yet established the DHX capability. The forwarding is performed by DEC.</p>
 
-<p>DVK toimib üleminekuperioodil DHX teenusevahendajana (RIA lisatakse vahendajate nimekirja).</p>
+<p>In the transition period, DEC will function as a DHX service intermediary (RIA will be added to the list of intermediaries).</p>
 
-<p>DVK avaldab üleminekuperioodil teenindavate klientide (vahendatavate) nimekirja vastavalt käesolevale protokollile (teenuse <code>representationList</code> kaudu).</p>
+<p>DEC will publish a list of clients (representees) served during the transition period, according to this protocol (by <code>representationList</code> service).</p>
 
-<p>DHX-i võimekuse loonud asutusele adresseeritud dokumendi laekumisel DVK-sse üritab DVK seda kohe edasi saata.</p>
+<p>In case a document which has been addressed to an institution that has established the DHX capability is received by DEC, DEC will attempt to immediately forward it.</p>
 
-<p>DVK lülitatakse välja siis, kui kõik DVK asutused on DHX protokolli võimekuse loonud või üleminekuperioodi tähtaja saabudes.</p>
+<p>DEC will be switched off when all DEC institutions have established the DHX protocol capability or upon expiration of the term of the transition period.</p>
 
-<h3 id="10-vastavusnõuded">10 Vastavusnõuded</h3>
+<h3 id="10-vastavusnõuded">10 Conformance criteria</h3>
 
-<p>Käesolev jaotis võtab kokku nõuded (ingl <em>conformance criteria</em>, vt nt RFC 2049), mis peavad olema täidetud, et dokumente vahetava süsteemi saaks deklareerida DHX-le vastavaks.</p>
+<p>This section summarises the conformance criteria (see e.g. RFC 2049), which must be met before a document exchange system can be declared DHX compliant.</p>
 
-<p>Alljärgnev käsitlus piirdub koostalitlusvõimet tagavate tarkvaratehniliselt rakendatavate meetmetega ja süsteemide tehniliste omadustega. DHX dokumendivahetuse korraldamiseks võivad dokumendivahetuse osapooled ja koordinaatorid kehtestada mitmesuguseid (täiendavaid) organisatsioonilisi meetmeid. Need ei ole protokolli käsitlusalas.</p>
+<p>The following list is limited to software technical measures and technical parameters of systems ensuring interoperability. Parties and coordinators of document exchange may establish various (additional) organisational measures for organising DHX document exchange. These are not in the scope of the protocol.</p>
 
-<h3 id="101-vastavusnõuded-kõigile-dhx-dokumente-vahetavatele-süsteemidele">10.1 Vastavusnõuded kõigile DHX dokumente vahetavatele süsteemidele</h3>
+<h3 id="101-vastavusnõuded-kõigile-dhx-dokumente-vahetavatele-süsteemidele">10.1 Conformance criteria for all DHX document exchange systems</h3>
 
 <table>
 <thead>
 <tr>
-  <th>jaotis</th>
-  <th>nõue</th>
+  <th>section</th>
+  <th>criterion</th>
 </tr>
 </thead>
 <tbody><tr>
   <td>1.5</td>
-  <td>Dokumenti saatev süsteem PEAB määratlema kasutatava DXH protokolli versiooni.</td>
+  <td>System that sends the document MUST specify the version of DHX protocol.</td>
 </tr>
 <tr>	
   <td>5.2</td>
-  <td>DHX-i rakendav asutus (või tema DHS vahendusteenuse või DHS majutusteenuse pakkuja) PEAB arendama oma DHS-is välja DHX teenuse ja käitama seda.</td>
+  <td>An institution implementing DHX (or their DMS mediation service or DMS hosting service provider) MUST develop and operate the DHX service in their DMS</td>
 </tr>
 <tr>
   <td>5.2</td>
-  <td>DHX-i rakendaja teostatud DHX teenus PEAB vastama lisas 1 esitatud täpsemale spetsifikatsioonile.</td>
+  <td>DHX service performed by a DHX implementer MUST meet the detailed specification provided in Appendix 1.</td>
 </tr>
 <tr>
   <td>5.3</td>
-  <td>DHX-i rakendav asutus PEAB avama DHX teenuse kõigile asutustele, kellega ta soovib dokumente vahetada. Kui asutus turvapoliitika vm kaalutlustel ei pea otstarbekaks DHX teenuse avamist kõigile X-tee liikmetele, siis VÕIB ta DHX teenuse avada konkreetsetele X-tee liikmetele (pääsuõiguste andmisega X-tee turvaserveris).</td>
+  <td>An institution implementing DHX MUST open DHX service to all institutions, with whom they want to exchange documents. If an institution does not want to open the DHX service to all X-Road members due to security policy or other reasons, they MAY open DHX service to specific X-Road members (with granting access rights in the X-Road security server).</td>
 </tr>
 <tr>
   <td>5.3</td>
-  <td>Üleminekuperioodiks PEAB DHX teenuse avama ka DVK-le.</td>
+  <td>For the transition period, DHX service MUST be opened also to DEC.</td>
 </tr>
 <tr>
   <td>5.4</td>
-  <td>DHX teenuse nimi PEAB järgima mustrit <code>EE/&lt;liikmeklass&gt;/&lt;registrikood&gt;/&lt;DHX*&gt;/sendDocument</code>.</td>
+  <td>Name of the DHX service MUST follow the pattern <code>EE/&lt;member class&gt;/&lt;registry code&gt;/&lt;DHX*&gt;/sendDocument</code>.</td>
 </tr>
 <tr>
   <td>5.5</td>
-  <td>DHX teenus PEAB kasutama X-tee alamsüsteemi nimega <code>DHX*</code>, kus <code>*</code> on sümbolijada, mis võib olla ka tühi.</td>
+  <td>DHX service MUST use X-Road subsystem with name <code>DHX*</code>, where <code>*</code> is sequence of symbols, that can be empty.</td>
 </tr>
 <tr>
   <td>5.6</td>
-  <td>Dokumendi PEAB edastama ametlikult kinnitatud elektroonilise andmevahetuse metaandmete loendile vastavas “kapslis”.</td>
+  <td>Document MUST be transmitted in a “capsule” complying with the officially confirmed list of digital data exchange metadata.</td>
 </tr>
 <tr>
   <td>5.7</td>
-  <td>Saatev süsteem PEAB dokumendi saatmisürituste seeriale andma unikaalse identifikaatori (saadetise id, ingl <em>consignment id</em>).</td>
+  <td>The sending system MUST assign a unique identifier to the series of attempts to send a document (consignment id).</td>
 </tr>
 <tr>
   <td>6.2</td>
-  <td>DHX rakendamisel läbi vahendaja PEAB asutus sõlmima lepingu DHX vahendajaga. Kasutada TOHIB AINULT X-tee keskuse poolt DHX vahendajate nimekirja lisatud vahendajaid.</td>
+  <td>Upon the implementation of DHX through an intermediary, the institution MUST conclude a contract with the DHX intermediary. They MAY ONLY use the intermediaries entered into the list of DHX intermediaries by the X-Road Centre.</td>
 </tr>
 <tr>
   <td>7.1</td>
-  <td>Saatev süsteem PEAB välja selgitama, kas adressaadil on DHX võimekus.</td>
+  <td>The sending system MUST find out whether the addressee has DHX capability.</td>
 </tr>
 <tr>
   <td>7.2</td>
-  <td>Otsevõimekust PEAB välja selgitama esimeses järjekorras (enne vahendaja kaudu võimekuse tuvastamist).</td>
+  <td>Direct capability MUST be identified as a first priority (before the identification of capability through the intermediary).</td>
 </tr>
 <tr>
   <td>7.2</td>
-  <td>Saatev süsteem PEAKS otsevõimekuse välja selgitama X-tee globaalse konfiguratsioonifaili põhjal.</td>
+  <td>The sending system SHOULD determine direct capability, based on the X-Road global configuration file.</td>
 </tr>
 <tr>
   <td>7.2</td>
-  <td>Adressaadil otsevõimekuse olemasolul PEAB dokumendi saatma adressaadile otse.</td>
+  <td>If the addressee has direct capability, document MUST BE sent directly to the addressee.</td>
 </tr>
 <tr>
   <td>7.3</td>
-  <td>DHX võimekuse läbi vahendaja kontrollimiseks PEAB saatev süsteem: a) alla laadima X-tee keskusest X-tee globaalse konfiguratsiooni faili või kasutama turvaserveri poolt allalaetud globaalse konfiguratsiooni faili; b) leidma failist vahendajate nimekirja (DHX vahendajate grupi); c) käima kõik vahendajad läbi ning pärima X-tee kaudu vahendusnimekirjad; d)     kindlaks tegema, kas adressaat sisaldub vahendusnimekirjades.</td>
+  <td>In order to check DHX capability through intermediary, the sending system MUST: a) download the X-Road global configuration file from the X-Road Centre or use the global configuration file downloaded by the security server; b) find the list of intermediaries in the file (DHX intermediary group); c) check all intermediaries and request the mediation lists via X-Road; d) find out whether the addressee is included in the mediation lists.</td>
 </tr>
 <tr>
   <td>7.3</td>
-  <td>Kui adressaadil puudub DHX otsevõimekus, kuid on DHX võimekus läbi vahendaja, siis PEAB saatev süsteem saatma dokumendi vahendajale.</td>
+  <td>If the addressee has no DHX direct capability, but has DHX capability through an intermediary, the sending system MUST send document to the intermediary.</td>
 </tr>
 <tr>
   <td>7.4</td>
-  <td>Puhvri (lokaalse aadressiraamatu) kasutamisel PEAB värskendamise periood olema konfigureeritav.</td>
+  <td>It MUST be possible to configure the updating period if buffer (local address book) is used.</td>
 </tr>
 <tr>
   <td>7.5</td>
-  <td>Kui saatev süsteem on kindlaks teinud, et adressaadil puudub DHX võimekus ja käimas on üleminekuperiood, siis PEAB saatev süsteem üritama dokumenti saata DVK sendDocument teenusesse.</td>
+  <td>If the sending system has found out that the addressee has no DHX capability in the transition period, the sending system MUST attempt to send document to the DEC sendDocument service.</td>
 </tr>
 <tr>
   <td>7.6</td>
-  <td>Saatev süsteem PEAB lugema dokumendi edastatuks, kui on saanud <code>sendDocument</code> teenuselt positiivse vastuskoodiga vastussõnumi.</td>
+  <td>The sending system MUST consider document transmitted, when response message with positive response code has been received from <code>sendDocument</code> service.</td>
 </tr>
 <tr>
   <td>7.7</td>
-  <td>Kui adressaadiga ei saa ühendust või kättesaamise kinnitust ei tule, siis PEAB mõne aja pärast saatmist uuesti üritama.</td>
+  <td>If contact is not established with the addressee or no confirmation of receipt is received, sending MUST BE attempted again after some time.</td>
 </tr>
 <tr>
   <td>7.7</td>
-  <td>Tühipäringute arvu vähendamiseks PEAKS kasutada eksponentsiaalse taganemise (<em>exponential back-off</em>) algoritmi [EXP].</td>
+  <td>In order to minimise the number of void queries, the exponential back-off algorithm [EXP] SHOULD be used.</td>
 </tr>
 <tr>
   <td>7.7</td>
-  <td>Saatmisürituste arv PEAB olema lõplik ja saatva süsteemi konfiguratsioonis määratav.</td>
+  <td>SThe number of sending attempts MUST be final and possible to determine in the configuration of the sending system.</td>
 </tr>
 <tr>
   <td>8.1</td>
-  <td>Vastuvõttev süsteem PEAB kontrollima, et dokument on saadetud õigele aadressile.</td>
+  <td>The receiving system MUST check that the document has been sent to the correct address.</td>
 </tr>
 <tr>
   <td>8.1</td>
-  <td>Vahendamise puhul PEAB vastuvõttev süsteem kontrollima, kas adressaat on vahendaja klient (on vahendusnimekirjas).</td>
+  <td>In the case of mediation, the receiving system MUST check whether the addressee is a customer of the intermediary (entered into the mediation list).</td>
 </tr>
 <tr>
   <td>8.2</td>
-  <td>Valesti adresseeritud dokumendi korral PEAB vastuvõttev süsteem saatma saatjale veateate <code>Vale aadress</code>.</td>
+  <td>In the case of an incorrectly addressed document, the receiving system MUST send the error message <code>Wrong address</code> to the sender.</td>
 </tr>
 <tr>
   <td>8.3</td>
-  <td>Vastuvõttev süsteem PEAB kontrollima, et dokument tuli nõuetekohases kapslis.</td>
+  <td>The receiving system MUST check that the document arrived in a proper capsule.</td>
 </tr>
 <tr>
   <td>8.3</td>
-  <td>Kontroll PEAB sisaldama vähemalt XML skeemile vastavuse kontrollimist.</td>
+  <td>The check MUST include at least checking the compliance with the XML scheme.</td>
 </tr>
 <tr>
   <td>8.3</td>
-  <td>Vigase kapsli korral PEAB saatma vastava veateate <code>Vigane kapsel</code>.</td>
+  <td>In the case of defective capsule, the relevant error message <code>Defective capsule</code> MUST be sent.</td>
 </tr>
 <tr>
   <td>8.4</td>
-  <td>Kui saatja DHS soovib dokumenti saata mitmele adressaadile (otsevõimekusega asutusele või vahendatavale asutusele) korraga, siis ta PEAB dokumendi kapsli saatma igale adresaadile eraldi, eraldi DHX <code>sendDocument</code> väljakutsega.</td>
+  <td>If sender DMS wants to send a document to multiple adressees (institutions with direct DHX capability or represented institutions), then it MUST send the document to each addressee separately, by separate DHX <code>sendDocument</code> service invocation.</td>
 </tr>
 <tr>
   <td>8.5</td>
-  <td>DHX-i võimekuse loonud süsteem PEAB üleminekuperioodil dokumente vastu võtma ka DVK-st.</td>
+  <td>In a transition period, a system having established DHX capability MUST receive documents also from DEC.</td>
 </tr>
 <tr>
   <td>8.6</td>
-  <td>Vastuvõttev süsteem PEAB kontrollima dokumendi kapslis sisalduvate saatjat kirjeldavate metaandmete ja X-tee päringsõnumi X-tee päiseväljade <code>client</code> ja <code>representedParty</code> kooskõlalisust. Lahknevuste korral PEAB dokumendi tagasi lükkama.</td>
+  <td>The receiving system MUST check the consistency of metadata describing the sender included in the document capsule and X-Road header fields <code>client</code> and <code>representedParty</code> of X-Road query message. In the case of discrepancies, the document MUST be rejected.</td>
 </tr>
 <tr>
   <td>8.6</td>
-  <td>Vahendajalt dokumendi vastuvõtmisel PEAB kontrollima, kas vahendaja on vahendajate nimekirjas. Kontrolli tulemust VÕIB puhverdada.</td>
+  <td>Upon the receipt of a document from an intermediary it MUST be checked whether the intermediary has been entered into the list of intermediaries. Check result MAY be buffered.</td>
 </tr>
 <tr>
   <td>9.1</td>
-  <td>Üleminekuperioodil niipea, kui asutuse DHS-is on tekkinud DHX protokolli võimekus (arendus on lõppenud), PEAB hakkama dokumendi saatmisel kasutama DHX teenust.</td>
+  <td>In the transition period, as soon as the DMS of an institution has developed the DHX capability (when the development is finished), the institution MUST start, at the earliest opportunity, using the DHX service for sending documents.</td>
 </tr>
 <tr>
   <td>9.1</td>
-  <td>Üleminekuperioodil kui osutub, et adressaat ei ole veel dokumentide vastuvõtmise DHX-teenust loonud (teenus ei ole X-teel leitav), siis PEAB dokumendi saatma DVK kaudu, kasutades DVK teenust <code>sendDocument</code> ja märkides adressaadi dokumendi metaandmete kapslis.</td>
+  <td>If it turns out in the transition period that the addressee has not created a DHX service for receiving documents (i.e. the service cannot be found on X-Road), then the document MUST BE sent via DEC by using the DEC service <code>sendDocument</code> and marking the addressee in the capsule of metadata of the document.</td>
 </tr>
 <tr>
   <td>9.1</td>
-  <td>DHX võimekuse saavutanud asutus PEAB DVK kasutamisest loobuma.</td>
+  <td>An institution having achieved DHX capability MUST quit using DEC.</td>
 </tr>
 </tbody></table>
 
-<h3 id="102-vahendajate-süsteemidele-rakenduvad-nõuded">10.2 Vahendajate süsteemidele rakenduvad nõuded</h3>
+<h3 id="102-vahendajate-süsteemidele-rakenduvad-nõuded">10.2 Criteria for systems of intermediaries</h3>
 
 <table>
 <thead>
 <tr>
-  <th>jaotis</th>
-  <th>nõue</th>
+  <th>section</th>
+  <th>criterion</th>
 </tr>
 </thead>
 <tbody><tr>
   <td>6.2</td>
-  <td>Vahendajana tegutseda sooviv asutus või ettevõte PEAB end vahendajana X-teel registreerima.</td>
+  <td>An institution or a company intending to operate as an intermediary MUST register itself on X-Road as intermediary.</td>
 </tr>
 <tr>
   <td>6.3</td>
-  <td>Iga vahendaja PEAB pidama vahendusnimekirja.</td>
+  <td>An intermediary MUST maintain a mediation list.</td>
 </tr>
 <tr>
   <td>6.3</td>
-  <td>Vahendaja PEAB hoidma vahendusnimekirja ajakohasena.</td>
+  <td>An intermediary MUST keep the mediation list updated.</td>
 </tr>
 <tr>
   <td>6.3</td>
-  <td>Vahendaja PEAB vahendusnimekirja tegema kättesaadavaks X-tee teenusena.</td>
+  <td>An intermediary MUST make the mediation list available as an X-Road service.</td>
 </tr>
 <tr>
   <td>6.3</td>
-  <td>Vahendusnimekirja teenuse nimi PEAB järgima mustrit <code>EE/&lt;liikmeklass&gt;/&lt;registrikood&gt;/DHX/representationList</code>.</td>
+  <td>The name of the mediation list service MUST follow the pattern <code>EE/&lt;member class&gt;/&lt;registry code&gt;/DHX/representationList</code>.</td>
 </tr>
 <tr>
   <td>6.3</td>
-  <td>DHX-i rakendaja teostatud vahendusnimekirja teenus PEAB vastama lisas 2 esitatud täpsemale spetsifikatsioonile.</td>
+  <td>Mediation list service provided by a DHX implementer MUST meet the detailed specification provided in Appendix 2.</td>
 </tr>
 </tbody></table>
 
-<h2 id="viited">Viited</h2>
+<h2 id="viited">References</h2>
 
-<p>[AÜK] Vabariigi Valitsuse määrus „Asjaajamiskorra ühtsed alused“, <a href="https://www.riigiteataja.ee/akt/130122011062?leiaKehtiv">https://www.riigiteataja.ee/akt/130122011062?leiaKehtiv</a>.</p>
+<p>[AÜK] Government Regulation “Common Principles of Administrative and Records Management Procedures”, <a href="https://www.riigiteataja.ee/akt/130122011062?leiaKehtiv">https://www.riigiteataja.ee/akt/130122011062?leiaKehtiv</a>.</p>
 
-<p>[DVK] Dokumendivahetuskeskus (DVK). Riigi Infosüsteemi Amet. <a href="https://www.ria.ee/dokumendivahetus">https://www.ria.ee/dokumendivahetus</a>.</p>
+<p>[DEC maintenance procedure] Document Exchange Centre Maintenance Procedure. Information System Authority. <a href="https://www.ria.ee/dokumendivahetus">https://www.ria.ee/dokumendivahetus</a>.</p>
 
 <p>[DVK pidamise kord] Dokumendivahetuskeskuse pidamise kord. Riigi Infosüsteemi Amet. <a href="https://www.ria.ee/public/dvk_kord.pdf">https://www.ria.ee/public/dvk_kord.pdf</a>.</p>
 
-<p>[DVK spetsifikatsioon] Dokumendivahetuskeskus (DVK). Liideste spetsifikatsioon 1.6.0.  <a href="https://svn.eesti.ee/projektid/dvk/doc/dvk_spetsifikatsioon_1.6.0.odt">https://svn.eesti.ee/projektid/dvk/doc/dvk_spetsifikatsioon_1.6.0.odt</a>.</p>
+<p>[DEC specification] Document Exchange Centre (DEC). Interface specification 1.6.0. <a href="https://svn.eesti.ee/projektid/dvk/doc/dvk_spetsifikatsioon_1.6.0.odt">https://svn.eesti.ee/projektid/dvk/doc/dvk_spetsifikatsioon_1.6.0.odt</a>.</p>
 
-<p>[DH metaandmed] Dokumendihalduse metaandmed. Loend 3.0. Majandus- ja Kommunikatsiooniministeerium <a href="https://www.mkm.ee/sites/default/files/dokumendihalduse_metaandmed.pdf">https://www.mkm.ee/sites/default/files/dokumendihalduse_metaandmed.pdf</a>.</p>
+<p>[DH metadata] Records Management Metadata. List 3.0. The Ministry of Economic Affairs and Communication. <a href="https://www.mkm.ee/sites/default/files/dokumendihalduse_metaandmed.pdf">https://www.mkm.ee/sites/default/files/dokumendihalduse_metaandmed.pdf</a>.</p>
 
 <p>[EXP] Exponential backoff. <a href="https://en.wikipedia.org/wiki/Exponential_backoff">https://en.wikipedia.org/wiki/Exponential_backoff</a>.</p>
 
@@ -925,7 +925,7 @@ DHX direct implementation Implementation of DHX directly, i.e. without an interm
 
 <p>[HTML5] HTML 5. Section 1.5.3 Extensibility. <a href='https://www.w3.org/TR/html/'>https://www.w3.org/TR/html/</a>.</p>
 
-<p>[Kapsel] Elektroonilise andmevahetuse metaandmete loend 2.1. Riigi Infosüsteemi Amet.  <a href="https://riha.eesti.ee/riha/main/xml/elektroonilise_andmevahetuse_metaandmete_loend/1">https://riha.eesti.ee/riha/main/xml/elektroonilise_andmevahetuse_metaandmete_loend/1</a>.</p>
+<p>[Capsule] List of digital data exchange metadata 2.1. Information System Authority.  <a href="https://riha.eesti.ee/riha/main/xml/elektroonilise_andmevahetuse_metaandmete_loend/1">https://riha.eesti.ee/riha/main/xml/elektroonilise_andmevahetuse_metaandmete_loend/1</a>.</p>
 
 <p>[MIT] MIT License. <a href="https://github.com/e-gov/DHX/blob/master/LICENCE.txt">https://github.com/e-gov/DHX/blob/master/LICENCE.txt</a>.</p>
 
@@ -935,7 +935,7 @@ DHX direct implementation Implementation of DHX directly, i.e. without an interm
 
 <p>[PR-MESS] <a href="http://x-road.eu/docs/x-road_message_protocol_v4.0.pdf">X-Road Message Protocol v4.0</a></p>
 
-<p>[RIA-PP] <a href="https://github.com/e-gov/Open-Workflow/blob/master/ProtokollideParimPraktika.md">Protokollide spetsifitseerimise parim praktika</a>. Riigi Infosüsteemi Amet. 2015.</p>
+<p>[RIA-PP] <a href="https://github.com/e-gov/Open-Workflow/blob/master/ProtokollideParimPraktika.md">Protocol Specification Best Practice</a>. Information System Authority. 2015.</p>
 
 <p>[RFC 2119] <a href="https://www.ietf.org/rfc/rfc2119.txt">Key words for use in RFCs to Indicate Requirement Levels</a>.</p>
 
@@ -949,50 +949,47 @@ DHX direct implementation Implementation of DHX directly, i.e. without an interm
 
 <p>[X-EXT] X-tee v6 sõnumiprotokolli kolmanda osapoole esindamise laiendus, <a href="https://www.ria.ee/public/x_tee/Third_party_representation_extension_v1.0.0.pdf">https://www.ria.ee/public/x_tee/Third_party_representation_extension_v1.0.0.pdf</a>.</p>
 
-<p>[X-tee] Andmevahetuskiht X-tee, <a href="https://www.ria.ee/x-tee/">https://www.ria.ee/x-tee/</a>.</p>
+<p>[X-Road] Data Exchange Layer X-Road, <a href="https://www.ria.ee/x-tee/">https://www.ria.ee/x-tee/</a>.</p>
 
-<p>[X-tee määrus] Vabariigi Valitsuse määrus “Infosüsteemide andmevahetuskiht” (eelnõu 09.03.2016). </p>
+<p>[X-Road regulation] Government Regulation “Data exchange layer of information systems” (draft 09.03.2016). </p>
 
-<h2 id="lisa-1-senddocument-spetsifikatsioon">Lisa 1 sendDocument spetsifikatsioon</h2>
+<h2 id="lisa-1-senddocument-spetsifikatsioon">Appendix 1 sendDocument specification</h2>
 
-<p>Spetsifikatsioon asub <a href="https://github.com/e-gov/DHX/blob/master/files/sendDocument.md">eraldi failis</a>.</p>
+<p>Specification is <a href="https://github.com/e-gov/DHX/blob/master/files/sendDocument.md">in separate document</a> (in Estonian).</p>
 
-<h2 id="lisa-2-representationlist-spetsifikatsioon">Lisa 2 representationList spetsifikatsioon</h2>
+<h2 id="lisa-2-representationlist-spetsifikatsioon">Appendix 2 representationList specification</h2>
 
-<p>Spetsifikatsioon asub <a href="https://github.com/e-gov/DHX/blob/master/files/representationList.md">eraldi failis</a>.</p>
+<p>Specification is <a href="https://github.com/e-gov/DHX/blob/master/files/representationList.md">in separate document</a>.</p>
 
-<h2 id="lisa-3-muutelugu">Lisa 3 Muutelugu</h2>
+<h2 id="lisa-3-muutelugu">Appendix 3 Change history</h2>
 
 <table>
 <thead>
 <tr>
-  <th>versioon, kuupäev</th>
-  <th>muudatus</th>
+  <th>version, date</th>
+  <th>change</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>1.0.3, 07.08.2016</td>
-  <td>Täpsustatud teenuse <code>representationList</code> väljade koosseisu. Vt <a href='https://github.com/e-gov/DHX/blob/master/files/Ettepanek-07.md'>Ettepanek 07</a><br>
-      Täpsustatud DVK tegutsemist DHX vahendajana üleminekuperioodil:<br>
-      - joonisel 4 (üleminekuperiood) näidatud: teenuse <code>representationList</code> osutamine DVK poolt<br>
-      - jaotise 7.5 muutmine kehtetuks
+  <td>Amendment to parameters of the <code>representationList</code> service. See: <a href='https://github.com/e-gov/DHX/blob/master/files/Ettepanek-07.md'>Proposal 07</a><br>
   </td>
 </tr>	
 <tr>
   <td>1.0.2, 05.09.2016</td>
-  <td>Lisatud (jaotis 5.5) informatiivne märkus, mis käsitleb mitme alamsüsteemi kasutamist. Vt <a href='https://github.com/e-gov/DHX/blob/master/files/Ettepanek-04.md'>Ettepanek 04</a><br>
-    Teenuse <code>sendDocument</code> spetsifikatsiooni täiendatud mittekohustusliku väljaga <code>recipientSystem</code>. Vt <a href='https://github.com/e-gov/DHX/blob/master/files/Ettepanek-05.md'>Ettepanek 05</a><br>
-    Teenus <code>representationList</code> muudetud laiendatavaks, sarnaselt teenusele <code>sendDocument</code>. Vt <a href='https://github.com/e-gov/DHX/blob/master/files/Ettepanek-06.md'>Ettepanek 06</a>
+  <td>Added (section 5.5) informative note about the use of multiple subsystems. See: <a href='https://github.com/e-gov/DHX/blob/master/files/Ettepanek-04.md'>Proposal 04</a><br>
+    Amended optional parameter <code>recipientSystem</code> to service <code>sendDocument</code>. See: <a href='https://github.com/e-gov/DHX/blob/master/files/Ettepanek-05.md'>Proposal 05</a><br>
+    Service <code>representationList</code> made extensible. See: <a href='https://github.com/e-gov/DHX/blob/master/files/Ettepanek-06.md'>Proposal 06</a>
   </td>
 </tr>
 <tr>
   <td>1.0.1, 30.08.2016</td>
-  <td>Täpsustatud mitmele adressaadile saatmist. Vt <a href='https://github.com/e-gov/DHX/blob/master/files/Ettepanek-03.md'>Ettepanek 03</a></td>
+  <td>Detailed sending to multiple adressees. See: <a href='https://github.com/e-gov/DHX/blob/master/files/Ettepanek-03.md'>Proposal 03</a></td>
 </tr>
 <tr>
   <td>1.0, 23.08.2016</td>
-  <td>Esimene kinnitatud versioon. Lisatud mitut DHS-i toetav nimemuster. Vt <a href='https://github.com/e-gov/DHX/blob/master/files/Ettepanek-02.md'>Ettepanek 02</a></td>
+  <td>First published version. Added name pattern to support the use of multiple DMS-es. See: <a href='https://github.com/e-gov/DHX/blob/master/files/Ettepanek-02.md'>Proposal 02</a></td>
 </tr>
 </tbody>
 </table>

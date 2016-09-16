@@ -601,31 +601,26 @@ DHX direct implementation Implementation of DHX directly, i.e. without an interm
 </ul>
 
 <pre class="prettyprint"><code class="language-Go hljs livecodeserver"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sendDocument</span>(<span class="hljs-title">d</span> <span class="hljs-title">Document</span>, <span class="hljs-title">a</span> <span class="hljs-title">Registry Code</span>) {</span>
-    var recipient<span class="hljs-comment"> // institution to whom document will be sent (can be intermediary)</span>
-    var attempt = <span class="hljs-number">0</span><span class="hljs-comment"> // sending attempt</span>
+    var recipient<span class="hljs-comment"> // institution to whom delivery attempt(s) will be made (can be intermediary)</span>
+    var attempt = <span class="hljs-number">0</span><span class="hljs-comment"> // delivery attempt</span>
     var maxAttempts = <span class="hljs-number">3</span><span class="hljs-comment"> // value must be configurable</span>
 
-   <span class="hljs-comment"> // adressee has DHX direct capability</span>
     <span class="hljs-keyword">if</span> adresseeHasDirectDHXCapability(<span class="hljs-operator">a</span>) { 
       recipient = <span class="hljs-operator">a</span>
-   <span class="hljs-comment"> // uses intermediary?</span>
     } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> adresseeUsesIntermediary(<span class="hljs-operator">a</span>) {  
       recipient = intermediaryRegistryCode(<span class="hljs-operator">a</span>)
-   <span class="hljs-comment"> // </span>
     } <span class="hljs-keyword">else</span> {
       <span class="hljs-constant">return</span> <span class="hljs-string">"Delivery not possible"</span> 
     }
 
-   <span class="hljs-comment"> // sending attempts</span>
     <span class="hljs-keyword">for</span> attempt &lt; maxAttempts {
       attempt = attempt + <span class="hljs-number">1</span>
-     <span class="hljs-comment"> // delay before retry</span>
       <span class="hljs-keyword">if</span> attempt == <span class="hljs-number">2</span> {
         <span class="hljs-built_in">time</span>.Sleep(<span class="hljs-built_in">time</span>.Hour)
       } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> attempt == <span class="hljs-number">3</span> {
         <span class="hljs-built_in">time</span>.Sleep(<span class="hljs-number">24</span> * <span class="hljs-built_in">time</span>.Hour)
       }
-      <span class="hljs-keyword">if</span> trySend(d, recipient) {<span class="hljs-comment"> // success</span>
+      <span class="hljs-keyword">if</span> trySend(d, recipient) {
         <span class="hljs-constant">return</span> <span class="hljs-string">"Delivery successful"</span>
       }
     }

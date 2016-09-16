@@ -594,46 +594,39 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 <p>Alljärgnev saatmisalgoritm illustreerib üht võimalikku viisi programmiliselt teostada dokumendi saatmist. Algoritmis on kasutatud Go keele [GOLANG] konstruktsioone. Algoritm on informatiivse tähendusega. Protokolli implementeerija võib saatmisega seotud nõuded täita oma valitud viisil. Algoritm ei käsitle kapsli koostamist.</p>
 
 <ul>
-<li>Funktsioon <code>adressaat_kasutab_DHXi_otse</code> selgitab välja, kasutades X-tee globaalset konfiguratsiooni, kas asutusel <code>a</code> on DHX-i otsevõimekus.</li>
-<li>Funktsioon <code>adressaat_kasutab_vahendajat</code> selgitab välja, kasutades X-tee gruppi <code>DHX vahendajad</code> ja vahendajate X-tee teenuseid <code>representationList</code>, kas asutus <code>a</code> kasutab DHX-i teenusevahendajat.</li>
-<li>Funktsioon <code>yritaSaata</code> üritab saata dokumenti <code>d</code> X-tee liikme <code>vastuvõtja</code> alamsüsteemi <code>DHX</code> teenusele <code>sendDocument</code>. Kui saatmine õnnestub, siis tagastab <code>true</code>.</li>
-<li>Funktsioon <code>vahendaja_registrikood</code> leiab asutuse <code>a</code> vahendaja registrikoodi.</li>
-<li>Funktsiooni <code>saadaDokument</code> kutsub välja ülalnimetatud funktsioone ja korraldab dokumendi <code>d</code> saatmise adressaadile registrikoodiga <code>a</code>. Tehakse kolm saatmisüritust, teist korda üritades peetakse vahet üks tund ja kolmandat korda üritades üks ööpäev.  </li>
+<li>Funktsioon <code>adresseeHasDirectDHXCapability</code> selgitab välja, kasutades X-tee globaalset konfiguratsiooni, kas asutusel <code>a</code> on DHX-i otsevõimekus.</li>
+<li>Funktsioon <code>adresseeUsesIntermediary</code> selgitab välja, kasutades X-tee gruppi <code>DHX vahendajad</code> ja vahendajate X-tee teenuseid <code>representationList</code>, kas asutus <code>a</code> kasutab DHX-i teenusevahendajat.</li>
+<li>Funktsioon <code>trySend</code> üritab saata dokumenti <code>d</code> X-tee liikme <code>vastuvõtja</code> alamsüsteemi <code>DHX</code> teenusele <code>sendDocument</code>. Kui saatmine õnnestub, siis tagastab <code>true</code>.</li>
+<li>Funktsioon <code>intermediaryRegistryCode</code> leiab asutuse <code>a</code> vahendaja registrikoodi.</li>
+<li>Funktsioon <code>saadaDokument</code> kutsub välja ülalnimetatud funktsioone ja korraldab dokumendi <code>d</code> saatmise adressaadile registrikoodiga <code>a</code>. Tehakse kolm saatmisüritust, teist korda üritades peetakse vahet üks tund ja kolmandat korda üritades üks ööpäev.  </li>
 </ul>
 
-<pre class="prettyprint"><code class="language-Go hljs livecodeserver"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">saadaDokument</span>(<span class="hljs-title">d</span> <span class="hljs-title">Dokument</span>, <span class="hljs-title">a</span> <span class="hljs-title">Registrikood</span>) {</span>
-    var vastuvotja<span class="hljs-comment"> // asutus, kellele süsteemile dokument teele panna (v.o vahendaja)</span>
-    var saatmisyritus = <span class="hljs-number">0</span><span class="hljs-comment"> // saatmisürituse järjenumber</span>
-    var maksimaalseltSaatmisyritusi = <span class="hljs-number">3</span><span class="hljs-comment"> // väärtus p.o konfigureeritav</span>
+<pre class="prettyprint"><code class="language-Go hljs livecodeserver"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sendDocument</span>(<span class="hljs-title">d</span> <span class="hljs-title">Document</span>, <span class="hljs-title">a</span> <span class="hljs-title">Registry Code</span>) {</span>
+    var recipient<span class="hljs-comment"> // institution to whom delivery attempt(s) will be made (can be intermediary)</span>
+    var attempt = <span class="hljs-number">0</span><span class="hljs-comment"> // delivery attempt</span>
+    var maxAttempts = <span class="hljs-number">3</span><span class="hljs-comment"> // value must be configurable</span>
 
-   <span class="hljs-comment"> // kõigepealt selgitatakse välja, kas adressaat rakendab DHX-i otse</span>
-    <span class="hljs-keyword">if</span> adressaat_kasutab_DHXi_otse(<span class="hljs-operator">a</span>) { 
-      vastuvotja = <span class="hljs-operator">a</span>
-   <span class="hljs-comment"> // kui otse ei rakenda, siis kas vahendaja kaudu?  </span>
-    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> adressaat_kasutab_vahendajat(<span class="hljs-operator">a</span>) {  
-      vastuvotja = vahendaja_registrikood(<span class="hljs-operator">a</span>)
-   <span class="hljs-comment"> // kui DHX-i võimekus puudub, siis üleminekuperioodil proovitakse saata veel DVK-sse  </span>
-    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> yleminekuperiood_kestab() { 
-      vastuvotja = DVK
+    <span class="hljs-keyword">if</span> adresseeHasDirectDHXCapability(<span class="hljs-operator">a</span>) { 
+      recipient = <span class="hljs-operator">a</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> adresseeUsesIntermediary(<span class="hljs-operator">a</span>) {  
+      recipient = intermediaryRegistryCode(<span class="hljs-operator">a</span>)
     } <span class="hljs-keyword">else</span> {
-      <span class="hljs-constant">return</span> <span class="hljs-string">"Ei saa saata."</span> 
+      <span class="hljs-constant">return</span> <span class="hljs-string">"Delivery not possible"</span> 
     }
 
-   <span class="hljs-comment"> // saatmisüritused</span>
-    <span class="hljs-keyword">for</span> saatmisyritus &lt; maksimaalseltSaatmisyritusi {
-      saatmisyritus = saatmisyritus + <span class="hljs-number">1</span>
-     <span class="hljs-comment"> // Viivitusaeg enne saatmisürituse kordamist</span>
-      <span class="hljs-keyword">if</span> saatmisyritus == <span class="hljs-number">2</span> {
+    <span class="hljs-keyword">for</span> attempt &lt; maxAttempts {
+      attempt = attempt + <span class="hljs-number">1</span>
+      <span class="hljs-keyword">if</span> attempt == <span class="hljs-number">2</span> {
         <span class="hljs-built_in">time</span>.Sleep(<span class="hljs-built_in">time</span>.Hour)
-      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> saatmisyritus == <span class="hljs-number">3</span> {
+      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> attempt == <span class="hljs-number">3</span> {
         <span class="hljs-built_in">time</span>.Sleep(<span class="hljs-number">24</span> * <span class="hljs-built_in">time</span>.Hour)
       }
-      <span class="hljs-keyword">if</span> yritaSaata(d, vastuvotja) {<span class="hljs-comment"> // saatmine edukas</span>
-        <span class="hljs-constant">return</span> <span class="hljs-string">"Saatmine edukas"</span>
+      <span class="hljs-keyword">if</span> trySend(d, recipient) {
+        <span class="hljs-constant">return</span> <span class="hljs-string">"Delivery successful"</span>
       }
     }
 
-    <span class="hljs-constant">return</span> maksimaalseltSaatmisyritus + <span class="hljs-string">" üritust, kõik ebaõnnestusid"</span>
+    <span class="hljs-constant">return</span> maxAttempts + <span class="hljs-string">" attempts, all failed"</span>
 }</code></pre>
 
 <h2 id="8-vastuvõtmine">8 Vastuvõtmine</h2>

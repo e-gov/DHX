@@ -174,175 +174,177 @@ The Internet Engineering Task Force IETF ([RFC 6852]) has set the following crit
 
 <p>A balanced solution is sought in the case of conflicting business requirements. </p>
 
-<h3 id="15-laiendatavus">1.5 Laiendatavus</h3>
+<h3 id="15-laiendatavus">1.5 Extendability</h3>
 
 <div class='note'>
-<p>Märkus (informatiivne). Protokolli väljatöötamisel on eesmärgiks stabiilne ja pikaajaline lahendus konkreetsetele, olulistele ärivajadustele. Siiski peab arvestama ärivajaduste, aga samuti protokolli siduskihtide (X-tee, dokumendivahetuse kapsel) võimalike muutustega tulevikus. Samuti tuleb arvestada, et protokolli kasutajatel võib olla erivajadusi, mida üldkehtivate reeglitega lahendada ei saa, kuid mida saaks lahendada kitsamate kasutajarühmade lokaalsete kokkulepetega. Andmevahetusprotokollides on seetõttu kujunenud heaks praktikaks pakkuda laiendamismehhanisme (vt. nt [HTML5]).</p>
+<p>Note (informal). Development of the protocol aims to create a stable, long-term solution to concrete, important business needs. Nevertheless, possible change of the business needs and also change in substrata of the protocol (X-Road, document exchange capsule) in the future has to be accounted for. Also, one has to consider that protocol users may have special requirements that cannot be met with general rules, but what can be solved with local agreements by narrower user groups. Therefore, the established good practice is to offer extension mechanisms in data exchange protocols. (see, e.g. [HTML5]).</p>
 </div>
 
-<p>DHX protokollis on laiendatavuse tagamiseks kasutusel üks põhimõte ja kaks konkreetset mehhanismi:</p>
+<p>DHX protocol supports extendability by stipulating one extendability principle and two specific mechanisms:</p>
 
-<p><strong>Kihilisuse põhimõte</strong>. Teadlikult on välditud selliste probleemide lahendamist protokollis, mille lahendamise õige koht on mõnes teises kihis. Samas on sõltuvusi siduskihtidest püütud minimeerida - kasutades ainult neid siduskihtide elemente, mille kasutamine on põhjendatud.</p>
+<p><strong>Principle of layering</strong>. Consciously have been avoided solving problems that can be solved more suitably in some other layer of the protocol stack. Also, dependencies from adjoining layers have tried to be minimised - by using only these elements of adjoining layers the use of which is justified.</p>
 
-<p><strong>Versioneerimine</strong>. Näeme ette võimaluse, et protokolli tulevikus täiendatakse. Täiendamine peab olema väga harv ja väga põhjendatud. Täiendamise võimaldamiseks on protokoll versioneeritud. Versioneerimisel lähtutakse semantilise versioneerimise [SEMVER] mustrist. Esimene ametlikult avaldatud versioon on 1.0.</p>
+<p><strong>Versioning</strong>. We foresee the possibility that the protocol will be amended or updated in future. Amending must be very infrequent and strongly justified. To allow amending, the protocol is versioned. Semantic versioning pattern [SEMVER] is used. The first officially published version is 1.0.</p>
 
-<p class="advisement">Dokumenti saatev süsteem PEAB määratlema kasutatava DXH protokolli versiooni.</p>
+<p class="advisement">The system that sends the document MUST specify the version of the DHX protocol used.</p>
 
-<p><strong>Kasutajaspetsiifilised elemendid sõnumites</strong>. Protokoll pakub mehhanismi täiendavate parameetrite kasutamiseks nii dokumenti saatvas päringsõnumis kui ka vastussõnumis. Täpsemalt vt teenuse <code>sendDocument</code> spetsifikatsioonis lisas 1.</p>
+<p><strong>User-specific elements in messages</strong>. Protocol offers a mechanism for using additional parameters both in query message that sends the document, and in the response message. For specifics see specification of service  <code>sendDocument</code> in Appendix 1.</p>
 
-<h2 id="2-nõuete-keel">2 Nõuete keel</h2>
+<h2 id="2-nõuete-keel">2 Language of requirements</h2>
 
-<p>Normatiivse tähendusega on käesolev tekst koos lisadega, v.a sõnaga “informatiivne” tähistatud osad. GitHub-i varamu muul sisul on informatiivne tähendus.</p>
-<p>Läbiva suurtähega esitatud sõnu tuleb tõlgendada järgmiselt (vrdl [RFC 2119]):</p>
+<p>This text, including the appendices, has a normative meaning, except the sections with the note “informative”. The other content of theGitHub repository has an informative meaning.</p>
 
-”PEAB”, “TOHIB AINULT” - protokolli implementeerija ei saa deklareerida protokollile vastavust, kui nõue on täitmata.
-“PEAKS” - nõue ei pea tingimata olema implementeeritud, kuid implementatsiooni saab lugeda protokollile vastavaks ainult siis, kui nõude täitmisest kõrvalekaldumiseks on kaalukas põhjus.
-“VÕIB” - omadust võib implementeerida; mitteimplementeerimist ei pea põhjendama.
+<p>Words in capital letters must be interpreted as follows (see [RFC 2119]):</p>
 
-<h2 id="3-mõisted-ja-lühendid">3 Mõisted ja lühendid</h2>
+“MUST”, “MAY ONLY” – the implementer of the protocol cannot declare conformity to the protocol if the requirement is not fulfilled.
+“SHOULD” – the requirement must not necessarily be implemented, but the implementation can be considered conforming to the protocol only if there is a sound reason for deviation from the fulfilment of the requirement.
+“MAY” – a property may be implemented; non-implementation need not be explained.
+
+<h2 id="3-mõisted-ja-lühendid">3 Terms and abbreviations</h2>
 
 <table>
 <thead>
 <tr>
-  <th>mõiste</th>
-  <th>seletus</th>
+  <th>term</th>
+  <th>explanation</th>
 </tr>
 </thead>
 <tbody><tr>
-  <td><em>adressaat</em></td>
-  <td>ingl <em>adressee</em>, asutus, kellele tahetakse dokumenti saata. Adressaadi määrab üheselt asutuse registrikood. Samatähenduslik sõnaga “saaja”.</td>
+  <td><em>addressee</em></td>
+  <td>An institution, to whom the document is intended to be sent. An addressee is unambiguously determined by the registry code of the institution. Synonymous to the word “recipient”.</td>
 </tr>
 <tr>
-  <td><em>asutus</em></td>
-  <td>DHX dokumendivahetuses osalev organisatsioon. Eelkõige Eesti avaliku sektori asutus, aga võib olla ka ettevõte või vabasektori organisatsioon. Asutuselt eeldatakse ametlikku registrisse (riigi ja kohaliku omavalitsuse asutuste riiklik register (RKOARR), äriregister, mittetulundusasutuste register) kantust ja registrikoodi olemasolu.</td>
+  <td><em>institution</em></td>
+  <td>An organisation participating in DHX document exchange. Mainly a public sector institution of Estonia, but can also be a free sector company or organisation. The institution must be entered into the official register (national register of state and local government (RKOARR), commercial register, non-profit associations and foundations register) and must have a registry code.</td>
 </tr>
 <tr>
-  <td><em>DHX-i dokumendivahetus</em></td>
-  <td>dokumentide vahetus X-teel vastavalt DHX protokollile.</td>
+  <td><em>DHX document exchange</em></td>
+  <td>Exchange of documents on X-Road pursuant to the DHX protocol.
+DHX direct implementation Implementation of DHX directly, i.e. without an intermediary.</td>
 </tr>
 <tr>
-  <td><em>DHX-i otserakendamine</em></td>
-  <td>DHX-i otse, st ilma vahendajata rakendamine.</td>
+  <td><em>DHX-i direct implementation</em></td>
+  <td>Implementation of DHX directly, i.e. without an intermediary.</td>
 </tr>
 <tr>
-  <td><em>DHX-i otsevõimekus</em></td>
-  <td>kui asutus on loonud võimekuse DHX-i rakendada ilma vahendajata, siis ütleme, et asutusel on DHX-i otsevõimekus.</td>
+  <td><em>DHX-i direct capability</em></td>
+  <td>If an institution has created a capability to implement DHX without an intermediary, then the institution has DHX direct capability.</td>
 </tr>
 <tr>
-  <td><em>DHX-i rakendaja</em></td>
-  <td>asutus, kes kasutab DHX-i.</td>
+  <td><em>DHX implementer</em></td>
+  <td>An institution using DHX.</td>
 </tr>
 <tr>
-  <td><em>DHX-i rakendamine</em></td>
-  <td>DHX-i kasutamine, täites kõik DHX-i vastavusnõuded. DHX-i võib rakendada otse või vahendaja kaudu.</td>
+  <td><em>DHX implementation</em></td>
+  <td>The use of DHX, fulfilling all conformity requirements of DHX. DHX may be implemented directly or via an intermediary.</td>
 </tr>
 <tr>
-  <td><em>DHX-i võimekus vahendaja kaudu</em></td>
-  <td>DHX-i kasutamine läbi vahendaja. Vt DHX otserakendamine.</td>
+  <td><em>DHX capability through intermediary</em></td>
+  <td>The use of DHX-i via an intermediary. See DHX direct implementation.</td>
 </tr>
 <tr>
-  <td><em>DHX-i võimekus</em></td>
-  <td>asutuse võimekus saata ja vastu võtta dokumente vastavalt DHX protokollile. DHX võimekuse võib teostada kas otse (vt DHX otsevõimekus) või läbi vahendaja (vt DHX võimekus vahendaja kaudu).</td>
+  <td><em>DHX capability</em></td>
+  <td>The capability of an institution to send and receive documents according to the DHX protocol. DHX capability can be executed directly (see DHX direct capability) or via an intermediary (see DHX capability through an intermediary).</td>
 </tr>
 <tr>
-  <td><em>DHX teenus</em></td>
-  <td>standarditud nimemustriga <code>EE/GOV/&lt;registrikood&gt;/DHX/sendDocument</code> X-tee teenus, mille kaudu DHX-i otserakendaja või vahendaja võtab vastu dokumente.</td>
+  <td><em>DHX service</em></td>
+  <td>The X-Road service with a standard name pattern <code>EE/GOV/<registry code>/DHX/sendDocument</code>, through which a direct implementer or intermediary of DHX receives documents.</td>
 </tr>
 <tr>
-  <td><em>DHX vahendamine</em></td>
-  <td>X-tee kasutusmuster, kus vahendaja rollis tegutsev X-tee liige (DHX vahendaja) võimaldab oma infosüsteemi vahendusel asutuse juurdepääsu DHX dokumendivahetusele. Vt DHX-i otserakendamine.</td>
+  <td><em>DHX mediation</em></td>
+  <td>The usage pattern of X-Road, where an X-Road member with the role of an intermediary (DHX intermediary) enables an institution to access the DHX document exchange via their information system. See DHX direct implementation.</td>
 </tr>
 <tr>
-  <td><em>DHX vahendaja</em>, pikemalt <em>DHX dokumendivahetusteenuse vahendaja</em>, lühidalt lihtsalt <em>vahendaja</em></td>
-  <td>X-tee liige, kes osutab asutusele teenust, vahendades DHX dokumendiedastust. Tüüpiliselt DHS-i pilve- või majutusteenuse osutaja; võib olla nii erasektori teenuseosutaja kui ka avaliku sektori asutus, kes osutab teenust teisele asutusele.</td>
+  <td><em>DHX intermediary</em>, longer term <em>DHX document exchange service intermediary</em>, shortly <em>intermediary</em></td>
+  <td>An X-Road member who provides service to an institution, mediating DHX document transmission. Typically, a provider of the DMS cloud or an accommodation service; may be a service provider of the private sector or institution of the public sector, providing service to another institution.</td>
 </tr>
 <tr>
-  <td><em>DHX vahendajate grupp</em></td>
-  <td>tehniline abinõu DHX vahendajate nimekirja pidamiseks. DHX vahendajate grupp on osa X-tee globaalsest konfiguratsioonist.</td>
+  <td><em>DHX intermediary group</em></td>
+  <td>Technical means for maintaining the list of DHX intermediaries. The DHX intermediary group is part of the X-Road global configuration.</td>
 </tr>
 <tr>
-  <td><em>DHX vahendajate nimekiri</em></td>
-  <td>X-tee keskuse (RIA) poolt peetav nimekiri DHX dokumendivahetusteenuse vahendajatest.</td>
+  <td><em>DHX intermediary list</em></td>
+  <td>List of intermediaries of the DHX document exchange service maintained by the X-Road Centre (RIA).</td>
 </tr>
 <tr>
-  <td><em>DHS pilveteenusena</em></td>
-  <td>suhe, kus üks organisatsioon (ettevõte või teine asutus) pakub asutusele DHS-i tehnilist keskkonda. Ühes tehnilises keskkonnas võib olla mitu “virtuaalset” DHS-i. Näiteks Majandus- ja Kommunikatsiooniministeerium pakub DHS-i teenust ministeeriumi haldusala asutustele; Koolide infosüsteem KIS pakub DHS-i teenust reale lasteaedadele. DHS pilveteenusena ja DHX vahendamine võivad olla ühitatud, kuid on siiski erinevad mõisted. Majutaja ei pea alati olema vahendaja. Vahendussuhe on siis, kui X-tee liiklus käib vahendaja sertifikaadiga.</td>
+  <td><em>DMS cloud service</em></td>
+  <td>Relationship, whereby one organisation (a company or another institution) provides an institution with the DMS technical environment. There may be several “virtual” DMSs in one technical environment. For example, the Ministry of Economic Affairs and Communications provides a DMS service to institutions under the administration of the ministry; the Information System of Estonian Schools (EKIS) provides the DMS service to several kindergartens. DMS cloud service and DHX mediation may be joined, but are still separate terms. Accommodation provider may not always be an intermediary. There is a mediation relationship, when X-Road traffic takes place with the certificate of the intermediary.</td>
 </tr>
 <tr>
-  <td><em>dokument</em></td>
-  <td>asutuses töödeldav dokument Eesti avaliku sektori dokumendihalduse tähenduses. Võib koosneda mitmest failist. Edastatakse elektroonilise dokumendivahetuse kapslis.</td>
+  <td><em>document</em></td>
+  <td>A document processed in an institution within the meaning of document management in the Estonian public sector. May include several files. Transmitted in a capsule of electronic document exchange.</td>
 </tr>
 <tr>
-  <td><em>dokumendihaldussüsteem</em>, <em>DHS</em></td>
-  <td>asutuse elektroonilise dokumendihalduse, sh dokumendivahetuse teenindamisele spetsialiseerunud infosüsteem.</td>
+  <td><em>document management system</em>, <em>DHS</em></td>
+  <td>An information system for electronic document management within an institution, incl. for servicing document exchange.</td>
 </tr>
 <tr>
-  <td><em>elektroonilise dokumendivahetuse kapsel</em></td>
-  <td>lühidalt “kapsel” - dokumenti ja metaandmeid sisaldav XML-struktuur.</td>
+  <td><em>capsule of electronic document exchange</em></td>
+  <td>“Capsule” in short – XML structure containing document and metadata.</td>
 </tr>
 <tr>
-  <td><em>globaalne konfiguratsioon</em></td>
-  <td>X-tee metaandmekogum, nimekiri X-tee liikmetest, alamsüsteemidest ja gruppidest. Vt [PR-GCONF], [PR-META].</td>
+  <td><em>global configuration</em></td>
+  <td>A set of X-Road metadata, list of members, subsystems and groups of X-Road. See [PR-GCONF], [PR-META].</td>
 </tr>
 <tr>
-  <td><em>DVK</em></td>
-  <td>Dokumendivahetuskeskus [DVK].</td>
+  <td><em>DEC</em></td>
+  <td>Document Exchange Centre [DEC].</td>
 </tr>
 <tr>
   <td><em>RIA</em></td>
-  <td>Riigi Infosüsteemi Amet.</td>
+  <td>Information System Authority.</td>
 </tr>
 <tr>
-  <td><em>registrikood</em></td>
-  <td>asutuse ametlik registrikood. Nt <code>70002093</code> <code>Kadrioru lasteaed</code>.</td>
+  <td><em>registry code</em></td>
+  <td>The official registry code of an institution, e.g. <code>70002093</code> <code>Kadriorg kindergarten</code>.</td>
 </tr>
 <tr>
-  <td><em>vastuvõttev süsteem</em></td>
-  <td>dokumenti X-teel DHX protokolli kohaselt vastuvõttev infosüsteem (võib olla ka vahendaja infosüsteem ja üleminekuperioodil DVK).</td>
+  <td><em>receiving system</em></td>
+  <td>An information system receiving a document on X-Road according to the DHX protocol (may be also an information system of an intermediary and DEC in the transition period).</td>
 </tr>
 <tr>
-  <td><em>saadetis</em></td>
-  <td>ingl <em>consignment</em>, dokument, mida saatev süsteem üritab vastuvõtvale süsteemile saata. Ebaõnnestumise korral tehakse mitu üritust.</td>
+  <td><em>consignment</em></td>
+  <td>A document that the sending system tries to send to the receiving system. Several attempts are made in the case of failure.</td>
 </tr>
 <tr>
-  <td><em>saadetise id</em></td>
-  <td>ingl <em>consignment id</em>, dokumendi saatmisürituste seeriale antud unikaalne identifikaator. Vt 7.7.</td>
+  <td><em>consignment id</em></td>
+  <td>A unique identifier assigned to the series of attempts to send a document. See 7.7.</td>
 </tr>
 <tr>
-  <td><em>saaja</em></td>
-  <td>asutuse, kellele dokument on adresseeritud. Samatähenduslik sõnaga “adressaat”. Vahendamise puhul võib saajana käsitada ka vahendajat. Sõnakasutusest peab alati selguma, kumba silmas peetakse. vt “saatja”.</td>
+  <td><em>receiver</em></td>
+  <td>An institution, to whom the document has been addressed. Has a similar meaning with the word “addressee”. In the case of mediation, also an intermediary can be considered a receiver. It must always be clear from the text which one is meant. See "sender".</td>
 </tr>
 <tr>
-  <td><em>saatja</em></td>
-  <td>dokumenti saatev asutus; saatja võib kasutada vahendajat. Vahendamise puhul võib ka vahendajat käsitada saatjana. Sõnakasutuse peab alati selguma, kumba silmas peetakse. Vt “saaja”.</td>
+  <td><em>sender</em></td>
+  <td>An institution sending a document; the sender may use an intermediary. In the case of mediation, also an intermediary can be considered the sender. It must always be clear from the text which one is meant. See “receiver”.</td>
 </tr>
 <tr>
-  <td><em>saatev süsteem</em></td>
-  <td>dokumenti X-teel DHX protokolli kohaselt saatev infosüsteem (võib olla ka vahendaja infosüsteem).</td>
+  <td><em>sending system</em></td>
+  <td>An information system sending a document on X-Road according to the DHX protocol (may also be an information system of an intermediary).</td>
 </tr>
 <tr>
-  <td><em>teenuse identifikaator</em></td>
-  <td>X-tee [X-tee] versiooni 6 nõuete kohane X-tee teenuse identifikaator. Identifitseerib unikaalselt X-tee teenuse nii Eesti X-teel kui ka X-tee implementatsioonide rahvusvahelises võrgus. Koosneb X-tee liikme identifikaatorist, teenuse koodnimetusest ja valikulisest versiooninumbrist. Näiteks: <code>EE/GOV/70003158/DHX/sendDocument</code>.</td>
+  <td><em>service identifier</em></td>
+  <td>An X-Road service identifier under the requirements of X-Road [X-Road] version 6. Uniquely identifies the X-Road service both on the Estonian X-Road and in the international network of X-Road implementations. Consists of an X-road member identifier, a service code denomination and an optional version number. For example: <code>EE/GOV/70003158/DHX/sendDocument</code>.</td>
 </tr>
 <tr>
-  <td><em>vahendaja</em></td>
-  <td>vt “DHX vahendaja”.</td>
+  <td><em>intermediary</em></td>
+  <td>See “DHX intermediary”.</td>
 </tr>
 <tr>
-  <td><em>vahendatav</em></td>
-  <td>asutus, kes on loonud DHX võimekuse vahendaja kaudu. DHX dokumendivahetuses X-teel oma sertifikaadiga ei osale, vaid kasutab vahendaja teenust.</td>
+  <td><em>intermediated</em></td>
+  <td>An institution, who has created DHX capability via an intermediary. Does not participate in DHX document exchange on X-Road with their certificate, but uses the service of an intermediary.</td>
 </tr>
 <tr>
-  <td><em>vahendusnimekiri</em></td>
-  <td>DHX dokumendivahendusteenuse vahendaja poolt X-teel teenusena pakutav nimekiri asutustest, keda ta vahendab. Mitte segi ajada DHX vahendajate nimekirjaga.</td>
+  <td><em>mediation list</em></td>
+  <td>The list of institutions mediated by an intermediary of the DHX document exchange service, offered by them on X-Road as a service. Do not confuse with the DHX intermediary list.</td>
 </tr>
 <tr>
-  <td><em>üleminekuperiood</em></td>
-  <td>Dokumendivahetuskeskuse (DVK) kasutamiselt DHX kasutamisele ülemineku periood. Perioodi alguse ja lõpu määrab X-tee keskus.</td>
+  <td><em>transition period</em></td>
+  <td>The period of transition from the use of Document Exchange Centre (DEC) to the use of DHX. The X-Road Centre specifies the beginning and the end of the period.</td>
 </tr>
 <tr>
-  <td><em>X-tee keskus</em></td>
-  <td>X-tee haldaja. X-tee keskuse rolli täidab RIA. X-tee keskus registreerib X-tee alamsüsteeme “DHX” ja peab DHX vahendajate nimekirja.</td>
+  <td><em>X-Road Centre</em></td>
+  <td>X-Road administrator. RIA has the role of the X-Road Centre. The X-Road Centre registers the X-Road sybsystems “DHX” and maintains the DHX intermediary list.</td>
 </tr>
 </tbody></table>
 

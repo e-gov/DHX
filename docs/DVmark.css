@@ -1,0 +1,27 @@
+
+#markContainer {
+	width: 100px; height: 100px;
+	margin: 0px;
+}
+
+/* ---- System symbols ---- */
+.markCircle {
+	position: relative;	
+	width: 0px; height: 0px;
+	border-radius: 0px; border: 1px solid Tomato;
+	// background-color: White;
+	z-index: 2;
+}
+
+/* ---- Document (message) symbols ---- */
+.docIcon {
+	font-family: 'Material Icons';
+	font-size: 60px;	
+	color:	Tomato;
+}
+.mess {
+	position: relative;
+	opacity: 0; /* fade in with timeline */
+	z-index: 3;
+}
+

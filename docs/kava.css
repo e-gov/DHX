@@ -1,28 +1,27 @@
-body { font-family: 'Roboto Light', monospace; 
+body { font-family: 'Roboto', sans-serif; 
 	font-size: 20px;
-	padding-top: 70px; /* Navigatsiooniriba mahutamiseks */
+	padding-top: 30px;
 	padding-bottom: 50px; }
 
-.jumbotron { background-color: Azure; }
-.jumbotron h1 { font-family: 'Source Code Pro', monospace !important;
-	color: #00acc1; font-size: 40px !important; }
+h1 { margin: 2rem 0 2rem; font-family: 'Roboto Light'; }
 
-.dropdown { margin-top: 4rem; }
-
-.nupp { margin-top: 2rem; 
-	font-size: 20px;
-	background-color: #FFF !important;
-	color: #180D01 !important;
-	background-image: none !important;
-	border-color: #180D01 !important;
+.mainMenu li { display: inline;
+	text-align: center; margin-left: 4rem;}
+.mainMenu li a {
+  display: inline-block;
+  width: 10rem;
+  padding: .5rem 0;
+  margin: 0;
+  text-decoration: none;
+  color: #333; font-size: 20px;
+}
+.mainMenu li a:hover {
+	border-bottom: 3px solid black;
+}	
+.mainMenu .selected {
+	border-bottom: 3px solid black;
 }
 
-/* Bootstrap-i üledefineerimine */
-.dropdown-menu { font-size: 20px; }
-
-/* Rippmenüü valiku ja caret vahe */
-.selection { margin-right: 5px; } 
-
-/* //// Material design ikoonid //// */
-.ikoon { color: #00acc1; font-size: 48px !important; }	
+.t1, .t2, .t3, .t4 { margin: 3rem; color: DarkGrey;
+	display: none; }
 

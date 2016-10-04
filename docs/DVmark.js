@@ -1,26 +1,38 @@
 $(document).ready(function(){
 
-	var s = 1; // Menüüvalik
+	var s = 'm1'; // Menüüvalik
 
-	$('.m1').click(function () { set(1); });
-	$('.m2').click(function () { set(2); });
-	$('.m3').click(function () { set(3); });
-	$('.m4').click(function () { set(4); });
-
-	function set(c) {
-		if (c == s) {
-			return
+	$('.menu').hover(
+		function() {
+			var h = $(this).attr('id');
+			if (h != s) {
+				$('#' + h).addClass('hovered');
+				$('#' + s).addClass('suppressed');				
+			}
+		},
+		function() {
+			var h = $(this).attr('id');
+			$('.menu').removeClass('hovered')
+				.removeClass('suppressed');				
 		}
-		$('.t' + c.toString()).toggle();
-		$('.m' + c.toString()).addClass('selected');
-		$('.t' + s.toString()).toggle();
-		$('.m' + s.toString()).removeClass('selected');
-		s = c;
-	}
+	);
 
-	$('.t1').toggle();
-	$('.m1').addClass('selected');
+	$('.menu').click(
+		function() { 
+			var c = $(this).attr('id');
+			if (c == s) {
+				return
+			}
+			$('#' + s).removeClass('selected');
+			$('#m' + c.substring(1)).addClass('selected');
+			$('#t' + s.substring(1)).hide();
+			$('#t' + c.substring(1)).show();
+			s = c;
+		}
+	);
 
+	$('#t1').show();
+	$('#m1').addClass('selected');
 
 	// Animate the Document Exchange Mark
 	function animateMark(){

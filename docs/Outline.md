@@ -6,10 +6,14 @@ Priit Parmakson
 
 MSc, #DontMakeMeThink, #TheSimplestThingThatCouldPossiblyWork, YOLO (algtase)
 
+Vt ka:
+  - ![protokolli tekst](https://e-gov.github.io/DHX/)
+  - ![DHX adapter](https://e-gov.github.io/DHX/Adapter.html)
+
 MIS ON DHX?
   - a DVK-killer, DVK-tapja
   - universaalne muster dokumentide otsevahetamiseks
-  - ![formaalne protokoll](https://e-gov.github.io/DHX/)
+
 
 MILLEKS?
   - Pythagorase teoreem
@@ -70,7 +74,7 @@ TOOTEPEREKOND
   - üleminekukava (A)
   - testimisteenus (C)?
   - tarkvaratükid protokolli rakendajatele
-    -  ![DHX adapter](https://e-gov.github.io/DHX/Adapter.html) (B) 
+    - DHX adapter (B) 
     - Java teegid (B)
   - DVK-DHX konverter (B)
     - DVK koosseisus, üleminekuperioodil

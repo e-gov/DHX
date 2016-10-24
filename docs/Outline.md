@@ -6,8 +6,8 @@ Priit Parmakson
 MSc, #DontMakeMeThink, #TheSimplestThingThatCouldPossiblyWork, YOLO (algtase)
 
 Vt ka:
-  - ![protokolli tekst https://e-gov.github.io/DHX/](https://e-gov.github.io/DHX/)
-  - ![DHX adapter https://e-gov.github.io/DHX/Adapter.html](https://e-gov.github.io/DHX/Adapter.html)
+  - [protokolli tekst](https://e-gov.github.io/DHX/)
+  - [DHX adapter](https://e-gov.github.io/DHX/Adapter.html)
 
 MIS ON DHX?
   - a DVK-killer, DVK-tapja

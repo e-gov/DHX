@@ -6,17 +6,17 @@ Priit Parmakson
 
 MSc, #DontMakeMeThink, #TheSimplestThingThatCouldPossiblyWork, YOLO (algtase)
 
-##MIS ON DHX?
+MIS ON DHX?
   - a DVK-killer, DVK-tapja
   - universaalne muster dokumentide otsevahetamiseks
   - ![formaalne protokoll](https://e-gov.github.io/DHX/)
 
-##MILLEKS?
+MILLEKS?
   - Pythagorase teoreem
   - DVK tagasitulek? Pole välistatud, et inkarneerub
     nt riigipilve Pub/Sub teenusena
 
-##LAIEM PROBLEEM
+LAIEM PROBLEEM
   - legacy-st vabanemine
   - paljud meie e-riigi süsteemid on 10+ aastat vanad
   - neid üritatakse teha paremaks
@@ -34,12 +34,12 @@ MSc, #DontMakeMeThink, #TheSimplestThingThatCouldPossiblyWork, YOLO (algtase)
   - töömeetodite legacy
   - mõtlemise legacy
 
-##A, B ja C
+A, B ja C
   - A tippkvaliteet, hoida ajakohane iga hinna eest
   - B enam-vähem
   - C läbu
 
-##PROTOKOLL
+PROTOKOLL
   - suunatud koostalitlusvõime saavutamisele
     - ei ürita lahendada probleeme, mida on otstarbekas
       lahendada mujal (siduskihtides)
@@ -49,7 +49,7 @@ MSc, #DontMakeMeThink, #TheSimplestThingThatCouldPossiblyWork, YOLO (algtase)
   - üks omanik
   - avatud, formaliseeritud täiendamise protsess
 
-##INNOVATIIVSED ELEMENDID
+INNOVATIIVSED ELEMENDID
   - RFC 2119 järjekindel kasutamine
   - speki haldus Tellija kätes
   - vastavusnõuete ilmutatud väljatoomine
@@ -60,7 +60,7 @@ MSc, #DontMakeMeThink, #TheSimplestThingThatCouldPossiblyWork, YOLO (algtase)
     - etalonteostus
   - X-tee vahendamise kontseptsiooni edasiarendus
 
-##TOOTEPEREKOND
+TOOTEPEREKOND
   - protokoll (A)
     - sh halduse protsess
   - etalonteostus (B)
@@ -76,7 +76,7 @@ MSc, #DontMakeMeThink, #TheSimplestThingThatCouldPossiblyWork, YOLO (algtase)
     - DVK koosseisus, üleminekuperioodil
   - "Kapsel" (B)
 
-##RAKENDAMISE ALTERNATIIVID
+RAKENDAMISE ALTERNATIIVID
   - teen ise
   - teen ise, kasutades 3 Java teeki
   - kasutan DHX adapterit
@@ -93,5 +93,3 @@ MSc, #DontMakeMeThink, #TheSimplestThingThatCouldPossiblyWork, YOLO (algtase)
   - Mida ma PEAN teadma?
   - Mida ma PEAN tegema?
   *Erinevaid üleminekuid on palju. Kuidas vältida, et need asutustel sassi ei lähe?
-
-

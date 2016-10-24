@@ -1,8 +1,7 @@
 # Legacy-süsteemide likvideerimisest. DHX (ja RIHA) kogemus ja seis
+19.10.2016, Luhtre arhitektuuriseminar
 
 Priit Parmakson
-
-19.10.2016, Luhtre arhitektuuriseminar
 
 MSc, #DontMakeMeThink, #TheSimplestThingThatCouldPossiblyWork, YOLO (algtase)
 

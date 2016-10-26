@@ -2,6 +2,8 @@
 
 ### Dokumendivahetusprotokoll DHX / Document exchange protocol DHX
 
+![](docs/DHX.PNG)
+
 #### ET
 
 DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimaldab Eesti avaliku sektori dokumendihaldussüsteemidel vahetada dokumente hajus- e detsentraliseeritud põhimõttel.

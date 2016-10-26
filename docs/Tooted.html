@@ -27,59 +27,137 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 <style type="text/css">
-  .toode { float: left; font-family: Armata;
-  	width: 8em; text-align: center; }
+  body {
+    /* background: #e2e1e0; */
+    text-align: center;
+  }
+  h3 { text-align: left; margin: 0.5em 0 1.5em 0.5em;
+     font-family: Armata; font-size: 14pt;
+  }
+  .card { float: left; font-family: Armata;
+  	text-align: center;
+    background: #fff;
+    border-radius: 2px;
+    display: inline-block;
+    height: 100px;
+    margin: 1rem;
+    position: relative;
+    width: 100px;
+  }
+  .card-1 {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+  .tekst {
+    clear:both; margin: 0.5em 0 1em 0; text-align: left;
+  } 
 </style>
+
+<script type="text/javascript">
+  function t(nr) {
+    if (nr == 1) {
+      $('#t1').text('juhised ja nõuanded erinevatele sihtrühmadele');
+    }
+    if (nr == 2) {
+      $('#t1').text('dokumendivahetusprotokoll DHX');
+    }
+    if (nr == 3) {
+      $('#t1').text('tarkvarateegid abiks protokolli rakendajatele');
+    }
+    if (nr == 4) {
+      $('#t1').text('DHX-i kasutuselevõttu hõlbustav tarkvarakomponent');
+    }
+    if (nr == 5) {
+      $('#t1').text('teenus, mille abil DHX rakendaja saab kontrollida, et on protokolli õigesti rakendanud');
+    }
+    if (nr == 6) {
+      $('#t1').text('DVK-DHX protokollide tõlkimise funktsionaalsusega täiendatud DVK, toimib üleminekuperioodil');
+    }
+    if (nr == 7) {
+      $('#t1').text('Rakendus, milles on teostatud DHX protokoll (protokolli teostatavuse kontrolliks). Toimib ühtlasi näidisena ja testimisvahendina. ');
+    }
+    if (nr == 8) {
+      $('#t1').text('Inimene, kes aitab kõrvaldada üleminekul võimalikke takistusi ja anda rakendajatele nõu');
+    }
+    if (nr == 9) {
+      $('#t1').text('');
+    }
+    if (nr == 5) {
+      $('#t1').text('RIA järelevalve DHX vahendajate tegevuse üle');
+    }
+
+  }
+
+  function c() {
+    $('#t1').html('&nbsp;');
+    $('#t2').html('&nbsp;');
+  }
+
+</script>
 
 </head>
 
-<body style='padding: 3em;'>
+<body style='padding: 1em 3em 5em 3em;'>
 
 <div class='container-fluid'>
 <div class="row">
 	<div class="col-xs-11 col-sm-11 col-md-10">
 
-<div class='toode'>
-  üleminekukava
-  <i class="material-icons ikoon" style='color: #00acc1; font-size: 48px;'>information</i>
+<h3>Avaliku sektori üleminek hajusale dokumendivahetusele</h3>  
+
+<div class='card card-1' onmouseover="t(1)" onmouseout="c()">
+  <p>üleminekukava</p>
+  <p><img style='fill: #9E9E9E;' width='48px' src="weather-windy.svg"></p>
 </div>
 
-<div class='toode'>
-  protokoll
-  <img style='fill: #9E9E9E;' width='48px' src="weather-windy.svg">
+<div class='card card-1' onmouseover="t(2)" onmouseout="c()">
+  <p>protokoll</p>
+  <p><img src='DHX.PNG'></p>
 </div>
 
-<div class='toode'>
-  tarkvaratükid
-  <i class="material-icons ikoon" style='color: #9E9E9E; font-size: 48px;'>widgets</i>
+<div class='card card-1' onmouseover="t(3)" onmouseout="c()">
+  <p>tarkvaratükid</p>
+  <p><img style='fill: #9C27B0;' width='48px' src="widgets.svg"></p>
 </div>
 
-<div class='toode'>
-  DHX adapter
-  <i class="material-icons ikoon" style='color: #FF5722; font-size: 48px;'>power_plug</i>
+<div class='card card-1' onmouseover="t(4)" onmouseout="c()">
+  <p>DHX adapter</p>
+  <p><img style='fill: #9C27B0;' width='48px' src="power-plug.svg"></p>
 </div>
 
-<div class='toode'>
-  testimisteenus
-  <img style='fill: #9C27B0;' width='48px' src="test-tube.svg">
+<div class='card card-1' onmouseover="t(5)" onmouseout="c()">
+  <p>testimisteenus</p>
+  <p><img style='fill: #9C27B0;' width='48px' src="test-tube.svg"></p>
 </div>
 
-<div style='clear:both; margin: 1em;'>&nbsp;</div>
+<div id='t1' class='tekst'>&nbsp;</div>
 
-<div class='toode'>
-  DVK-DHX vahendaja
-  <i class="material-icons ikoon" style='color: #FFC107; font-size: 48px;'>repeat</i>
+<div class='card card-1' onmouseover="t(6)" onmouseout="c()">
+  <p>DVK-DHX tõlkija</p>
+  <p><img style='fill: #9C27B0;' width='48px' src="repeat.svg"></p>
 </div>
 
-<div class='toode'>
-  etalonteostus
-  <img style='fill: #9C27B0;' width='48px' src="ruler.svg">
+<div class='card card-1' onmouseover="t(7)" onmouseout="c()">
+  <p>etalonteostus</p>
+  <p><img style='fill: #9C27B0;' width='48px' src="ruler.svg"></p>
 </div>
 
-<div class='toode'>
-  kapsel
-  <img style='fill: #9C27B0;' width='48px' src="ghost.svg">
+<div class='card card-1' onmouseover="t(8)" onmouseout="c()">
+  <p>ChangeMaster</p>
+  <p><img style='fill: #9C27B0;' width='48px' src="auto-fix.svg"></p>
 </div>
+
+<div class='card card-1' onmouseover="t(9)" onmouseout="c()">
+  <p>sertifitseerimine</p>
+  <p><img style='fill: #9C27B0;' width='48px' src="checkbox-marked-circle-outline.svg"></p>
+</div>
+
+<div class='card card-1' onmouseover="t(10)" onmouseout="c()">
+  <p>järelevalve</p>
+  <p><img style='fill: #9C27B0;' width='48px' src="ghost.svg"></p>
+</div>
+
+<div id='t2' class='tekst'>&nbsp;</div>
 
   </div>
 </div>

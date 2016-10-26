@@ -2,7 +2,7 @@
 
 ### Dokumendivahetusprotokoll DHX / Document exchange protocol DHX
 
-![](docs/DHX.PNG)
+![](docs/DHX.PNG)  ![](docs/X-ROAD.PNG)
 
 #### ET
 

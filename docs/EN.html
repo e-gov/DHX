@@ -221,6 +221,10 @@ The Internet Engineering Task Force IETF ([RFC 6852]) has set the following crit
   <td>An organisation participating in DHX document exchange. Mainly a public sector institution of Estonia, but can also be a free sector company or organisation. The institution must be entered into the official register (national register of state and local government (RKOARR), commercial register, non-profit associations and foundations register) and must have a registry code.</td>
 </tr>
 <tr>
+  <td><em>DHX Adapter</em></td>
+  <td>Software component that simplifies implementation of the DHX protocol. See [https://github.com/e-gov/DHX-adapter](https://github.com/e-gov/DHX-adapter).</td>
+</tr>
+<tr>
   <td><em>DHX document exchange</em></td>
   <td>Exchange of documents on X-Road pursuant to the DHX protocol.
 DHX direct implementation Implementation of DHX directly, i.e. without an intermediary.</td>
@@ -268,6 +272,10 @@ DHX direct implementation Implementation of DHX directly, i.e. without an interm
 <tr>
   <td><em>DHX intermediary list</em></td>
   <td>List of intermediaries of the DHX document exchange service maintained by the X-Road Centre (RIA).</td>
+</tr>
+<tr>
+  <td><em>DHX reference implementation</em></td>
+  <td>A software system developed by RIA for the purpose of verification of implementability of the protocol. Reference implementation also serves as a demo for implementors and can be used for testing other implementations.</td>
 </tr>
 <tr>
   <td><em>DMS cloud service</em></td>
@@ -681,7 +689,7 @@ DHX direct implementation Implementation of DHX directly, i.e. without an interm
 
 <p>DHX capability does not emerge simultaneously in institutions, because developments are completed at different times. Figure 4 explains co-functioning of the systems transferred and not yet transferred to DHX in the transition period.</p>
 
-<p><img src="DHX-TRANSITION-EN.PNG" alt="" title=""></p>
+<p><img src="DHX-TRANSITION-EN-03.PNG" alt="" title=""></p>
 
 <p>Figure 4. Functioning in the transition period</p>
 
@@ -689,7 +697,7 @@ DHX direct implementation Implementation of DHX directly, i.e. without an interm
 
 <p>In the transition period, DEC performs the function of a translator between the new and old protocols (DHX and DEC), operating as a DHX mediator - for these DEC clients who have neither attained DHX direct capability yet nor chosen another DHX mediator.</p>
 
-<p>UK is the “universal software component” developed by RIA, the objective of which is to simplify the re-tuning of DMSs to the use of DHX. The use of UK is not obligatory.</p>
+<p>DHX Adapter is the “universal software component” developed by RIA, the objective of which is to simplify the re-tuning of DMSs to the use of DHX. The use of DHX Adapter is not obligatory.</p>
 
 <p class="advisement">In the transition period, as soon as the DMS of an institution has developed the DHX capability (when the development is finished), the institution MUST start, at the earliest opportunity, using the DHX service for sending documents.</p>
 
@@ -967,6 +975,11 @@ DHX direct implementation Implementation of DHX directly, i.e. without an interm
 </tr>
 </thead>
 <tbody>
+<tr>
+  <td>1.0.4, 26.10.2016</td>
+  <td>Terms 'DHX Adapter' and 'DHX reference implementation' added.<br>
+  </td>
+</tr>
 <tr>
   <td>1.0.3, 07.08.2016</td>
   <td>Amendment to parameters of the <code>representationList</code> service. See: <a href='https://github.com/e-gov/DHX/blob/master/files/Ettepanek-07.md'>Proposal 07</a><br>

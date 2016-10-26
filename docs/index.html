@@ -220,8 +220,16 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
   <td>DHX dokumendivahetuses osalev organisatsioon. Eelkõige Eesti avaliku sektori asutus, aga võib olla ka ettevõte või vabasektori organisatsioon. Asutuselt eeldatakse ametlikku registrisse (riigi ja kohaliku omavalitsuse asutuste riiklik register (RKOARR), äriregister, mittetulundusasutuste register) kantust ja registrikoodi olemasolu.</td>
 </tr>
 <tr>
+  <td><em>DHX Adapter</em></td>
+  <td>DHX-i rakendamist hõlbustav tarkvarakomponent. Vt [https://github.com/e-gov/DHX-adapter](https://github.com/e-gov/DHX-adapter).</td>
+</tr>
+<tr>
   <td><em>DHX-i dokumendivahetus</em></td>
   <td>dokumentide vahetus X-teel vastavalt DHX protokollile.</td>
+</tr>
+<tr>
+  <td><em>DHX etalonteostus</em></td>
+  <td>RIA arendatud tarkvarasüsteem, mis implementeerib DHX protokolli. Etalonteostuse eesmärgiks on kontrollida protokolli teostatavust ja olla näidiseks protokolli rakendajatele. Samuti saab etalonteostust kasutada DHX-i rakendavate süsteemide testimisel. Vt [https://github.com/e-gov/DHX-etalon](https://github.com/e-gov/DHX-etalon).</td>
 </tr>
 <tr>
   <td><em>DHX-i otserakendamine</em></td>
@@ -679,7 +687,7 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 
 <p>DHX-i võimekus ei teki asutustes üheaegselt, sest arendused valmivad erinevatel aegadel. Joonis 4 selgitab DHX-le üle läinud ja veel üle minemata süsteemide koostoimimist üleminekuperioodil.</p>
 
-<p><img src="DHX-Yleminek-EE-02.PNG" alt="" title=""></p>
+<p><img src="DHX-Yleminek-EE-03.PNG" alt="" title=""></p>
 
 <p>Joonis 4. Toimimine üleminekuperioodil</p>
 
@@ -687,7 +695,7 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 
 <p>DVK täidab üleminekuperioodil uue ja vana protokolli (DHX-i ja DVK) vahelise teisendaja rolli, tegutsedes DHX-i vahendajana - nende DVK klientide suhtes, kes ei ole veel DHX-i otsevõimekust loonud või teist DHX-i vahendajat valinud.</p>
 
-<p>UK tähistab RIA poolt väljatöötatavat “universaalset tarkvarakomponenti”, mille eesmärgiks on kergendada DHS-de ümberhäälestamist DHX-i kasutamisele. UK kasutamine ei ole kohustuslik.</p>
+<p>DHX Adapter tähistab RIA poolt väljatöötatavat “universaalset tarkvarakomponenti”, mille eesmärgiks on kergendada DHS-de ümberhäälestamist DHX-i kasutamisele. DHX Adapteri kasutamine ei ole kohustuslik.</p>
 
 <p class="advisement">Üleminekuperioodil niipea, kui asutuse DHS-is on tekkinud DHX protokolli võimekus (arendus on lõppenud), PEAB hakkama dokumendi saatmisel kasutama DHX teenust.</p>
 

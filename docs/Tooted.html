@@ -29,18 +29,21 @@
 <style type="text/css">
   body {
     /* background: #e2e1e0; */
-    text-align: center;
   }
-  h3 { text-align: left; margin: 0.5em 0 1.5em 0.5em;
+  h3 { text-align: left; margin: 0.5em 0 1.5em 0em;
      font-family: Armata; font-size: 14pt;
   }
-  .card { float: left; font-family: Armata;
+  p { font-family: 'Times New Roman', Times, serif;
+    font-size: 12pt; 
+  }
+
+  .card { clear:both; float: left; font-family: Armata;
   	text-align: center;
     background: #fff;
     border-radius: 2px;
     display: inline-block;
     height: 100px;
-    margin: 1rem;
+    margin: 0 1rem 2rem 1rem;
     position: relative;
     width: 100px;
   }
@@ -48,52 +51,17 @@
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   }
-  .tekst {
-    clear:both; margin: 0.5em 0 1em 0; text-align: left;
-  } 
+  .textcard {
+    float: left;
+    width: 300px; height: 100px;
+    margin-left: 40px; padding-top: 20px;
+  }
+  .sihtryhm {
+    float: left;
+    width: 200px; height: 100px;
+    margin-left: 40px; padding-top: 20px;    
+  }
 </style>
-
-<script type="text/javascript">
-  function t(nr) {
-    if (nr == 1) {
-      $('#t1').text('juhised ja nõuanded erinevatele sihtrühmadele');
-    }
-    if (nr == 2) {
-      $('#t1').text('dokumendivahetusprotokoll DHX');
-    }
-    if (nr == 3) {
-      $('#t1').text('tarkvarateegid abiks protokolli rakendajatele');
-    }
-    if (nr == 4) {
-      $('#t1').text('DHX-i kasutuselevõttu hõlbustav tarkvarakomponent');
-    }
-    if (nr == 5) {
-      $('#t1').text('teenus, mille abil DHX rakendaja saab kontrollida, et on protokolli õigesti rakendanud');
-    }
-    if (nr == 6) {
-      $('#t1').text('DVK-DHX protokollide tõlkimise funktsionaalsusega täiendatud DVK, toimib üleminekuperioodil');
-    }
-    if (nr == 7) {
-      $('#t1').text('Rakendus, milles on teostatud DHX protokoll (protokolli teostatavuse kontrolliks). Toimib ühtlasi näidisena ja testimisvahendina. ');
-    }
-    if (nr == 8) {
-      $('#t1').text('Inimene, kes aitab kõrvaldada üleminekul võimalikke takistusi ja anda rakendajatele nõu');
-    }
-    if (nr == 9) {
-      $('#t1').text('');
-    }
-    if (nr == 5) {
-      $('#t1').text('RIA järelevalve DHX vahendajate tegevuse üle');
-    }
-
-  }
-
-  function c() {
-    $('#t1').html('&nbsp;');
-    $('#t2').html('&nbsp;');
-  }
-
-</script>
 
 </head>
 
@@ -105,72 +73,150 @@
 
 <h3>Avaliku sektori üleminek hajusale dokumendivahetusele</h3>  
 
-<div class='card card-1' onmouseover="t(1)" onmouseout="c()">
+<p>Ülemineku peamised osad on: a) dokumendivahetusprotokolli DHX kasutuselevõtmine dokumente vahetavates süsteemides; 2) dokumendivahetuskeskuse (DVK) sulgemine.</p>
+
+<p>Ülemineku ettevalmistusi on tehtud 2015. aastast. Praeguseks on välja töötatud ja kinnitatud protokoll DHX (https://e-gov.github.io/DHX/). Protokolli rakendamist hõlbustavad tarkvarakomponendid (DHX adapter jm) valmivad 2016. a lõpuks. Koostatakse ja avaldatakse üleminekukava ja juhised (veebruar 2017. a).</p>
+
+<p>Üleminek algab praegu veel kindlaks määramata kuupäeval, eeldatavalt 2017. a aprillis ja kestab 2018. a lõpuni.</p>
+
+<p>Ülemineku teostamiseks luuakse järgmised tooted ja teenused (halliga asjad ei ole kindlad):</p>
+
+<div style='margin-left: 500px;'>
+  <p><i>sihtrühm</i></p>
+</div>
+
+<div class='card card-1'>
   <p>üleminekukava</p>
   <p><img style='fill: #9E9E9E;' width='48px' src="weather-windy.svg"></p>
 </div>
+<div class='textcard'>
+  <p>juhised ja nõuanded erinevatele sihtrühmadele</p>
+</div>
+<div class='sihtryhm'>
+  <p>DHS-i haldaja, IT juht, DHX-i vahendaja, DHS-i arendaja</p>
+</div>
 
-<div class='card card-1' onmouseover="t(2)" onmouseout="c()">
+<div class='card card-1'>
   <p>protokoll</p>
   <p><img src='DHX.PNG'></p>
 </div>
+<div class='textcard'>
+  <p>dokumendivahetusprotokoll DHX</p>
+</div>
+<div class='sihtryhm'>
+  <p>IT juht, DHX-i vahendaja, DHS-i arendaja</p>
+</div>
 
-<div class='card card-1' onmouseover="t(3)" onmouseout="c()">
+<div class='card card-1'>
   <p>tarkvaratükid</p>
   <p><img style='fill: #9C27B0;' width='48px' src="widgets.svg"></p>
 </div>
+<div class='textcard'>
+  <p>tarkvarateegid abiks protokolli rakendajatele</p>
+</div>
+<div class='sihtryhm'>
+  <p>DHS-i arendaja</p>
+</div>
 
-<div class='card card-1' onmouseover="t(4)" onmouseout="c()">
+<div class='card card-1'>
   <p>DHX adapter</p>
   <p><img style='fill: #9C27B0;' width='48px' src="power-plug.svg"></p>
 </div>
+<div class='textcard'>
+  <p>DHX-i kasutuselevõttu hõlbustav tarkvarakomponent</p>
+</div>
+<div class='sihtryhm'>
+  <p>IT juht, DHS-i arendaja</p>
+</div>
 
-<div class='card card-1' onmouseover="t(5)" onmouseout="c()">
+<div class='card card-1'>
   <p>testimisteenus</p>
   <p><img style='fill: #9C27B0;' width='48px' src="test-tube.svg"></p>
 </div>
+<div class='textcard'>
+  <p>teenus, mille abil DHX rakendaja saab kontrollida, et on protokolli õigesti rakendanud</p>
+</div>
+<div class='sihtryhm'>
+  <p>DHX-i vahendaja, DHS-i arendaja</p>
+</div>
 
-<div id='t1' class='tekst'>&nbsp;</div>
-
-<div class='card card-1' onmouseover="t(6)" onmouseout="c()">
+<div class='card card-1'>
   <p>DVK-DHX tõlkija</p>
   <p><img style='fill: #9C27B0;' width='48px' src="repeat.svg"></p>
 </div>
+<div class='textcard'>
+  <p>DVK-DHX protokollide tõlkimise funktsionaalsusega täiendatud DVK, toimib üleminekuperioodil</p>
+</div>
+<div class='sihtryhm'>
+  <p>RIA</p>
+</div>
 
-<div class='card card-1' onmouseover="t(7)" onmouseout="c()">
+<div class='card card-1'>
   <p>etalonteostus</p>
   <p><img style='fill: #9C27B0;' width='48px' src="ruler.svg"></p>
 </div>
+<div class='textcard'>
+  <p>rakendus, milles on teostatud DHX protokoll (protokolli teostatavuse kontrolliks). Toimib ühtlasi näidisena ja testimisvahendina</p>
+</div>
+<div class='sihtryhm'>
+  <p>DHS-i arendaja</p>
+</div>
 
-<div class='card card-1' onmouseover="t(8)" onmouseout="c()">
+<div class='card card-1'>
   <p>ChangeMaster</p>
   <p><img style='fill: #9C27B0;' width='48px' src="auto-fix.svg"></p>
 </div>
+<div class='textcard'>
+  <p>inimene, kes aitab kõrvaldada üleminekul võimalikke takistusi ja anda rakendajatele nõu; ülemineku "koordinaator"</p>
+</div>
+<div class='sihtryhm'>
+  <p>DHS-i haldaja, IT juht, DHX-i vahendaja, DHS-i arendaja</p>
+</div>
 
-<div class='card card-1' onmouseover="t(9)" onmouseout="c()">
+<div class='card card-1'>
   <p>sertifitseerimine</p>
   <p><img style='fill: #9C27B0;' width='48px' src="checkbox-marked-circle-outline.svg"></p>
 </div>
+<div class='textcard'>
+  <p>teenus, milles sertifitseerija kontrollib DHX-i rakendamise õigsust ja väljastab vastava sertifikaadi</p>
+</div>
+<div class='sihtryhm'>
+  <p>IT juht, DHX-i vahendaja, DHS-i arendaja</p>
+</div>
 
-<div class='card card-1' onmouseover="t(10)" onmouseout="c()">
+<div class='card card-1'>
   <p>järelevalve</p>
   <p><img style='fill: #9C27B0;' width='48px' src="ghost.svg"></p>
 </div>
+<div class='textcard'>
+  <p>RIA järelevalve DHX vahendajate tegevuse üle</p>
+</div>
+<div class='sihtryhm'>
+  <p>DHS-i haldaja, IT juht, DHX-i vahendaja</p>
+</div>
 
-<div class='tekst'>&nbsp;</div>
-		
-<div class='card card-1' onmouseover="t(11)" onmouseout="c()">
+<div class='card card-1'>
   <p>avalik aadressiregister</p>
   <p><img style='fill: #9C27B0;' width='48px' src="format-align-justify.svg"></p>
 </div>
+<div class='textcard'>
+  <p>teenusena käitatav tööriist, mis näitab DHX-i võimekusega organisatsioonide nimekirja, sh DHX-i vahendajaid</p>
+</div>
+<div class='sihtryhm'>
+  <p>RIA (järelevalvajana), DHS-i haldaja, IT juht, DHX-i vahendaja</p>
+</div>
 
-<div class='card card-1' onmouseover="t(12)" onmouseout="c()">
+<div class='card card-1'>
   <p>testide komplekt</p>
   <p><img style='fill: #9C27B0;' width='48px' src="format-align-justify.svg"></p>
 </div>
+<div class='textcard'>
+  <p>testide komplekt, millega DHX-i rakendaja saab kontrollida, et on protokolli õigesti rakendanud</p>
+</div>
+<div class='sihtryhm'>
+  <p>DHS-i arendaja</p>
+</div>
 		
-<div class='tekst'>&nbsp;</div>
-
   </div>
 </div>
 

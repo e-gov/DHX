@@ -4,7 +4,7 @@ _Euroopa koosvõimeraamistiku (European Interoperability Framework. Draft interm
 
 ###Õiguslik koosvõime
 - [Asjaajamise ühtsed alused](https://www.riigiteataja.ee/akt/119062012007)
-- [Teenuste korraldamise ja teabehalduse alused](https://github.com/kinnisvara/infohalduse-tegevuskava/issues/25) _eelnõu menetluses_
+- [Teenuste korraldamise ja teabehalduse alused](https://eelnoud.valitsus.ee/main/mount/docList/e0e969c6-4e9f-4d95-952f-69a447623a2b) _eelnõu menetluses_
 - strateegia ["Dokumendihalduselt infohaldusele"](https://www.mkm.ee/et/tegevused-eesmargid/infouhiskond/dokumendihaldusest-infohalduseni)
 
 ###Organisatsiooniline koosvõime

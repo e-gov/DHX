@@ -21,8 +21,9 @@
 ## e-arved üleminekul DHX protokollile
 
 Üleminekuperioodil tagab DVK:
-1) vana, "DVK protokolliga" sissetulnud e-arve edastamise DHX- võimekuse loonud asutusele, vastavalt DHX protokollile.
-2) DHX protokolliga sissetulnud e-arve edastamise asutusele, kes ei ole veel DHX-le üle läinud.
+
+1. vana, "DVK protokolliga" sissetulnud e-arve edastamise DHX- võimekuse loonud asutusele, vastavalt DHX protokollile.
+2. DHX protokolliga sissetulnud e-arve edastamise asutusele, kes ei ole veel DHX-le üle läinud.
 
 ## Viited
 

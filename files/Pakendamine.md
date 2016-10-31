@@ -5,7 +5,7 @@ _ülevaade sellest, mis mille sees käib_
 #### Sisukord
 
 [HTTP sõnum (HTTP message)](#http-s%C3%B5num-http-message) | [interneti sõnumivorming (Internet Message Format)](#interneti-s%C3%B5numivorming-internet-message-format) 
-| [laiendatud, mitmeosaline sõnumivorming (MIME)](#laiendatud-mitmeosaline-s%C3%B5numivorming-mime) | [SOAP sõnum (SOAP messsage)](#soap-s%C3%B5num-soap-messsage) | [X-tee sõnum (X-Road message)](#x-tee-s%C3%B5num-x-road-message) | [Kapslis dokument](#kapslis-dokument) | [Elektroonilise andmevahetuse metaandmete loend](#elektroonilise-andmevahetuse-metaandmete-loend)
+| [laiendatud, mitmeosaline sõnumivorming (MIME)](#laiendatud-mitmeosaline-s%C3%B5numivorming-mime) | [SOAP sõnum (SOAP messsage)](#soap-s%C3%B5num-soap-messsage) | [X-tee sõnum (X-Road message)](#x-tee-s%C3%B5num-x-road-message) | [Kapslis dokument](#kapslis-dokument) | [Elektroonilise andmevahetuse metaandmete loend](#elektroonilise-andmevahetuse-metaandmete-loend) | [e-arve]()#e-arve)
 
 #### HTTP sõnum (_HTTP message_)
 - võib olla:
@@ -153,7 +153,10 @@ _ülevaade sellest, mis mille sees käib_
      - mõned pole veel 2.1-le üle läinud (nt Riigi Teataja)
    - DVK transleerib vanast uude
 
-
+#### E-arve
+ - ametlik standard EVS 923:2014 (vt link RaM [e-arvete lehel](http://www.fin.ee/e-arved))
+ - kirjeldus on ka Eesti Pangaliidu veebilehel [E-arve](http://www.pangaliit.ee/et/arveldused/e-arve)
+ - XML-vormingus dokument
 
 
   

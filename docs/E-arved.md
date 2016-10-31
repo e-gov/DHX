@@ -2,6 +2,13 @@
 
 31.10.2016
 
+[Ülevaade](#ulevaade)
+[e-arve edastamine DHX protokolliga](#e-arve-edastamine-dhx-protokolliga)
+[e-arved üleminekul DHX protokollile](e-arved-uleminekul-dhx-protokollile)
+[e-arveid DVK kaudu edastava operaatori tegevuskava](e-arveid-dvk-kaudu-edastava-operaatori-tegevuskava)
+[DVK-d mittekasutava operaatori tegevuskava](dvk-d-mittekasutava-operaatori-tegevuskava)
+[Viited](#viited)
+
 ## Ülevaade
 
 - Käesolev dokument selgitab, mida e-arvete töötlejad peavad teadma ja tegema seoses avaliku sektori üleminekuga hajusale dokumendivahetusele.
@@ -25,7 +32,7 @@
 1. vana, "DVK protokolliga" sissetulnud e-arve edastamise DHX- võimekuse loonud asutusele, vastavalt DHX protokollile.
 2. DHX protokolliga sissetulnud e-arve edastamise asutusele, kes ei ole veel DHX-le üle läinud.
 
-## 2	e-arveid DVK kaudu edastava operaatori tegevuskava
+## e-arveid DVK kaudu edastava operaatori tegevuskava
 
 __Lähteolukord - oktoober 2016__
 Kaks operaatorit (OP) – Fitek ja Omniva – kasutavad DVK-d e-arvete saatmiseks teatud hulgale DVK-ga liitunud asutustele (joonisel 1 AS1 ja AS2). Arve saatmine DVK-sse ja sealt edasi asutuse DHS-i toimub DVK liidese kaudu (joonisel DVK). DVK-ga liitunud asutused ja operaatorid on DVK kliendid. DVK kaudu saadab arveid ka Riigi Kinnisvara AS, keda võib siinses kontekstis käsitleda operaatoriga samal viisil.
@@ -85,12 +92,10 @@ Joonis 4
                  AS1 
 ```
 
-## 3	DVK-d mittekasutava operaatori tegevuskava
+## DVK-d mittekasutava operaatori tegevuskava
 
 - Operaator peaks uurima ja hindama, kas tema avaliku sektori kliendid, kes DHS-des niikuinii DHX-i rakendama hakkavad, sooviksid ka e-arvete liiklust DHX-i abil korraldada.
 - Kui teenuse osapooled (operaator ja klient) peavad asjakohaseks DHX-i rakendada, siis tuleb mõlemal oma süsteemis teostada DHX-i võimekuse loomiseks vajalikud arendustööd.
-
-
 
 ## Viited
 

@@ -29,7 +29,8 @@
 
 Üleminekuperioodil tagab DVK:
 
-1. vana, "DVK protokolliga" sissetulnud e-arve edastamise DHX- võimekuse loonud asutusele, vastavalt DHX protokollile.
+1. vana, "DVK protokolliga" sissetulnud e-arve edastamise DHX-i võimekuse loonud asutusele, vastavalt DHX protokollile.
+  Märkus. DHX-i võimekuse loonud asutusele edastab DVK e-rve dokumendivahetuse kapslisse v2.1 pakendatult - sest uusima kapsli kasutamist nõuab DHX protokoll (vt [DHX, 5.6 Kapsli kasutamine](https://e-gov.github.io/DHX/#56-kapsli-kasutamine)).
 2. DHX protokolliga sissetulnud e-arve edastamise asutusele, kes ei ole veel DHX-le üle läinud.
 
 ## e-arveid DVK kaudu edastava operaatori tegevuskava
@@ -48,7 +49,7 @@ Joonis 1
                  AS1  AS2
 ```
 Üleminekuperiood – asutus on DHX-le üle läinud
-Üleminekuperioodil loovad asutused oma dokumente vahetavates süsteemides DHX-i võimekuse . Joonis 2 kujutab olukorda, kus AS1 on DHX-i võimekuse juba loonud. Üleminekuperioodil tegutseb DVK DHX-i vahendajana . See tähendab, et operaatori OP saadetud e-arve saadab DVK asutusele AS1 edasi, nüüd juba DHX protokolli kaudu. Asutusele AS2, kes ei ole üle läinud, edastatakse e-arve endisel viisil.
+Üleminekuperioodil loovad asutused oma dokumente vahetavates süsteemides DHX-i võimekuse. Joonis 2 kujutab olukorda, kus AS1 on DHX-i võimekuse juba loonud. Üleminekuperioodil tegutseb DVK DHX-i vahendajana . See tähendab, et operaatori OP saadetud e-arve saadab DVK asutusele AS1 edasi, nüüd juba DHX protokolli kaudu. Asutusele AS2, kes ei ole üle läinud, edastatakse e-arve endisel viisil.
 
 Joonis 2
 ```

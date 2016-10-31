@@ -30,7 +30,7 @@
 Üleminekuperioodil tagab DVK:
 
 1. vana, "DVK protokolliga" sissetulnud e-arve edastamise DHX-i võimekuse loonud asutusele, vastavalt DHX protokollile.
-  Märkus. DHX-i võimekuse loonud asutusele edastab DVK e-rve dokumendivahetuse kapslisse v2.1 pakendatult - sest uusima kapsli kasutamist nõuab DHX protokoll (vt [DHX, 5.6 Kapsli kasutamine](https://e-gov.github.io/DHX/#56-kapsli-kasutamine)).
+  Märkus. DHX-i võimekuse loonud asutusele edastab DVK e-arve dokumendivahetuse kapslisse v2.1 pakendatult - sest uuema  kapslistandardi versiooni kasutamist nõuab DHX protokoll (vt [DHX, 5.6 Kapsli kasutamine](https://e-gov.github.io/DHX/#56-kapsli-kasutamine)).
 2. DHX protokolliga sissetulnud e-arve edastamise asutusele, kes ei ole veel DHX-le üle läinud.
 
 ## e-arveid DVK kaudu edastava operaatori tegevuskava

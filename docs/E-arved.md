@@ -82,7 +82,6 @@ DVK on tegevuse lõpetanud. Operaator OP saadab arveid asutusele AS1 otse. Mis s
 
 Joonis 4
 ```
-
   OP 
      \   
       \  e-arve         

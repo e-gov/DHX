@@ -26,6 +26,7 @@ Protokolli saab kasutada [MIT litsentsi alusel](LICENCE.txt).
   - 05 [Teenuse sendDocument spetsifikatsiooni täiendamine mittekohustusliku väljaga recipientSystem](files/Ettepanek-05.md) SISSE VIIDUD v 1.0.2
   - 06 [Muuta teenuse representationList laiendatavaks, sarnaselt teenusega sendDocument](files/Ettepanek-06.md) SISSE VIIDUD v 1.0.2
   - 07 [Parameetrite lisamine teenusesse representationList](files/Ettepanek-07.md) SISSE VIIDUD v 1.0.3
+- [Vormingutevahelised seosed](https://e-gov.github.io/DHX/Vormingud.html)
 
 #### Seonduvaid materjale
 - [E-arved hajusas dokumendivahetuses](docs/E-arved.md)

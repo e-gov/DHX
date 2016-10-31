@@ -4,9 +4,9 @@
 
 - [Ülevaade](#ulevaade)
 - [e-arve edastamine DHX protokolliga](#e-arve-edastamine-dhx-protokolliga)
-- [e-arved üleminekul DHX protokollile](e-arved-uleminekul-dhx-protokollile)
-- [e-arveid DVK kaudu edastava operaatori tegevuskava](e-arveid-dvk-kaudu-edastava-operaatori-tegevuskava)
-- [DVK-d mittekasutava operaatori tegevuskava](dvk-d-mittekasutava-operaatori-tegevuskava)
+- [e-arved üleminekul DHX protokollile](#e-arved-uleminekul-dhx-protokollile)
+- [e-arveid DVK kaudu edastava operaatori tegevuskava](#e-arveid-dvk-kaudu-edastava-operaatori-tegevuskava)
+- [DVK-d mittekasutava operaatori tegevuskava](#dvk-d-mittekasutava-operaatori-tegevuskava)
 - [Viited](#viited)
 
 ## Ülevaade

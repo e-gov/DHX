@@ -25,6 +25,73 @@
 1. vana, "DVK protokolliga" sissetulnud e-arve edastamise DHX- võimekuse loonud asutusele, vastavalt DHX protokollile.
 2. DHX protokolliga sissetulnud e-arve edastamise asutusele, kes ei ole veel DHX-le üle läinud.
 
+## 2	e-arveid DVK kaudu edastava operaatori tegevuskava
+
+__Lähteolukord - oktoober 2016__
+Kaks operaatorit (OP) – Fitek ja Omniva – kasutavad DVK-d e-arvete saatmiseks teatud hulgale DVK-ga liitunud asutustele (joonisel 1 AS1 ja AS2). Arve saatmine DVK-sse ja sealt edasi asutuse DHS-i toimub DVK liidese kaudu (joonisel DVK). DVK-ga liitunud asutused ja operaatorid on DVK kliendid. DVK kaudu saadab arveid ka Riigi Kinnisvara AS, keda võib siinses kontekstis käsitleda operaatoriga samal viisil.
+
+```
+Joonis 1
+         e-arve
+  OP ----------------> DVK
+         (DVK)       /|
+                    / |
+              (DVK)/  |(DVK)
+                  /   v
+                 AS1  AS2
+```
+Üleminekuperiood – asutus on DHX-le üle läinud
+Üleminekuperioodil loovad asutused oma dokumente vahetavates süsteemides DHX-i võimekuse . Joonis 2 kujutab olukorda, kus AS1 on DHX-i võimekuse juba loonud. Üleminekuperioodil tegutseb DVK DHX-i vahendajana . See tähendab, et operaatori OP saadetud e-arve saadab DVK asutusele AS1 edasi, nüüd juba DHX protokolli kaudu. Asutusele AS2, kes ei ole üle läinud, edastatakse e-arve endisel viisil.
+```
+Joonis 2
+
+
+
+         e-arve
+  OP ----------------> DVK
+         (DVK)       /|
+                    / |
+              (DHX)/  |(DVK)
+                  /   v
+                 AS1  AS2
+
+```
+
+Üleminekuperiood – operaator on DHX-le üle läinud
+Joonisel 3 on kujutatud olukorda, kus seni DVK-d kasutanud operaator OP on loonud DHX-i võimekuse. e-arve saadetakse nüüd vastavalt DHX protokollile: adressaadil AS1 on DHX-i võimekus – OP saadab talle e-arve otse; adressaadil AS2 ei ole veel DHX-i võimekust – OP saadab e-arve DVK kaudu. (Joonistelt 2 ja 3 on näha, et DVK suudab üleminekuperioodil toimida uue ja vana protokolli tõlkijana mõlemas suunas).
+```
+Joonis 3
+
+         e-arve
+  OP ----------------> DVK
+     \    (DHX)       /|
+      \              / |
+       ---------    /  |(DVK)
+         (DHX)  \      v
+                 AS1  AS2
+
+```
+
+Pärast ülemineku lõppu
+DVK on tegevuse lõpetanud. Operaator OP saadab arveid asutusele AS1 otse. Mis sai asutusest AS2? Ka tema võis oma arveliikluse DHX-le üle viia; võib-olla aga leppis operaatoriga kokku muu kanali kasutamises.  
+```
+Joonis 4
+
+  OP 
+     \   
+      \  e-arve         
+       ---------   
+         (DHX)  \    
+                 AS1 
+```
+
+## 3	DVK-d mittekasutava operaatori tegevuskava
+
+- Operaator peaks uurima ja hindama, kas tema avaliku sektori kliendid, kes DHS-des niikuinii DHX-i rakendama hakkavad, sooviksid ka e-arvete liiklust DHX-i abil korraldada.
+- Kui teenuse osapooled (operaator ja klient) peavad asjakohaseks DHX-i rakendada, siis tuleb mõlemal oma süsteemis teostada DHX-i võimekuse loomiseks vajalikud arendustööd.
+
+
+
 ## Viited
 
 [Dokumendivahetusprotokoll DHX](https://e-gov.github.io/DHX/)

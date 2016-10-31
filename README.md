@@ -27,6 +27,9 @@ Protokolli saab kasutada [MIT litsentsi alusel](LICENCE.txt).
   - 06 [Muuta teenuse representationList laiendatavaks, sarnaselt teenusega sendDocument](files/Ettepanek-06.md) SISSE VIIDUD v 1.0.2
   - 07 [Parameetrite lisamine teenusesse representationList](files/Ettepanek-07.md) SISSE VIIDUD v 1.0.3
 
+#### Seonduvaid materjale
+- [E-arved hajusas dokumendivahetuses](docs/E-arved.md)
+
 #### Taustamaterjale
 - [Kirjandus](files/Kirjandus.md)
 - [Dokumendihalduse "ökosüsteem"](files/DOK-S.md)

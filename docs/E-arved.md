@@ -6,6 +6,8 @@ Märkus. Käesolev dokument on arenduses olev töödokument. Dokument ei ole kin
 
 31.10.2016
 
+Käesolev dokument selgitab, mida e-arvete töötlejad peavad teadma ja tegema seoses avaliku sektori üleminekuga hajusale dokumendivahetusele.
+
 - [Ülevaade](#ulevaade)
 - [e-arve edastamine DHX protokolliga](#e-arve-edastamine-dhx-protokolliga)
 - [e-arved üleminekul DHX protokollile](#e-arved-uleminekul-dhx-protokollile)
@@ -13,9 +15,8 @@ Märkus. Käesolev dokument on arenduses olev töödokument. Dokument ei ole kin
 - [DVK-d mittekasutava operaatori tegevuskava](#dvk-d-mittekasutava-operaatori-tegevuskava)
 - [Viited](#viited)
 
-## Ülevaade
+## Üleminek
 
-- Käesolev dokument selgitab, mida e-arvete töötlejad peavad teadma ja tegema seoses avaliku sektori üleminekuga hajusale dokumendivahetusele.
 - Ülemineku peamised osad on: a) dokumendivahetusprotokolli DHX kasutuselevõtmine dokumente vahetavates süsteemides; b)  dokumendivahetuskeskuse (DVK) sulgemine.
 - Ülemineku ettevalmistusi on tehtud 2015. aastast.
 - Praeguseks on välja töötatud ja kinnitatud protokoll DHX (https://e-gov.github.io/DHX/). DHX saab universaalseks, turvaliseks elektrooniliste dokumentide vastuvõtmise ja saatmise kanaliks. Prognoosime, et valdav enamus asutusi võtab DHX-i kasutusele, eelkõige dokumendihaldussüsteemides (DHS). (DHX-i võib kasutada ka muudes dokumente vahetavates süsteemides).

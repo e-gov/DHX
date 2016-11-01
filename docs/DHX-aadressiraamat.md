@@ -41,6 +41,10 @@ __DHX aadressiraamat__ on tööriist, mille abil hajusale dokumendihaldusele ül
 
 ## Lahendus
 
+1. Arhitektuurijoonis
+
+![](DHX-AR-01.PNG)
+
 1. __Töövoog__ Tööriist peab realiseerima protsessi:
    - pöördumine
       - X-tee globaalse konfiguratsiooni

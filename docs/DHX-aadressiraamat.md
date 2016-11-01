@@ -49,7 +49,7 @@ Spetsifikatsioonis kasutatakse [Dokumendivahetusprotokolli DHX mõisteid ja lüh
 
 Joonis 1
 
-![](DHX-AR-01.PNG)
+![](DHX-AR-02.PNG)
 
 4.2 __Komponendid__ Tööriist koosneb järgmistest komponentidest:
   - _DHX aadressiraamatu koostaja_, lühidalt _Koostaja_ - Java rakendus, mis koostab ajahetke aadressiraamatu ja salvestab selle failina kataloogi.
@@ -75,11 +75,11 @@ Joonis 1
 
 ## 5 Ei ole skoobis
 
-5.1 __DHX-i „aadressiraamatut“ ei pakuta masinloetavalt.__
+5.1 __DHX-i „aadressiraamatut“ ei pakuta masinloetavalt__
   - DHX-i rakendav infosüsteem peab, DHX protokolli kohaselt, dokumendiedastuseks vajaliku aadressiotsingu teostama lokaalselt (https://e-gov.github.io/DHX/#74-lokaalne-aadressiraamat).
   - Samas on tööriist projekteeritud nii, et vajadusel saab masintöödeldavat väljundit (JSON) väikese täiendusega kasutada.
 
-5.2 __RIHA andmete kasutamine.__ Tööriist esimeses teostuses ei haara RIHAs registreeritavat teavet. RIHAst pakuks huvi see, kuidas asutused märgivad end dokumendihalduse standardlahenduste kasutajateks ja DHX-i vahendajaid oma DHS-de volitatud töötlejateks. Nimetatud protsess ei ole veel põhjalikult läbi analüüsitud. Samuti puudub RIHA-l praegu võime nimetatud andmeid masinloetaval kujul välja anda. Tööriista täiendamine RIHA andmete hõivamisega on võimalik tulevikus.
+5.2 __RIHA andmete kasutamine__ Tööriist esimeses teostuses ei haara RIHAs registreeritavat teavet. RIHAst pakuks huvi see, kuidas asutused märgivad end dokumendihalduse standardlahenduste kasutajateks ja DHX-i vahendajaid oma DHS-de volitatud töötlejateks. Nimetatud protsess ei ole veel põhjalikult läbi analüüsitud. Samuti puudub RIHA-l praegu võime nimetatud andmeid masinloetaval kujul välja anda. Tööriista täiendamine RIHA andmete hõivamisega on võimalik tulevikus.
 
 5.3 __laiapõhjalisem DHX dokumendiliikluse, sh DHX vahendamise monitooring ja statistika__ Tööriist on mõeldud kitsa (aga olulise) teabevajaduse rahuldamiseks. Laiema ja sügavama monitooringu ning statistika tegemiseks võivad olla kasulikud X-tee monitooringulahendus vm vahendid.  
 

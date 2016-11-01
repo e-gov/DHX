@@ -22,12 +22,12 @@ __DHX aadressiraamat__ on tööriist, mille abil hajusale dokumendihaldusele ül
 
 ## 2 Mõisted ja lühendid
 
-Spetsifikatsioonis kasutatakse [Dokumendivahetusprotokolli DHX mõisteid ja lühendeid](https://e-gov.github.io/DHX/#3-m%C3%B5isted-ja-l%C3%BChendid).
+Lisaks allolevatele kasutatakse spetsifikatsioonis [dokumendivahetusprotokolli DHX mõisteid ja lühendeid](https://e-gov.github.io/DHX/#3-m%C3%B5isted-ja-l%C3%BChendid).
 
 | mõiste | seletus |
 |--------|---------|
 | _ajapildistus_ | mingil ajamomendil koostatud DHX aadressiraamat. Ajapildistus salvestatakse faili masintöödeldavas vormingus (JSON) ja teisendatakse enne RIA veebilehel avaldamist HTML-i. |
-| _DHX aadressiraamat_, _DHX AR_ | konkreetse ajamomendiga seotud nimekiri, mis näitab ajamomendil: 1) DHX-i võimekust omanud asutusi; 2) DHX-i vahendajaid ja nende kliente. Asutused ja ettevõtted esitatakse nimekirjas registrikoodide ja nimetuste kaudu, sorteeritult. |
+| _DHX aadressiraamat_, _DHX AR_ | konkreetse ajamomendiga seotud nimekiri, mis näitab: 1) ajamomendil DHX-i võimekust omanud asutusi; 2) ajamomendil tegutsenud DHX-i vahendajaid ja nende kliente. Asutused ja ettevõtted esitatakse nimekirjas registrikoodide ja nimetuste kaudu, sorteeritult. |
 
 ## 3 Vajadus
 
@@ -92,6 +92,10 @@ Joonis 1
   - ISKE turbeaste - M (madal).
 
 6.2 __Olemasolevate komponentide kasutamine__ Tööriista programmeerimiseks vajalikud tarkvarakomponendid on suures osas DHX etalonteostuse käigus juba loodud. Vt [DHX adapter](https://github.com/e-gov/DHX-adapter).
+
+6.3 __MFN__ Rakenduvad RIA MFN, eriti Java ja logimise osas.
+
+6.4 __Dokumentatsioon__ Rakenduvad RIA dokumentatsiooniplaani nõuded.
 
 6.3. __Arendustöö maht ja keerukus__ Hinnanguliselt väike.
 

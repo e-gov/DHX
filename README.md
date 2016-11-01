@@ -61,7 +61,7 @@ _Lahtiütlus. Käesoleva repositooriumi sisu - kui ei ole öeldud teisiti - on a
 
 #### EN
 
-- [Text](docs/EN.html)
+- __[Protocol Text](docs/EN.html)__
 - [Overview](https://github.com/e-gov/DHX/blob/master/files/Overview.md)
 - [Presentation](https://github.com/e-gov/DHX/blob/master/files/DHX_EN%20%282%29.pdf) (with a very brief discussion of X-Road)
 - [Discussion page](https://github.com/e-gov/DHX/issues)

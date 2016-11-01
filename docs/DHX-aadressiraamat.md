@@ -108,5 +108,5 @@ Joonis 1
 | versioon, kuupäev | muudatus |
 |-------------------|----------|
 | v0.1 28.10.2016   | algversioon, vt https://github.com/e-gov/DHX/issues/41 |
-| v0.2 01.11.2016   | detailiseering |
+| v0.2 01.11.2016   | detailiseering; lisatud faili kaudu avaldamine |
 

@@ -97,7 +97,7 @@ Joonis 1
 
 6.4 __Dokumentatsioon__ Rakenduvad RIA dokumentatsiooniplaani nõuded.
 
-6.3. __Arendustöö maht ja keerukus__ Hinnanguliselt väike.
+6.5. __Arendustöö maht ja keerukus__ Hinnanguliselt väike.
 
 ## Viited
 

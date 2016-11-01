@@ -41,15 +41,19 @@ __DHX aadressiraamat__ on tööriist, mille abil hajusale dokumendihaldusele ül
 
 ## Lahendus
 
-1. Luua lihtne tööriist, mis:
-   - pöörduks
+1. __Töövoog__ Tööriist peab realiseerima protsessi:
+   - pöördumine
       - X-tee globaalse konfiguratsiooni
       - ja X-teel publitseeritavate DHX-i vahendusnimekirjade poole,
-   - koguks sealt teabe ülalnimetatud kolmele küsimusele vastamiseks
-   - ning esitaks veebiliidese kaudu inimkasutajale.
-2. Tööriista põhikasutajaks on RIA teenusehaldurid ja ülemineku koordinaator, kes kasutavad teavet erinevate sihtrühmade nõustamiseks, probleemide lahendamiseks, üleminekuprotsessi seireks ja statistika andmiseks dokumendihaldust koordineerivale üksusele ITAO-le.
+   - sealt teabe kogumine ülalnimetatud kolmele küsimusele vastamiseks
+   - teabe esitaks veebiliidese kaudu inimkasutajale.
+
+2. __Kasutajad__
+  - Teenus on suunatud inimkasutajatele (DHX-i planeerijale, arendajale, haldajale, dokumendihalduse koordinaatorile).
+  - Kasutajad võivad olla nii RIA-sisesed kui ka välised.
+  - Tööriista põhikasutajaks on RIA teenusehaldurid ja ülemineku koordinaator, kes kasutavad teavet erinevate sihtrühmade nõustamiseks, probleemide lahendamiseks, üleminekuprotsessi seireks ja statistika andmiseks dokumendihaldust koordineerivale üksusele ITAO-le.
+  
 3. Tööriist peaks olema konfigureeritav nii, et teenuse saaks avalikult avada. (X-tee globaalne konfiguratsioon on tehniliselt avalik, DHX-i vahendusnimekirjade avalikkuse kohta tuleb seisukoht kujundada.)
-4. Terminoloogia: Tööriista abil esitatav nimistu on sisuliselt DHX-i „aadressiraamat“.
 
 ## Ei ole skoobis
 
@@ -60,7 +64,7 @@ Tööriist pakuks ainult hetkeseisu teavet. Ajalugu võib olla vajalik, eelkõig
 
 ## Teostus
 
-Teenus on suunatud inimkasutajale (DHX-i planeerijale, arendajale, haldajale, dokumendihalduse koordinaatorile). Käideldavusnõue on madal.
+Käideldavusnõue on madal.
 Tööriista programmeerimiseks vajalikud tarkvarakomponendid on DHX etalonteostuse käigus juba loodud. Kokkupanemise maht on väike.
 Tööriistaga ei looda uusi andmeid, andmebaasi ei vaja.
 Analüüsi vajab küsimus, kas DHX-i aadressiraamat peaks tervikuna või osaliselt olema avalik. Kui mitte, siis on vaja autentimist ja pääsuhaldust.

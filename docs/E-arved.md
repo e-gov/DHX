@@ -1,12 +1,14 @@
 _kavand_
 
-Lahtiütlus. Käesolev dokument on arenduses olev töödokument. Dokument ei ole kinnitatud ega ametlikult publitseeritud. Dokument täieneb, eelkõige tehniliste detailide osas. Arvamused dokumendi kohta palume saata: Riigi Infosüsteemi Amet, Eneli Järve, 663 0278, eneli.jarve@ria.ee
+_Lahtiütlus. Käesolev dokument on arenduses olev töödokument. Dokument ei ole kinnitatud ega ametlikult publitseeritud. Dokument täieneb, eelkõige tehniliste detailide osas._
+
+Arvamused dokumendi kohta palume saata: Riigi Infosüsteemi Amet, Eneli Järve, 663 0278, eneli.jarve@ria.ee
 
 # E-arved hajusas dokumendivahetuses
 
 01.11.2016
 
-Käesolev dokument selgitab, mida e-arvete töötlejatel peavad teadma ja tegema seoses avaliku sektori üleminekuga hajusale dokumendivahetusele.
+Käesolev dokument selgitab, mida e-arvete töötlejad peavad teadma ja tegema seoses avaliku sektori üleminekuga hajusale dokumendivahetusele.
 
 - [Ülevaade](#ulevaade)
 - [e-arve edastamine DHX protokolliga](#e-arve-edastamine-dhx-protokolliga)
@@ -15,7 +17,7 @@ Käesolev dokument selgitab, mida e-arvete töötlejatel peavad teadma ja tegema
 - [DVK-d mittekasutava operaatori tegevuskava](#dvk-d-mittekasutava-operaatori-tegevuskava)
 - [Viited](#viited)
 
-## Üleminek
+## 1 Üleminek
 
 - Ülemineku peamised osad on: a) dokumendivahetusprotokolli DHX kasutuselevõtmine dokumente vahetavates süsteemides; b)  dokumendivahetuskeskuse (DVK) sulgemine.
 - Ülemineku ettevalmistusi on tehtud 2015. aastast.
@@ -24,13 +26,13 @@ Käesolev dokument selgitab, mida e-arvete töötlejatel peavad teadma ja tegema
 - Koostatakse ja avaldatakse üleminekukava ja juhised (veebruar 2017. a).
 - Üleminek algab praegu veel kindlaks määramata kuupäeval, eeldatavalt 2017. a aprillis ja kestab 2018. a lõpuni.
 
-## e-arve edastamine DHX protokolliga
+## 2  e-arve edastamine DHX protokolliga
 
 - DHX-i võib edukalt kasutada e-arvete edastamiseks. Prognoosime, et paljud asutused, aga ka e-arve edastusteenuse osutajad (nn „operaatorid“) soovivad DHX-i kasutada e-arvete edastamiseks.
 - DHX-i kasutamisel tuleb e-arve käsitada dokumendina avaliku sektori dokumendihalduse tähenduses. Vt [DHX, 3 Mõisted ja lühendid](https://e-gov.github.io/DHX/#3-m%C3%B5isted-ja-l%C3%BChendid).
 - Dokumendi edastamisel DHX-i protokolli kohaselt tuleb dokument asetada avaliku sektori metandmete kapslisse. Vt [DHX, 5.6 Kapsli kasutamine](https://e-gov.github.io/DHX/#56-kapsli-kasutamine).
 
-## e-arved üleminekul DHX protokollile
+## 3  e-arved üleminekul DHX protokollile
 
 Üleminekuperioodil tagab DVK:
 
@@ -38,9 +40,9 @@ Käesolev dokument selgitab, mida e-arvete töötlejatel peavad teadma ja tegema
   Märkus. DHX-i võimekuse loonud asutusele edastab DVK e-arve dokumendivahetuse kapslisse v2.1 pakendatult - sest uuema  kapslistandardi versiooni kasutamist nõuab DHX protokoll (vt [DHX, 5.6 Kapsli kasutamine](https://e-gov.github.io/DHX/#56-kapsli-kasutamine)).
 2. DHX protokolliga sissetulnud e-arve edastamise asutusele, kes ei ole veel DHX-le üle läinud.
 
-## e-arveid DVK kaudu edastava operaatori tegevuskava
+## 4 e-arveid DVK kaudu edastava operaatori tegevuskava
 
-Märkus. Käesolev jaotis puudutab ainult neid ettevõtteid ja asutusi, kes kasutavad e-arvete edastamiseks DVK-d.
+_Märkus. Käesolev jaotis puudutab ainult neid ettevõtteid ja asutusi, kes kasutavad e-arvete edastamiseks DVK-d._
 
 __Lähteolukord - oktoober 2016__
 Kaks operaatorit (OP) – Fitek ja Omniva – kasutavad DVK-d e-arvete saatmiseks teatud hulgale DVK-ga liitunud asutustele (joonisel 1 AS1 ja AS2). Arve saatmine DVK-sse ja sealt edasi asutuse DHS-i toimub DVK liidese kaudu (joonisel DVK). DVK-ga liitunud asutused ja operaatorid on DVK kliendid. DVK kaudu saadab arveid ka Riigi Kinnisvara AS, keda võib siinses kontekstis käsitleda operaatoriga samal viisil.
@@ -98,11 +100,11 @@ Joonis 4
                  AS1 
 ```
 
-## DVK-d mittekasutava operaatori tegevuskava
+## 5 DVK-d mittekasutava operaatori tegevuskava
 
 - Operaator peaks uurima ja hindama, kas tema avaliku sektori kliendid, kes DHS-des niikuinii DHX-i rakendama hakkavad, sooviksid ka e-arvete liiklust DHX-i abil korraldada.
 - Kui teenuse osapooled (operaator ja klient) peavad asjakohaseks DHX-i rakendada, siis tuleb mõlemal oma süsteemis teostada DHX-i võimekuse loomiseks vajalikud arendustööd.
 
-## Viited
+## 6 Viited
 
 [Dokumendivahetusprotokoll DHX](https://e-gov.github.io/DHX/)

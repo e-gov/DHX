@@ -8,7 +8,7 @@
 
 DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimaldab Eesti avaliku sektori dokumendihaldussüsteemidel vahetada dokumente hajus- e detsentraliseeritud põhimõttel.
 
-- __[Tekst](https://e-gov.github.io/DHX)__
+- __[Protokoll](https://e-gov.github.io/DHX)__ _kinnitatud, ametlik tekst_
 - [Esitlus](http://slides.com/priitparmakson/dhx/fullscreen)
 - [Etalonteostus](https://dhxdemo.eesti.ee/)
 - [Analüüs](https://github.com/e-gov/DHX/blob/master/files/Hajusa_dokumendivahetuse_andmevahetusprotokolli_DHX_anal%C3%BC%C3%BCs_1.2.pdf)
@@ -27,6 +27,7 @@ Protokolli saab kasutada [MIT litsentsi alusel](LICENCE.txt).
   - 06 [Muuta teenuse representationList laiendatavaks, sarnaselt teenusega sendDocument](files/Ettepanek-06.md) SISSE VIIDUD v 1.0.2
   - 07 [Parameetrite lisamine teenusesse representationList](files/Ettepanek-07.md) SISSE VIIDUD v 1.0.3
 - [Vormingutevahelised seosed](https://e-gov.github.io/DHX/Vormingud.html)
+- [E-arved hajusas dokumendivahetuses](docs/E-arved.md) _töödokument_
 
 #### Seonduvaid materjale
 - [E-arved hajusas dokumendivahetuses](docs/E-arved.md)
@@ -55,6 +56,8 @@ Projekt tagab ettevalmistused riigile tehnoloogiliselt, organisatoorselt optimaa
 Projekti hankija on Riigi Infosüsteemi Amet ja täitja BPW Consulting OÜ. Projekti rahastatakse Euroopa Liidu struktuurifondide toetusega.
 
 Projektijuht: Eneli Järve https://github.com/EneliJarve, Riigi Infosüsteemi Amet, 663 0278, eneli.jarve@ria.ee
+
+_Lahtiütlus. Käesoleva repositooriumi sisu - kui ei ole öeldud teisiti - on arenduses olevad töödokumendid, mis ei ole kinnitatud ega ametlikult publitseeritud. Dokumentatsioon võib täieneda._
 
 #### EN
 

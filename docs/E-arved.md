@@ -10,12 +10,12 @@ Arvamused dokumendi kohta palume saata: Riigi Infosüsteemi Amet, Eneli Järve, 
 
 Käesolev dokument selgitab, mida e-arvete töötlejad peavad teadma ja tegema seoses avaliku sektori üleminekuga hajusale dokumendivahetusele.
 
-- [Ülevaade](#ulevaade)
-- [e-arve edastamine DHX protokolliga](#e-arve-edastamine-dhx-protokolliga)
-- [e-arved üleminekul DHX protokollile](#e-arved-uleminekul-dhx-protokollile)
-- [e-arveid DVK kaudu edastava operaatori tegevuskava](#e-arveid-dvk-kaudu-edastava-operaatori-tegevuskava)
-- [DVK-d mittekasutava operaatori tegevuskava](#dvk-d-mittekasutava-operaatori-tegevuskava)
-- [Viited](#viited)
+- [1 Üleminek](#1-ulevaade)
+- [2 e-arve edastamine DHX protokolliga](#2-e-arve-edastamine-dhx-protokolliga)
+- [3 e-arved üleminekul DHX protokollile](#3-e-arved-uleminekul-dhx-protokollile)
+- [4 e-arveid DVK kaudu edastava operaatori tegevuskava](#4-e-arveid-dvk-kaudu-edastava-operaatori-tegevuskava)
+- [5 DVK-d mittekasutava operaatori tegevuskava](#5-dvk-d-mittekasutava-operaatori-tegevuskava)
+- [6 Viited](#6-viited)
 
 ## 1 Üleminek
 

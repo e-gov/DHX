@@ -28,6 +28,7 @@ Protokolli saab kasutada [MIT litsentsi alusel](LICENCE.txt).
   - 07 [Parameetrite lisamine teenusesse representationList](files/Ettepanek-07.md) SISSE VIIDUD v 1.0.3
 - [Vormingutevahelised seosed](https://e-gov.github.io/DHX/Vormingud.html)
 - [E-arved hajusas dokumendivahetuses](docs/E-arved.md) _töödokument_
+- [DHX aadressiraamat](docs/DHX-aadressiraamat.md) _spetsifikatsioon_
 
 #### Seonduvaid materjale
 - [E-arved hajusas dokumendivahetuses](docs/E-arved.md)

@@ -58,7 +58,8 @@ __DHX aadressiraamat__ on tööriist, mille abil hajusale dokumendihaldusele ül
 ## Ei ole skoobis
 
 1. __DHX-i „aadressiraamatut“ ei pakuta masinloetavalt.__ DHX-i rakendav infosüsteem peab, DHX protokolli kohaselt, dokumendiedastuseks vajaliku aadressiotsingu teostama lokaalselt (https://e-gov.github.io/DHX/#74-lokaalne-aadressiraamat).
-Tööriist pakuks ainult hetkeseisu teavet. Ajalugu võib olla vajalik, eelkõige DHX-i vahendajatega seotud probleemide ja järelevalve teostamiseks. Seda oleks siiski tunduvalt raskem teostada, vajadusel saab pöörduda X-tee logide poole.
+
+1. Ajalugu võib olla vajalik, eelkõige DHX-i vahendajatega seotud probleemide ja järelevalve teostamiseks. Seda oleks siiski tunduvalt raskem teostada, vajadusel saab pöörduda X-tee logide poole.
 
 2. __RIHA andmete kasutamine.__ Tööriist esimeses teostuses ei haara RIHAs registreeritavat teavet. RIHAst pakuks huvi see, kuidas asutused märgivad end dokumendihalduse standardlahenduste kasutajateks ja DHX-i vahendajaid oma DHS-de volitatud töötlejateks. Nimetatud protsess ei ole veel põhjalikult läbi analüüsitud. Samuti puudub RIHA-l praegu võime nimetatud andmeid masinloetaval kujul välja anda. Tööriista täiendamine RIHA andmete hõivamisega on võimalik tulevikus.
 

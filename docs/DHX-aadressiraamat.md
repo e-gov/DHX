@@ -4,7 +4,7 @@
 
 Spetsifikatsioon
 
-v0.2 01.11.2016
+v0.3 03.11.2016
 
 Sisukord
 
@@ -36,6 +36,7 @@ Lisaks allolevatele kasutatakse spetsifikatsioonis [dokumendivahetusprotokolli D
   1. kes on DHX-i vahendajad?
   2. millised asutused on DHX-i vahendajate kliendid?
   3. kes asutustest on DHX-ile juba üle läinud?
+  4. millised muutused on toimunud viimasel ajal?
 2. Vajame jooksvat ülevaadet ülemineku seisust.
 3. Vajalik teave sisaldub mitmes allikas:
   1. X-tee globaalses konfiguratsioonis
@@ -55,14 +56,15 @@ Joonis 1
 4.2 __Komponendid__ Tööriist koosneb järgmistest komponentidest:
   - _DHX aadressiraamatu koostaja_, lühidalt _Koostaja_ - Java rakendus, mis koostab ajahetke aadressiraamatu ja salvestab selle failina kataloogi.
   - _Kataloog_ - failikataloog, kuhu kogunevad ajapildistused.
-  - _Ülespanija_ - skript, mis käib perioodiliselt ajapildistuste kataloogi kontrollimas, võtab kõige uuema faili, teeb selle inimoetavaks (JSON -> HTML teisendus) ja paneb RIA veebilehele üles.
+  - _Ülespanija_ - skript, mis käib perioodiliselt ajapildistuste kataloogi kontrollimas, võtab kõige uuema faili, teeb selle inimloetavaks (JSON -> HTML teisendus) ja paneb RIA veebilehele üles.
+    - seejuures võrdleb viimast faili eelviimasega ning toob välja toimunud muutused.
   - _RIA veeb_ - DHX aadressiraamat publitseeritakse inimloetaval kujul (HTML) RIA veebi asjakohases sektsioonis.  
 
 4.3 __Töövoog__ Tööriist peab realiseerima protsessi:
    - pöördumine
       - X-tee globaalse konfiguratsiooni
       - ja X-teel publitseeritavate DHX-i vahendusnimekirjade poole,
-   - sealt teabe kogumine ülalnimetatud kolmele küsimusele vastamiseks
+   - sealt teabe kogumine ülalnimetatud neljale küsimusele vastamiseks
    - teabe esitaks veebiliidese kaudu inimkasutajale.
 
 4.4 __Kasutajad__
@@ -82,7 +84,9 @@ Joonis 1
 
 5.2 __RIHA andmete kasutamine__ Tööriist esimeses teostuses ei haara RIHAs registreeritavat teavet. RIHAst pakuks huvi see, kuidas asutused märgivad end dokumendihalduse standardlahenduste kasutajateks ja DHX-i vahendajaid oma DHS-de volitatud töötlejateks. Nimetatud protsess ei ole veel põhjalikult läbi analüüsitud. Samuti puudub RIHA-l praegu võime nimetatud andmeid masinloetaval kujul välja anda. Tööriista täiendamine RIHA andmete hõivamisega on võimalik tulevikus.
 
-5.3 __laiapõhjalisem DHX dokumendiliikluse, sh DHX vahendamise monitooring ja statistika__ Tööriist on mõeldud kitsa (aga olulise) teabevajaduse rahuldamiseks. Laiema ja sügavama monitooringu ning statistika tegemiseks võivad olla kasulikud X-tee monitooringulahendus vm vahendid.  
+5.3 __laiapõhjalisem DHX dokumendiliikluse, sh DHX vahendamise monitooring ja statistika__ Tööriist on mõeldud kitsa (aga olulise) teabevajaduse rahuldamiseks. Laiema ja sügavama monitooringu ning statistika tegemiseks võivad olla kasulikud X-tee monitooringulahendus vm vahendid.
+
+5.4 __aadressiraamatu koostamine inimkasutaja "nupuvajutuse" peale__ See võiks olla kasulik, kuid nõuaks keerukamat teostust ja otsustamist, kas juurdepääs aadressiraamatu koostamise nupule peaks olema piiratud.
 
 ## 6 Teostus
 
@@ -110,4 +114,4 @@ Joonis 1
 |-------------------|----------|
 | v0.1 28.10.2016   | algversioon, vt https://github.com/e-gov/DHX/issues/41 |
 | v0.2 01.11.2016   | detailiseering; lisatud faili kaudu avaldamine |
-
+| v0.3 03.11.2016   | lisatud viimase ajapildistusega võrreldes toimunud muutuste kuvamine; aadressiraamatu koostamine kasutaja nupuvajutuse peale (ei ole skoobis) |

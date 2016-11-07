@@ -9,15 +9,16 @@
 DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimaldab Eesti avaliku sektori dokumendihaldussüsteemidel vahetada dokumente hajus- e detsentraliseeritud põhimõttel.
 
 - __[Protokoll](https://e-gov.github.io/DHX)__ _kinnitatud, ametlik tekst_
-- [Esitlus](http://slides.com/priitparmakson/dhx/fullscreen)
-- [Etalonteostus](https://dhxdemo.eesti.ee/)
-- [Analüüs](https://github.com/e-gov/DHX/blob/master/files/Hajusa_dokumendivahetuse_andmevahetusprotokolli_DHX_anal%C3%BC%C3%BCs_1.2.pdf)
+- [DHX Adapter](https://github.com/e-gov/DHX-adapter) _tarkvarakomponendid DHX-i rakendajatele_
+- ![](img/ruler.png) [Etalonteostus](https://dhxdemo.eesti.ee/)
+- ![](img/auto-fix.png) Rakendamise koordineerimine _tuleb_
 
 Protokolli saab kasutada [MIT litsentsi alusel](LICENCE.txt).
 
 ### Protokolli arendamine
 - [Foorum](https://github.com/e-gov/DHX/issues)
 - [Osale arenduses](CONTRIBUTING.md)
+- [Analüüs](https://github.com/e-gov/DHX/blob/master/files/Hajusa_dokumendivahetuse_andmevahetusprotokolli_DHX_anal%C3%BC%C3%BCs_1.2.pdf)
 - Ettepanekud
   - 01 [Asünkroonne kättesaamiskinnitus](files/Ettepanek-01.md#as%C3%BCnkroonne-k%C3%A4ttesaamiskinnitus) TAGASI LÜKATUD
   - 02 [Mitut DHS-i toetav nimemuster](files/Ettepanek-02.md#mitut-dhs-i-toetav-nimemuster) SISSE VIIDUD v 1.0
@@ -29,6 +30,7 @@ Protokolli saab kasutada [MIT litsentsi alusel](LICENCE.txt).
 - [Vormingutevahelised seosed](https://e-gov.github.io/DHX/Vormingud.html)
 - [E-arved hajusas dokumendivahetuses](docs/E-arved.md) _töödokument_
 - [DHX aadressiraamat](docs/DHX-aadressiraamat.md) _spetsifikatsioon_
+- [Esitlus](http://slides.com/priitparmakson/dhx/fullscreen)
 
 #### Seonduvaid materjale
 - [E-arved hajusas dokumendivahetuses](docs/E-arved.md)

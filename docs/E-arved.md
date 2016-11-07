@@ -19,9 +19,12 @@ Käesolev dokument on suunatud DVK kaudu e-arveid vahetavatele asutustele ja ett
 
 ## 1 E-arvete edastamine DVK kaudu seni (AS IS)
 
-Operaatorid saadavad praegu DVK kaudu e-arveid kasutades Kapsli 1.0 versiooni. 
+Operaatorid saadavad praegu DVK kaudu e-arveid kasutades Kapsli 1.0 versiooni.
+
 1.	Operaator saadab E-arve DVK-sse teenusega `sendDocuments.v1`
+
 2.	E-arve saatja määratleb `sendDcouments.v1` päringu sisendis `<kaust>` parameetri väärtuseks `/ARVED`
+
 ```
 <SOAP-ENV:Body>
   <dhl:sendDocuments>
@@ -32,8 +35,11 @@ Operaatorid saadavad praegu DVK kaudu e-arveid kasutades Kapsli 1.0 versiooni.
   </dhl:sendDocuments>
 </SOAP-ENV:Body>
 ```
+
 3.	DVK Kapsel saadetakse `sendDcouments.v1` päringus manusena. Operaatorid kasutavad e-arvete korral 1.0 kapsli veriooni. 
+
 4.	DVK Kapsel sisaldab `<transport>` elemendis üldjuhul kolme parameetrit `<saatja>`, `<saaja>` ja `<vahendaja>`
+
 5.	DVK Kapsel sisaldab `<metaxml>` blokis dokumendi liigi elementi `<rkel:Type>arve</rkel:Type>` (uues kapsli 2.1 versioonis vastab sellele `<RecordType>arve</RecordType>`)
 
 ## 2 E-arvete edastamine DHX protokolli kaudu (TO BE)

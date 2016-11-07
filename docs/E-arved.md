@@ -9,14 +9,22 @@ v 0.2 | 07.11.2016
 - [1 Ülevaade](#1-Ülevaade)
 - [2 E-arvete edastamine DVK kaudu seni (AS IS)](#1-e-arvete-edastamine-dvk-kaudu-seni-as-is)
 - [3 E-arvete edastamine DHX protokolli kaudu (TO BE)](#2-e-arvete-edastamine-dhx-protokolli-kaudu-to-be)
-- [3.1 Kapsli v2.1 kasutamine E-arvete saatmiseks](#kapsli-v21-kasutamine-e-arvete-saatmiseks)
+  - [3.1 Kapsli v2.1 kasutamine E-arvete saatmiseks](#kapsli-v21-kasutamine-e-arvete-saatmiseks)
 - [4 Üleminek](#3-Üleminek)
 - [Viited](#viited)
 - [Muutelugu](#muutelugu)
 
 ## 1 Ülevaade
 
-Käesolev dokument on suunatud DVK kaudu e-arveid vahetavatele asutustele ja ettevõtetele: e-arvete saatjatele, operaatoritele, saajatele. Selgitame, mida tuleb erinevatel osapooltel teha seoses avaliku sektori üleminekuga hajusale dokumendivahetusele. Ülemineku peamised osad on: a) dokumendivahetusprotokolli DHX kasutuselevõtmine dokumente vahetavates süsteemides; b)  dokumendivahetuskeskuse (DVK) sulgemine.
+- Käesolev dokument on suunatud DVK kaudu e-arveid vahetavatele asutustele ja ettevõtetele: e-arvete saatjatele, operaatoritele, saajatele.
+- Selgitame, mida tuleb erinevatel osapooltel teha seoses avaliku sektori üleminekuga hajusale dokumendivahetusele.
+- Ülemineku peamised osad on:
+  - dokumendivahetusprotokolli DHX kasutuselevõtmine dokumente vahetavates süsteemides
+  - dokumendivahetuskeskuse (DVK) sulgemine.
+- Ülemineku ettevalmistusi on tehtud 2015. aastast. Praeguseks on välja töötatud ja kinnitatud protokoll DHX (https://e-gov.github.io/DHX/).
+- DHX saab universaalseks, turvaliseks elektrooniliste dokumentide vastuvõtmise ja saatmise kanaliks. Prognoosime, et valdav enamus asutusi võtab DHX-i kasutusele, eelkõige dokumendihaldussüsteemides (DHS). (DHX-i võib kasutada ka muudes dokumente vahetavates süsteemides).
+- Protokolli rakendamist hõlbustavad tarkvarakomponendid (DHX adapter) valmivad 2016. a lõpuks. Koostatakse ja avaldatakse üleminekukava ja juhised (veebruar 2017. a).
+- Üleminek algab praegu veel kindlaks määramata kuupäeval, eeldatavalt 2017. a aprillis ja kestab 2018. a lõpuni.
 
 ## 2 E-arvete edastamine DVK kaudu seni (AS IS)
 

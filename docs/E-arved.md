@@ -7,10 +7,11 @@ v 0.2 | 07.11.2016
 ## Sisukord
 
 - [1 Ülevaade](#1-Ülevaade)
-- [2 E-arvete edastamine DVK kaudu seni (AS IS)](#1-e-arvete-edastamine-dvk-kaudu-seni-as-is)
-- [3 E-arvete edastamine DHX protokolli kaudu (TO BE)](#2-e-arvete-edastamine-dhx-protokolli-kaudu-to-be)
-  - [3.1 Kapsli v2.1 kasutamine E-arvete saatmiseks](#kapsli-v21-kasutamine-e-arvete-saatmiseks)
-- [4 Üleminek](#3-Üleminek)
+- [2 E-arvete edastamine DVK kaudu seni (AS IS)](#2-e-arvete-edastamine-dvk-kaudu-seni-as-is)
+- [3 E-arvete edastamine DHX protokolli kaudu (TO BE)](#3-e-arvete-edastamine-dhx-protokolli-kaudu-to-be)
+  - [3.1 Üldpõhimõtted](#31-Üldpõhimõtted)
+  - [3.2 Kapsli v2.1 kasutamine E-arvete saatmiseks DHX protokollis](#32-kapsli-v21-kasutamine-e-arvete-saatmiseks-dhx-protokollis)
+- [4 Üleminek](#4-Üleminek)
 - [Viited](#viited)
 - [Muutelugu](#muutelugu)
 

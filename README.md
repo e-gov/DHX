@@ -12,7 +12,7 @@
 | ![](img/power-plug.png) | [DHX Adapter](https://github.com/e-gov/DHX-adapter) _tarkvarakomponendid DHX-i rakendajatele_   - ![](img/widgets.png) sh tarkvarateegid |
 | ![](img/ruler.png) | [Etalonteostus](https://github.com/e-gov/DHX-etalon) |
 | ![](img/weather-windy.png) | Üleminekukava _tuleb_ |
-| ![](img/auto-fix.png) | Rakendamise koordineerimine _tuleb_ ; teave: Eneli Järve https://github.com/EneliJarve, Riigi Infosüsteemi Amet, 663 0278, eneli.jarve@ria.ee |
+| ![](img/auto-fix.png) | Rakendamise koordineerimine _tuleb_ ; teave: Eneli Järve, Riigi Infosüsteemi Amet, 663 0278, eneli.jarve@ria.ee |
 | ![](img/format-align-justify.png) | DHX aadressiraamat _tuleb_ - [DHX aadressiraamat](docs/DHX-aadressiraamat.md) | _spetsifikatsioon_ |
 | ![](img/checkbox-marked-circle-outline.png) | Sertifitseerimine _protokolli rakendajate sertifitseerimist ei ole kavandatud_ |
 | ![](img/test-tube.png) | Testimisteenus _tuleb_ |
@@ -59,7 +59,7 @@ Projekt tagab ettevalmistused riigile tehnoloogiliselt, organisatoorselt optimaa
 
 Projekti hankija on Riigi Infosüsteemi Amet ja täitja BPW Consulting OÜ. Projekti rahastatakse Euroopa Liidu struktuurifondide toetusega.
 
-Projektijuht: Eneli Järve https://github.com/EneliJarve, Riigi Infosüsteemi Amet, 663 0278, eneli.jarve@ria.ee
+Projektijuht: Eneli Järve, Riigi Infosüsteemi Amet, 663 0278, eneli.jarve@ria.ee
 
 _Lahtiütlus. Käesoleva repositooriumi sisu - kui ei ole öeldud teisiti - on arenduses olevad töödokumendid, mis ei ole kinnitatud ega ametlikult publitseeritud. Dokumentatsioon võib täieneda._
 

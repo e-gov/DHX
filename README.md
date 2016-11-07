@@ -1,6 +1,6 @@
 ![](img/EL_struktuuri-_ja_investeerimisfondid_horisontaalne.jpg)
 
-[EN](#EN)
+[EN](#en)
 
 ### Dokumendivahetusprotokoll DHX / Document exchange protocol DHX
 

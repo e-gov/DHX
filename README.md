@@ -13,12 +13,12 @@ DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimalda
 | ![](img/book-open-variant.png) | __[Protokoll](https://e-gov.github.io/DHX)__ _kinnitatud, ametlik tekst_ |
 | ![](img/power-plug.png) | [DHX Adapter](https://github.com/e-gov/DHX-adapter) _tarkvarakomponendid DHX-i rakendajatele_   - ![](img/widgets.png) sh tarkvarateegid |
 | ![](img/ruler.png) | [Etalonteostus](https://github.com/e-gov/DHX-etalon) |
-| ![](img/auto-fix.png) | Rakendamise koordineerimine _tuleb_ ; teave: Eneli Järve https://github.com/EneliJarve, Riigi Infosüsteemi Amet, 663 0278, eneli.jarve@ria.ee |
 | ![](img/weather-windy.png) | Üleminekukava _tuleb_ |
+| ![](img/auto-fix.png) | Rakendamise koordineerimine _tuleb_ ; teave: Eneli Järve https://github.com/EneliJarve, Riigi Infosüsteemi Amet, 663 0278, eneli.jarve@ria.ee |
+| ![](img/format-align-justify.png) | DHX aadressiraamat _tuleb_ - [DHX aadressiraamat](docs/DHX-aadressiraamat.md) | _spetsifikatsioon_ |
 | ![](img/checkbox-marked-circle-outline.png) | Sertifitseerimine _protokolli rakendajate sertifitseerimist ei ole kavandatud_ |
 | ![](img/test-tube.png) | Testimisteenus _tuleb_ |
 | ![](img/format-align-justify.png) | Testide komplekt _tuleb_ |
-| ![](img/format-align-justify.png) | DHX aadressiraamat _tuleb_ - [DHX aadressiraamat](docs/DHX-aadressiraamat.md) | _spetsifikatsioon_ |
 
 Protokolli saab kasutada [MIT litsentsi alusel](LICENCE.txt).
 

@@ -49,7 +49,7 @@ Operaatorid saadavad praegu DVK kaudu e-arveid kasutades Kapsli 1.0 versiooni.
 - Kui DHX-iga liitunud asutus soovib saata E-arvet, siis peab ta juba dokumendi saatmisel väärtustama Kapsli välja  `DecMetadata/DecFolder` väärtuseks `/ARVED`.
 - Seejärel vastuvõttev DHX süsteem peab dokumendi vastuvõtmisel suutma vajadusel ise Kapsli `DecMetadata/DecFolder` väärtuse alusel otsustada, kuhu infosüsteemi dokument suunata ( kas finantssüsteemi või DHS-i). Uue DHX Adapteri variant C „SOAP server“ kasutamine võib hõlbustada seda suunamist, sest sel juhul käivad eraldi infosüsteemid (finantssüsteem ja DHS) DHX adapteri käest dokumente küsimas `receiveDocuments` teenusega, andes endist viisi ette `<kaust>` parameetri.
 
-## 3 Üleminek
+## 3 Ülemineku loogika
 
 Üleminekuperioodil tagab DVK:
   - vana, "DVK protokolliga" sissetulnud e-arve edastamise DHX-i võimekuse loonud asutusele, vastavalt DHX protokollile. DHX-i võimekuse loonud asutusele edastab DVK e-arve dokumendivahetuse kapslisse v2.1 pakendatult - sest uuema  kapslistandardi versiooni kasutamist nõuab DHX protokoll (vt [DHX, 5.6 Kapsli kasutamine](https://e-gov.github.io/DHX/#56-kapsli-kasutamine)).
@@ -95,6 +95,75 @@ __Nii operaator kui ka saaja on DHX-le üle läinud__ DVK on tegevuse lõpetanud
 ```
 
 
+## Kapsli v2.1 kasutamine E-arvete saatmiseks
+
+Uue 2.1 ja vanade 1.0 Kapsli väljade vastavus ja võrdlus on toodud Kapsli kirjelduses RIHA-s.
+
+Nüansid üleminekul:
+•	Kapsli 1.0 versiooni väljale `<dhl:vahendaja>` vastavat vastet uues Kapsli 2.1 versioonis ei leidu. Seda välja ei saa operaatorid arve edastamisel enam kasutada.
+•	E-arve operaator peab Kapsli versioonis 2.1 dokumendi saatjaks (`Transport/DecSender/OrganisationCode`) märkima iseenda (mitte ettevõtte, kelle arveid ta vahendab). Vaata DHX protokolli nõue [8.6 „Saatja kindlakstegemine“](https://e-gov.github.io/DHX/#86-saatja-kindlakstegemine):
+- DHX `sendDocument` teenusega arvet saates tuleb määrata Kausta väärtus `/ARVED` Kapsli XML elemendis `DecMetadata/DecFolder`. Sest uue DHX `sendDocument` teenuses puudub vastav päringu parameeter, nagu vana DVK korral oli `<kaust>`.
+
+Järgnevalt on toodud näide, kuidas kasutada Kapsli 2.1 versiooni E-arvete saatmiseks.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<DecContainer xmlns="http://www.riik.ee/schemas/deccontainer/vers_2_1/">
+  <Transport>
+    <DecSender><OrganisationCode>10328799</OrganisationCode></DecSender>
+    <DecRecipient><OrganisationCode>90006399</OrganisationCode></DecRecipient>
+  </Transport>
+  <RecordCreator>
+    <Person>
+      <Name>Lauri Tammemäe</Name><GivenName>Lauri</GivenName>
+      <Surname>Tammemäe</Surname>
+      <PersonalIdCode>EE38806190294</PersonalIdCode><Residency>EE</Residency>
+    </Person>
+    <ContactData>
+      <Phone>3726630276</Phone><Email>lauri.tammemae@ria.ee</Email>
+    </ContactData>
+  </RecordCreator>
+  <Recipient>
+    <Organisation>
+      <Name>sihtasutus Põhja-Eesti Regionaalhaigla</Name>
+      <OrganisationCode>90006399</OrganisationCode>
+      <Residency>EE</Residency>
+    </Organisation>
+  </Recipient>
+  <RecordMetadata>
+    <RecordGuid>25892e17-80f6-415f-9c65-7395632f0234</RecordGuid>
+    <RecordType>arve</RecordType>
+    <RecordOriginalIdentifier>213465</RecordOriginalIdentifier>
+    <RecordDateRegistered>2016-11-11T19:18:03</RecordDateRegistered>
+    <RecordTitle>e-arve 163350</RecordTitle>
+    <RecordLanguage>EE</RecordLanguage>
+  </RecordMetadata>
+  <Access>
+    <AccessConditionsCode>AK</AccessConditionsCode>
+  </Access>
+  <File>
+    <FileGuid>25892e17-80f6-415f-9c65-7395632f0001</FileGuid>
+    <RecordMainComponent>1</RecordMainComponent>
+    <FileName>163350_eInvoice.xml</FileName>
+    <MimeType>text/xml</MimeType>
+    <FileSize>6232</FileSize>
+    <ZipBase64Content>...</ZipBase64Content>
+  </File>
+  <File>
+    <FileGuid>25892e17-80f6-415f-9c65-7395632f0002</FileGuid>
+    <RecordMainComponent>1</RecordMainComponent>
+    <FileName>163350.pdf</FileName>
+    <MimeType>application/pdf</MimeType>
+    <FileSize>211543</FileSize>
+    <ZipBase64Content>...</ZipBase64Content>
+  </File>
+  <RecordTypeSpecificMetadata />
+  <DecMetadata>
+    <DecId>12345</DecId>
+    <DecFolder>/ARVED</DecFolder>
+    <DecReceiptDate>2016-11-11T19:20:42</DecReceiptDate>
+  </DecMetadata>
+</DecContainer>
+```
 
 ## 6 Viited
 

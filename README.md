@@ -1,14 +1,12 @@
 ![](img/EL_struktuuri-_ja_investeerimisfondid_horisontaalne.jpg)
 
+[in English](#EN)
+
 ### Dokumendivahetusprotokoll DHX / Document exchange protocol DHX
 
 ![](docs/DHX.PNG)  ![](docs/X-ROAD.PNG)
 
-#### ET
-
-DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimaldab Eesti avaliku sektori dokumendihaldussüsteemidel vahetada dokumente hajus- e detsentraliseeritud põhimõttel.
-
-|     |             |
+|     | DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimaldab Eesti avaliku sektori dokumendihaldussüsteemidel vahetada dokumente hajus- e detsentraliseeritud põhimõttel. |            |
 |-----|-------------|
 | ![](img/book-open-variant.png) | __[Protokoll](https://e-gov.github.io/DHX)__ _kinnitatud, ametlik tekst_ |
 | ![](img/power-plug.png) | [DHX Adapter](https://github.com/e-gov/DHX-adapter) _tarkvarakomponendid DHX-i rakendajatele_   - ![](img/widgets.png) sh tarkvarateegid |

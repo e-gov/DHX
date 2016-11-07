@@ -1,8 +1,8 @@
-_kavand_ (_Lahtiütlus. Käesolev dokument on arenduses olev töödokument. Dokument ei ole kinnitatud ega ametlikult publitseeritud. Dokument täieneb, eelkõige tehniliste detailide osas._) Arvamused dokumendi kohta palume saata: Riigi Infosüsteemi Amet, Eneli Järve, 663 0278, eneli.jarve@ria.ee
+_Lahtiütlus. Käesolev dokument on arenduses olev, veel täienev töödokument, mida ei ole kinnitatud ega ametlikult avaldatud._ Arvamused dokumendi kohta palume saata: Riigi Infosüsteemi Amet, Eneli Järve, 663 0278, eneli.jarve@ria.ee
 
 # E-arved DVK-s üleminekuperioodil
 
-v 0.2 07.11.2016
+v 0.2 | 07.11.2016
 
 ## Sisukord
 
@@ -11,7 +11,8 @@ v 0.2 07.11.2016
 - [3 E-arvete edastamine DHX protokolli kaudu (TO BE)](#2-e-arvete-edastamine-dhx-protokolli-kaudu-to-be)
 - [3.1 Kapsli v2.1 kasutamine E-arvete saatmiseks](#kapsli-v21-kasutamine-e-arvete-saatmiseks)
 - [4 Üleminek](#3-Üleminek)
-- [6 Viited](#6-viited)
+- [Viited](#viited)
+- [Muutelugu](#muutelugu)
 
 ## 1 Ülevaade
 
@@ -183,8 +184,15 @@ __Nii operaator kui ka saaja on DHX-le üle läinud__ DVK on tegevuse lõpetanud
                    (DHX)
 ```
 
-## 6 Viited
+## Viited
 
 [Dokumendivahetusprotokoll DHX](https://e-gov.github.io/DHX/)
 
 Riigi Infosüsteemi Amet. [E-arved ja DVK](https://www.ria.ee/ee/e-arved.html)
+
+## Muutelugu
+
+| versioon, kuupäev | muudatus |
+|-------------------|----------|
+| v0.1 01.11.2016   | algversioon |
+| v0.2 07.11.2016   | lisatud tehnilised üksikasjad, eemaldatud DVK-d mittepuudutav osa |

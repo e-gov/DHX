@@ -13,7 +13,7 @@ DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimalda
 | ![](img/book-open-variant.png) | __[Protokoll](https://e-gov.github.io/DHX)__ _kinnitatud, ametlik tekst_ |
 | ![](img/power-plug.png) | [DHX Adapter](https://github.com/e-gov/DHX-adapter) _tarkvarakomponendid DHX-i rakendajatele_   - ![](img/widgets.png) sh tarkvarateegid |
 | ![](img/ruler.png) | [Etalonteostus](https://github.com/e-gov/DHX-etalon) |
-| ![](img/auto-fix.png) | Rakendamise koordineerimine _tuleb_ |
+| ![](img/auto-fix.png) | Rakendamise koordineerimine _tuleb_ ; teave: Eneli Järve https://github.com/EneliJarve, Riigi Infosüsteemi Amet, 663 0278, eneli.jarve@ria.ee |
 | ![](img/weather-windy.png) | Üleminekukava _tuleb_ |
 | ![](img/checkbox-marked-circle-outline.png) | Sertifitseerimine _protokolli rakendajate sertifitseerimist ei ole kavandatud_ |
 | ![](img/test-tube.png) | Testimisteenus _tuleb_ |
@@ -35,11 +35,8 @@ Protokolli saab kasutada [MIT litsentsi alusel](LICENCE.txt).
   - 06 [Muuta teenuse representationList laiendatavaks, sarnaselt teenusega sendDocument](files/Ettepanek-06.md) SISSE VIIDUD v 1.0.2
   - 07 [Parameetrite lisamine teenusesse representationList](files/Ettepanek-07.md) SISSE VIIDUD v 1.0.3
 - [Vormingutevahelised seosed](https://e-gov.github.io/DHX/Vormingud.html)
-- [E-arved hajusas dokumendivahetuses](docs/E-arved.md) _töödokument_
+- [E-arved DVK-s üleminekuperioodil](docs/E-arved.md) _töödokument_
 - [Esitlus](http://slides.com/priitparmakson/dhx/fullscreen)
-
-#### Seonduvaid materjale
-- [E-arved hajusas dokumendivahetuses](docs/E-arved.md)
 
 #### Taustamaterjale
 - [Kirjandus](files/Kirjandus.md)

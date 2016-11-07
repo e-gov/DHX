@@ -8,10 +8,17 @@
 
 DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimaldab Eesti avaliku sektori dokumendihaldussüsteemidel vahetada dokumente hajus- e detsentraliseeritud põhimõttel.
 
-- __[Protokoll](https://e-gov.github.io/DHX)__ _kinnitatud, ametlik tekst_
-- [DHX Adapter](https://github.com/e-gov/DHX-adapter) _tarkvarakomponendid DHX-i rakendajatele_
+- ![](img/book-open-variant.png) __[Protokoll](https://e-gov.github.io/DHX)__ _kinnitatud, ametlik tekst_
+- ![](img/power-plug.png) [DHX Adapter](https://github.com/e-gov/DHX-adapter) _tarkvarakomponendid DHX-i rakendajatele_
 - ![](img/ruler.png) [Etalonteostus](https://dhxdemo.eesti.ee/)
 - ![](img/auto-fix.png) Rakendamise koordineerimine _tuleb_
+- ![](img/weather-windy.png) Üleminekukava _tuleb_
+- ![](img/ghost.png) Järelevalve _tuleb_
+- ![](img/checkbox-marked-circle-outline.png) Sertifitseerimine _protokolli rakendajate sertifitseerimist ei ole kavandatud_
+- ![](img/format-align-justify.png) Testimisteenus _tuleb_
+- ![](img/format-align-justify.png) Testide komplekt _tuleb_
+- ![](img/format-align-justify.png) DHX aadressiraamat _tuleb_
+  - [DHX aadressiraamat](docs/DHX-aadressiraamat.md) _spetsifikatsioon_
 
 Protokolli saab kasutada [MIT litsentsi alusel](LICENCE.txt).
 
@@ -29,7 +36,6 @@ Protokolli saab kasutada [MIT litsentsi alusel](LICENCE.txt).
   - 07 [Parameetrite lisamine teenusesse representationList](files/Ettepanek-07.md) SISSE VIIDUD v 1.0.3
 - [Vormingutevahelised seosed](https://e-gov.github.io/DHX/Vormingud.html)
 - [E-arved hajusas dokumendivahetuses](docs/E-arved.md) _töödokument_
-- [DHX aadressiraamat](docs/DHX-aadressiraamat.md) _spetsifikatsioon_
 - [Esitlus](http://slides.com/priitparmakson/dhx/fullscreen)
 
 #### Seonduvaid materjale

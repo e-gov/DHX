@@ -4,7 +4,7 @@
 
 Spetsifikatsioon
 
-v0.3 03.11.2016
+v0.4 08.11.2016
 
 Sisukord
 
@@ -29,6 +29,7 @@ Lisaks allolevatele kasutatakse spetsifikatsioonis [dokumendivahetusprotokolli D
 |--------|---------|
 | _ajapildistus_ | mingil ajamomendil koostatud DHX aadressiraamat. Ajapildistus salvestatakse faili masintöödeldavas vormingus (JSON) ja teisendatakse enne RIA veebilehel avaldamist HTML-i. |
 | _DHX aadressiraamat_, _DHX AR_ | konkreetse ajamomendiga seotud nimekiri, mis näitab: 1) ajamomendil DHX-i võimekust omanud asutusi; 2) ajamomendil tegutsenud DHX-i vahendajaid ja nende kliente. Asutused ja ettevõtted esitatakse nimekirjas registrikoodide ja nimetuste kaudu, sorteeritult. |
+| _viimati muutunud_, ingl _diff_ | loetelu muutustest DHX aadressiraamatu seisus võrreldes mõne varasema kuupäeva seisuga. |
 
 ## 3 Vajadus
 
@@ -57,7 +58,8 @@ Joonis 1
   - _DHX aadressiraamatu koostaja_, lühidalt _Koostaja_ - Java rakendus, mis koostab ajahetke aadressiraamatu ja salvestab selle failina kataloogi.
   - _Kataloog_ - failikataloog, kuhu kogunevad ajapildistused.
   - _Ülespanija_ - skript, mis käib perioodiliselt ajapildistuste kataloogi kontrollimas, võtab kõige uuema faili, teeb selle inimloetavaks (JSON -> HTML teisendus) ja paneb RIA veebilehele üles.
-    - seejuures võrdleb viimast faili eelviimasega ning toob välja toimunud muutused.
+    - seejuures koostab nimekirja "viimati muutunud".
+      - selleks võrdleb viimast faili asjakohase varasema failiga ning toob välja toimunud muutused.
   - _RIA veeb_ - DHX aadressiraamat publitseeritakse inimloetaval kujul (HTML) RIA veebi asjakohases sektsioonis.  
 
 4.3 __Töövoog__ Tööriist peab realiseerima protsessi:
@@ -74,7 +76,8 @@ Joonis 1
   
 4.5 __Konfigureerimine__ Komponendis Koostaja peab olema konfigureeritav:
   - ajapildistuse intervall
-  - kataloog, kuhu ajapildistus salvestatakse.
+  - kataloog, kuhu ajapildistus salvestatakse
+  - loetelu "viimati muutunud" arvutamise ajaperiood (nt 1 päev, 1 nädal vms). 
 
 ## 5 Ei ole skoobis
 
@@ -115,3 +118,4 @@ Joonis 1
 | v0.1 28.10.2016   | algversioon, vt https://github.com/e-gov/DHX/issues/41 |
 | v0.2 01.11.2016   | detailiseering; lisatud faili kaudu avaldamine |
 | v0.3 03.11.2016   | lisatud viimase ajapildistusega võrreldes toimunud muutuste kuvamine; aadressiraamatu koostamine kasutaja nupuvajutuse peale (ei ole skoobis) |
+| v0.4 08.11.2016   | lisatud 'diffi' perioodi konfigureeritavus |

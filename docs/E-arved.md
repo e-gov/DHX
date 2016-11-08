@@ -1,5 +1,7 @@
 _Lahtiütlus. Käesolev dokument on arenduses olev, veel täienev töödokument, mida ei ole kinnitatud ega ametlikult avaldatud._ Arvamused dokumendi kohta palume saata: Riigi Infosüsteemi Amet, Eneli Järve, 663 0278, eneli.jarve@ria.ee
 
+_Selle dokumendi arutelu toimub [issue 43 all](https://github.com/e-gov/DHX/issues/43)._
+
 # E-arved DVK-s üleminekuperioodil
 
 v 0.2 | 07.11.2016

@@ -36,7 +36,7 @@ Protokolli saab kasutada [MIT litsentsi alusel](LICENCE.txt).
   - 07 [Parameetrite lisamine teenusesse representationList](files/Ettepanek-07.md) SISSE VIIDUD v 1.0.3
 - [Vormingutevahelised seosed](https://e-gov.github.io/DHX/Vormingud.html)
 - [E-arved DVK-s üleminekuperioodil](docs/E-arved.md) _töödokument_
-- [Esitlus](http://slides.com/priitparmakson/dhx/fullscreen)
+- [Esitlus](files/DHX_esitlus.pptx) _2.11.2016_
 
 #### Taustamaterjale
 - [Kirjandus](files/Kirjandus.md)

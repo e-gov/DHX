@@ -26,9 +26,23 @@ Lisaks alljärgnevateke kasutatakse käesolevas dokumendis [dokumendivahetusprot
 |--------|---------|
 | testitav süsteem | X-teega liidestatud infosüsteem, dokumendihaldussüsteem (DHS) või ka muu süsteem, millele arendatud DHX-i võimekust testitakse. |
 
+## 3 DHX-i rakendusvariandid
+
+DHX-i rakendaja peab valima järgmiste variantide vahel:
+
+|  |  |
+|--|---|
+| 1 | DHX-i rakendamine otse |
+| 1A | kasutades adapteriteeke |
+| 1B | paigaldades DHX adapteri ja liidestades selle oma süsteemiga (DHS või muu) otsepöördusega (JDBC) adapteri andmebaasi poole | 
+| 1C | paigaldades DHX adapteri ja liidestades selle oma süsteemiga SOAP liidese abil |
+| 1D | teostades DHX protokolli ise |
+| 1E | paigaldades DHX adapteri ja liidestades selle oma süsteemiga REST liidese abil - variant oli kaalumisel, kuid ei ole praegu adapteri poolt toetatud. Huvi korral võib vabavaralist DHX adapterit ise edasi arendada. |
+| 2  | DHX-i rakendamine vahendaja kaudu, vt [https://e-gov.github.io/DHX/#6-vahendamine](https://e-gov.github.io/DHX/#6-vahendamine). |
+
 ## 3 Testistrateegia
 
-DHX-i võimekuse loomise variandid
+
 
 DHX-i rakendamisel tuleb testistrateegia koostamisel arvestada järgmist:
 

@@ -8,9 +8,9 @@ Sisukord
 
 - [1 Ülevaade](#1-Ülevaade)
 - [2 Mõisted ja lühendid](#2-mõisted-ja-lühendid)
-- [3 Testilood]()
-  - [1 Õige kapsli saatmine] 
-
+- [3 DHX-i rakendusvariandid](#3-dhx-i-rakendusvariandid)
+- [4 Etalonteostuse kasutamine DHX-i testimiseks](#4-etalonteostuse-kasutamine-dhx-i-testimiseks)
+- [5 Standardtestid](#4-standardtestid)
 - [Viited](#viited)
 - [Muutelugu](#muutelugu)
 
@@ -44,7 +44,14 @@ DHX-i rakendaja peab otsustama, mis viisil ta DHX-i rakendab. Valida on mitme va
 | 1E | paigaldades DHX adapteri ja liidestades selle oma süsteemiga REST liidese abil - variant oli kaalumisel, kuid ei ole praegu adapteri poolt toetatud. Huvi korral võib vabavaralist DHX adapterit ise edasi arendada. |
 | 2  | DHX-i rakendamine vahendaja kaudu, vt [https://e-gov.github.io/DHX/#6-vahendamine](https://e-gov.github.io/DHX/#6-vahendamine). |
 
-## 4 Standardtestid
+## 4 Etalonteostuse kasutamine DHX-i testimiseks
+
+DHX-i võimekuse loonud süsteemi testimiseks võib kasutada [DHX-i etalonteostust](https://github.com/e-gov/DHX-etalon).
+- Etalonteostus koosneb kahest eraldi paigaldatud, RIA taristus käitatavast rakendusest, mis etendavad DHX-i võimekusega infosüsteeme.
+  - Etalon1, [https://dhxdemo.eesti.ee/etalon1/](https://dhxdemo.eesti.ee/etalon1/), etendab DHX-i otsevõimekusega asutust
+  - Etalon2, [https://dhxdemo.eesti.ee/etalon2/](https://dhxdemo.eesti.ee/etalon2/), etendab DHX-i vahendajat, kes vahendab kolme asutust. 
+
+## 5 Standardtestid
 
 | Testimisega kontrollitav nõue (protokolli jaotis, nimetus), vt [Vastavusnõuded](https://e-gov.github.io/DHX/#10-vastavusn%C3%B5uded) | standardtest |
 |---|---|
@@ -85,15 +92,6 @@ DHX-i rakendaja peab otsustama, mis viisil ta DHX-i rakendab. Valida on mitme va
 | 9.1 	Üleminekuperioodil kui osutub, et adressaat ei ole veel dokumentide vastuvõtmise DHX-teenust loonud (teenus ei ole X-teel leitav), siis PEAB dokumendi saatma DVK kaudu, kasutades DVK teenust sendDocument ja märkides adressaadi dokumendi metaandmete kapslis. |   |
 | 9.1 	DHX võimekuse saavutanud asutus PEAB DVK kasutamisest loobuma. |   |
 | __Muud võimalikud nõuded__ |  |
-
-
-
-## Etalonteostus kasutamine DHX-i testimiseks
-
-DHX-i võimekuse loonud süsteemi testimiseks võib kasutada [DHX-i etalonteostust](https://github.com/e-gov/DHX-etalon).
-- Etalonteostus koosneb kahest eraldi paigaldatud, RIA taristus käitatavast rakendusest, mis etendavad DHX-i võimekusega infosüsteeme.
-  - Etalon1, [https://dhxdemo.eesti.ee/etalon1/](https://dhxdemo.eesti.ee/etalon1/), etendab DHX-i otsevõimekusega asutust
-  - Etalon2, [https://dhxdemo.eesti.ee/etalon2/](https://dhxdemo.eesti.ee/etalon2/), etendab DHX-i vahendajat, kes vahendab kolme asutust. 
 
 ## Viited
 

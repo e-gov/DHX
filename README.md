@@ -45,7 +45,7 @@ DHX-i rakendaja peab otsustama, mis viisil ta DHX-i rakendab. Valida on mitme va
 | 1E | DHX adapteriga (REST liides) | Ppaigaldades DHX adapteri ja liidestades selle oma süsteemiga REST liidese abil. Variant oli kaalumisel, __kuid ei ole praegu adapteri poolt toetatud__. Huvi korral võib vabavaralist DHX adapterit ise edasi arendada. |
 | 2  | DHX-i rakendamine vahendaja kaudu | Vt [https://e-gov.github.io/DHX/#6-vahendamine](https://e-gov.github.io/DHX/#6-vahendamine). |
 
-### Protokolli arendamine
+### 3 Protokolli arendamine
 - [Foorum](https://github.com/e-gov/DHX/issues)
 - [Osale arenduses](CONTRIBUTING.md)
 - [Analüüs](https://github.com/e-gov/DHX/blob/master/files/Hajusa_dokumendivahetuse_andmevahetusprotokolli_DHX_anal%C3%BC%C3%BCs_1.2.pdf)
@@ -65,7 +65,7 @@ DHX-i rakendaja peab otsustama, mis viisil ta DHX-i rakendab. Valida on mitme va
 - [Kirjandus](files/Kirjandus.md)
 - [Dokumendihalduse "ökosüsteem"](files/DOK-S.md)
 
-### Projekt "Dokumendivahetustaristu hajusarhitektuurile üleviimise väljatöötamine"
+### 4 Projekt "Dokumendivahetustaristu hajusarhitektuurile üleviimise väljatöötamine"
 
 mai 2016 - veebruar 2017
 

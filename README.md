@@ -27,7 +27,7 @@ Sisukord
 | ![](img/format-align-justify.png) | DHX aadressiraamat _tuleb_ - [DHX aadressiraamat](docs/DHX-aadressiraamat.md) | _spetsifikatsioon_ |
 | ![](img/checkbox-marked-circle-outline.png) | Sertifitseerimine _protokolli rakendajate sertifitseerimist ei ole kavandatud_ |
 | ![](img/test-tube.png) | Testimisteenus _tuleb_ |
-| ![](img/format-align-justify.png) | Testide komplekt _tuleb_ |
+| ![](img/format-align-justify.png) | [Standardtestid](docs/Standardtestid.md) |
 
 Protokolli saab kasutada [MIT litsentsi alusel](LICENCE.txt).
 

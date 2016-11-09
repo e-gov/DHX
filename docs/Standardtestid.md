@@ -15,7 +15,7 @@ Sisukord
 
 ## 1 Ülevaade
 
-Esitatakse standardne testide komplekt DHX-i võimekuse testimiseks.
+Esitatakse standardne testide komplekt DHX-i võimekuse testimiseks. Dokument on suunatud DHX-i võimekuse loomisele suunatud arendustööde kavandajatele, arendajatele ja testijatele.
 
 ## 2 Mõisted ja lühendid
 

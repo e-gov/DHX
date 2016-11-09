@@ -24,9 +24,11 @@ Lisaks alljärgnevateke kasutatakse käesolevas dokumendis [dokumendivahetusprot
 
 | mõiste | seletus |
 |--------|---------|
-| etalonrakendus | etalonteostuse komponent, rakendus, etendab DHX-i võimekusega infosüsteemi. |
-| etalonteostus | Kahest eraldi paigaldatud, RIA taristus käitatavast rakendusest (_etalonrakendusest_) koosnev vahend, mida saab kasutada testitava süsteemi testimiseks.  [DHX-i etalonteostust](https://github.com/e-gov/DHX-etalon) |
-| testitav süsteem | X-teega liidestatud infosüsteem, dokumendihaldussüsteem (DHS) või ka muu süsteem, millele arendatud DHX-i võimekust testitakse. |
+| _etalonrakendus_ | etalonteostuse komponent, rakendus, etendab DHX-i võimekusega infosüsteemi. |
+| _etalonteostus_ | Kahest eraldi paigaldatud, RIA taristus käitatavast rakendusest (_etalonrakendusest_) koosnev vahend, mida saab kasutada testitava süsteemi testimiseks.  [DHX-i etalonteostust](https://github.com/e-gov/DHX-etalon) |
+| _testitav süsteem_ | X-teega liidestatud infosüsteem, dokumendihaldussüsteem (DHS) või ka muu süsteem, millele arendatud DHX-i võimekust testitakse. |
+| _DHX standardtest_ | DHX võimekuse testimiseks üldjuhul hädavajalik, praktiliselt teostatav test | 
+| _test_ | käesolevas dokumendis kasutatakse testiloo tähenduses |
 
 ## 3 DHX-i rakendusvariandid
 
@@ -42,22 +44,9 @@ DHX-i rakendaja peab otsustama, mis viisil ta DHX-i rakendab. Valida on mitme va
 | 1E | paigaldades DHX adapteri ja liidestades selle oma süsteemiga REST liidese abil - variant oli kaalumisel, kuid ei ole praegu adapteri poolt toetatud. Huvi korral võib vabavaralist DHX adapterit ise edasi arendada. |
 | 2  | DHX-i rakendamine vahendaja kaudu, vt [https://e-gov.github.io/DHX/#6-vahendamine](https://e-gov.github.io/DHX/#6-vahendamine). |
 
-## 3 Testistrateegia
+## 4 Standardtestid
 
-
-## 4 Testilood
-
-
-|   | kontrollitav vastavusnõue,   |
-|---|---|
-| Dokumendi saatmine |    |
-| - Adressaadil on DHX-i otsevõimekus | 1.5, 5.2, 5.6 |
-
-Dokumendi vastuvõtmine
-
-Lokaalse aadressinimistu koostamine 
-
-| Testimisega kontrollitav nõue (protokolli jaotis, nimetus), vt [Vastavusnõuded](https://e-gov.github.io/DHX/#10-vastavusn%C3%B5uded) | Testiloo lühikirjeldus |
+| Testimisega kontrollitav nõue (protokolli jaotis, nimetus), vt [Vastavusnõuded](https://e-gov.github.io/DHX/#10-vastavusn%C3%B5uded) | standardtest |
 |---|---|
 | __Protokollis kehtestatud nõuded__ |  |
 | 1.5 	Dokumenti saatev süsteem PEAB määratlema kasutatava DXH protokolli versiooni. | _selgitada, kas seda saaks kontrollida etalonteostuses_  |

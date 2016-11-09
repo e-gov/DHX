@@ -15,7 +15,7 @@ Sisukord
 
 ## 1 Ülevaade
 
-Käesoleva dokumendi eesmärk on abistada DHX-i võimekuse loomisele suunatud arendustööde kavandajaid. Käsitletakse DHX-i rakendamisvariante ja esitatakse standardne testide komplekt DHX-i võimekuse testimiseks.
+Esitatakse standardne testide komplekt DHX-i võimekuse testimiseks.
 
 ## 2 Mõisted ja lühendid
 

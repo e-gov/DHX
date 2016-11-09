@@ -8,9 +8,8 @@ Sisukord
 
 - [1 Ülevaade](#1-Ülevaade)
 - [2 Mõisted ja lühendid](#2-mõisted-ja-lühendid)
-- [3 DHX-i rakendusvariandid](#3-dhx-i-rakendusvariandid)
-- [4 Etalonteostuse kasutamine DHX-i testimiseks](#4-etalonteostuse-kasutamine-dhx-i-testimiseks)
-- [5 Standardtestid](#5-standardtestid)
+- [3 Etalonteostuse kasutamine DHX-i testimiseks](#4-etalonteostuse-kasutamine-dhx-i-testimiseks)
+- [4 Standardtestid](#5-standardtestid)
 - [Viited](#viited)
 - [Muutelugu](#muutelugu)
 
@@ -30,28 +29,14 @@ Lisaks alljärgnevateke kasutatakse käesolevas dokumendis [dokumendivahetusprot
 | _DHX standardtest_ | DHX võimekuse testimiseks üldjuhul hädavajalik, praktiliselt teostatav test. | 
 | _test_ | Käesolevas dokumendis kasutatakse testiloo tähenduses. |
 
-## 3 DHX-i rakendusvariandid
-
-DHX-i rakendaja peab otsustama, mis viisil ta DHX-i rakendab. Valida on mitme variandi vahel:
-
-| # | variant | iseloomustus  |
-|---|---------|---|
-| 1 | DHX-i rakendamine otse (ilma vahendajata) | 
-| 1A | adapteriteekide abil | DHS saab kasutada DHX Java teeke, mis arendatakse välja uue DHX adapteri loomise raames. DHX Java teegid sisaldavad funktsionaalsust dokumendi saatmiseks, vastuvõtmiseks ja aadressiraamatu koostamiseks. Saatmise klassid realiseerivad sisuliselt X-tee SOAP kliendi funktsionaalsuse, koos DHX hajusa saatmisalgoritmiga. Vastuvõtmise klassid realiseerivad  DHX SOAP teenuse ja saabunud dokumendi DHS-ile edastamise liidese. Vt [https://github.com/e-gov/DHX-adapter](https://github.com/e-gov/DHX-adapter). |
-| 1B | DHX adapteriga (otsepöördusega adapteri andmebaasi) | Paigaldades DHX adapteri ja liidestades selle oma süsteemiga (DHS või muu) otsepöördusega (JDBC) adapteri andmebaasi poole. Vt [https://github.com/e-gov/DHX-adapter](https://github.com/e-gov/DHX-adapter). |
-| 1C | DHX adapteriga (SOAP liides) | Paigaldades DHX adapteri ja liidestades selle oma süsteemiga SOAP liidese abil. Vt [https://github.com/e-gov/DHX-adapter](https://github.com/e-gov/DHX-adapter). | 
-| 1D | teostades DHX protokolli ise | DHS arendaja võib ise DHX protokolli toetavad komponendid programmeerida, valides sobiva platvormi ja programmeerimiskeele. |
-| 1E | DHX adapteriga (REST liides) | Ppaigaldades DHX adapteri ja liidestades selle oma süsteemiga REST liidese abil. Variant oli kaalumisel, __kuid ei ole praegu adapteri poolt toetatud__. Huvi korral võib vabavaralist DHX adapterit ise edasi arendada. |
-| 2  | DHX-i rakendamine vahendaja kaudu | Vt [https://e-gov.github.io/DHX/#6-vahendamine](https://e-gov.github.io/DHX/#6-vahendamine). |
-
-## 4 Etalonteostuse kasutamine DHX-i testimiseks
+## 3 Etalonteostuse kasutamine DHX-i testimiseks
 
 DHX-i võimekuse loonud süsteemi testimiseks võib kasutada [DHX-i etalonteostust](https://github.com/e-gov/DHX-etalon).
 - Etalonteostus koosneb kahest eraldi paigaldatud, RIA taristus käitatavast rakendusest, mis etendavad DHX-i võimekusega infosüsteeme.
   - Etalon1, [https://dhxdemo.eesti.ee/etalon1/](https://dhxdemo.eesti.ee/etalon1/), etendab DHX-i otsevõimekusega asutust
   - Etalon2, [https://dhxdemo.eesti.ee/etalon2/](https://dhxdemo.eesti.ee/etalon2/), etendab DHX-i vahendajat, kes vahendab kolme asutust. 
 
-## 5 Standardtestid
+## 4 Standardtestid
 
 | Testimisega kontrollitav nõue (protokolli jaotis, nimetus), vt [Vastavusnõuded](https://e-gov.github.io/DHX/#10-vastavusn%C3%B5uded) | standardtest |
 |---|---|

@@ -1,6 +1,6 @@
 ![](img/EL_struktuuri-_ja_investeerimisfondid_horisontaalne.jpg)
 
-[EN](#en)
+ET | [EN](#en)
 
 ## Dokumendivahetusprotokoll DHX / Document exchange protocol DHX
 
@@ -88,7 +88,9 @@ Projektijuht: Eneli Järve, Riigi Infosüsteemi Amet, 663 0278, eneli.jarve@ria.
 
 _Lahtiütlus. Käesoleva repositooriumi sisu - kui ei ole öeldud teisiti - on arenduses olevad töödokumendid, mis ei ole kinnitatud ega ametlikult publitseeritud. Dokumentatsioon võib täieneda._
 
-#### EN
+---
+
+### EN
 
 - __[Protocol Text](docs/EN.html)__
 - [Overview](https://github.com/e-gov/DHX/blob/master/files/Overview.md)

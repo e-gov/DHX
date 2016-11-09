@@ -48,7 +48,7 @@ DHX-i võimekuse loonud süsteemi testimiseks võib kasutada [DHX-i etalonteostu
 | 5.3 	Üleminekuperioodiks PEAB DHX teenuse avama ka DVK-le. |   |
 | 5.4 	DHX teenuse nimi PEAB järgima mustrit EE/<liikmeklass>/<registrikood>/<DHX*>/sendDocument. |   |
 | 5.5 	DHX teenus PEAB kasutama X-tee alamsüsteemi nimega DHX*, kus * on sümbolijada, mis võib olla ka tühi. |   |
-| 5.6 	Dokumendi PEAB edastama ametlikult kinnitatud elektroonilise andmevahetuse metaandmete loendile vastavas “kapslis”. | __TEST 1_: 1) testitav süsteem saadab nõuetekohaselt kapseldatud dokumendi etalonrakendusele; 2) etalonrakenduse kasutajaliidese kaudu kontrollitakse, et dokument on õigesti kohale jõudnud.  |
+| 5.6 	Dokumendi PEAB edastama ametlikult kinnitatud elektroonilise andmevahetuse metaandmete loendile vastavas “kapslis”. | __TEST 1__: 1) testitav süsteem saadab nõuetekohaselt kapseldatud dokumendi etalonrakendusele; 2) etalonrakenduse kasutajaliidese kaudu kontrollitakse, et dokument on õigesti kohale jõudnud.  |
 | 5.7 	Saatev süsteem PEAB dokumendi saatmisürituste seeriale andma unikaalse identifikaatori (saadetise id, ingl consignment id). | __TEST 2__: 1) testitav süsteem saadab seeria dokumente etalonrakendusele; 2) etalonrakenduse kasutajaliidese kaudu kontrollitakse, et saadetise id-d on erinevad. |
 | 6.2 	DHX rakendamisel läbi vahendaja PEAB asutus sõlmima lepingu DHX vahendajaga. Kasutada TOHIB AINULT X-tee keskuse poolt DHX vahendajate nimekirja lisatud vahendajaid. |   |
 | 7.1 	Saatev süsteem PEAB välja selgitama, kas adressaadil on DHX võimekus. | __TEST 3__: (positiivne juht) 1) etalonrakenduse kasutajaliideses kuvatavast DHX aadressinimistust võetakse juhuslikult asutus; 2) kontrollitakse, kas testitav süsteem suudab asutusele dokumenti saata. |

@@ -24,7 +24,8 @@ Lisaks alljärgnevateke kasutatakse käesolevas dokumendis [dokumendivahetusprot
 
 | mõiste | seletus |
 |--------|---------|
-| etalonteostus | Kahest eraldi paigaldatud, RIA taristus käitatavast rakendusest koosnev vahend, mida saab kasutada testitava süsteemi testimiseks. Etalonrakendused etendavad DHX-i võimekusega infosüsteeme.  [DHX-i etalonteostust](https://github.com/e-gov/DHX-etalon) |
+| etalonrakendus | etalonteostuse komponent, rakendus, etendab DHX-i võimekusega infosüsteemi. |
+| etalonteostus | Kahest eraldi paigaldatud, RIA taristus käitatavast rakendusest (_etalonrakendusest_) koosnev vahend, mida saab kasutada testitava süsteemi testimiseks.  [DHX-i etalonteostust](https://github.com/e-gov/DHX-etalon) |
 | testitav süsteem | X-teega liidestatud infosüsteem, dokumendihaldussüsteem (DHS) või ka muu süsteem, millele arendatud DHX-i võimekust testitakse. |
 
 ## 3 DHX-i rakendusvariandid
@@ -66,27 +67,27 @@ Lokaalse aadressinimistu koostamine
 | 5.3 	Üleminekuperioodiks PEAB DHX teenuse avama ka DVK-le. |   |
 | 5.4 	DHX teenuse nimi PEAB järgima mustrit EE/<liikmeklass>/<registrikood>/<DHX*>/sendDocument. |   |
 | 5.5 	DHX teenus PEAB kasutama X-tee alamsüsteemi nimega DHX*, kus * on sümbolijada, mis võib olla ka tühi. |   |
-| 5.6 	Dokumendi PEAB edastama ametlikult kinnitatud elektroonilise andmevahetuse metaandmete loendile vastavas “kapslis”. | Testitav süsteem saadab nõuetekohaselt kapseldatud dokumendi etalonteostusele; etalonteostuse kasutajaliidese kaudu kontrollitakse, et dokument on õigesti kohale jõudnud.  |
-| 5.7 	Saatev süsteem PEAB dokumendi saatmisürituste seeriale andma unikaalse identifikaatori (saadetise id, ingl consignment id). |   |
+| 5.6 	Dokumendi PEAB edastama ametlikult kinnitatud elektroonilise andmevahetuse metaandmete loendile vastavas “kapslis”. | TESTULUGU: 1) testitav süsteem saadab nõuetekohaselt kapseldatud dokumendi etalonrakendusele; 2) etalonrakenduse kasutajaliidese kaudu kontrollitakse, et dokument on õigesti kohale jõudnud.  |
+| 5.7 	Saatev süsteem PEAB dokumendi saatmisürituste seeriale andma unikaalse identifikaatori (saadetise id, ingl consignment id). | TESTILUGU: 1) testitav süsteem saadab seeria dokumente etalonrakendusele; 2) etalonrakenduse kasutajaliidese kaudu kontrollitakse, et saadetise id-d on erinevad. |
 | 6.2 	DHX rakendamisel läbi vahendaja PEAB asutus sõlmima lepingu DHX vahendajaga. Kasutada TOHIB AINULT X-tee keskuse poolt DHX vahendajate nimekirja lisatud vahendajaid. |   |
-| 7.1 	Saatev süsteem PEAB välja selgitama, kas adressaadil on DHX võimekus. |   |
+| 7.1 	Saatev süsteem PEAB välja selgitama, kas adressaadil on DHX võimekus. | TESTILUGU: (positiivne juht) 1) etalonrakenduse kasutajaliideses kuvatavast DHX aadressinimistust võetakse juhuslikult asutus; 2) kontrollitakse, kas testitav süsteem suudab asutusele dokumenti saata. |
 | 7.2 	Otsevõimekust PEAB välja selgitama esimeses järjekorras (enne vahendaja kaudu võimekuse tuvastamist). |   |
 | 7.2 	Saatev süsteem PEAKS otsevõimekuse välja selgitama X-tee globaalse konfiguratsioonifaili põhjal. |   |
 | 7.2 	Adressaadil otsevõimekuse olemasolul PEAB dokumendi saatma adressaadile otse. |   |
-| 7.3 	DHX võimekuse läbi vahendaja kontrollimiseks PEAB saatev süsteem: a) alla laadima X-tee keskusest X-tee globaalse konfiguratsiooni faili või kasutama turvaserveri poolt allalaetud globaalse konfiguratsiooni faili; b) leidma failist vahendajate nimekirja (DHX vahendajate grupi); c) käima kõik vahendajad läbi ning pärima X-tee kaudu vahendusnimekirjad; d) kindlaks tegema, kas adressaat sisaldub vahendusnimekirjades. |   |
-| 7.3 	Kui adressaadil puudub DHX otsevõimekus, kuid on DHX võimekus läbi vahendaja, siis PEAB saatev süsteem saatma dokumendi vahendajale. |   |
-| 7.4 	Puhvri (lokaalse aadressiraamatu) kasutamisel PEAB värskendamise periood olema konfigureeritav. |   |
-| 7.5 	Kui saatev süsteem on kindlaks teinud, et adressaadil puudub DHX võimekus ja käimas on üleminekuperiood, siis PEAB saatev süsteem üritama dokumenti saata DVK sendDocument teenusesse. |   |
+| 7.3 	DHX võimekuse läbi vahendaja kontrollimiseks PEAB saatev süsteem: a) alla laadima X-tee keskusest X-tee globaalse konfiguratsiooni faili või kasutama turvaserveri poolt allalaetud globaalse konfiguratsiooni faili; b) leidma failist vahendajate nimekirja (DHX vahendajate grupi); c) käima kõik vahendajad läbi ning pärima X-tee kaudu vahendusnimekirjad; d) kindlaks tegema, kas adressaat sisaldub vahendusnimekirjades. | TESTILUGU: eelduseks on nõude testimise eesmärgil testitavasse süsteemi sisse ehitatud vastav logimine; logi võrreldakse etalonrakenduses koostatud aadressiraamatuga; aadressiraamatud peavad ühtima. |
+| 7.3 	Kui adressaadil puudub DHX otsevõimekus, kuid on DHX võimekus läbi vahendaja, siis PEAB saatev süsteem saatma dokumendi vahendajale. | TESTILUGU: 1) testitavast süsteemist saata dokument etalonrakenduse 2 (DHX-i vahendaja) kliendile; etalonrakenduse 2 kasutajaliidese kaudu kontrollida dokumendi kohalejõudmist. |
+| 7.4 	Puhvri (lokaalse aadressiraamatu) kasutamisel PEAB värskendamise periood olema konfigureeritav. | sama, mis 7.3. |
+| 7.5 	Kui saatev süsteem on kindlaks teinud, et adressaadil puudub DHX võimekus ja käimas on üleminekuperiood, siis PEAB saatev süsteem üritama dokumenti saata DVK sendDocument teenusesse. | Nõue puudutab DVK-ga liitunud asutusi. TESTILUGU: saata dokument DVK-sse (testkeskkonnas); DVK-st kontrollida, et dokument on kohale jõudnud. |
 | 7.6 	Saatev süsteem PEAB lugema dokumendi edastatuks, kui on saanud sendDocument teenuselt positiivse vastuskoodiga vastussõnumi. |   |
-| 7.7 	Kui adressaadiga ei saa ühendust või kättesaamise kinnitust ei tule, siis PEAB mõne aja pärast saatmist uuesti üritama. |   |
+| 7.7 	Kui adressaadiga ei saa ühendust või kättesaamise kinnitust ei tule, siis PEAB mõne aja pärast saatmist uuesti üritama. | Nõuet on raske testida. |
 | 7.7 	Tühipäringute arvu vähendamiseks PEAKS kasutada eksponentsiaalse taganemise (exponential back-off) algoritmi [EXP]. |   |
 | 7.7 	Saatmisürituste arv PEAB olema lõplik ja saatva süsteemi konfiguratsioonis määratav. |   |
-| 8.1 	Vastuvõttev süsteem PEAB kontrollima, et dokument on saadetud õigele aadressile. |   |
+| 8.1 	Vastuvõttev süsteem PEAB kontrollima, et dokument on saadetud õigele aadressile. | TESTILUGU: 1) etalonteostuse kasutajaliidese abil saata testitavale süsteemile valesti adresseeritud dokument; 2) kontrollida etalonteostuse kasutajaliidese kaudu, et testitav süsteem vastab nõuetekohase veateatega. |
 | 8.1 	Vahendamise puhul PEAB vastuvõttev süsteem kontrollima, kas adressaat on vahendaja klient (on vahendusnimekirjas). |   |
-| 8.2 	Valesti adresseeritud dokumendi korral PEAB vastuvõttev süsteem saatma saatjale veateate Vale aadress. |   |
-| 8.3 	Vastuvõttev süsteem PEAB kontrollima, et dokument tuli nõuetekohases kapslis. |   |
-| 8.3 	Kontroll PEAB sisaldama vähemalt XML skeemile vastavuse kontrollimist. |   |
-| 8.3 	Vigase kapsli korral PEAB saatma vastava veateate Vigane kapsel. |   |
+| 8.2 	Valesti adresseeritud dokumendi korral PEAB vastuvõttev süsteem saatma saatjale veateate Vale aadress. | sama testilugu, mis  8.1.  |
+| 8.3 	Vastuvõttev süsteem PEAB kontrollima, et dokument tuli nõuetekohases kapslis. | TESTILUGU: 1) etalonteostuse kasutajaliidese abil saata testitavale süsteemile valesti kapseldatud dokument; 2) kontrollida etalonteostuse kasutajaliidese kaudu, et testitav süsteem vastab nõuetekohase veateatega. |
+| 8.3 	Kontroll PEAB sisaldama vähemalt XML skeemile vastavuse kontrollimist. | sama testilugu, mis 8.3  |
+| 8.3 	Vigase kapsli korral PEAB saatma vastava veateate Vigane kapsel. | sama testilugu, mis 8.3 |
 | 8.4 	Kui saatja DHS soovib dokumenti saata mitmele adressaadile (otsevõimekusega asutusele või vahendatavale asutusele) korraga, siis ta PEAB dokumendi kapsli saatma igale adresaadile eraldi, eraldi DHX sendDocument väljakutsega. |   |
 | 8.5 	DHX-i võimekuse loonud süsteem PEAB üleminekuperioodil dokumente vastu võtma ka DVK-st. |   |
 | 8.6 	Vastuvõttev süsteem PEAB kontrollima dokumendi kapslis sisalduvate saatjat kirjeldavate metaandmete ja X-tee päringsõnumi X-tee päiseväljade client ja representedParty kooskõlalisust. Lahknevuste korral PEAB dokumendi tagasi lükkama. |   |

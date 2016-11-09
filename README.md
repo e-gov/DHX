@@ -13,7 +13,7 @@ Sisukord
 - [1 Tooted ja teenused](#1-tooted-ja-teenused)
 - [2 Protokolli rakendamine](#2-protokolli-rakendamine)
 - [3 Protokolli arendamine](#3-protokolli-arendamine)
-- [4 Projekt "Dokumendivahetustaristu hajusarhitektuurile üleviimise väljatöötamine"](#-)
+- [4 Projekt "Dokumendivahetustaristu hajusarhitektuurile üleviimise väljatöötamine"](#4-projekt-dokumendivahetustaristu-hajusarhitektuurile-üleviimise-väljatöötamine)
 
 ### 1 Tooted ja teenused
 

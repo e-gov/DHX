@@ -79,8 +79,6 @@ Projekti hankija on Riigi Infosüsteemi Amet ja täitja BPW Consulting OÜ. Proj
 
 Projektijuht: Eneli Järve, Riigi Infosüsteemi Amet, 663 0278, eneli.jarve@ria.ee
 
-_Lahtiütlus. Käesoleva repositooriumi sisu - kui ei ole öeldud teisiti - on arenduses olevad töödokumendid, mis ei ole kinnitatud ega ametlikult publitseeritud. Dokumentatsioon võib täieneda._
-
 ---
 
 ### EN
@@ -93,3 +91,7 @@ _Lahtiütlus. Käesoleva repositooriumi sisu - kui ei ole öeldud teisiti - on a
 - [Reference implementation](https://github.com/e-gov/DHX-etalon)
 
 Protocol is published with [MIT licence](LICENCE.txt).
+
+---
+
+_Lahtiütlus. Käesoleva repositooriumi sisu - kui ei ole öeldud teisiti - on arenduses olevad töödokumendid, mis ei ole kinnitatud ega ametlikult publitseeritud. Dokumentatsioon võib täieneda._

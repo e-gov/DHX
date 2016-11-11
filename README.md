@@ -49,14 +49,7 @@ DHX-i rakendaja peab otsustama, mis viisil ta DHX-i rakendab. Valida on mitme va
 - [Foorum](https://github.com/e-gov/DHX/issues)
 - [Osale arenduses](CONTRIBUTING.md)
 - [Analüüs](https://github.com/e-gov/DHX/blob/master/files/Hajusa_dokumendivahetuse_andmevahetusprotokolli_DHX_anal%C3%BC%C3%BCs_1.2.pdf)
-- Ettepanekud
-  - 01 [Asünkroonne kättesaamiskinnitus](files/Ettepanek-01.md#as%C3%BCnkroonne-k%C3%A4ttesaamiskinnitus) TAGASI LÜKATUD
-  - 02 [Mitut DHS-i toetav nimemuster](files/Ettepanek-02.md#mitut-dhs-i-toetav-nimemuster) SISSE VIIDUD v 1.0
-  - 03 [Mitme aadressi käsitlus](files/Ettepanek-03.md) SISSE VIIDUD v 1.0.1
-  - 04 [Mitme alamsüsteemi kasutamine](files/Ettepanek-04.md) SISSE VIIDUD v 1.0.2
-  - 05 [Teenuse sendDocument spetsifikatsiooni täiendamine mittekohustusliku väljaga recipientSystem](files/Ettepanek-05.md) SISSE VIIDUD v 1.0.2
-  - 06 [Muuta teenuse representationList laiendatavaks, sarnaselt teenusega sendDocument](files/Ettepanek-06.md) SISSE VIIDUD v 1.0.2
-  - 07 [Parameetrite lisamine teenusesse representationList](files/Ettepanek-07.md) SISSE VIIDUD v 1.0.3
+- [Ettepanekud ja nende menetlusseisund](files/Ettepanekud.md)
 - [Vormingutevahelised seosed](https://e-gov.github.io/DHX/Vormingud.html)
 - [E-arved DVK-s üleminekuperioodil](docs/E-arved.md) _töödokument_
 - [Esitlus](files/DHX_esitlus.pptx) _2.11.2016_

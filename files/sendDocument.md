@@ -55,6 +55,7 @@ Vastuvõtja süsteem PEAB äriloogikalise või DHX protokolli reeglite vastu val
 
 | faultcode | kirjeldus | faultstring väärtuse näide |
 |---------|-----------|---------------|
+| __DHX.UnsupportedVersion__ | Vastuvõtja süsteem teatab saatjale, et ei toeta saatja poolt päringus näidatud protokolliversiooni | Version not supported |
 | __DHX.Duplicate__ | Samalt saatjalt saabus sama saadetise id väärtusega päring. Päringu parameetrite kombinatsioon `Header/client: EE/MEMBERCLASS/ MEMBER1/SUBSYSTEM1` + `Body/sendDocument/consignmentId: <consignmentId>` ei ole unikaalne. | Client sended duplicate document. Document with same consignmentId: 97522b98-cf27-452e-8... from EE/GOV/ MEMBER1/SUBSYSTEM1 is already received. Ignoring duplicate. |
 | __DHX.Validation__ | Kui DHX `sendDocuments` päringus saabunud Kapsli valideerimine vastu XML Schemat ebaõnnestub või SOAP päringu enda parameetrite sisu valideerimine ebaõnnestub, siis vastuvõttev süsteem PEAB väljastama vea `DHX.Validation`. | Container in documentAttachment is invalid. Required XML element "DecContainer/Transport" is missing.  Container must validate against 2.1 schema. |
 | __DHX.InvalidAddressee__ | Kui vastuvõtva süsteemi enda registrikoodi või tema poolt vahendatava asutuse registrikoodi ei ole päringus saabunud Kapsli XML `DecContainer/Transport/DecRecipient/OrganisationCode` elementide väärtuste hulgas, siis vastuvõttev süsteem PEAB tagastama vea `DHX.InvalidAddressee`. | The container has unknown addressee 7000001. |

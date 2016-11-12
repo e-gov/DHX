@@ -11,14 +11,14 @@ __DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimal
 |     |   |
 |-----|-------------|
 | ![](img/book-open-variant.png) | __[Protokoll](https://e-gov.github.io/DHX)__ _kinnitatud, ametlik tekst_ |
-| <img src="img/power-plug.png" alt="alt text" width="48" height="48"> | [DHX Adapter](https://github.com/e-gov/DHX-adapter) _tarkvarakomponendid DHX-i rakendajatele_   - <img src="img/widgets.png" alt="alt text" width="48" height="48"> sh tarkvarateegid |
-| ![](img/ruler.png) | [Etalonteostus](https://github.com/e-gov/DHX-etalon) |
-| ![](img/weather-windy.png) | Üleminekukava _tuleb_ |
+| <img src="img/power-plug.png" alt="alt text" width="48" height="48"> | [DHX adapter](https://github.com/e-gov/DHX-adapter) _tarkvarakomponendid, millega saab infosüsteemile kergesti luua DHX-i võimekuse; kasutatav kahel viisil: 1) adapteri paigaldamisega infosüsteemi külge; 2) adapteri koosseisus olevate Java teekide kasutamisega_- <img src="img/widgets.png" alt="alt text" width="48" height="48"> |
+| ![](img/ruler.png) | [Etalonteostus](https://github.com/e-gov/DHX-etalon) _kahes instantsis paigaldatud rakendus, mis loodi protokolli õigsuse ja teostatavuse kontrollimiseks; DHX-i rakendaja saab etalonteostust kasutada oma süsteemi testimiseks_ |
+| ![](img/weather-windy.png) | Üleminekukava _juhised ja nõuanded DHX-i rakendajatele; üleminekukava avaldatakse märtsis 2017_ |
 | ![](img/auto-fix.png) | Rakendamise koordineerimine _tuleb_ ; teave: Eneli Järve, Riigi Infosüsteemi Amet, 663 0278, eneli.jarve@ria.ee |
-| ![](img/format-align-justify.png) | DHX aadressiraamat _tuleb_ - [DHX aadressiraamat](docs/DHX-aadressiraamat.md) | _spetsifikatsioon_ |
+| ![](img/format-align-justify.png) | DHX aadressiraamat _abivahend, millega saab näha, kes on juba DHX-le üle läinud; tuleb märtsis 2017_ - [DHX aadressiraamat](docs/DHX-aadressiraamat.md) | _spetsifikatsioon_ |
 | ![](img/checkbox-marked-circle-outline.png) | Sertifitseerimine _protokolli rakendajate sertifitseerimist ei ole kavandatud_ |
-| ![](img/test-tube.png) | Testimisteenus. DHX-i rakendajad saavad testida, et on protokolli õigesti implementeerinud, [etalonteostuse](https://github.com/e-gov/DHX-etalon) abil. |
-| ![](img/format-align-justify.png) | [Standardtestid](docs/Standardtestid.md) |
+| ![](img/test-tube.png) | Testimisteenus _DHX-i rakendajad saavad testida, et on protokolli õigesti implementeerinud, [etalonteostuse](https://github.com/e-gov/DHX-etalon) abil._ |
+| ![](img/format-align-justify.png) | [DHX standardtestid](docs/Standardtestid.md) _soovituslik testide komplekt, abiks DHX-i rakendajale_ |
 
 ### Protokolli rakendamine
 

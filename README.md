@@ -8,10 +8,6 @@ ET | [EN](#en)
 
 __DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimaldab Eesti avaliku sektori dokumendihaldussüsteemidel vahetada dokumente hajus- e detsentraliseeritud põhimõttel.__
 
-Sisukord: [1 Tooted ja teenused](#1-tooted-ja-teenused) - [2 Protokolli rakendamine](#2-protokolli-rakendamine) - [3 Protokolli arendamine](#3-protokolli-arendamine) - [4 Projekt "Dokumendivahetustaristu hajusarhitektuurile üleviimise väljatöötamine"](#4-projekt-dokumendivahetustaristu-hajusarhitektuurile-üleviimise-väljatöötamine)
-
-### 1 Tooted ja teenused
-
 |     |   |
 |-----|-------------|
 | ![](img/book-open-variant.png) | __[Protokoll](https://e-gov.github.io/DHX)__ _kinnitatud, ametlik tekst_ |
@@ -24,9 +20,7 @@ Sisukord: [1 Tooted ja teenused](#1-tooted-ja-teenused) - [2 Protokolli rakendam
 | ![](img/test-tube.png) | Testimisteenus. DHX-i rakendajad saavad testida, et on protokolli õigesti implementeerinud, [etalonteostuse](https://github.com/e-gov/DHX-etalon) abil. |
 | ![](img/format-align-justify.png) | [Standardtestid](docs/Standardtestid.md) |
 
-Protokolli saab kasutada [MIT litsentsi alusel](LICENCE.txt).
-
-### 2 Protokolli rakendamine
+### Protokolli rakendamine
 
 DHX-i rakendaja peab otsustama, mis viisil ta DHX-i rakendab. Valida on mitme variandi vahel:
 
@@ -40,7 +34,7 @@ DHX-i rakendaja peab otsustama, mis viisil ta DHX-i rakendab. Valida on mitme va
 | 1E | DHX adapteriga (REST liides) | Paigaldades DHX adapteri ja liidestades selle oma süsteemiga REST liidese abil. Variant oli kaalumisel, __kuid ei ole praegu adapteri poolt toetatud__. Huvi korral võib vabavaralist DHX adapterit ise edasi arendada. |
 | 2  | DHX-i rakendamine vahendaja kaudu | Vt [https://e-gov.github.io/DHX/#6-vahendamine](https://e-gov.github.io/DHX/#6-vahendamine). |
 
-### 3 Protokolli arendamine
+### Protokolli arendamine
 - [Arutelud (Issues)](https://github.com/e-gov/DHX/issues)
 - [Osale arenduses (CONTRIBUTING.md)](CONTRIBUTING.md)
 - [Ettepanekud ja nende menetlusseisund](files/Ettepanekud.md)
@@ -53,7 +47,7 @@ DHX-i rakendaja peab otsustama, mis viisil ta DHX-i rakendab. Valida on mitme va
 - [Kirjandus](files/Kirjandus.md)
 - [Dokumendihalduse "ökosüsteem"](files/DOK-S.md)
 
-### 4 Projekt "Dokumendivahetustaristu hajusarhitektuurile üleviimise väljatöötamine"
+#### Projekt "Dokumendivahetustaristu hajusarhitektuurile üleviimise väljatöötamine"
 
 mai 2016 - veebruar 2017
 
@@ -84,8 +78,6 @@ Projektijuht: Eneli Järve, Riigi Infosüsteemi Amet, 663 0278, eneli.jarve@ria.
 - [Discussion page](https://github.com/e-gov/DHX/issues)
 - [How to contribute](https://github.com/e-gov/DHX/blob/master/CONTRIBUTING.md)
 - [Reference implementation](https://github.com/e-gov/DHX-etalon)
-
-Protocol is published with [MIT licence](LICENCE.txt).
 
 ---
 

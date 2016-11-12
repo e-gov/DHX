@@ -1,6 +1,6 @@
 ![](img/EL_struktuuri-_ja_investeerimisfondid_horisontaalne.jpg)
 
-ET | [EN](#en)
+ET | [EN](docs/EN.md)
 
 ## Dokumendivahetusprotokoll DHX / Document exchange protocol DHX
 ![](docs/DHX.PNG)  ![](docs/X-ROAD.PNG)
@@ -26,15 +26,4 @@ __DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimal
 
 ---
 
-### EN
-
-- __[Protocol Text](docs/EN.html)__
-- [Overview](https://github.com/e-gov/DHX/blob/master/files/Overview.md)
-- [Presentation](https://github.com/e-gov/DHX/blob/master/files/DHX_EN%20%282%29.pdf) (with a very brief discussion of X-Road)
-- [Discussion page](https://github.com/e-gov/DHX/issues)
-- [How to contribute](https://github.com/e-gov/DHX/blob/master/CONTRIBUTING.md)
-- [Reference implementation](https://github.com/e-gov/DHX-etalon)
-
----
-
-_Lahtiütlus. Käesoleva repositooriumi sisu - kui ei ole öeldud teisiti - on arenduses olevad töödokumendid, mis ei ole kinnitatud ega ametlikult publitseeritud. Dokumentatsioon võib täieneda._
+_Lahtiütlus. Repositoorium sisaldab - kui ei ole öeldud teisiti - töödokumente, mis ei ole kinnitatud ega ametlikult publitseeritud ja mis võivad täieneda._

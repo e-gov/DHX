@@ -26,4 +26,4 @@ __DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimal
 
 ---
 
-_Lahtiütlus. Repositoorium sisaldab - kui ei ole öeldud teisiti - töödokumente, mis ei ole kinnitatud ega ametlikult publitseeritud ja mis võivad täieneda._
+_Lahtiütlus. Repositoorium võib sisaldada töödokumente, mis ei ole kinnitatud ega ametlikult avaldatud._

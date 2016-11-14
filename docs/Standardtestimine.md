@@ -56,9 +56,9 @@ DHX-i võimekuse loonud süsteemi testimiseks võib kasutada [DHX-i etalonteostu
 
 - __TEST 3a: Vastuvõtmine (õige dokument)__
   - 1) etalonteostuse kasutajaliidese abil saata testitavale süsteemile õigesti moodustatud ja adresseeritud dokument; 2) kontrollida etalonteostuse kasutajaliidese kaudu, et testitav süsteem vastab nõuetekohase 'OK teatega; 3) testitavast süsteemist kontrollida, et dokument on kohale jõudnud.
-- __TEST 3a: Vastuvõtmine (valesti adresseeritud dokument)__
+- __TEST 3b: Vastuvõtmine (valesti adresseeritud dokument)__
   - 1) etalonteostuse kasutajaliidese abil saata testitavale süsteemile valesti adresseeritud dokument; 2) kontrollida etalonteostuse kasutajaliidese kaudu, et testitav süsteem vastab nõuetekohase veateatega; 3) testitavast süsteemist kontrollida, et vigane transaktsioon logitakse asjakohaselt. Kontrollitav nõue: [8.1 Aadressi kontroll](https://e-gov.github.io/DHX/#81-aadressi-kontroll)
-- __TEST 3b: Vastuvõtmine (valesti kapseldatud dokument)__
+- __TEST 3c: Vastuvõtmine (valesti kapseldatud dokument)__
   - 1) etalonteostuse kasutajaliidese abil saata testitavale süsteemile valesti kapseldatud dokument; 2) kontrollida etalonteostuse kasutajaliidese kaudu, et testitav süsteem vastab nõuetekohase veateatega; 3) testitavast süsteemist kontrollida, et vigane transaktsioon logitakse asjakohaselt. Kontrollitav nõue: [8.3 Kapsli kontroll](https://e-gov.github.io/DHX/#83-kapsli-kontroll)  
   
 Märkus. Ülalolev testiplaan hõlmab ka DVK-ga suhtlemist, sest DVK tegutseb üleminekuperioodil DHX-le veel üle minemata asutuste vahendajana.

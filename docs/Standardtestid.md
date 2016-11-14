@@ -4,18 +4,11 @@
 
 v0.1 09.11.2016
 
-Sisukord
-
-- [1 Ülevaade](#1-Ülevaade)
-- [2 Mõisted ja lühendid](#2-mõisted-ja-lühendid)
-- [3 Etalonteostuse kasutamine DHX-i testimiseks](#4-etalonteostuse-kasutamine-dhx-i-testimiseks)
-- [4 Standardtestid](#5-standardtestid)
-- [Viited](#viited)
-- [Muutelugu](#muutelugu)
-
 ## 1 Ülevaade
 
-Esitatakse standardne testide komplekt DHX-i võimekuse testimiseks. Dokument on suunatud DHX-i võimekuse loomisele suunatud arendustööde kavandajatele, arendajatele ja testijatele.
+Esitatakse standardne testide komplekt DHX-i võimekuse testimiseks ja näidatakse, kuidas DHX etalonteostust kasutada testimiseks.
+
+Dokument on suunatud DHX-i võimekuse loomisele suunatud arendustööde kavandajatele, arendajatele ja testijatele.
 
 ## 2 Mõisted ja lühendid
 

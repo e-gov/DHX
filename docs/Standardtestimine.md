@@ -1,6 +1,6 @@
 ![](DHX.PNG)
 
-# DHX standardtestid
+# DHX standardtestimine
 
 v0.2 14.11.2016
 

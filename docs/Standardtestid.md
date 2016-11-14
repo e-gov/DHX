@@ -2,53 +2,53 @@
 
 # DHX standardtestid
 
-v0.1 09.11.2016
+v0.2 14.11.2016
 
 ## 1 Ülevaade
 
-Esitatakse standardne testide komplekt DHX-i võimekuse testimiseks ja näidatakse, kuidas DHX etalonteostust kasutada testimiseks.
+Esitatakse standardne testide komplekt DHX-i võimekuse testimiseks. Juhendatakse DHX etalonteostuse kasutamist testimiseks.
 
-Dokument on suunatud DHX-i võimekuse loomisele suunatud arendustööde kavandajatele, arendajatele ja testijatele.
+Dokument on suunatud DHX-i võimekuse loomise arendustööde kavandajatele, arendajatele ja testijatele.
 
 ## 2 Mõisted ja lühendid
 
-Lisaks alljärgnevateke kasutatakse käesolevas dokumendis [dokumendivahetusprotokolli DHX mõisteid ja lühendeid](https://e-gov.github.io/DHX/#3-m%C3%B5isted-ja-l%C3%BChendid).
+Lisaks alljärgnevale kasutatakse käesolevas dokumendis [dokumendivahetusprotokolli DHX mõisteid ja lühendeid](https://e-gov.github.io/DHX/#3-m%C3%B5isted-ja-l%C3%BChendid).
 
 | mõiste | seletus |
 |--------|---------|
 | _etalonrakendus_ | etalonteostuse käigus loodud, RIA taristus käitatav rakendus, mis etendab DHX-i võimekusega infosüsteemi ja mida saab kasutada DHX-i võimekuse testimiseks. |
-| _etalonteostus_ | Kahest eraldi paigaldatud, RIA taristus käitatavast rakendusest (_etalonrakendusest_) koosnev vahend, mida saab kasutada testitava süsteemi testimiseks; vt [DHX-i etalonteostus](https://github.com/e-gov/DHX-etalon). |
+| _etalonteostus_ | kahest eraldi paigaldatud, RIA taristus käitatavast rakendusest (_etalonrakendusest_) koosnev vahend, mida saab kasutada testitava süsteemi testimiseks; vt [DHX-i etalonteostus](https://github.com/e-gov/DHX-etalon). |
 | _testitav süsteem_ | X-teega liidestatud infosüsteem - dokumendihaldussüsteem (DHS) või ka muu süsteem - mille DHX-i võimekust testitakse. |
 | _DHX standardtest_ | DHX võimekuse testimiseks üldjuhul hädavajalik, praktiliselt teostatav test. | 
-| _test_ | Käesolevas dokumendis kasutatakse testiloo tähenduses. |
+| _test_ | käesolevas dokumendis kasutatakse testiloo tähenduses. |
 
 ## 3 Etalonteostuse kasutamine DHX-i testimiseks
 
 DHX-i võimekuse loonud süsteemi testimiseks võib kasutada [DHX-i etalonteostust](https://github.com/e-gov/DHX-etalon).
 - Etalonteostus koosneb kahest eraldi paigaldatud, RIA taristus käitatavast rakendusest, mis etendavad DHX-i võimekusega infosüsteeme.
-  - Etalon1, [https://dhxdemo.eesti.ee/etalon1/](https://dhxdemo.eesti.ee/etalon1/), etendab DHX-i otsevõimekusega asutust
-  - Etalon2, [https://dhxdemo.eesti.ee/etalon2/](https://dhxdemo.eesti.ee/etalon2/), etendab DHX-i vahendajat, kes vahendab kolme asutust.
+  - Etalon1, [https://dhxdemo.eesti.ee/etalon1/](https://dhxdemo.eesti.ee/etalon1/), etendab DHX-i otsevõimekusega asutust (ministeerium)
+  - Etalon2, [https://dhxdemo.eesti.ee/etalon2/](https://dhxdemo.eesti.ee/etalon2/), etendab DHX-i vahendajat (eraettevõte), kes vahendab kolme asutust (vallavalitsus, muuseum ja põhikool).
 - Etalonteostus töötab X-tee arenduskeskkonnas.
 
-![](DHX-ETALON-TEST.PNG)
+![](DHX-ETALON-TEST01.PNG)
 
 ## 4 Testiplaan
 
 - Eeldused
-  - luua testitavas DHS-i (vm infosüsteemis) DHX-i võimekus (teenuse `sendDocument` osutamise ja tarbimise võimekus; lokaalse aadressiraamatu koostamise võimekus; vahendaja korral - teenuse `representationList` osutamise võimekus)
+  - luua testitavas DHS-is (vm infosüsteemis) DHX-i võimekus (teenuse `sendDocument` osutamise ja tarbimise võimekus; lokaalse aadressiraamatu koostamise võimekus; vahendaja korral - teenuse `representationList` osutamise võimekus)
   - registreerida DHX alamsüsteem X-tee arenduskeskkonnas
 
 - __TEST 1a: Süsteemi ilmumine aadressiraamatusse__
-  - etalonrakenduse abil kontrollida testitava süsteemi ilmumist lokaalsesse aadressiraamatusse
+  - etalonrakenduse abil kontrollida testitava süsteemi ilmumist etalonrakenduse lokaalsesse aadressiraamatusse
 - __TEST 1b: Lokaalse aadressiraamatu koostamise õigsus__
-  - eelduseks on nõude testimise eesmärgil testitavasse süsteemi sisse ehitatud vastav logimine; logi võrreldakse etalonrakenduses koostatud aadressiraamatuga; aadressiraamatud peavad ühtima. Kontrollitav nõue: [7.4 Lokaalne aadressiraamat](https://e-gov.github.io/DHX/#74-lokaalne-aadressiraamat)  
-  - Märkus. Kasutada võib ka [DHX aadressiraamatu](DHX-aadressiraamat.md) teenust
+  - eelduseks on nõude testimise eesmärgil testitavasse süsteemi sisse ehitatud logimine vm moodus lokaalset aadressiraamatut inimesele kuvada; võrrelda testitava rakenduse lokaalset aadressiraamatut etalonrakenduses koostatud aadressiraamatuga; aadressiraamatud peavad ühtima. Kontrollitav nõue: [7.4 Lokaalne aadressiraamat](https://e-gov.github.io/DHX/#74-lokaalne-aadressiraamat)  
+  - Märkus. Etalonrakenduse asemel võib kasutada [DHX aadressiraamatu](DHX-aadressiraamat.md) teenust
 
 - __TEST 2a: Dokumendi saatmine (õige dokument, DHX otsevõimekusega asutusele)__
   - 1) testitavast süsteemist saata dokument etalonrakendusse 1 (testasutusele Ministeerium); 2) etalonrakenduse logist kontrollida dokumendi kohalejõudmist
     - 1) testitav süsteem saadab nõuetekohaselt kapseldatud dokumendi etalonrakendusele; 2) etalonrakenduse kasutajaliidese kaudu kontrollitakse, et dokument on õigesti kohale jõudnud. Kontrollitav nõue: [5.6 Kapsli kasutamine](https://e-gov.github.io/DHX/#56-kapsli-kasutamine)
 - __TEST 2b: Dokumendi saatmine (õige dokument, vahendajat kasutavale asutusele)__
-  - testitavast süsteemist saata dokument etalonrakendusse 2 (testasutusele Vallavalitsus, Muuseum, Põhikool); 2) etalonrakenduse logist kontrollida dokumendi kohalejõudmist
+  - testitavast süsteemist saata dokument etalonrakendusse 2 (testasutusele Vallavalitsus, Muuseum või Põhikool); 2) etalonrakenduse logist kontrollida dokumendi kohalejõudmist
 - __TEST 2c: Dokumendi korduv saatmine__
   -1) testitav süsteem saadab seeria dokumente etalonrakendusele; 2) etalonrakenduse kasutajaliidese kaudu kontrollitakse, et saadetise id-d on erinevad. Kontrollitav nõue: [5.7 Unikaalne identifikaator.](https://e-gov.github.io/DHX/#57-unikaalne-identifikaator)
 - __TEST 2d: Saatmine suvalisele DHX-i võimekusega asutusele__

@@ -34,6 +34,8 @@ DHX-i võimekuse loonud süsteemi testimiseks võib kasutada [DHX-i etalonteostu
 
 ## 4 Testiplaan
 
+[DHX-i vastavusnõudeid](https://e-gov.github.io/DHX/#10-vastavusn%C3%B5uded) on terve rida. Rakendaja peab tagama kõigi nende täitmise. Käesolev testiplaan hõlmab ainult kõige lihtsamini teostatavaid teste. Mõnesid nõudeid võib üldse olla raske testida. Nt süsteemi käitumist juhul, kus adressaat "on maas" (siis peab üritama uuesti saata, aga mitte lõputult). 
+
 - Eeldused
   - luua testitavas DHS-is (vm infosüsteemis) DHX-i võimekus (teenuse `sendDocument` osutamise ja tarbimise võimekus; lokaalse aadressiraamatu koostamise võimekus; vahendaja korral - teenuse `representationList` osutamise võimekus)
   - registreerida DHX alamsüsteem X-tee arenduskeskkonnas

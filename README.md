@@ -16,8 +16,8 @@ __DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimal
 | ![](img/auto-fix.png) | Rakendamise koordineerimine | _tuleb_ ; teave: Eneli Järve, 663 0278, eneli.jarve@ria.ee |
 | ![](img/format-align-justify.png) | [DHX aadressiraamat](docs/DHX-aadressiraamat.md) | _näitab kes on juba DHX-le üle läinud; märts 2017_  |
 | ![](img/checkbox-marked-circle-outline.png) | Sertifitseerimine | _rakendajate sertifitseerimine ei ole kavas_ |
-| ![](img/testing.PNG) | Testimisteenus | _Rakendamise õigsust saab testida [etalonteostuse](https://github.com/e-gov/DHX-etalon) abil_ |
-| ![](img/format-align-justify.png) | [DHX standardtestimine](docs/Standardtestimine.md) | _soovituslik testide komplekt, abiks DHX-i rakendajale_ |
+| ![](img/testing.PNG" alt="alt text" width="48" height="48") | Testimisteenus | _Rakendamise õigsust saab testida [etalonteostuse](https://github.com/e-gov/DHX-etalon) abil_ |
+| ![](img/bug.PNG" alt="alt text" width="48" height="48") | [DHX standardtestimine](docs/Standardtestimine.md) | _soovituslik testide komplekt, abiks DHX-i rakendajale_ |
 | <img src="img/teaching.PNG" alt="alt text" width="48" height="48"> | töötoad ja teabepäevad | _tulevad_ |
 
 - [Protokolli rakendamine](docs/Rakendamine.md)

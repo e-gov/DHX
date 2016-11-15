@@ -10,7 +10,7 @@ __DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimal
 |     |   |   |
 |-----|-------------|-----|
 | ![](img/book-open-variant.png) | __[Protokoll](https://e-gov.github.io/DHX)__ | _kinnitatud, ametlik tekst_ |
-| <img src="img/power-plug-01.png" alt="alt text" width="48" height="48"> | [DHX adapter](https://github.com/e-gov/DHX-adapter) |  _DHX-i rakendamist abistavad tarkvarakomponendid; tuleb märtsis 2017_ |
+| <img src="img/power-plug-01.PNG" alt="alt text" width="48" height="48"> | [DHX adapter](https://github.com/e-gov/DHX-adapter) |  _DHX-i rakendamist abistavad tarkvarakomponendid; tuleb märtsis 2017_ |
 | ![](img/ruler.png) | [Etalonteostus](https://github.com/e-gov/DHX-etalon) | _demonstreerib protokolli töötavust ja abistab DHX-i rakendajaid testimisel_ |
 | ![](img/weather-windy.png) | Üleminekukava | _juhised ja nõuanded DHX-i rakendajatele; märts 2017_ |
 | ![](img/auto-fix.png) | Rakendamise koordineerimine | _tuleb_ ; teave: Eneli Järve, 663 0278, eneli.jarve@ria.ee |

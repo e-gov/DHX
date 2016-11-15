@@ -18,6 +18,7 @@ __DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimal
 | ![](img/checkbox-marked-circle-outline.png) | Sertifitseerimine | _rakendajate sertifitseerimine ei ole kavas_ |
 | ![](img/test-tube.png) | Testimisteenus | _Rakendamise õigsust saab testida [etalonteostuse](https://github.com/e-gov/DHX-etalon) abil_ |
 | ![](img/format-align-justify.png) | [DHX standardtestimine](docs/Standardtestimine.md) | _soovituslik testide komplekt, abiks DHX-i rakendajale_ |
+| <img src="img/teaching.PNG" alt="alt text" width="48" height="48"> | _töötoad ja teabepäevad - tulevad_ |
 
 - [Protokolli rakendamine](docs/Rakendamine.md)
 

@@ -16,7 +16,7 @@ __DHX is a new document exchange protocol, that  allows Estonian public sector a
 | <img src="../img/01-auto-fix.png" width="56" height="56"> | Co-ordination of implementation | _coming; information:_ Eneli Järve, 663 0278, eneli.jarve@ria.ee |
 | <img src="../img/01-format-align-justify.png" width="56" height="56"> | [DHX Address Book](../docs/DHX-aadressiraamat.md) | _shows who already has completed the transition; March 2017_  |
 | <img src="../img/01-test-tube.png" width="56" height="56"> | Testing service | _correctness of implementation can be tested with [Reference implementation](https://github.com/e-gov/DHX-etalon)_ |
-| <img src="../img/01-bug.png" width="56" height="56"> | [DHX Test suite](../docs/Standardtestimine.md) | _recommended minimal test set to aid DHX implementors_ |
+| <img src="../img/01-bug.png" width="56" height="56"> | [DHX Test suite](../docs/Standardtestid.md) | _recommended minimal test set to aid DHX implementors_ |
 | <img src="../img/01-presentation.png" alt="alt text" width="56" height="56"> | Workshops and briefing events | _coming_ |
 
 - [Implementation of the protocol](../docs/Rakendamine.md) ET

@@ -10,18 +10,18 @@ Kava eesmärk on määratleda Riigi Infosüsteemi Ameti, avaliku sektori asutust
 
 ## Riigi Infosüsteemi Amet
 
-1. avaldab DHX protokolli
-1. avaldab DHX adapteri tarkvara
-1. avaldab etalonteostuse (kood ja töötav rakendus)
-  - pakub etalonteostust DHX-i rakendajatele testimisteenusena
+1. avaldab DHX protokolli _avaldatud_
+1. avaldab DHX adapteri tarkvara 
+1. avaldab etalonteostuse (kood ja töötav rakendus) _avaldatud_
+  - pakub etalonteostust DHX-i rakendajatele testimisteenusena _töötab_
 1. loob DVK-s DHX vahendamise võimekuse
 1. avab DHX-i aadressinimistu teenuse
 1. kuulutab üleminekuperioodi ametlikult välja
 1. avaldab juhised DHX-i rakendajatele
   - sh rakendamistegevuste soovitusliku nimekirja
   - arendustööde tellimise mudel-lepingu
-1. levitab teavet ülemineku kohta
-1. annab nõu DHX-i rakendajatele
+1. levitab teavet ülemineku kohta _levitatud juba päris palju_
+1. annab nõu DHX-i rakendajatele _vältida, et tekiks olukord, kus "RIA ei tõsta toru"_
   - protokolli kohta tekkivates küsimustes
   - adaptertarkvara kohta tekkivates küsimustes
   - etalonteostuse kaudu pakutava testimisteenuse kohta

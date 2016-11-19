@@ -55,19 +55,19 @@ Kava eesmärk on määratleda Riigi Infosüsteemi Ameti, avaliku sektori asutust
     - ise programmeerides
   - testib oma süsteemi DHX-i võimekust
     - soovi korral kasutades etalonteostust
-- esitab RIA-le taotluse X-teel DHX alamsüsteemi registreerimiseks
-- esitab RIA-le taotluse DVK dokumendiliikluse ümberlülitamiseks DHX-le
-- DHX-i vahendaja kasutamise korral:
+1. esitab RIA-le taotluse X-teel DHX alamsüsteemi registreerimiseks
+1. esitab RIA-le taotluse DVK dokumendiliikluse ümberlülitamiseks DHX-le
+1. DHX-i vahendaja kasutamise korral:
   - sõlmib vahendajaga lepingu
   - ühendab oma süsteemi vahendaja süsteemiga
 
 ## DHX-i vahendaja
-- loob oma süsteemis DHX-i vahendusvõimekuse
-- registreerib end RIA-s DHX-i vahendajana
-- sõlmib asutusega vahenduslepingu
-- ühendab oma süsteemi asutuse süsteemiga
-- teenindab asutust, käitades vahendusteenust vastavalt DHX protokollile ja X-tee vahendamise nõuetele
+1. loob oma süsteemis DHX-i vahendusvõimekuse
+1. registreerib end RIA-s DHX-i vahendajana
+1. sõlmib asutusega vahenduslepingu
+1. ühendab oma süsteemi asutuse süsteemiga
+1. teenindab asutust, käitades vahendusteenust vastavalt DHX protokollile ja X-tee vahendamise nõuetele
 
 ## Arendaja
-- Kui soovib oma toodetes v teenustes DHX-i rakendada, siis kavandab ja teostab vastavad arendused 
-- Kui pakub DVK-ga suhtlevat tarkvara või teenuseid, siis kavandab ülemineku DHX-le ja teostab vastavad arendused
+1. Kui soovib oma toodetes v teenustes DHX-i rakendada, siis kavandab ja teostab vastavad arendused 
+1. Kui pakub DVK-ga suhtlevat tarkvara või teenuseid, siis kavandab ülemineku DHX-le ja teostab vastavad arendused

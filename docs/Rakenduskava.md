@@ -20,7 +20,7 @@ Kava eesmärk on määratleda Riigi Infosüsteemi Ameti, avaliku sektori asutust
 1. avaldab juhised DHX-i rakendajatele
   - sh rakendamistegevuste soovitusliku nimekirja
   - arendustööde tellimise mudel-lepingu
-1. levitab teavet üleminekute kohta
+1. levitab teavet ülemineku kohta
 1. annab nõu DHX-i rakendajatele
   - protokolli kohta tekkivates küsimustes
   - adaptertarkvara kohta tekkivates küsimustes

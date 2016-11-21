@@ -13,35 +13,44 @@ Süsteemi XX täiendamine DHX-i võimekusega
 Sisukord
 
 [1 Eesmärk ja koosseis]()
-[2 Kasutatavad komponendid, töövahendid ja ressursid]()
-[3 Sidusarendus]()
-[4 Arhitektuuridokument]()
-[5 Testimine]()
-[6 Muud nõuded]()
-[7 Projektikoosolekud]()
+
+[2 Üleantavad tulemid]()
+
+[3 Kasutatavad komponendid, töövahendid ja ressursid]()
+
+[4 Sidusarendus]()
+
+[5 Dokumentatsioon]()
+
+[6 Testimine]()
+
+[7 Muud nõuded]()
+
+[8 Projektikoosolek ja töösuhtlus]()
+
 [Viited]()
 
 ### 1 Eesmärk ja koosseis
-Käesolevaga tellitakse tarkvaraarendustööd, mille eesmärk on protokollile DHX vastava dokumendivahetusfunktsionaalsuse loomine süsteemis N (DHX-i võimekuse loomine).
+1. Käesolevaga tellitakse tarkvaraarendustööd eesmärgiga luua süsteemis N võimekus vahetada dokumente protokolli DHX-i kohaselt.
+1. Tööd sisaldavad kõiki tarkvaraarendustöid — sh projekteerimist, programmeerimist ja testimist koos vastava dokumenteerimisega, samuti projektijuhtimist — mis on vajalikud, et süsteemis N:
+  1. teostada DHX-i otsevõimekus [2] mõistes, sh
+    - dokumendi vastuvõtmine (`sendDocument` teenuse abil)
+    - dokumendi saatmine (`sendDocument` teenusele)
+    - lokaalse aadressiraamatu koostamine
+  2. eemaldada "DVK spetsifikatsiooni" kohane liides DVK-ga.
+    - Süsteem N vahetab praegu dokumente Dokumendivahetuskeskusega (DVK) [2] nn "DVK spetsifikatsiooni" kohaselt, kasutades "DVK klient" ja "DVK-API" komponente. "DVK spetsifikatsiooni" kohane liides tuleb eemaldada, vastavad komponendid kas eemaldada või DHX-i vajadustest lähtuvalt ümber teha.
+1. DHX-i vahendamise võimekust süsteemis N ei teostata.
+1. "DVK spetsifikatsiooni" liidese asendamine DHX protokolli põhise liidesega ei tohi muuta süsteemi N muud funktsionaalsust ega halvendada mittefunktsionaalseid omadusi.
 
-Teostada DHX-i otsevõimekus [2] mõistes, sh
-- dokumendi vastuvõtmine (`sendDocument` teenuse abil)
-- dokumendi saatmine (`sendDocument` teenusele)
-- lokaalse aadressiraamatu koostamine
+### 2 Üleantavad tulemid
 
-DHX-i vahendamise võimekust süsteemis N ei teostata.
-
-Süsteem N vahetab praegu dokumente Dokumendivahetuskeskusega (DVK) [2] nn "DVK spetsifikatsiooni" kohaselt, kasutades "DVK klient" ja "DVK-API" komponente. "DVK spetsifikatsiooni" kohane liides tuleb eemaldada, vastavad komponendid kas eemaldada või DHX-i vajadustest lähtuvalt ümber teha.
-
-Tööd sisaldavad:
-
-| töö | tulem |
+| töö | üleantav tulem |
 |-----|-----------|
 | projekteerimine | arhitektuuridokument "Süsteemi N täiendamine DHX-i võimekusega". |
 | programmeerimine | süsteemi N täiendatud programmikood, mis teostab DHX protokolli |
 | testimine        | testitud, protokollile DHX vastav tarkvara, sh testidokumentatsioon |
 
-### 2 Kasutatavad komponendid, töövahendid ja ressursid
+### 3 Kasutatavad komponendid, töövahendid ja ressursid
 
 |                          | märkused                     | Arendajale antakse pääsuõigused? |
 |--------------------------|------------------------------|-----|
@@ -53,8 +62,9 @@ Tööd sisaldavad:
 | __SoapUI__ | testimisvahend | jah |
 | __rühmatöökeskkond__ | Confluence Tellija taristus | jah |
 | __skype__ | jooksva suhtluse keskkond | jah |
+| __JIRA__ | kasutatakse vigade raporteerimiseks, Tellija taristus | jah |
 
-### 3 Sidusarendus
+### 4 Sidusarendus
 1. Tarkvara ehitamine, paigaldamine ja testimine automatiseeritakse sidusarenduse (ingl _Continuous Integration_) põhimõtete kohaselt.
 1. Sidusarenduse töövoog:
   - Tellija annab Arendajale pääsuõigused süsteemi N koodireposse, automatiseerimisserverisse ja arenduskeskkonda
@@ -64,13 +74,15 @@ Tööd sisaldavad:
   - Automatiseerimisserver täidab ehitus-, paigaldus- ja testiskriptid
 1. Süsteemi N koodirepo peegeldamine avalikku koodireposse (GitHub) toimub automaatselt
 
-### 4 Arhitektuuridokument
-Arhitektuuridokumendis tuleb:
-- spetsifitseerida süsteemi funktsiooni(d), piir, liidesed, komponentstruktuur, tehnoloogiad jm olulised arhitektuurilised aspektid
-- eraldi välja tuua DHX-i võimekuse loomisest tulenevad muudatused
-- esitada arhitektuurijoonis(ed) koos seletuskirjaga (selgitava tekstiga).
+### 5 Dokumentatsioon
+1. Aluseks võetakse süsteemi N olemasolev dokumentatsioon, seda täiendatakse.
+2. Dokument "Lahenduse kirjeldus" tuleb ümber nimetada arhitektuuridokumendiks ja täiendada, nii, et oleks:
+  - spetsifitseeritud süsteemi funktsiooni(d), piir, liidesed, komponentstruktuur, tehnoloogiad jm olulised arhitektuurilised aspektid
+  - eraldi välja toodud DHX-i võimekuse loomisest tulenevad muudatused
+  - esitatud arhitektuurijoonis(ed) koos seletuskirjaga (selgitava tekstiga).
+3. Dokumentatsioon mis veel ei ole, tuleb teisendada Markdown-i (GitHub-i stiili).
 
-### 5 Testimine
+### 6 Testimine
 1. Arendaja peab testima kõiki DHX-i nõudeid.
   - muu hulgas tuleb teha dokumendis "DHX standardtestid" [5] määratletud testid
 1. Koostada tuleb:
@@ -87,13 +99,13 @@ Arhitektuuridokumendis tuleb:
 1. Regressioonitestid tuleb teha.
 1. Spetsiaalseid koormusteste ei ole vaja teha.
 
-### 6 Muud nõuded
+### 7 Muud nõuded
 1. Süsteemi N täiendamisel peab järgima:
   - Tellija mittefunktsionaalseid nõudeid (MFN)
   - Tellija dokumentatsiooniplaani.
 1. Kõrvalekalded p 1 nimetatud nõuetest on lubatud põhjendatud juhtudel (süsteemi või keskkonna olemuse tõttu nõue ei ole kohalduv või eesmärgipärane) Tellija nõusolekul.
 
-### 7 Projektikoosolek
+### 8 Projektikoosolek ja töösuhtlus
 1. Projektikoosolek:
   - peetakse iga nädal
   - Tellija ruumides
@@ -101,6 +113,8 @@ Arhitektuuridokumendis tuleb:
   - Täitja projektijuht esitab suulise aruande tööde edenemisest
   - seejärel arutatakse sisulisi ja korralduslikke küsimusi
   - koosolekud protokollitakse.
+2. Projektikoosolekute vahel peetakse töösuhtlust Tellija ja Arendaja ühises skype vestluses ja e-kirja teel
+3. Arendajale antakse juurdepääs projekti Confluence-ruumile Tellija taristus.
 
 ### Viited
 [1] Dokumendivahetusprotokoll DHX, [https://e-gov.github.io/DHX/](https://e-gov.github.io/DHX/)

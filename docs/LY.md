@@ -4,12 +4,24 @@ permalink: LY
 title: Lähteülesanne
 ---
 
+_mudeldokument_
+
 Süsteemi XX täiendamine DHX-i võimekusega
 
 # Tööde kirjeldus
 
-_mudeldokument_
+Sisukord
 
+[1 Eesmärk ja koosseis]()
+[2 Kasutatavad komponendid, töövahendid ja ressursid]()
+[3 Sidusarendus]()
+[4 Arhitektuuridokument]()
+[5 Testimine]()
+[6 Muud nõuded]()
+[7 Projektikoosolekud]()
+[Viited]()
+
+### 1 Eesmärk ja koosseis
 Käesolevaga tellitakse tarkvaraarendustööd, mille eesmärk on protokollile DHX vastava dokumendivahetusfunktsionaalsuse loomine süsteemis N (DHX-i võimekuse loomine).
 
 Teostada DHX-i otsevõimekus [2] mõistes, sh
@@ -29,7 +41,7 @@ Tööd sisaldavad:
 | programmeerimine | süsteemi N täiendatud programmikood, mis teostab DHX protokolli |
 | testimine        | testitud, protokollile DHX vastav tarkvara, sh testidokumentatsioon |
 
-### Tarkvarakomponendid, töövahendid ja ressursid
+### 2 Kasutatavad komponendid, töövahendid ja ressursid
 
 |                          | märkused                     | Arendajale antakse pääsuõigused? |
 |--------------------------|------------------------------|-----|
@@ -42,7 +54,7 @@ Tööd sisaldavad:
 | __rühmatöökeskkond__ | Confluence Tellija taristus | jah |
 | __skype__ | jooksva suhtluse keskkond | jah |
 
-### Sidusarendus
+### 3 Sidusarendus
 1. Tarkvara ehitamine, paigaldamine ja testimine automatiseeritakse sidusarenduse (ingl _Continuous Integration_) põhimõtete kohaselt.
 1. Sidusarenduse töövoog:
   - Tellija annab Arendajale pääsuõigused süsteemi N koodireposse, automatiseerimisserverisse ja arenduskeskkonda
@@ -52,13 +64,13 @@ Tööd sisaldavad:
   - Automatiseerimisserver täidab ehitus-, paigaldus- ja testiskriptid
 1. Süsteemi N koodirepo peegeldamine avalikku koodireposse (GitHub) toimub automaatselt
 
-### Arhitektuuridokument
+### 4 Arhitektuuridokument
 Arhitektuuridokumendis tuleb:
 - spetsifitseerida süsteemi funktsiooni(d), piir, liidesed, komponentstruktuur, tehnoloogiad jm olulised arhitektuurilised aspektid
 - eraldi välja tuua DHX-i võimekuse loomisest tulenevad muudatused
 - esitada arhitektuurijoonis(ed) koos seletuskirjaga (selgitava tekstiga).
 
-### Testimine
+### 5 Testimine
 1. Arendaja peab testima kõiki DHX-i nõudeid.
   - muu hulgas tuleb teha dokumendis "DHX standardtestid" [5] määratletud testid
 1. Koostada tuleb:
@@ -72,6 +84,23 @@ Arhitektuuridokumendis tuleb:
   - DHX etalonteostuse abil, vastavalt dokumendis "DHX standardtestid" [5] jaotises "Etalonteostuse kasutamine DHX-i testimiseks" määratletule
 1. DHX-i nõudeid kontrollivad testid tuleb automatiseerida (teha automaattestid). Automatiseerimisest võib loobeda, kui see on suure keerukuse või töökulu tõttu ebamõistlik.
 1. Automaatteste ei tule koostada süsteemi N nendele funktsionaalsustele, mis ei ole seotud DHX-ga.
+1. Regressioonitestid tuleb teha.
+1. Spetsiaalseid koormusteste ei ole vaja teha.
+
+### 6 Muud nõuded
+1. Süsteemi N täiendamisel peab järgima:
+  - Tellija mittefunktsionaalseid nõudeid (MFN)
+  - Tellija dokumentatsiooniplaani.
+1. Kõrvalekalded p 1 nimetatud nõuetest on lubatud põhjendatud juhtudel (süsteemi või keskkonna olemuse tõttu nõue ei ole kohalduv või eesmärgipärane) Tellija nõusolekul.
+
+### 7 Projektikoosolek
+1. Projektikoosolek:
+  - peetakse iga nädal
+  - Tellija ruumides
+  - juhatab Tellija projektijuht
+  - Täitja projektijuht esitab suulise aruande tööde edenemisest
+  - seejärel arutatakse sisulisi ja korralduslikke küsimusi
+  - koosolekud protokollitakse.
 
 ### Viited
 [1] Dokumendivahetusprotokoll DHX, [https://e-gov.github.io/DHX/](https://e-gov.github.io/DHX/)
@@ -87,3 +116,7 @@ Arhitektuuridokumendis tuleb:
 [6] Süsteem N
 
 [7] ISTQB Glossary, [http://www.istqb.org/downloads/glossary.html](http://www.istqb.org/downloads/glossary.html)
+
+[8] Tellija mittefunktsionaalsed nõuded
+
+[9] Tellija dokumentatsiooniplaan

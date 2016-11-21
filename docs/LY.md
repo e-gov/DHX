@@ -31,7 +31,13 @@ Tööd sisaldavad:
 
 ### Kasutatavad tarkvarakomponendid, töövahendid ja ressursid
 
-DHX-i võimekuse loomisel tuleb kasutada DHX adapteri [3] koosseisus olevaid Java teeke, neid vajadusel kohandades ja täiendades.
+- __DHX adapter (teegid)__ DHX-i võimekuse loomisel tuleb kasutada DHX adapteri [3] koosseisus olevaid Java teeke, neid vajadusel kohandades ja täiendades.
+- __automatiseerimisserver — Jenkins
+- __koodirepo__
+  - BitBucket (Tellija taristus)
+  - GitHub (avalik koodirepo)
+- __arenduskeskkond
+
 
 ### Arhitektuuridokument
 
@@ -43,7 +49,6 @@ Arhitektuuridokumendis tuleb:
 
 ### Töövoog
 
-Kasutatakse sidusarendust (ingl _Continuous Integration_). 
 
 - Arendaja teeb koopia süsteemi N koodihoidlast
 

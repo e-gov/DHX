@@ -31,11 +31,11 @@ Sisukord
 [Viited]()
 
 ### 1 Eesmärk ja koosseis
-1. Käesolevaga tellitakse tarkvaraarendustööd eesmärgiga luua süsteemis N võimekus vahetada dokumente protokolli DHX-i kohaselt.
+1. Käesolevaga tellitakse tarkvaraarendustööd eesmärgiga luua süsteemis N võimekus vahetada dokumente protokolli DHX [1] kohaselt.
 1. Tööd sisaldavad kõiki tarkvaraarendustöid — sh projekteerimist, programmeerimist ja testimist koos vastava dokumenteerimisega, samuti projektijuhtimist — mis on vajalikud, et süsteemis N:
-  - teostada DHX-i otsevõimekus [2] mõistes, sh
-    - dokumendi vastuvõtmine (`sendDocument` teenuse abil)
-    - dokumendi saatmine (`sendDocument` teenusele)
+  - teostada DHX-i otsevõimekus [1] mõistes, sh
+    - dokumendi vastuvõtmine `sendDocument` teenuse abil
+    - dokumendi saatmine `sendDocument` teenusele
     - lokaalse aadressiraamatu koostamine
   - eemaldada "DVK spetsifikatsiooni" kohane liides DVK-ga.
     - Süsteem N vahetab praegu dokumente Dokumendivahetuskeskusega (DVK) [2] nn "DVK spetsifikatsiooni" kohaselt, kasutades "DVK klient" ja "DVK-API" komponente. "DVK spetsifikatsiooni" kohane liides tuleb eemaldada, vastavad komponendid kas eemaldada või DHX-i vajadustest lähtuvalt ümber teha.
@@ -44,7 +44,7 @@ Sisukord
 
 ### 2 Üleantavad tulemid
 
-Täitja annab Tellijale üle süsteemi N vastavalt tööde eesmärgile ja koosseisule täiendatud, testitud koodi koos nõuetekohase dokumentatsiooniga.
+Täitja annab Tellijale üle süsteemi N vastavalt tööde eesmärgile ja koosseisule täiendatud, testitud ja veavaba koodi koos nõuetekohase dokumentatsiooniga.
 
 ### 3 Kasutatavad komponendid, töövahendid ja ressursid
 
@@ -59,6 +59,7 @@ Täitja annab Tellijale üle süsteemi N vastavalt tööde eesmärgile ja koosse
 | __rühmatöökeskkond__ | Confluence Tellija taristus | jah |
 | __skype__ | jooksva suhtluse keskkond | jah |
 | __JIRA__ | kasutatakse vigade raporteerimiseks, Tellija taristus | jah |
+| __e-post__ | projektisuhtluseks | |
 
 ### 4 Sidusarendus
 1. Tarkvara ehitamine, paigaldamine ja testimine automatiseeritakse sidusarenduse (ingl _Continuous Integration_) põhimõtete kohaselt.
@@ -68,10 +69,10 @@ Täitja annab Tellijale üle süsteemi N vastavalt tööde eesmärgile ja koosse
   - Arendaja koostab ehitus-, paigaldus- ja testiskriptid nning häälestab automatiseerimisserveri 
   - Arendaja kannab arenduse tulemid süsteemi N koodireposse (Git `push` või `pull request`)
   - Automatiseerimisserver täidab ehitus-, paigaldus- ja testiskriptid.
-1. Süsteemi N koodirepo peegeldamine avalikku koodireposse (GitHub) toimub automaatselt.
+1. Süsteemi N koodirepo peegeldamine avalikku koodireposse (GitHub) tehakse Tellija poolt automaatselt.
 
 ### 5 Dokumentatsioon
-1. Aluseks võetakse süsteemi N olemasolev dokumentatsioon, seda täiendatakse.
+1. Aluseks võetakse süsteemi N olemasolev dokumentatsioon [6], seda täiendatakse.
 2. Dokument "Lahenduse kirjeldus" tuleb ümber nimetada arhitektuuridokumendiks ja täiendada, nii, et oleks:
   - spetsifitseeritud süsteemi funktsiooni(d), piir, liidesed, komponentstruktuur, tehnoloogiad jm olulised arhitektuurilised aspektid
   - eraldi välja toodud DHX-i võimekuse loomisest tulenevad muudatused
@@ -89,8 +90,8 @@ Täitja annab Tellijale üle süsteemi N vastavalt tööde eesmärgile ja koosse
   - testiraport.
 1. Testitakse kahe vahendiga:
   - SoapUI abil
-  - DHX etalonteostuse abil, vastavalt dokumendis "DHX standardtestid" [5] jaotises "Etalonteostuse kasutamine DHX-i testimiseks" määratletule.
-1. DHX-i nõudeid kontrollivad testid tuleb automatiseerida (teha automaattestid). Automatiseerimisest võib loobeda, kui see on suure keerukuse või töökulu tõttu ebamõistlik.
+  - DHX etalonteostuse abil, vastavalt dokumendi "DHX standardtestid" [5] jaotises "Etalonteostuse kasutamine DHX-i testimiseks" määratletule.
+1. DHX-i nõudeid kontrollivad testid tuleb automatiseerida (teha automaattestid), vastavalt jaotise "Sidusarendus" nõuetele. Automatiseerimisest võib loobuda, kui see on suure keerukuse või töökulu tõttu ebamõistlik.
 1. Automaatteste ei tule koostada süsteemi N nendele funktsionaalsustele, mis ei ole seotud DHX-ga.
 1. Regressioonitestid tuleb teha.
 1. Spetsiaalseid koormusteste ei ole vaja teha.

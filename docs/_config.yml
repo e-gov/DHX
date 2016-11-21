@@ -1,10 +1,10 @@
 # Üldised määratlused
-title: Motivational posters
-baseurl: "https://agiil.github.io/mott"
+title: DHX
+baseurl: "https://e-gov.github.io/DHX"
 
 # Build settings
 gems:
   - jekyll-feed
 exclude:
   - Gemfile
-- Gemfile.lock
+  - Gemfile.lock

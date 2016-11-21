@@ -1,0 +1,10 @@
+# Üldised määratlused
+title: Motivational posters
+baseurl: "https://agiil.github.io/mott"
+
+# Build settings
+gems:
+  - jekyll-feed
+exclude:
+  - Gemfile
+- Gemfile.lock

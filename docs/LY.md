@@ -29,14 +29,14 @@ Tööd sisaldavad:
 | programmeerimine | süsteemi N täiendatud programmikood, mis teostab DHX protokolli |
 | testimine        | testitud, protokollile DHX vastav tarkvara, sh testidokumentatsioon |
 
-### Kasutatavad tarkvarakomponendid, töövahendid ja ressursid
+### Tarkvarakomponendid, töövahendid ja ressursid
 
 - __DHX adapter (teegid)__ DHX-i võimekuse loomisel tuleb kasutada DHX adapteri [3] koosseisus olevaid Java teeke, neid vajadusel kohandades ja täiendades.
-- __automatiseerimisserver — Jenkins
-- __koodirepo__
+- __automatiseerimisserver__ — Jenkins
+- __süsteemi N koodirepo__
   - BitBucket (Tellija taristus)
   - GitHub (avalik koodirepo)
-- __arenduskeskkond
+- __arenduskeskkond__
 
 
 ### Arhitektuuridokument

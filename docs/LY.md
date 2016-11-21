@@ -33,22 +33,18 @@ Sisukord
 ### 1 Eesmärk ja koosseis
 1. Käesolevaga tellitakse tarkvaraarendustööd eesmärgiga luua süsteemis N võimekus vahetada dokumente protokolli DHX-i kohaselt.
 1. Tööd sisaldavad kõiki tarkvaraarendustöid — sh projekteerimist, programmeerimist ja testimist koos vastava dokumenteerimisega, samuti projektijuhtimist — mis on vajalikud, et süsteemis N:
-  1. teostada DHX-i otsevõimekus [2] mõistes, sh
+  - teostada DHX-i otsevõimekus [2] mõistes, sh
     - dokumendi vastuvõtmine (`sendDocument` teenuse abil)
     - dokumendi saatmine (`sendDocument` teenusele)
     - lokaalse aadressiraamatu koostamine
-  2. eemaldada "DVK spetsifikatsiooni" kohane liides DVK-ga.
+  - eemaldada "DVK spetsifikatsiooni" kohane liides DVK-ga.
     - Süsteem N vahetab praegu dokumente Dokumendivahetuskeskusega (DVK) [2] nn "DVK spetsifikatsiooni" kohaselt, kasutades "DVK klient" ja "DVK-API" komponente. "DVK spetsifikatsiooni" kohane liides tuleb eemaldada, vastavad komponendid kas eemaldada või DHX-i vajadustest lähtuvalt ümber teha.
 1. DHX-i vahendamise võimekust süsteemis N ei teostata.
 1. "DVK spetsifikatsiooni" liidese asendamine DHX protokolli põhise liidesega ei tohi muuta süsteemi N muud funktsionaalsust ega halvendada mittefunktsionaalseid omadusi.
 
 ### 2 Üleantavad tulemid
 
-| töö | üleantav tulem |
-|-----|-----------|
-| projekteerimine | arhitektuuridokument "Süsteemi N täiendamine DHX-i võimekusega". |
-| programmeerimine | süsteemi N täiendatud programmikood, mis teostab DHX protokolli |
-| testimine        | testitud, protokollile DHX vastav tarkvara, sh testidokumentatsioon |
+Täitja annab Tellijale üle süsteemi N vastavalt tööde eesmärgile ja koosseisule täiendatud, testitud koodi koos nõuetekohase dokumentatsiooniga.
 
 ### 3 Kasutatavad komponendid, töövahendid ja ressursid
 
@@ -70,9 +66,9 @@ Sisukord
   - Tellija annab Arendajale pääsuõigused süsteemi N koodireposse, automatiseerimisserverisse ja arenduskeskkonda
   - Arendaja loob süsteemi N koodirepost omale töörepo
   - Arendaja koostab ehitus-, paigaldus- ja testiskriptid nning häälestab automatiseerimisserveri 
-  - Arendaja kannab arenduse tulemid süsteemi N koodireposse (Git _push_ või _pull request_)
-  - Automatiseerimisserver täidab ehitus-, paigaldus- ja testiskriptid
-1. Süsteemi N koodirepo peegeldamine avalikku koodireposse (GitHub) toimub automaatselt
+  - Arendaja kannab arenduse tulemid süsteemi N koodireposse (Git `push` või `pull request`)
+  - Automatiseerimisserver täidab ehitus-, paigaldus- ja testiskriptid.
+1. Süsteemi N koodirepo peegeldamine avalikku koodireposse (GitHub) toimub automaatselt.
 
 ### 5 Dokumentatsioon
 1. Aluseks võetakse süsteemi N olemasolev dokumentatsioon, seda täiendatakse.
@@ -84,20 +80,21 @@ Sisukord
 
 ### 6 Testimine
 1. Arendaja peab testima kõiki DHX-i nõudeid.
-  - muu hulgas tuleb teha dokumendis "DHX standardtestid" [5] määratletud testid
+  - muu hulgas tuleb teha dokumendis "DHX standardtestid" [5] määratletud testid.
 1. Koostada tuleb:
   - testistrateegia (_test strategy_ ja _test approach_ tähenduses [7])
   - testilood
   - testandmed
   - testiskriptid, automatiseerimisserveri seadistused (automaattestid)
-  - testiraport
+  - testiraport.
 1. Testitakse kahe vahendiga:
   - SoapUI abil
-  - DHX etalonteostuse abil, vastavalt dokumendis "DHX standardtestid" [5] jaotises "Etalonteostuse kasutamine DHX-i testimiseks" määratletule
+  - DHX etalonteostuse abil, vastavalt dokumendis "DHX standardtestid" [5] jaotises "Etalonteostuse kasutamine DHX-i testimiseks" määratletule.
 1. DHX-i nõudeid kontrollivad testid tuleb automatiseerida (teha automaattestid). Automatiseerimisest võib loobeda, kui see on suure keerukuse või töökulu tõttu ebamõistlik.
 1. Automaatteste ei tule koostada süsteemi N nendele funktsionaalsustele, mis ei ole seotud DHX-ga.
 1. Regressioonitestid tuleb teha.
 1. Spetsiaalseid koormusteste ei ole vaja teha.
+1. Tööde vastuvõtmise tingimuseks on kõigi testide edukas (veavaba) läbimine.
 
 ### 7 Muud nõuded
 1. Süsteemi N täiendamisel peab järgima:
@@ -113,7 +110,7 @@ Sisukord
   - Täitja projektijuht esitab suulise aruande tööde edenemisest
   - seejärel arutatakse sisulisi ja korralduslikke küsimusi
   - koosolekud protokollitakse.
-2. Projektikoosolekute vahel peetakse töösuhtlust Tellija ja Arendaja ühises skype vestluses ja e-kirja teel
+2. Projektikoosolekute vahel peetakse töösuhtlust Tellija ja Arendaja ühises skype vestluses ja e-kirja teel.
 3. Arendajale antakse juurdepääs projekti Confluence-ruumile Tellija taristus.
 
 ### Viited
@@ -127,7 +124,7 @@ Sisukord
 
 [5] DHX standardtestid, [https://github.com/e-gov/DHX/blob/master/docs/Standardtestid.md](https://github.com/e-gov/DHX/blob/master/docs/Standardtestid.md)
 
-[6] Süsteem N
+[6] Süsteem N. Kirjeldus
 
 [7] ISTQB Glossary, [http://www.istqb.org/downloads/glossary.html](http://www.istqb.org/downloads/glossary.html)
 

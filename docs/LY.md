@@ -31,13 +31,25 @@ Tööd sisaldavad:
 
 ### Tarkvarakomponendid, töövahendid ja ressursid
 
-- __DHX adapter (teegid)__ DHX-i võimekuse loomisel tuleb kasutada DHX adapteri [3] koosseisus olevaid Java teeke, neid vajadusel kohandades ja täiendades.
-- __automatiseerimisserver__ — Jenkins
-- __süsteemi N koodirepo__
-  - BitBucket (Tellija taristus)
-  - GitHub (avalik koodirepo)
-- __arenduskeskkond__
+|                          | märkused                     | Arendajale antakse pääsuõigused? |
+|--------------------------|------------------------------|-----|
+| __süsteemi N koodirepo__ | BitBucket (Tellija taristus) | jah |
+| __süsteemi N avalik koodirepo__ | GitHub (avalik koodirepo) | avalik |
+| __DHX adapteri avalik koodirepo__ | DHX-i võimekuse loomisel tuleb kasutada DHX adapteri [3] koosseisus olevaid Java teeke, neid vajadusel kohandades ja täiendades | avalik |
+| __automatiseerimisserver__ | Jenkins, Tellija taristus | jah |
+| __arenduskeskkond__ | süsteemi N testimiseks Tellija taristus loodav virtuaalmasinate, neisse paigaldatud süsteemi- ja rakendustarkvara, võrguühenduste ja pääsuõiguste kogum | jah |
+| __rühmatöökeskkond__ | Confluence Tellija taristus | jah |
+| __skype__ | jooksva suhtluse keskkond | jah |
 
+### Sidusarendus
+1. Tarkvara ehitamine, paigaldamine ja testimine automatiseeritakse sidusarenduse (ingl _Continuous Integration_) põhimõtete kohaselt.
+1. Sidusarenduse töövoog:
+  - Tellija annab Arendajale pääsuõigused süsteemi N koodireposse, automatiseerimisserverisse ja arenduskeskkonda
+  - Arendaja loob süsteemi N koodirepost omale töörepo
+  - Arendaja koostab ehitus-, paigaldus- ja testiskriptid nning häälestab automatiseerimisserveri 
+  - Arendaja kannab arenduse tulemid süsteemi N koodireposse (Git _push_ või _pull request_)
+  - Automatiseerimisserver täidab ehitus-, paigaldus- ja testiskriptid
+1. Süsteemi N koodirepo peegeldamine avalikku koodireposse (GitHub) toimub automaatselt
 
 ### Arhitektuuridokument
 
@@ -46,13 +58,6 @@ Arhitektuuridokumendis tuleb:
 - spetsifitseerida süsteemi funktsiooni(d), piir, liidesed, komponentstruktuur, tehnoloogiad jm olulised arhitektuurilised aspektid
 - eraldi välja tuua DHX-i võimekuse loomisest tulenevad muudatused
 - esitada arhitektuurijoonis(ed) koos seletuskirjaga (selgitava tekstiga).
-
-### Töövoog
-
-
-- Arendaja teeb koopia süsteemi N koodihoidlast
-
-
 
 ### Testimine
 

@@ -12,19 +12,22 @@ _mudeldokument_
 
 Käesolevaga tellitakse tarkvaraarendustööd, mille eesmärk on protokollile DHX vastava dokumendivahetusfunktsionaalsuse loomine süsteemis N (DHX-i võimekuse loomine).
 
-Süsteem N vahetab praegu dokumente Dokumendivahetuskeskusega (DVK) [2] nn "DVK spetsifikatsiooni" kohaselt.
+Teostada DHX-i otsevõimekus [2] mõistes, sh
+- dokumendi vastuvõtmine (`sendDocument` teenuse abil)
+- dokumendi saatmine (`sendDocument` teenusele)
+- lokaalse aadressiraamatu koostamine
+
+DHX-i vahendamise võimekust süsteemis N ei teostata.
+
+Süsteem N vahetab praegu dokumente Dokumendivahetuskeskusega (DVK) [2] nn "DVK spetsifikatsiooni" kohaselt, kasutades "DVK klient" ja "DVK-API" komponente. "DVK spetsifikatsiooni" kohane liides tuleb eemaldada, vastavad komponendid kas eemaldada või DHX-i vajadustest lähtuvalt ümber teha.
 
 Tööd sisaldavad:
-
-- süsteemi N dokumentatsiooniga tutvumist.
-- dokumendivahetusprotokolliga DHX tutvumist.
-- 
 
 | töö | tulem |
 |-----|-----------|
 | projekteerimine | arhitektuuridokument "Süsteemi N täiendamine DHX-i võimekusega". |
-| programmeerimine | programmikood |
-| testimine        | testitud, protokollile DHX vastav tarkvara |
+| programmeerimine | süsteemi N täiendatud programmikood, mis teostab DHX protokolli |
+| testimine        | testitud, protokollile DHX vastav tarkvara, sh testidokumentatsioon |
 
 ### Kasutatavad tarkvarakomponendid, töövahendid ja ressursid
 
@@ -33,13 +36,24 @@ DHX-i võimekuse loomisel tuleb kasutada DHX adapteri [3] koosseisus olevaid Jav
 ### Arhitektuuridokument
 
 Arhitektuuridokumendis tuleb:
+
 - spetsifitseerida süsteemi funktsiooni(d), piir, liidesed, komponentstruktuur, tehnoloogiad jm olulised arhitektuurilised aspektid
 - eraldi välja tuua DHX-i võimekuse loomisest tulenevad muudatused
 - esitada arhitektuurijoonis(ed) koos seletuskirjaga (selgitava tekstiga).
 
+### Töövoog
+
+Kasutatakse sidusarendust (ingl _Continuous Integration_). 
+
+- Arendaja teeb koopia süsteemi N koodihoidlast
+
+
+
 ### Testimine
 
 Testimisel tuleb aluseks võtta dokumendis "DHX standardtestid" [5] jaotises "Etalonteostuse kasutamine DHX-i testimiseks" määratletu.
+
+
 
 
 

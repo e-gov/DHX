@@ -4,9 +4,11 @@ permalink: LY
 title: Lähteülesanne
 ---
 
+Riigi Infosüsteemi Amet 
+
 _mudeldokument_
 
-Süsteemi XX täiendamine DHX-i võimekusega
+Süsteemi N täiendamine DHX-i võimekusega
 
 # Tööde kirjeldus
 
@@ -38,9 +40,9 @@ Sisukord
     - dokumendi saatmine `sendDocument` teenusele
     - lokaalse aadressiraamatu koostamine
   - eemaldada "DVK spetsifikatsiooni" kohane liides DVK-ga.
-    - Süsteem N vahetab praegu dokumente Dokumendivahetuskeskusega (DVK) [2] nn "DVK spetsifikatsiooni" kohaselt, kasutades "DVK klient" ja "DVK-API" komponente. "DVK spetsifikatsiooni" kohane liides tuleb eemaldada, vastavad komponendid kas eemaldada või DHX-i vajadustest lähtuvalt ümber teha.
-1. DHX-i vahendamise võimekust süsteemis N ei teostata.
-1. "DVK spetsifikatsiooni" liidese asendamine DHX protokolli põhise liidesega ei tohi muuta süsteemi N muud funktsionaalsust ega halvendada mittefunktsionaalseid omadusi.
+    - Süsteem N vahetab praegu dokumente Dokumendivahetuskeskusega (DVK) [2] nn "DVK spetsifikatsiooni" kohaselt, kasutades komponente "DVK klient" ja "DVK-API". "DVK spetsifikatsiooni" kohane liides tuleb asendada DHX liidesega. Seejuures mittevajalikuks osutuvad komponendid tuleb kas eemaldada või DHX-i vajadustest lähtuvalt ümber teha.
+1. DHX-i vahendamise võimekust (vt [1]) süsteemis N ei teostata.
+1. "DVK spetsifikatsiooni" liidese asendamine DHX protokolli põhise liidesega ei tohi muuta süsteemi N muid funktsionaalsusi ega halvendada mittefunktsionaalseid omadusi.
 
 ### 2 Üleantavad tulemid
 
@@ -77,7 +79,7 @@ Täitja annab Tellijale üle süsteemi N vastavalt tööde eesmärgile ja koosse
   - spetsifitseeritud süsteemi funktsiooni(d), piir, liidesed, komponentstruktuur, tehnoloogiad jm olulised arhitektuurilised aspektid
   - eraldi välja toodud DHX-i võimekuse loomisest tulenevad muudatused
   - esitatud arhitektuurijoonis(ed) koos seletuskirjaga (selgitava tekstiga).
-3. Dokumentatsioon mis veel ei ole, tuleb teisendada Markdown-i (GitHub-i stiili).
+3. Dokumentatsioon, mis veel ei ole, tuleb teisendada Markdown-i (GitHub-i stiili).
 
 ### 6 Testimine
 1. Arendaja peab testima kõiki DHX-i nõudeid.

@@ -32,4 +32,4 @@ __Kui ma tahan ka DHX-ga liituda, kuidas ma saan oma süsteemi testida?__
 
 __X__: Liituge X-tee arenduskeskkonnaga, arendage oma süsteemis välja X-tee võimekus, valige oma süsteemile DHX alamsüsteemi nimi (DHX või DHX*). Pange oma süsteem ministeeriumile, aga samuti vallavalitsusele A, muuseumile B ja põhikoolile C dokumente saatma. Saatke dokumente ka Hõbekuuli OÜ raamatupidamisele. Nii testitegi.
 
-![](TESTIMISTEENUS:PNG)
+![](TESTIMISTEENUS.PNG)

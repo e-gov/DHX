@@ -2,6 +2,8 @@
 
 DHX-i rakendaja peab otsustama, mis viisil ta DHX-i rakendab. Valida on mitme variandi vahel:
 
+Vt ka ["Matrjoška"](https://e-gov.github.io/DHX/MATRYOSHKA.html) (selgitav joonis tehnoloogiate seose kohta)
+
 | # | DHX-i rakendusvariant | lühikirjeldus  |
 |---|---------|---|
 | 1 | DHX-i rakendamine otse (ilma vahendajata) | Vt allolevad alamvariandid. |

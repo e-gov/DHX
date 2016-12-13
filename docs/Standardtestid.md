@@ -101,5 +101,6 @@ Märkus. Ülalolev testiplaan hõlmab ka DVK-ga suhtlemist, sest DVK tegutseb ü
 
 | versioon, kuupäev | muudatus |
 |-------------------|----------|
+| v0.3 13.12.2016   | lisatud Etalonrakendus 3 ja TEST 2e |
 | v0.2 14.11.2016   | lisatud joonis ja testiplaan |
 | v0.1 09.11.2016   | algversioon |

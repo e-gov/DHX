@@ -1,4 +1,4 @@
-# DHX-ga tutvumine ja testimine
+# Tutvus DHX-ga
 
 <img src='noun_69716_cc.png' width=80 >
 

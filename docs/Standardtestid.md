@@ -37,13 +37,15 @@ DHX-i võimekuse loonud süsteemi testimiseks võib kasutada [DHX-i etalonteostu
 
 [DHX-i vastavusnõudeid](https://e-gov.github.io/DHX/#10-vastavusn%C3%B5uded) on terve rida. Rakendaja peab tagama kõigi nende täitmise. Käesolev testiplaan hõlmab ainult kõige lihtsamini teostatavaid teste. Mõnesid nõudeid võib üldse olla raske testida. Nt süsteemi käitumist juhul, kus adressaat "on maas" (siis peab üritama uuesti saata, aga mitte lõputult). 
 
-- Eeldused
-  - luua testitavas DHS-is (vm infosüsteemis) DHX-i võimekus (teenuse `sendDocument` osutamise ja tarbimise võimekus; lokaalse aadressiraamatu koostamise võimekus; vahendaja korral - teenuse `representationList` osutamise võimekus)
-  - registreerida DHX alamsüsteem X-tee arenduskeskkonnas
+__Eeldused__
+
+  1. luua testitavas DHS-is (vm infosüsteemis) DHX-i võimekus (teenuse `sendDocument` osutamise ja tarbimise võimekus; lokaalse aadressiraamatu koostamise võimekus; vahendaja korral - teenuse `representationList` osutamise võimekus)
+  2. registreerida DHX alamsüsteem X-tee arenduskeskkonnas
 
 __TEST 1a: Süsteemi ilmumine aadressiraamatusse__
   1. etalonrakenduse abil kontrollida testitava süsteemi ilmumist etalonrakenduse lokaalsesse aadressiraamatusse
-- __TEST 1b: Lokaalse aadressiraamatu koostamise õigsus__
+  
+__TEST 1b: Lokaalse aadressiraamatu koostamise õigsus__
   1. võrrelda testitava rakenduse lokaalset aadressiraamatut etalonrakenduses koostatud aadressiraamatuga; aadressiraamatud peavad ühtima
   - eelduseks on nõude testimise eesmärgil testitavasse süsteemi sisse ehitatud logimine vm moodus lokaalset aadressiraamatut inimesele kuvada
   - Kontrollitav nõue: [7.4 Lokaalne aadressiraamat](https://e-gov.github.io/DHX/#74-lokaalne-aadressiraamat)  
@@ -55,7 +57,7 @@ __TEST 2a: Dokumendi saatmine (õige dokument, DHX otsevõimekusega asutusele)__
   - Kontrollitav nõue: [5.6 Kapsli kasutamine](https://e-gov.github.io/DHX/#56-kapsli-kasutamine)
   
 __TEST 2b: Dokumendi saatmine (õige dokument, vahendajat kasutavale asutusele)__
-  1. testitavast süsteemist saata dokument etalonrakendusse 2 (testasutusele Vallavalitsus, Muuseum või Põhikool);
+  1. testitavast süsteemist saata dokument etalonrakendusse 2 (testasutusele Vallavalitsus, Muuseum või Põhikool)
   2. etalonrakenduse logist kontrollida dokumendi kohalejõudmist
   
 __TEST 2c: Dokumendi korduv saatmine__
@@ -70,7 +72,7 @@ __TEST 2d: Saatmine suvalisele DHX-i võimekusega asutusele__
 
 __TEST 2e: Saatmine asutusele, kellel on mitu DHX-i võimekusega infosüsteemi__
   1. testitavast süsteemist saata dokument etalonrakendusse 3 (X-tee lühinimi `DHX.raamatupidamine`)
-  2. kontrollida, et dokument jõudis kohale (mitte ei läinud sama adressaadi teise süsteemi (etalonrakendusse 2, X-tee lühinimi `DHX`).
+  2. kontrollida, et dokument jõudis kohale (mitte ei läinud sama adressaadi teise süsteemi (etalonrakendusse 2, X-tee lühinimi `DHX`)
 
 __TEST 3a: Vastuvõtmine (õige dokument)__
   1. etalonteostuse kasutajaliidese abil saata testitavale süsteemile õigesti moodustatud ja adresseeritud dokument

@@ -1,10 +1,12 @@
 # DHX-ga tutvumine ja testimine
 
+<img src='noun_69716_cc.png' width=80 >
 
-
-__Härra X, öelge palun, kas teie kasutate DHX-i?__ Jah, oleme hajusale dokumendivahetusele üle läinud. Rakendame DHX-i ministeeriumi dokumendihaldussüsteemis.
+__Öelge palun, kas teie kasutate DHX-i?__ Jah, oleme hajusale dokumendivahetusele üle läinud. Rakendame DHX-i ministeeriumi dokumendihaldussüsteemis.
 
 __Kuidas saab teile dokumente saata?__ Lihtne küsimus. Meie DHS-i nimi X-teel on, nii nagu DHX standard ette näeb, `DHX`. Sellele tuleb ette panna ministeeriumi registrikood `40000001`. X-tee täisnimi seega on `EE-DEV/GOV/40000001/DHX`.
+
+<img src='noun_69699_cc.png' width=80 >
 
 __Hõbekuuli OÜ? Öelge, palun, millega teie firma tegeleb?__ Heameelega. Oleme eesti kapitalil põhinev firma. Põhiliselt pakume IT süsteemide majutusteenust. Muuhulgas tegeleme ka DHX-i vahendamisega.
 

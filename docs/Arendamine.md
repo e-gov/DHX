@@ -1,8 +1,8 @@
 ### Protokolli arendamine
 - [Arutelud (Issues)](https://github.com/e-gov/DHX/issues)
 - [Osale arenduses (CONTRIBUTING.md)](CONTRIBUTING.md)
-- [Ettepanekud ja nende menetlusseisund](files/Ettepanekud.md)
-- [Analüüs](https://github.com/e-gov/DHX/blob/master/files/Hajusa_dokumendivahetuse_andmevahetusprotokolli_DHX_anal%C3%BC%C3%BCs_1.2.pdf)
+- [Ettepanekud ja nende menetlusseisund](../files/Ettepanekud.md)
+- [Analüüs]../files/Hajusa_dokumendivahetuse_andmevahetusprotokolli_DHX_anal%C3%BC%C3%BCs_1.2.pdf)
 - [Vormingutevahelised seosed](https://e-gov.github.io/DHX/Vormingud.html)
 - [Esitlus](files/DHX_esitlus.pptx) _2.11.2016_
 

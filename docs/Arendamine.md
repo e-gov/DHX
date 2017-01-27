@@ -12,5 +12,5 @@ Protokolli omanik on [Riigi Infosüsteemi Amet](https://www.ria.ee) (RIA), kes k
 - [Esitlus](files/DHX_esitlus.pptx) _2.11.2016_
 - [Kirjandus](files/Kirjandus.md)
 - [Vormingutevahelised seosed](https://e-gov.github.io/DHX/Vormingud.html)
-- [Analüüs]../files/Hajusa_dokumendivahetuse_andmevahetusprotokolli_DHX_anal%C3%BC%C3%BCs_1.2.pdf)
+- [Analüüs](../files/Hajusa_dokumendivahetuse_andmevahetusprotokolli_DHX_anal%C3%BC%C3%BCs_1.2.pdf)
 

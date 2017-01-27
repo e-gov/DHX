@@ -23,6 +23,5 @@ __DHX on uus, X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimal
 
 - [E-arved DVK-s üleminekuperioodil](docs/E-arved.md) _töödokument_
 
-- [Protokolli arendamine](docs/Arendamine.md)
+- [Protokolli arendamine](CONTRIBUTING.md)
 
-_Lahtiütlus. Repositoorium võib sisaldada töödokumente, mis ei ole kinnitatud ega ametlikult avaldatud._

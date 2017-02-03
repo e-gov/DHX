@@ -1,4 +1,4 @@
-![](../img/EL_struktuuri-_ja_investeerimisfondid_horisontaalne.jpg)
+﻿![Riigi Infosüsteemi Ameti](https://avatars3.githubusercontent.com/u/7447915 "Riigi Infosüsteemi Amet") ![](../img/EL_struktuuri-_ja_investeerimisfondid_horisontaalne.jpg)
 
 [ET](../README.md) | EN
 

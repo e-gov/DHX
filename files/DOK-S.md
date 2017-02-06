@@ -1,4 +1,4 @@
-##Dokumendihalduse ökosüsteem
+﻿##Dokumendihalduse ökosüsteem
 
 _Euroopa koosvõimeraamistiku (European Interoperability Framework. Draft intermediate version, 2016) mudeli alusel_
 
@@ -15,9 +15,9 @@ _Euroopa koosvõimeraamistiku (European Interoperability Framework. Draft interm
 - DHS teenusepakkujad
 
 ###Informatsiooniline koosvõime
-- [Elektrooniline dokumendivahetuse metaandmete loend](https://riha.eesti.ee/riha/main/xml/elektroonilise_andmevahetuse_metaandmete_loend/1)
-- ["Kapsel"]( https://svn.eesti.ee/projektid/dvk/doc/dvk_spetsifikatsioon_1.6.0.odt)
-- [DHX](https://github.com/e-gov/DHX) _verifitseerimisel_
+- [Dokumendihalduse metaandmed (v3.0)](https://riha.eesti.ee/riha/main/xml/dokumendihalduse_metaandmed/1)
+- [Elektrooniline dokumendivahetuse metaandmete loend (v2.1)](https://riha.eesti.ee/riha/main/xml/elektroonilise_andmevahetuse_metaandmete_loend/1)
+- [DHX protokoll (v1.0.5)](https://e-gov.github.io/DHX)
 
 ###Tehniline koosvõime
 - DHS tarkvarad (u 4-5)

@@ -20,7 +20,7 @@ Puuduvad.
 | member | Vahendatava konteiner |  |  | ei |
 | memberCode | Vahendatava asutuse registrikood | String | 10560025 | jah |
 | representeeName | Vahendatava asutuse nimetus | String | Vallavalitsus A | jah |
-| representeeSystem | Vahendatava asutuse alamsüstem | String | raamtupidamine | jah |
+| representeeSystem | Vahendatava asutuse süsteem | String | raamtupidamine | jah |
 | startDate | Vahendamise alguskuupäev | dateTime | 2016-06-30T19:30:03.916+03:00 | jah |
 | endDate | Vahendamise lõppkuupäev. Tühi kui vahendamine ilma tähtajata. | dateTime | 2016-06-30T19:30:03.916+03:00 | ei |
 

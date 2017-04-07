@@ -1,13 +1,15 @@
-##Pakendamine
+# Pakendamine
 
-_ülevaade sellest, mis mille sees käib_
+_Ülevaade sellest, mis mille sees käib._     
 
-#### Sisukord
+![Vormingutevahelised seosed](../img/Vormingutevahelised-seosed.png "Vormingutevahelised seosed")
+
+## Sisukord
 
 [HTTP sõnum (HTTP message)](#http-s%C3%B5num-http-message) | [interneti sõnumivorming (Internet Message Format)](#interneti-s%C3%B5numivorming-internet-message-format) 
 | [laiendatud, mitmeosaline sõnumivorming (MIME)](#laiendatud-mitmeosaline-s%C3%B5numivorming-mime) | [SOAP sõnum (SOAP messsage)](#soap-s%C3%B5num-soap-messsage) | [X-tee sõnum (X-Road message)](#x-tee-s%C3%B5num-x-road-message) | [Kapslis dokument](#kapslis-dokument) | [Elektroonilise andmevahetuse metaandmete loend](#elektroonilise-andmevahetuse-metaandmete-loend) | [e-arve](#e-arve)
 
-#### HTTP sõnum (_HTTP message_)
+## HTTP sõnum (_HTTP message_)
 - võib olla:
   - __päring(sõnum)__, _request (message)_
   - __vastus(sõnum)__, _response (message)_
@@ -19,7 +21,7 @@ _ülevaade sellest, mis mille sees käib_
 
 - HTTP tugineb e-posti e nn interneti sõnumivormingule (_Internet Message Format_)
  
-#### interneti sõnumivorming (_Internet Message Format_)
+## Interneti sõnumivorming (_Internet Message Format_)
 - [RFC 2822 Internet Message Format](https://tools.ietf.org/html/rfc2822) (2001)
   - vanemates standardites nimetatud ka RFC 822 sõnumivorminguks 
   - __ümbrik__ (_envelope_) ja __sisu__ (_contents_) 
@@ -29,7 +31,7 @@ _ülevaade sellest, mis mille sees käib_
   - ümbriku ja päise erinevuse kohta vt [siit](http://stackoverflow.com/questions/1750194/why-does-email-need-an-envelope-and-what-does-the-envelope-mean)
 - kasutatakse e-posti transpordiprotokollis [RFC 2821 Simple Mail Transfer Protocol (SMTP)](https://tools.ietf.org/html/rfc2821#section-2.3) aga ka mujal 
 
-#### laiendatud, mitmeosaline sõnumivorming (MIME)
+## Laiendatud, mitmeosaline sõnumivorming (MIME)
 - [RFC 2045 Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies](https://www.ietf.org/rfc/rfc2045.txt) ja seonduvad
   - vt [ametlikku internetistandardite nimistut](https://www.rfc-editor.org/standards) 
 - määratleb mehhanismid mittetekstilise ja mitmeosalise (_multi-part_) teabe edastamiseks RFC 822 sõnumites
@@ -54,7 +56,7 @@ _ülevaade sellest, mis mille sees käib_
 - viitamine teistele osadele, eriti juurosast (_root body part_): [RFC 2557 MIME Encapsulation of Aggregate Documents, such as HTML (MHTML)](http://www.ietf.org/rfc/rfc2557.txt)
   - `Content-Location` päiseväli
 
-#### SOAP sõnum (_SOAP messsage_)
+## SOAP sõnum (_SOAP messsage_)
 - SOAP sõnum on XML dokument, mis koosneb:
   - __SOAP ümbrik__ (_SOAP envelope_) (nõutav)
   - __SOAP päis__ (_SOAP header_) (valikuline)
@@ -96,7 +98,7 @@ _ülevaade sellest, mis mille sees käib_
   - [SOAP Messages with Attachments](https://www.w3.org/TR/SOAP-attachments)
   - vt ka [https://www.w3.org/TR/xmlp-scenarios/#S19](https://www.w3.org/TR/xmlp-scenarios/#S19)
 
-#### X-tee sõnum (_X-Road message_)
+## X-tee sõnum (_X-Road message_)
 - määratletud kahe protokolliga:
   - [X-tee sõnumiprotokoll](http://x-road.eu/docs/x-road_message_protocol_v4.0.pdf) (X-Road Message Protocol)
   - [X-tee sõnumitranspordi protokoll](http://x-road.eu/docs/x-road_message_transport_protocol.pdf) (X-Road Message Transport Protocol)
@@ -118,7 +120,7 @@ _ülevaade sellest, mis mille sees käib_
   - __manus__ (_attachment_)
     - MIME multipart standardil 
 
-#### Kapslis dokument
+## Kapslis dokument
 - "DVK dokument"
 - "DVK konteiner" e "kapsel"
 - DVK ja DHS vahel ühe teenusekasutusega (päring-vastus interaktsiooniga) edastatav dokument
@@ -143,7 +145,7 @@ _ülevaade sellest, mis mille sees käib_
     - DigiDoc 1.3 vormingus
       - [teave DigiDoc vormingute kohta](http://www.id.ee/?id=36161)
   
-#### Elektroonilise andmevahetuse metaandmete loend
+## Elektroonilise andmevahetuse metaandmete loend
  - nn semantiline standard, ei anna konkreetse masinloetava esituse süntaksit
  - vt DVK konteiner e "kapsel"
  - kaks versiooni:
@@ -153,7 +155,7 @@ _ülevaade sellest, mis mille sees käib_
      - mõned pole veel 2.1-le üle läinud (nt Riigi Teataja)
    - DVK transleerib vanast uude
 
-#### E-arve
+## E-arve
  - ametlik standard EVS 923:2014 (vt link RaM [e-arvete lehel](http://www.fin.ee/e-arved))
  - kirjeldus on ka Eesti Pangaliidu veebilehel [E-arve](http://www.pangaliit.ee/et/arveldused/e-arve)
  - XML-vormingus dokument

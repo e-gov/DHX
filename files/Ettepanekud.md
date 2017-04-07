@@ -1,4 +1,4 @@
-## Protokolli täiendamine. Ettepanekud ja nende menetlusseisund
+# Protokolli täiendamine. Ettepanekud ja nende menetlusseisund
 
 | nr   | kirjeldus v viide | menetlusseisund |
 |------|-------------------|-----------------|

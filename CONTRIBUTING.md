@@ -8,8 +8,8 @@ Protokolli omanik on [Riigi Infosüsteemi Amet](https://www.ria.ee) (RIA), kes k
 - RIA viib muudatuse protokolli ja uuendab ettepanekute nimekirja. Muud tegevused viiakse ellu juurutuskavas olevate vastutajate poolt.
 
 ### Taustamaterjale
-- [Dokumendihalduse "ökosüsteem"](files/DOK-S.md)
-- [Esitlus](files/DHX_esitlus.pptx) _2.11.2016_
+- [Dokumendihalduse "ökosüsteem"](files/Okosysteem.md)
+- [Tutvustus](files/DHX_tutvustus_2016.11.02.pptx) _2.11.2016_
 - [Kirjandus](files/Kirjandus.md)
-- [Vormingutevahelised seosed](https://e-gov.github.io/DHX/Vormingud.html)
-- [Analüüs](files/Hajusa_dokumendivahetuse_andmevahetusprotokolli_DHX_anal%C3%BC%C3%BCs_1.2.pdf)
+- [Vormingutevahelised seosed](docs/Pakendamine.png)
+- [Analüüs](files/DHX_analyys.pdf)

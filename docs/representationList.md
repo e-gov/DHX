@@ -28,18 +28,21 @@ Puuduvad.
 
 Päringu näide:
 ```XML
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xro="http://x-road.eu/xsd/xroad.xsd" xmlns:iden="http://x-road.eu/xsd/identifiers" xmlns:prod="http://dhx.x-road.eu/producer">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+   xmlns:xro="http://x-road.eu/xsd/xroad.xsd"
+   xmlns:iden="http://x-road.eu/xsd/identifiers"
+   xmlns:prod="http://dhx.x-road.eu/producer">
    <soapenv:Header>
       <xro:protocolVersion>4.0</xro:protocolVersion>
       <xro:id>335b46fb-1c7f-4149-9d53-b2f476ea45bc
       </xro:id>
-      <xro:client>
+      <xro:client iden:objectType="SUBSYSTEM">
             <iden:xRoadInstance>ee-dev</iden:xRoadInstance>
             <iden:memberClass>GOV</iden:memberClass>
             <iden:memberCode>40000001</iden:memberCode>
             <iden:subsystemCode>DHX</iden:subsystemCode>
         </xro:client>
-        <xro:service>
+        <xro:service iden:objectType="SERVICE">
             <iden:xRoadInstance>ee-dev</iden:xRoadInstance>
             <iden:memberClass>COM</iden:memberClass>
             <iden:memberCode>30000001</iden:memberCode>
@@ -57,17 +60,21 @@ Päringu näide:
 Vastuse näide:
 ```XML
 <?xml version="1.0" encoding="utf-8" ?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns3="http://dhx.x-road.eu/producer"  xmlns:iden="http://x-road.eu/xsd/identifiers" xmlns:xro="http://x-road.eu/xsd/xroad.xsd">
+<SOAP-ENV:Envelope
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+ xmlns:ns3="http://dhx.x-road.eu/producer"  
+ xmlns:iden="http://x-road.eu/xsd/identifiers" 
+ xmlns:xro="http://x-road.eu/xsd/xroad.xsd">
    <SOAP-ENV:Header>
       <xro:protocolVersion>4.0</xro:protocolVersion>
       <xro:id>335b46fb-1c7f-4149-9d53-b2f476ea45bc</xro:id>
-      <xro:client>
+      <xro:client iden:objectType="SUBSYSTEM">
          <iden:xRoadInstance>ee-dev</iden:xRoadInstance>
          <iden:memberClass>GOV</iden:memberClass>
          <iden:memberCode>40000001</iden:memberCode>
          <iden:subsystemCode>DHX</iden:subsystemCode>
       </xro:client>
-      <xro:service>
+      <xro:service iden:objectType="SERVICE">
          <iden:xRoadInstance>ee-dev</iden:xRoadInstance>
          <iden:memberClass>COM</iden:memberClass>
          <iden:memberCode>30000001</iden:memberCode>

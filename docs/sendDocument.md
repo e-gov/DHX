@@ -66,6 +66,7 @@ Vastuvõtja süsteem PEAB äriloogikalise või DHX protokolli reeglite vastu val
  Päringu näide:
  
  ```XML
+ <?xml version="1.0" encoding="utf-8" ?>
  <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
     <ns4:protocolVersion xmlns:ns2="http://dhx.x-road.eu/producer"
@@ -76,7 +77,8 @@ Vastuvõtja süsteem PEAB äriloogikalise või DHX protokolli reeglite vastu val
     </ns4:id>
     <ns4:client xmlns:ns2="http://dhx.x-road.eu/producer"
       xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://x-road.eu/xsd/xroad.xsd"
-      xmlns:ns5="http://www.riik.ee/schemas/deccontainer/vers_2_1/">
+      xmlns:ns5="http://www.riik.ee/schemas/deccontainer/vers_2_1/"
+      ns3:objectType="SUBSYSTEM">
       <ns3:xRoadInstance>ee-dev</ns3:xRoadInstance>
       <ns3:memberClass>GOV</ns3:memberClass>
       <ns3:memberCode>40000001</ns3:memberCode>
@@ -132,7 +134,8 @@ PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pjxu
     </ns4:id>
     <ns4:client xmlns:ns2="http://dhx.x-road.eu/producer"
       xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://x-road.eu/xsd/xroad.xsd"
-      xmlns:ns5="http://www.riik.ee/schemas/deccontainer/vers_2_1/">
+      xmlns:ns5="http://www.riik.ee/schemas/deccontainer/vers_2_1/"
+      ns3:objectType="SUBSYSTEM">
       <ns3:xRoadInstance>ee-dev</ns3:xRoadInstance>
       <ns3:memberClass>GOV</ns3:memberClass>
       <ns3:memberCode>40000001</ns3:memberCode>
@@ -177,7 +180,8 @@ PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pjxu
 			xmlns:ns5="http://x-road.eu/xsd/xroad.xsd">d8be2b7d-25fc-4cce-88b9-09c7dfc78282</ns5:id>
 		<ns5:client xmlns:ns2="http://dhx.x-road.eu/producer"
 			xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://www.riik.ee/schemas/deccontainer/vers_2_1/"
-			xmlns:ns5="http://x-road.eu/xsd/xroad.xsd">
+			xmlns:ns5="http://x-road.eu/xsd/xroad.xsd"
+                  ns3:objectType="SUBSYSTEM">
 			<ns3:xRoadInstance>ee-dev</ns3:xRoadInstance>
 			<ns3:memberClass>GOV</ns3:memberClass>
 			<ns3:memberCode>40000001</ns3:memberCode>

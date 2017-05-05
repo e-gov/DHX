@@ -10,3 +10,5 @@
 | 06   | [Muuta teenuse representationList laiendatavaks, sarnaselt teenusega sendDocument](Ettepanek-06.md) | SISSE VIIDUD v 1.0.2 |
 | 07   | [Parameetrite lisamine teenusesse representationList](Ettepanek-07.md) | SISSE VIIDUD v 1.0.3 |
 | 08   | Lisada teenuses sendDocument veakood `DHX.UnsupportedVersion`. Arutelu vt https://github.com/e-gov/DHX/issues/44. Lisab küll veidi keerukust, kuid on siiski õigustatud, sest protokolli versioonide tekkimine ei ole absoluutselt välistatud (aga tahame seda võimalusel vältida). | SISSE VIIDUD v 1.0.5 |
+| 09   | Lisada puuduolevad `objectType` atribuudid X-tee sõnumipäistes. Muudatus puudutab teenuste `sendDocument` ja `representationList` spetsifikatsioonides olevaid näiteid | SISSE VIIDUD v 1.0.6 |
+

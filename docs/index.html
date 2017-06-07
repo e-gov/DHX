@@ -25,7 +25,7 @@
 
 <h1 id="dokumendivahetusprotokoll-dhx">Dokumendivahetusprotokoll DHX</h1>
 
-<p><em>v 1.0.6</em></p>
+<p><em>v 1.0.7</em></p>
 
 <h2 id="sisukord">Sisukord</h2>
 
@@ -432,7 +432,7 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 <p class="advisement">Kui asutus rakendab DHX-i ainult ühes oma infosüsteemis (asutuse DHS-is), siis PEAKS X-tee alamsüsteemi nimeks olema <code>DHX</code> (aga mitte pikem).</p>
 
 <div class='note'>
-  <p>Märkus (informatiivne). Infosüsteem võib DHX alamsüsteemi nime <code>DHX*</code> alt lisaks DHX dokumendivahetusele osutada ja tarbida ka teisi X-tee teenuseid. Siiski võib nime DHX laiem kasutamine tekitada asjatut kommunikatsioonivajadust või isegi segadust. Seetõttu, kui infosüsteemil on lisaks DHX protokolli kohasele andmeliiklusele X-teel veel muud andmeliiklust, siis võib olla otstarbekas enama kui ühe X-tee alamsüsteemi sidumine infosüsteemiga.</p>
+  <p>Märkus (informatiivne). Infosüsteem võib DHX alamsüsteemi nime <code>DHX*</code> alt lisaks DHX dokumendivahetusele osutada ja tarbida ka teisi X-tee teenuseid. Siiski võib nime DHX laiem kasutamine tekitada asjatut kommunikatsioonivajadust või isegi segadust. Seetõttu, kui infosüsteemil on lisaks DHX protokolli kohasele andmeliiklusele X-teel veel muud andmeliiklust, siis võib olla otstarbekas enama kui ühe X-tee alamsüsteemi sidumine infosüsteemiga. Muudest teenustest eraldi DHX-alamsüsteem võib olla kasulik ka teenustele juurdepääsu halduse seisukohalt.</p>
   <p>Näiteks joonisel 3a kujutatud infosüsteemil <code>ADIT</code> on kaks X-tee alamsüsteemi: 1) <code>DHX-ADIT</code> kaudu käib DHX andmeliiklus; 2) <code>ADIT</code> kaudu osutatakse ja tarbitakse muid X-tee teenuseid.</p>
   <p>Mitme alamsüsteemi kasutamisest ei teki lisakulutusi (ei ole vaja eraldi serte). Alamsüsteemid on käsitatavad loogiliste pääsupunktidena või väravatena.</p>
 </div>  
@@ -976,6 +976,10 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 </tr>
 </thead>
 <tbody>
+<tr>
+  <td>1.0.7, 07.06.2017</td>
+  <td>Lisatud informatiivne märkus, et eraldi DHX-alamsüsteem võib olla kasulik ka teenustele juurdepääsu haldamise seisukohalt.</td>
+</tr>
 <tr>
   <td>1.0.6, 05.05.2017</td>
   <td>Täiendatud teenuste <code>sendDocument</code> ja <code>representationList</code> spetsifikatsioonides olevaid näiteid: lisatud X-tee päiseelementides kohustuslik atribuut <code>objectType</code>.</td>

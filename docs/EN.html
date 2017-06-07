@@ -24,7 +24,7 @@
 				
 <h1 id="dokumendivahetusprotokoll-dhx">Document exchange protocol DHX</h1>
 
-<p><em>v 1.0.6</em></p>
+<p><em>v 1.0.7</em></p>
 
 <h2 id="sisukord">Table of Contents</h2>
 
@@ -433,7 +433,7 @@ DHX direct implementation Implementation of DHX directly, i.e. without an interm
 <p class="advisement">If institution employs DHX only in one of its information systems (in institution's DMS), then X-Road subsystem name code>DHX</code> SHOULD be used (and not a longer name).</p>
 
 <div class='note'>
-  <p>Note (informative). Information system may provide services other than DHX document exchange under subsystem name <code>DHX*</code>. Nevertheless, wider use of the name DHX can cause a need for unnecessary communication or even confusion. Therefore, if information system has besides DHX protocol data traffic other data traffic in X-Road, then it can be suitable to bind more than one X-Road subsystem to the information system.</p>
+  <p>Note (informative). Information system may provide services other than DHX document exchange under subsystem name <code>DHX*</code>. Nevertheless, wider use of the name DHX can cause a need for unnecessary communication or even confusion. Therefore, if information system has besides DHX protocol data traffic other data traffic in X-Road, then it can be suitable to bind more than one X-Road subsystem to the information system. A separate DHX-subsystem can also be useful for better management of access to services.</p>
   <p>For example, figure 3a represents an information system - <code>ADIT</code> - that is bound to two X-Road subsystems: 1) DHX data traffic flows through <code>DHX-ADIT</code>; 2) other X-Road services are provided and consumed through <code>ADIT</code>.</p>
   <p>Usage of multiple subsystems does not cause additional costs (no separate sertificates are needed). Subsystems can be viewed as logical access points or gates.</p>
 </div>  
@@ -977,6 +977,10 @@ DHX direct implementation Implementation of DHX directly, i.e. without an interm
 </tr>
 </thead>
 <tbody>
+<tr>
+  <td>1.0.7, 07.06.2017</td>
+  <td>Added small informative note that separate DHX-subsystem can be useful for better management of access to services.</td>
+</tr>
 <tr>
   <td>1.0.6, 05.05.2017</td>
   <td>Small correction to examples in specification of services <code>sendDocument</code> and <code>representationList</code>: added X-Road required attribute <code>objectType</code> in message headers.</td>

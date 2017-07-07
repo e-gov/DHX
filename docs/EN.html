@@ -434,7 +434,7 @@ DHX direct implementation Implementation of DHX directly, i.e. without an interm
 
 <div class='note'>
   <p>Note (informative). Information system may provide services other than DHX document exchange under subsystem name <code>DHX*</code>. Nevertheless, wider use of the name DHX can cause a need for unnecessary communication or even confusion. Therefore, if information system has besides DHX protocol data traffic other data traffic in X-Road, then it can be suitable to bind more than one X-Road subsystem to the information system. A separate DHX-subsystem can also be useful for better management of access to services.</p>
-  <p>For example, figure 3a represents an information system - <code>ADIT</code> - that is bound to two X-Road subsystems: 1) DHX data traffic flows through <code>DHX-ADIT</code>; 2) other X-Road services are provided and consumed through <code>ADIT</code>.</p>
+  <p>For example, figure 3a represents an information system - <code>ADIT</code> - that is bound to two X-Road subsystems: 1) DHX data traffic flows through <code>DHX.ADIT</code>; 2) other X-Road services are provided and consumed through <code>ADIT</code>.</p>
   <p>Usage of multiple subsystems does not cause additional costs (no separate sertificates are needed). Subsystems can be viewed as logical access points or gates.</p>
 </div>  
 
@@ -977,6 +977,10 @@ DHX direct implementation Implementation of DHX directly, i.e. without an interm
 </tr>
 </thead>
 <tbody>
+<tr>
+  <td>1.0.8, 07.07.2017</td>
+  <td>In section 5.5 changed DHX-ADIT to DHX.ADIT, because an established practice (though not a protocol requirement) is to use period as separator.</td>
+</tr>
 <tr>
   <td>1.0.7, 07.06.2017</td>
   <td>Added small informative note that separate DHX-subsystem can be useful for better management of access to services.</td>

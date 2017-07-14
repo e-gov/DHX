@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meetrikad</title>
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+
+  <!-- Material Design icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Roboto font -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" crossorigin="anonymous">
+  <!-- Tether on vaja tooltip-de jaoks -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+  <!--Load Google Charts AJAX API-->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <!-- Stiilid. Minimalistlik kujundus -->
+  <style>
+    /* ---- Keha -------- */
+
+    body {
+      padding: 2rem 2rem 8rem 2rem;
+      line-height: 1.25 !important;
+      font-family: 'Roboto', sans-serif;
+      font-size: 14pt !important;
+      color: #464a4c !important;
+    }
+    /* Pealkirjad */
+
+    h1,
+    h2 {
+      font-size: 14pt !important;
+      line-height: 1.25;
+    }
+
+    h1,
+    h2 {
+      font-weight: bold;
+      margin-top: 1em;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      text-transform: uppercase;
+    }
+    /* Tekstiparagrahv */
+
+    p {
+      margin: 0 0 1em 0;
+    }
+
+    .nupp {
+      margin: 1rem 0.5rem;
+      cursor: pointer;
+      color: #757575;
+    }
+
+    .ikoon {
+      font-family: 'Material Icons';
+      font-size: 32px;
+    }
+
+    .peidetud {
+      /* display: flex; ülekirjutamiseks */
+      display: none !important;
+    }
+    .selgitus {
+      font-size: 12pt;
+    }
+  </style>
+
+  <!-- Skriptid -->
+  <script src="js/Meetrikad.js"></script>
+
+  <script type="text/javascript">
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', { 'packages': ['corechart'] });
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(joonistaDiagramm);
+
+    function seaKasitlejad() {
+      /* Nupukäsitlejad */
+      $('#kuidasSelgitusNupp').click(function(){
+        $('#kuidasSelgitus').removeClass('peidetud');
+      });
+      $('#tahenduseSelgitusNupp').click(function(){
+        $('#tahenduseSelgitus').removeClass('peidetud');
+      });
+    }
+
+    // Callback 
+    function joonistaDiagramm() {
+
+      seaKasitlejad();
+
+      // NB! Non-blocking
+      var url = 'https://raw.githubusercontent.com/e-gov/DHX/master/docs/index.html';
+      $.get(url, function (protokolliTekst, status) {
+
+        var versiooniandmeidOtsivRegex = /<td>(\d\..+),.+\d\d.\d\d.(\d\d\d\d)</g;
+        var match;
+        var versiooniaastad = [];
+        var versioonid = [];
+        var versioonituubid = [];
+
+        do {
+          match = versiooniandmeidOtsivRegex.exec(protokolliTekst);
+          if (match) {
+            versioonid.push(match[1]);
+            versiooniaastad.push(match[2]);
+          }
+        } while (match);
+
+        console.log(versioonid);
+        console.log(versiooniaastad);
+
+        /*
+          [ "1.0.8", "1.0.7", "1.0.6", "1.0.5", "1.0.4", "1.0.3", "1.0.2", "1.0.1", "1.0" ]
+          [ "2017", "2017", "2017", "2016", "2016", "2016", "2016", "2016", "2016" ]
+
+          Aasta | Major | Minor | Patch
+          ------|-------|-------|------
+
+        */
+
+        function selgitaversioonituubid(uus, vana) {
+          var u = uus.split('.');
+          var v = vana.split('.');
+          if (u[0] > v[0])
+            return 'Major'
+          else if (u[1] > v[1])
+            return 'Minor'
+          else
+            return 'Patch'
+        }
+
+        for (var i = 0; i < versioonid.length - 1; i++) {
+          versioonituubid[i] = selgitaversioonituubid(versioonid[i], versioonid[i + 1]);
+        }
+        versioonituubid[versioonid.length - 1] = 'Major'; // Esimest versiooni loeme Major-ks.
+
+        console.log(versioonituubid);
+
+        /* Tabuleeri ja moodusta Google Chart andmetabel */
+        var andmetabel = new google.visualization.DataTable();
+        andmetabel.addColumn('string', 'Aasta');
+        andmetabel.addColumn('number', 'Major versioone');
+        andmetabel.addColumn('number', 'Minor versioone');
+        andmetabel.addColumn('number', 'Patch-e');
+
+        let aastad = new Set();
+        versiooniaastad.forEach(e => aastad.add(e));
+        for (let a of aastad) {
+          var majorArv = 0;
+          var minorArv = 0;
+          var patchArv = 0;
+          // Moodusta tabulatsioonitabeli rida
+          versioonituubid.forEach(function (e, i) {
+            if (versiooniaastad[i] == a) {
+              if (versioonituubid[i] == 'Major')
+                majorArv++;
+              else if (versioonituubid[i] == 'Minor')
+                minorArv++;
+              else
+                patchArv++;
+            }
+          });
+          console.log([a, majorArv, minorArv, patchArv]);
+          andmetabel.addRows([[a, majorArv, minorArv, patchArv]]);
+        }
+
+        var diagrammisuvandid = {
+          'width': 300, 'height': 200,
+          chartArea: { left: 20, top: 20, width: '100%', height: '100%' },
+          legend: { position: 'top', textStyle: { color: 'DarkGray', fontSize: 14 } },
+          bar: { groupWidth: '75%' },
+          hAxis: { title: 'Aastad'},
+          isStacked: true
+        };
+
+        // Instantiate chart
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        // Joonista diagramm
+        chart.draw(andmetabel, diagrammisuvandid);
+
+      });
+
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <div class='container-fluid'>
+    <div class='row'>
+      <div class='col-xs-12 col-sm-10 col-md-8 col-lg-8 col-xl-6'>
+
+        <h1>DHX mõõdikulaud</h1>
+
+        <p><a href='https://www.ria.ee/ee/dokumendivahetus-dhx.html'>Dokumendivahetuskiht DHX</a></p>
+
+        <ul id='Meetrikad'>
+        </ul>
+
+        <h2>Protokollimuudatused</h2>
+
+        <!-- Diagramm) -->
+        <div style='width: 400px;'>
+          <div id="chart_div" style='margin: 10px 0 40px 0px;'></div>
+        </div>
+
+        <div class='d-flex align-content-center'>
+          <p><b>Mida andmed tähendavad?</b></p>
+          <span id='tahenduseSelgitusNupp' class='nupp'>
+            <i class="ikoon material-icons">add_circle</i>
+          </span>
+        </div>
+
+        <p id='tahenduseSelgitus' class='selgitus peidetud'>Suur- (Major) ja väikeversioonide (Minor) ning redaktsioonide (Patch) arv aastate lõikes. Protokolli stabiilsus on soovitav omadus. Seetõttu üldjuhul mida vähem muudatusi, seda parem. Protokollimuudatus võib olla: suurversioon (breaking
+            change) - tagasiühilduvus ei ole tagatud, liidese peab igal juhul ümber tegema; väikeversioon (non-breaking change)
+            - lisanduvad uued võimalused, kuid need ei häiri vanade kasutamist; redaktsiooniline muudatus - täpsustus, mis
+            ei tee midagi katki ega nõua tarkvara ümbertegemist.</p>
+
+
+        <div class='d-flex align-content-center'>
+          <p><b>Kuidas andmed on saadud?</b>
+
+            <span id='kuidasSelgitusNupp' class='nupp'>
+              <i class="ikoon material-icons">add_circle</i>
+          </span>
+        </div>
+
+        <p id='kuidasSelgitus' class='selgitus peidetud'>Muudatuste sagedused arvutatakse protokolli avaldatud teksti jaotise 'Muutelugu' alusel. Tehniliselt käib see nii, et Javascripti rakendus pärib GitHub-i repost protokolli teksti (HTML-faili), Regex-i abil leiab muuteloost versiooninumbbrid ja -kuupäevad, analüüsides versiooninumbreid teeb kindlaks, kas muudatus oli suur, väike või redaktsiooniline, tabuleerib andmed ja kuvab tulpdiagrammi, Google Charts visualiseerimisteegi abil. Protsess on automatiseeritud.</p>  
+  
+        </div>
+
+
+      <!-- Jalus -->
+      <div class='row'
+         style='margin-top: 3rem; margin-bottom: 3rem;'>
+        <div class='col-xs-12 col-sm-10 col-md-8 col-lg-8 col-xl-6'>
+          <p>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+      <!-- Jaluse lõpp -->
+
+    </div>
+
+  </body>
+
+</html>

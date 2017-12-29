@@ -537,7 +537,7 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 
 <p>Näide: <code>EE/COM/40001111/DHX/representationList</code></p>
 
-<p class="advisement">DHX-i rakendaja teostatud vahendusnimekirja teenus PEAB vastama lisas 2 esitatud täpsemale spetsifikatsioonile.</p>
+<p class="advisement">DHX-i vahendaja teostatud vahendusnimekirja teenus PEAB vastama lisas 2 esitatud täpsemale spetsifikatsioonile.</p>
 
 <h2 id="7-saatmine">7 Saatmine</h2>
 
@@ -778,6 +778,34 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
   <td>DHX rakendamisel läbi vahendaja PEAB asutus sõlmima lepingu DHX vahendajaga. Kasutada TOHIB AINULT X-tee keskuse poolt DHX vahendajate nimekirja lisatud vahendajaid.</td>
 </tr>
 <tr>
+  <td>6.2</td>
+  <td>Vahendajana tegutseda sooviv asutus või ettevõte PEAB end vahendajana X-teel registreerima.</td>
+</tr>
+<tr>
+  <td>6.2</td>
+  <td>Asutus või ettevõte, kes ei ole vahendajana registreeritud, EI TOHI publitseerida vahendusnimekirja, ka siis, kui see on tühi. S.t tavaline DHX-i kasutav asutus EI TOHI pakkuda <code>representationList</code> teenust (vt jaotis 6.3).</td>
+</tr>
+<tr>
+  <td>6.3</td>
+  <td>Vahendaja PEAB pidama vahendusnimekirja.</td>
+</tr>
+<tr>
+  <td>6.3</td>
+  <td>Vahendaja PEAB hoidma vahendusnimekirja autentsena ja ajakohasena.</td>
+</tr>
+<tr>
+  <td>6.3</td>
+  <td>Vahendaja PEAB vahendusnimekirja tegema kättesaadavaks X-tee teenusena.</td>
+</tr>
+<tr>
+  <td>6.3</td>
+  <td>Vahendusnimekirja teenuse nimi PEAB järgima jaotises 6.3 esitatud mustrit.</td>
+</tr>
+<tr>
+  <td>6.3</td>
+  <td>DHX-i vahendaja teostatud vahendusnimekirja teenus PEAB vastama lisas 2 esitatud täpsemale spetsifikatsioonile.</td>
+</tr>
+<tr>
   <td>7.1</td>
   <td>Saatev süsteem PEAB välja selgitama, kas adressaadil on DHX võimekus.</td>
 </tr>
@@ -807,7 +835,7 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 </tr>
 <tr>
   <td>7.5</td>
-  <td>Kui saatev süsteem on kindlaks teinud, et adressaadil puudub DHX võimekus ja käimas on üleminekuperiood, siis PEAB saatev süsteem üritama dokumenti saata DVK sendDocument teenusesse.</td>
+  <td>Kui saatev süsteem on kindlaks teinud, et adressaadil puudub DHX võimekus ja käimas on üleminekuperiood, siis PEAB saatev süsteem üritama dokumenti saata DVK <code>sendDocument</code> teenusesse.</td>
 </tr>
 <tr>
   <td>7.6</td>
@@ -980,7 +1008,7 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 <tbody>
 <tr>
   <td>1.0.9, 29.12.2017</td>
-  <td>Punkti 6.2 lisatud täpsustav nõue, asutus, kes ei ole vahendajana registreeritud, ei tohi publitseerida vahendusnimekirja (ka siis, kui see on tühi) s.t ei tohi pakkuda representationList teenust.</td>
+  <td>Punkti 6.2 lisatud täpsustav nõue, asutus, kes ei ole vahendajana registreeritud, ei tohi publitseerida vahendusnimekirja (ka siis, kui see on tühi) s.t ei tohi pakkuda representationList teenust. Samuti täiendatud vastavusnõuete tabelit (jaotis 10.1).</td>
 </tr>
 <tr>
   <td>1.0.8, 07.07.2017</td>

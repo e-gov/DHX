@@ -25,7 +25,7 @@
 
 <h1 id="dokumendivahetusprotokoll-dhx">Dokumendivahetusprotokoll DHX</h1>
 
-<p><em>v 1.0.7</em></p>
+<p><em>v 1.0.9</em></p>
 
 <h2 id="sisukord">Sisukord</h2>
 
@@ -509,7 +509,9 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 
 <p>Tehniliselt teostatakse vahendajate nimekiri DHX vahendajate grupina. DHX vahendajate grupp on osa X-tee globaalsest konfiguratsioonist. Vahendajate nimekiri on X-tee globaalse konfiguratsiooni osana avalikult kättesaadav kõigile X-tee liikmetele. </p>
 
-<p class="advisement">Vahendajana tegutseda sooviv asutus või ettevõte PEAB end vahendajana X-teel registreerima.</strong> Registreerimise täpse korra kehtestab X-tee keskus.</p>
+<p class="advisement">Vahendajana tegutseda sooviv asutus või ettevõte PEAB end vahendajana X-teel registreerima. Registreerimise täpse korra kehtestab X-tee keskus.</p>
+
+<p class="advisement">Asutus või ettevõte, kes ei ole vahendajana registreeritud, EI TOHI publitseerida vahendusnimekirja, ka siis, kui see on tühi. S.t tavaline DHX-i kasutav asutus EI TOHI pakkuda <code>representationList</code> teenust (vt jaotis 6.3).</p>
 
 <p class="advisement">X-tee keskus PEAB pidama DHX vahendajate nimekirja ajakohasena.</p>
 
@@ -976,6 +978,10 @@ Interneti standardimise organisatsioon IETF ([RFC 6852]) seab avastandardi (ingl
 </tr>
 </thead>
 <tbody>
+<tr>
+  <td>1.0.9, 29.12.2017</td>
+  <td>Punkti 6.2 lisatud täpsustav nõue, asutus, kes ei ole vahendajana registreeritud, ei tohi publitseerida vahendusnimekirja (ka siis, kui see on tühi) s.t ei tohi pakkuda representationList teenust.</td>
+</tr>
 <tr>
   <td>1.0.8, 07.07.2017</td>
   <td>Punktis 5.5 näites DHX-ADIT asendatud DHX.ADIT-ga, sest väljakujunenud (kuigi mitte protokolliga nõutav) praktika on kasutada punkti.</td>

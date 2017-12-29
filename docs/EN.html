@@ -24,7 +24,7 @@
 				
 <h1 id="dokumendivahetusprotokoll-dhx">Document exchange protocol DHX</h1>
 
-<p><em>v 1.0.7</em></p>
+<p><em>v 1.0.9</em></p>
 
 <h2 id="sisukord">Table of Contents</h2>
 
@@ -512,6 +512,8 @@ DHX direct implementation Implementation of DHX directly, i.e. without an interm
 
 <p class="advisement">An institution or a company intending to operate as an intermediary MUST register themselves on X-Road as intermediaries. Specific registration procedure is established by the X-Road Centre.</p>
 
+<p class="advisement">An institution or a company that is not registered as an intermediary, MUST NOT publish a mediation list, even when the list is empty. In other words, regular DHX user MUST NOT offer  <code>representationList</code> service (see section 6.3).</p>
+
 <p class="advisement">The X-Road Centre MUST maintain an updated list of DHX intermediaries.</p>
 
 <h3 id="63-vahendusnimekiri">6.3 Mediation list</h3>
@@ -977,6 +979,10 @@ DHX direct implementation Implementation of DHX directly, i.e. without an interm
 </tr>
 </thead>
 <tbody>
+<tr>
+  <td>1.0.9, 27.12.2017</td>
+  <td>Added a requirement into section 6.2 that organisation that is not registered as an intermediary, must not provide representationList service.</td>
+</tr>
 <tr>
   <td>1.0.8, 07.07.2017</td>
   <td>In section 5.5 changed DHX-ADIT to DHX.ADIT, because an established practice (though not a protocol requirement) is to use period as separator.</td>

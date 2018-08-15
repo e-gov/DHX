@@ -12,7 +12,7 @@ __DHX on X-tee v6 omadustele rajatud dokumendivahetusprotokoll, mis võimaldab E
 | <img src="img/01-power-plug.png" width="56" height="56"> | [DHX adapter](https://github.com/e-gov/DHX-adapter) |  _DHX-i rakendamist abistavad tarkvarakomponendid_ |
 | <img src="img/01-ruler.png" width="56" height="56"> | [Etalonteostus](https://github.com/e-gov/DHX-etalon) | _demonstreerib protokolli töötavust ja abistab DHX-i rakendajaid testimisel_ |
 | <img src="img/01-weather-windy.png" width="56" height="56"> | [Üleminekukava](https://www.ria.ee/ee/dokumendivahetus-dhx.html) | _sisaldab juhiseid ja nõuandeid DHX-i rakendajatele_ |
-| <img src="img/01-auto-fix.png" width="56" height="56"> | Rakendamise koordineerimine | _täiendav teave: Hannes Kiivet, 663 0234, hannes.kiivet@ria.ee_ |
+| <img src="img/01-auto-fix.png" width="56" height="56"> | Rakendamise koordineerimine | _täiendav teave: Sander Randorg, 56687360, sander.randorg@ria.ee_ |
 | <img src="img/01-format-align-justify.png" width="56" height="56"> | [DHX aadressiraamat](https://www.ria.ee/dhx-aadressiraamat/) | _näitab, kes on juba DHX-le üle läinud_ |
 | <img src="img/01-test-tube.png" width="56" height="56"> | [Testimisteenus](https://dhxdemo.eesti.ee/) | _aitab rakendamise õigsust kontrollida, baseerub [etalonteostusel](https://github.com/e-gov/DHX-etalon)_ |
 | <img src="img/01-bug.png" width="56" height="56"> | [DHX standardtestid](https://github.com/e-gov/DHX-etalon/blob/master/files/testlood.md) | _hõlmavad soovituslikku testide komplekti DHX-i rakendajale_ |

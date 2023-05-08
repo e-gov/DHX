@@ -14,6 +14,9 @@ Päringu X-tee versioon 6 täisnimi on formaadis:
 
 Näiteks `EE/GOV/<registrikood>/DHX/sendDocument` või `EE/COM/<registrikood>/DHX/sendDocument`
 
+#### Päringu WSDL kirjeldus
+Päringu WSDL kirjeldus asub [siin](dhx.wsdl).
+
 #### Päringu sisend
 
 Päringu sisendi parameetrid `Body/sendDocument` XML elemendi sees:
@@ -63,31 +66,28 @@ Vastuvõtja süsteem PEAB äriloogikalise või DHX protokolli reeglite vastu val
 
 #### Näide
 
- Päringu näide:
- 
- ```XML
- <?xml version="1.0" encoding="utf-8" ?>
- <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+Päringu näide:
+```XML
+<?xml version="1.0" encoding="utf-8" ?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
     <ns4:protocolVersion xmlns:ns2="http://dhx.x-road.eu/producer"
-      xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://x-road.eu/xsd/xroad.xsd"
-      xmlns:ns5="http://www.riik.ee/schemas/deccontainer/vers_2_1/">4.0</ns4:protocolVersion>
-    <ns4:id xmlns:ns2="http://dhx.x-road.eu/producer" xmlns:ns3="http://x-road.eu/xsd/identifiers"
-      xmlns:ns4="http://x-road.eu/xsd/xroad.xsd" xmlns:ns5="http://www.riik.ee/schemas/deccontainer/vers_2_1/">64a3ddbd-1620-42c4-b2fe-60b854c2f32f
-    </ns4:id>
+        xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://x-road.eu/xsd/xroad.xsd"
+        xmlns:ns5="http://www.riik.ee/schemas/deccontainer/vers_2_1/">4.0</ns4:protocolVersion>
+    <ns4:id xmlns:ns2="http://dhx.x-road.eu/producer"
+        xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://x-road.eu/xsd/xroad.xsd"
+        xmlns:ns5="http://www.riik.ee/schemas/deccontainer/vers_2_1/">64a3ddbd-1620-42c4-b2fe-60b854c2f32f</ns4:id>
     <ns4:client xmlns:ns2="http://dhx.x-road.eu/producer"
-      xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://x-road.eu/xsd/xroad.xsd"
-      xmlns:ns5="http://www.riik.ee/schemas/deccontainer/vers_2_1/"
-      ns3:objectType="SUBSYSTEM">
+        xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://x-road.eu/xsd/xroad.xsd"
+        xmlns:ns5="http://www.riik.ee/schemas/deccontainer/vers_2_1/" ns3:objectType="SUBSYSTEM">
       <ns3:xRoadInstance>ee-dev</ns3:xRoadInstance>
       <ns3:memberClass>GOV</ns3:memberClass>
       <ns3:memberCode>40000001</ns3:memberCode>
       <ns3:subsystemCode>DHX</ns3:subsystemCode>
     </ns4:client>
     <ns4:service xmlns:ns2="http://dhx.x-road.eu/producer"
-      xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://x-road.eu/xsd/xroad.xsd"
-      xmlns:ns5="http://www.riik.ee/schemas/deccontainer/vers_2_1/"
-      ns3:objectType="SERVICE">
+        xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://x-road.eu/xsd/xroad.xsd"
+        xmlns:ns5="http://www.riik.ee/schemas/deccontainer/vers_2_1/" ns3:objectType="SERVICE">
       <ns3:xRoadInstance>ee-dev</ns3:xRoadInstance>
       <ns3:memberClass>COM</ns3:memberClass>
       <ns3:memberCode>30000001</ns3:memberCode>
@@ -98,53 +98,49 @@ Vastuvõtja süsteem PEAB äriloogikalise või DHX protokolli reeglite vastu val
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
     <ns3:sendDocument xmlns:ns2="http://www.riik.ee/schemas/deccontainer/vers_2_1/"
-      xmlns:ns3="http://dhx.x-road.eu/producer" xmlns:ns4="http://x-road.eu/xsd/identifiers"
-      xmlns:ns5="http://x-road.eu/xsd/xroad.xsd">
-      <ns3:consignmentId>fae1278b-9318-4b1c-9bea-49ccc6879055
-      </ns3:consignmentId>
-      <ns3:documentAttachment>c48e2f41-3f53-4dc6-ae69-1d16a87682e2@
-      </ns3:documentAttachment>
+        xmlns:ns3="http://dhx.x-road.eu/producer" xmlns:ns4="http://x-road.eu/xsd/identifiers"
+        xmlns:ns5="http://x-road.eu/xsd/xroad.xsd">
+      <ns3:consignmentId>fae1278b-9318-4b1c-9bea-49ccc6879055</ns3:consignmentId>
+      <ns3:documentAttachment>cid:c48e2f41-3f53-4dc6-ae69-1d16a87682e2</ns3:documentAttachment>
     </ns3:sendDocument>
   </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
 
 Manus:
-```HTTP
+```
 ------=_Part_12_1312957482.1467986355580
 Content-Type: text/xml; charset=UTF-8
-Content-ID: c48e2f41-3f53-4dc6-ae69-1d16a87682e2@
+Content-ID: <c48e2f41-3f53-4dc6-ae69-1d16a87682e2>
 Content-Transfer-Encoding: base64
 
 PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pjxu
 ...
-------=_Part_12_1312957482.1467986355580--]
+------=_Part_12_1312957482.1467986355580--
 ```
 
- Vastuse näide:
+Vastuse näide:
 ```XML
 <?xml version="1.0" encoding="utf-8" ?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Header>
     <ns4:protocolVersion xmlns:ns2="http://dhx.x-road.eu/producer"
-      xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://x-road.eu/xsd/xroad.xsd"
-      xmlns:ns5="http://www.riik.ee/schemas/deccontainer/vers_2_1/">4.0</ns4:protocolVersion>
-    <ns4:id xmlns:ns2="http://dhx.x-road.eu/producer" xmlns:ns3="http://x-road.eu/xsd/identifiers"
-      xmlns:ns4="http://x-road.eu/xsd/xroad.xsd" xmlns:ns5="http://www.riik.ee/schemas/deccontainer/vers_2_1/">64a3ddbd-1620-42c4-b2fe-60b854c2f32f
-    </ns4:id>
+        xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://x-road.eu/xsd/xroad.xsd"
+        xmlns:ns5="http://www.riik.ee/schemas/deccontainer/vers_2_1/">4.0</ns4:protocolVersion>
+    <ns4:id xmlns:ns2="http://dhx.x-road.eu/producer"
+        xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://x-road.eu/xsd/xroad.xsd"
+        xmlns:ns5="http://www.riik.ee/schemas/deccontainer/vers_2_1/">64a3ddbd-1620-42c4-b2fe-60b854c2f32f</ns4:id>
     <ns4:client xmlns:ns2="http://dhx.x-road.eu/producer"
-      xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://x-road.eu/xsd/xroad.xsd"
-      xmlns:ns5="http://www.riik.ee/schemas/deccontainer/vers_2_1/"
-      ns3:objectType="SUBSYSTEM">
+        xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://x-road.eu/xsd/xroad.xsd"
+        xmlns:ns5="http://www.riik.ee/schemas/deccontainer/vers_2_1/" ns3:objectType="SUBSYSTEM">
       <ns3:xRoadInstance>ee-dev</ns3:xRoadInstance>
       <ns3:memberClass>GOV</ns3:memberClass>
       <ns3:memberCode>40000001</ns3:memberCode>
       <ns3:subsystemCode>DHX</ns3:subsystemCode>
     </ns4:client>
     <ns4:service xmlns:ns2="http://dhx.x-road.eu/producer"
-      xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://x-road.eu/xsd/xroad.xsd"
-      xmlns:ns5="http://www.riik.ee/schemas/deccontainer/vers_2_1/"
-      ns3:objectType="SERVICE">
+        xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://x-road.eu/xsd/xroad.xsd"
+        xmlns:ns5="http://www.riik.ee/schemas/deccontainer/vers_2_1/" ns3:objectType="SERVICE">
       <ns3:xRoadInstance>ee-dev</ns3:xRoadInstance>
       <ns3:memberClass>COM</ns3:memberClass>
       <ns3:memberCode>30000001</ns3:memberCode>
@@ -153,14 +149,13 @@ PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pjxu
       <ns3:serviceVersion>v1</ns3:serviceVersion>
     </ns4:service>
     <ns2:requestHash xmlns:ns2="http://x-road.eu/xsd/xroad.xsd"
-      algorithmId="http://www.w3.org/2001/04/xmlenc#sha512">jHfl2GQ7wKXnroduhvIbf2AEoqN4wC0rrOtt8ECslDENjfz3NBSj4EIMYWs+B4bxoitwbVzjeiwByQPGZVtubQ==
-    </ns2:requestHash>
+        algorithmId="http://www.w3.org/2001/04/xmlenc#sha512">jHfl2GQ7wKXnroduhvIbf2AEoqN4wC0rrOtt8ECslDENjfz3NBSj4EIMYWs+B4bxoitwbVzjeiwByQPGZVtubQ==</ns2:requestHash>
   </SOAP-ENV:Header>
   <SOAP-ENV:Body>
     <ns3:sendDocumentResponse
-      xmlns:ns2="http://www.riik.ee/schemas/deccontainer/vers_2_1/"
-      xmlns:ns3="http://dhx.x-road.eu/producer" xmlns:ns4="http://x-road.eu/xsd/identifiers"
-      xmlns:ns5="http://x-road.eu/xsd/xroad.xsd">
+        xmlns:ns2="http://www.riik.ee/schemas/deccontainer/vers_2_1/"
+        xmlns:ns3="http://dhx.x-road.eu/producer" xmlns:ns4="http://x-road.eu/xsd/identifiers"
+        xmlns:ns5="http://x-road.eu/xsd/xroad.xsd">
       <ns3:receiptId>89cf990b-0270-4592-bcb0-8f0c689de674</ns3:receiptId>
     </ns3:sendDocumentResponse>
   </SOAP-ENV:Body>
@@ -173,23 +168,22 @@ PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pjxu
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
 	<SOAP-ENV:Header>
 		<ns5:protocolVersion xmlns:ns2="http://dhx.x-road.eu/producer"
-			xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://www.riik.ee/schemas/deccontainer/vers_2_1/"
-			xmlns:ns5="http://x-road.eu/xsd/xroad.xsd">4.0</ns5:protocolVersion>
+        xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://www.riik.ee/schemas/deccontainer/vers_2_1/"
+        xmlns:ns5="http://x-road.eu/xsd/xroad.xsd">4.0</ns5:protocolVersion>
 		<ns5:id xmlns:ns2="http://dhx.x-road.eu/producer" xmlns:ns3="http://x-road.eu/xsd/identifiers"
-			xmlns:ns4="http://www.riik.ee/schemas/deccontainer/vers_2_1/"
-			xmlns:ns5="http://x-road.eu/xsd/xroad.xsd">d8be2b7d-25fc-4cce-88b9-09c7dfc78282</ns5:id>
+        xmlns:ns4="http://www.riik.ee/schemas/deccontainer/vers_2_1/"
+        xmlns:ns5="http://x-road.eu/xsd/xroad.xsd">d8be2b7d-25fc-4cce-88b9-09c7dfc78282</ns5:id>
 		<ns5:client xmlns:ns2="http://dhx.x-road.eu/producer"
-			xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://www.riik.ee/schemas/deccontainer/vers_2_1/"
-			xmlns:ns5="http://x-road.eu/xsd/xroad.xsd"
-                  ns3:objectType="SUBSYSTEM">
+        xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://www.riik.ee/schemas/deccontainer/vers_2_1/"
+        xmlns:ns5="http://x-road.eu/xsd/xroad.xsd" ns3:objectType="SUBSYSTEM">
 			<ns3:xRoadInstance>ee-dev</ns3:xRoadInstance>
 			<ns3:memberClass>GOV</ns3:memberClass>
 			<ns3:memberCode>40000001</ns3:memberCode>
 			<ns3:subsystemCode>DHX</ns3:subsystemCode>
 		</ns5:client>
 		<ns5:service xmlns:ns2="http://dhx.x-road.eu/producer"
-			xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://www.riik.ee/schemas/deccontainer/vers_2_1/"
-			xmlns:ns5="http://x-road.eu/xsd/xroad.xsd" ns3:objectType="SERVICE">
+        xmlns:ns3="http://x-road.eu/xsd/identifiers" xmlns:ns4="http://www.riik.ee/schemas/deccontainer/vers_2_1/"
+        xmlns:ns5="http://x-road.eu/xsd/xroad.xsd" ns3:objectType="SERVICE">
 			<ns3:xRoadInstance>ee-dev</ns3:xRoadInstance>
 			<ns3:memberClass>GOV</ns3:memberClass>
 			<ns3:memberCode>40000001</ns3:memberCode>
@@ -202,9 +196,9 @@ PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pjxu
 	</SOAP-ENV:Header>
 	<SOAP-ENV:Body>
 		<ns3:sendDocumentResponse
-			xmlns:ns2="http://www.riik.ee/schemas/deccontainer/vers_2_1/"
-			xmlns:ns3="http://dhx.x-road.eu/producer" xmlns:ns4="http://x-road.eu/xsd/identifiers"
-			xmlns:ns5="http://x-road.eu/xsd/xroad.xsd">
+        xmlns:ns2="http://www.riik.ee/schemas/deccontainer/vers_2_1/"
+        xmlns:ns3="http://dhx.x-road.eu/producer" xmlns:ns4="http://x-road.eu/xsd/identifiers"
+        xmlns:ns5="http://x-road.eu/xsd/xroad.xsd">
 			<ns3:fault>
 				<ns3:faultCode>DHX.InvalidAddressee</ns3:faultCode>
 				<ns3:faultString>DHXException code: DHX.InvalidAddressee Recipient
@@ -214,6 +208,7 @@ PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pjxu
 	</SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
+
 Tehnilise vea näide: 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -230,5 +225,3 @@ Tehnilise vea näide:
 	</SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
 ```
- 
- 

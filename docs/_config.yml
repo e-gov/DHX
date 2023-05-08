@@ -1,6 +1,6 @@
 # Üldised määratlused
 title: DHX
-baseurl: "https://e-gov.github.io/DHX"
+baseurl: "DHX"
 
 # Build settings
 gems:

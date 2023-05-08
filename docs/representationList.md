@@ -8,6 +8,9 @@ Asutused esitatakse vahendusnimekirjas registrikoodidega. Nimekirjas antakse iga
 
 Päringu Xtee v6 täisnimetus: `EE/GOV/<registrikood>/DHS/representationList`.
 
+#### Päringu WSDL kirjeldus
+Päringu WSDL kirjeldus asub [siin](dhx.wsdl).
+
 #### Sisendparameetrid
 
 Puuduvad.

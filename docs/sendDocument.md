@@ -100,6 +100,7 @@ Päringu näide:
     <ns3:sendDocument xmlns:ns2="http://www.riik.ee/schemas/deccontainer/vers_2_1/"
         xmlns:ns3="http://dhx.x-road.eu/producer" xmlns:ns4="http://x-road.eu/xsd/identifiers"
         xmlns:ns5="http://x-road.eu/xsd/xroad.xsd">
+      <ns3:DHXVersion>1.0</ns3:DHXVersion>
       <ns3:consignmentId>fae1278b-9318-4b1c-9bea-49ccc6879055</ns3:consignmentId>
       <ns3:documentAttachment>cid:c48e2f41-3f53-4dc6-ae69-1d16a87682e2</ns3:documentAttachment>
     </ns3:sendDocument>

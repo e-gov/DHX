@@ -13,6 +13,12 @@ Tehniline dokumentatsioon:
 * [Naide3.xml](v2.1/Naide3.xml)
 * [Vastavustabel.ods](v2.1/Vastavustabel.ods)
 
+### Laiendused
+
+Kapslit saab laiendada elemendi `RecordTypeSpecificMetadata` kaudu, muutmata `Kapsel.xsd` faili. Laiendust mittetundev rakendus töötab sellisel juhul edasi täpselt nagu varem.
+
+* [granularAccess](granularAccess) (MUSTAND) — täpsem juurdepääsutingimuste kirjeldamine kui terve dokumendi tasandil: faili kaupa ning faili sees lehekülgede, lõikude ja sõnade kaupa. Võimaldab avaldada tervikuna piiratud dokumendi avaliku osa, nagu näeb ette avaliku teabe seaduse § 38 lõige 2.
+
 ## Versioon 1.0
 
 Tehniline dokumentatsioon:

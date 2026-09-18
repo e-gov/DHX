@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DecContainer xmlns="http://www.riik.ee/schemas/deccontainer/vers_2_1/">
+  <Transport>
+    <DecSender>
+      <OrganisationCode>adit</OrganisationCode>
+      <PersonalIdCode>EE38806190294</PersonalIdCode>
+    </DecSender>
+    <DecRecipient>
+      <OrganisationCode>70006317</OrganisationCode>
+    </DecRecipient>
+  </Transport>
+  <RecordCreator>
+    <Person>
+      <Name>Lauri Tammemäe</Name>
+      <GivenName>Lauri</GivenName>
+      <Surname>Tammemäe</Surname>
+      <PersonalIdCode>EE38806190294</PersonalIdCode>
+      <Residency>EE</Residency>
+    </Person>
+    <ContactData>
+      <Adit>1</Adit>
+      <Phone>3726630276</Phone>
+      <Email>lauri.tammemae@ria.ee</Email>
+    </ContactData>
+  </RecordCreator>
+  <RecordSenderToDec>
+    <Person>
+      <Name>Lauri Tammemäe</Name>
+      <GivenName>Lauri</GivenName>
+      <Surname>Tammemäe</Surname>
+      <PersonalIdCode>EE38806190294</PersonalIdCode>
+      <Residency>EE</Residency>
+    </Person>
+    <ContactData>
+      <Adit>1</Adit>
+      <Phone>3726630276</Phone>
+      <Email>lauri.tammemae@ria.ee</Email>
+    </ContactData>
+  </RecordSenderToDec>
+  <Recipient>
+    <Organisation>
+      <Name>Riigi Infosüsteemi Amet</Name>
+      <OrganisationCode>70006317</OrganisationCode>
+      <Residency>EE</Residency>
+    </Organisation>
+  </Recipient>
+  <RecordMetadata>
+    <RecordGuid>25892e17-80f6-415f-9c65-7395632f0234</RecordGuid>
+    <RecordType>Kiri</RecordType>
+    <RecordOriginalIdentifier>213465</RecordOriginalIdentifier>
+    <RecordDateRegistered>2012-11-11T19:18:03</RecordDateRegistered>
+    <RecordTitle>Ettepanek</RecordTitle>
+    <RecordLanguage>EE</RecordLanguage>
+  </RecordMetadata>
+  <!--
+    Document-level Access MUST always be the strictest access condition present
+    anywhere in the record (see granularAccess.xsd documentation). This record
+    contains restricted content, so the top-level AccessConditionsCode is "AK"
+    with a matching AccessRestriction, and the granularAccess extension below is
+    used to open up the parts that are in fact public.
+
+    An application that does not understand RecordTypeSpecificMetadata/granularAccess
+    treats the whole record as restricted — correct, if conservative. An
+    application that does understand the extension descends level by level:
+    Lisa.pdf turns out to be public as a whole; of Ettepanek.doc everything
+    except paragraphs 3-4 and word 42 turns out to be public; and of the scanned
+    Skaneeritud_lisad.pdf all pages except 4-5 turn out to be public.
+  -->
+  <Access>
+    <AccessConditionsCode>AK</AccessConditionsCode>
+    <AccessRestriction>
+      <RestrictionIdentifier>AvTS§35p1p11</RestrictionIdentifier>
+      <RestrictionBeginDate>2012-11-11</RestrictionBeginDate>
+      <RestrictionEndDate>2017-11-11</RestrictionEndDate>
+      <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 11</RestrictionBasis>
+      <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+    </AccessRestriction>
+  </Access>
+  <File>
+    <FileGuid>25892e17-80f6-415f-9c65-7395632f0001</FileGuid>
+    <RecordMainComponent>1</RecordMainComponent>
+    <FileName>Ettepanek.doc</FileName>
+    <MimeType>application/msword</MimeType>
+    <FileSize>211543</FileSize>
+    <ZipBase64Content>H4sIAAAAAAAAAAMAAAAAAAAAAAAAAA==</ZipBase64Content>
+  </File>
+  <File>
+    <FileGuid>25892e17-80f6-415f-9c65-7395632f0002</FileGuid>
+    <RecordMainComponent>0</RecordMainComponent>
+    <FileName>Lisa.pdf</FileName>
+    <MimeType>application/pdf</MimeType>
+    <FileSize>54211</FileSize>
+    <ZipBase64Content>H4sIAAAAAAAAAAMAAAAAAAAAAAAAAA==</ZipBase64Content>
+  </File>
+  <File>
+    <FileGuid>25892e17-80f6-415f-9c65-7395632f0003</FileGuid>
+    <RecordMainComponent>0</RecordMainComponent>
+    <FileName>Skaneeritud_lisad.pdf</FileName>
+    <MimeType>application/pdf</MimeType>
+    <FileSize>1841200</FileSize>
+    <ZipBase64Content>H4sIAAAAAAAAAAMAAAAAAAAAAAAAAA==</ZipBase64Content>
+  </File>
+  <RecordTypeSpecificMetadata>
+    <granularAccess xmlns="http://www.riik.ee/schemas/deccontainer/vers_2_1/granularAccess/">
+      <!--
+        File Ettepanek.doc is restricted as a whole: its Access is "AK", never
+        more permissive than the document-level Access above it. An application
+        that understands file-level access but cannot segment the file therefore
+        withholds the whole file, which is safe.
+
+        An application that recognises the SegmentationMethod value may go
+        further. DefaultPartAccessConditionsCode says that any part of this file
+        not covered by an AccessGroup below is in fact "Avalik", so only the
+        restricted islands need to be enumerated — there is no need to list every
+        public paragraph. Those islands are paragraphs 3-4 and a single word
+        elsewhere in the file (word 42, e.g. a personal identification code
+        mentioned in passing in an otherwise public paragraph). Since they carry
+        the identical access condition and restriction, they are listed together
+        under one AccessGroup, so the Access/AccessRestriction data only needs to
+        be written once instead of being repeated per range. Note that the word
+        range is independent of the paragraph range and does not require the
+        paragraph containing it to be listed. Word and paragraph numbering both
+        follow SegmentationMethod.
+      -->
+      <File>
+        <FileGuid>25892e17-80f6-415f-9c65-7395632f0001</FileGuid>
+        <Access>
+          <AccessConditionsCode>AK</AccessConditionsCode>
+          <AccessRestriction>
+            <RestrictionIdentifier>AvTS§35p1p11</RestrictionIdentifier>
+            <RestrictionBeginDate>2012-11-11</RestrictionBeginDate>
+            <RestrictionEndDate>2017-11-11</RestrictionEndDate>
+            <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 11</RestrictionBasis>
+            <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+          </AccessRestriction>
+        </Access>
+        <SegmentationMethod>whitespace-split-v1</SegmentationMethod>
+        <DefaultPartAccessConditionsCode>Avalik</DefaultPartAccessConditionsCode>
+        <AccessGroup>
+          <Access>
+            <AccessConditionsCode>AK</AccessConditionsCode>
+            <AccessRestriction>
+              <RestrictionIdentifier>AvTS§35p1p11</RestrictionIdentifier>
+              <RestrictionBeginDate>2012-11-11</RestrictionBeginDate>
+              <RestrictionEndDate>2017-11-11</RestrictionEndDate>
+              <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 11</RestrictionBasis>
+              <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+            </AccessRestriction>
+          </Access>
+          <ParagraphRange>
+            <StartParagraph>3</StartParagraph>
+            <EndParagraph>4</EndParagraph>
+          </ParagraphRange>
+          <WordRange>
+            <StartWord>42</StartWord>
+            <EndWord>42</EndWord>
+          </WordRange>
+        </AccessGroup>
+      </File>
+      <!--
+        File Lisa.pdf is public as a whole. Because its Access is "Avalik", an
+        application stops here for this file: there is nothing to segment and no
+        AccessGroup to process, and none may be present. This is the case where
+        the extension opens up a whole file of an otherwise restricted record,
+        and it is the main practical purpose of this extension — distinguishing
+        public files from restricted ones inside a restricted record.
+      -->
+      <File>
+        <FileGuid>25892e17-80f6-415f-9c65-7395632f0002</FileGuid>
+        <Access>
+          <AccessConditionsCode>Avalik</AccessConditionsCode>
+        </Access>
+      </File>
+      <!--
+        File Skaneeritud_lisad.pdf is a PDF of scanned documents. Its pages carry
+        no machine-readable text, so the segmentation method used here defines
+        pages only and states that paragraph and word ranges must not be used for
+        such a file — page granularity is what remains available, and it is enough
+        to withhold the two scanned pages that bear restricted content while
+        releasing the rest.
+
+        DefaultPartAccessConditionsCode is "Avalik", so the pages not listed below
+        are public. Pages 4-5 are restricted on a different legal basis
+        (business secret) than the rest of the record, with its own shorter
+        expiry date, which shows why each AccessGroup carries a complete
+        AccessRestriction of its own rather than inheriting one.
+      -->
+      <File>
+        <FileGuid>25892e17-80f6-415f-9c65-7395632f0003</FileGuid>
+        <Access>
+          <AccessConditionsCode>AK</AccessConditionsCode>
+          <AccessRestriction>
+            <RestrictionIdentifier>AvTS§35p1p17</RestrictionIdentifier>
+            <RestrictionBeginDate>2012-11-11</RestrictionBeginDate>
+            <RestrictionEndDate>2017-11-11</RestrictionEndDate>
+            <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 17</RestrictionBasis>
+            <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+          </AccessRestriction>
+        </Access>
+        <SegmentationMethod>pdf-pages-v1</SegmentationMethod>
+        <DefaultPartAccessConditionsCode>Avalik</DefaultPartAccessConditionsCode>
+        <AccessGroup>
+          <Access>
+            <AccessConditionsCode>AK</AccessConditionsCode>
+            <AccessRestriction>
+              <RestrictionIdentifier>AvTS§35p1p17</RestrictionIdentifier>
+              <RestrictionBeginDate>2012-11-11</RestrictionBeginDate>
+              <RestrictionEndDate>2017-11-11</RestrictionEndDate>
+              <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 17</RestrictionBasis>
+              <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+            </AccessRestriction>
+          </Access>
+          <PageRange>
+            <StartPage>4</StartPage>
+            <EndPage>5</EndPage>
+          </PageRange>
+        </AccessGroup>
+      </File>
+    </granularAccess>
+  </RecordTypeSpecificMetadata>
+  <DecMetadata>
+    <DecId>410125</DecId>
+    <DecFolder>/</DecFolder>
+    <DecReceiptDate>2012-11-11T19:20:42</DecReceiptDate>
+  </DecMetadata>
+</DecContainer>

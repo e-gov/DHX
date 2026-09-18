@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="0.1-draft" xmlns="http://www.riik.ee/schemas/deccontainer/vers_2_1/granularAccess/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dec="http://www.riik.ee/schemas/deccontainer/vers_2_1/" targetNamespace="http://www.riik.ee/schemas/deccontainer/vers_2_1/granularAccess/">
+  <xs:import namespace="http://www.riik.ee/schemas/deccontainer/vers_2_1/" schemaLocation="Kapsel.xsd"/>
+  <xs:annotation>
+    <xs:documentation xml:lang="en">DRAFT (version 0.1-draft): this specification is not yet final and is published to collect user feedback; details of the structure may still change in a future version. Extension of DHX Kapsel (DecContainer) that describes access permissions at a finer granularity than the whole record: per file, and within a file per group of page ranges, paragraph ranges and word ranges that share the same access condition. This schema is designed to be embedded inside DecContainer/RecordTypeSpecificMetadata and does not modify Kapsel.xsd in any way, so applications that do not know about this extension keep working exactly as before, using only DecContainer/Access. IMPORTANT COMPATIBILITY RULE: each level must be at least as restrictive as every level nested inside it, i.e. DecContainer/Access must be at least as restrictive as any File/Access below it, which in turn must be at least as restrictive as any AccessGroup/Access nested in it. Access therefore only ever becomes more permissive as an application descends into the record, never more restrictive, which guarantees that an application stopping at any level never grants access to a part of the record that a more capable application would keep restricted; at worst it is more conservative than necessary. PROCESSING ORDER for an application that understands this extension: (1) If DecContainer/Access/AccessConditionsCode is "Avalik", the whole record and all of its files are public; this extension can then only add restrictions that would break the compatibility rule, so it should not be present at all and RecordTypeSpecificMetadata need not be examined. (2) If DecContainer/Access/AccessConditionsCode is "AK", the record is restricted as a whole and this extension may be used to open up individual files, or individual parts of a file. The application looks up the granularAccess/File entry whose FileGuid matches each DecContainer/File; a file with no entry here, or with no Access of its own, stays restricted exactly as DecContainer/Access says. (3) If that entry's Access/AccessConditionsCode is "Avalik", the whole file is public and none of that file's AccessGroup elements need to be examined — a file marked "Avalik" must not contain a restricted AccessGroup. (4) If it is "AK", the file is restricted as a whole, but parts of it may still be public. The application may descend to part level only if it recognises the file's SegmentationMethod value; if SegmentationMethod is absent, or its value is unknown to the application, the application MUST stop here and apply the file's own Access to the whole file. (5) Having recognised SegmentationMethod, the application reads DefaultPartAccessConditionsCode, which states whether the parts of the file that no AccessGroup covers inherit the file's restriction or are public, and then applies each AccessGroup to the page, paragraph and word ranges listed in it. Where two AccessGroup elements of the same file cover overlapping content, the more restrictive of the two applies to the overlapping part. NOTE ON EXPECTED USE: the primary purpose of this extension is to distinguish public files from restricted ones within a record that is restricted as a whole, which is what steps (1) to (3) achieve; part-level description (steps (4) and (5)) is provided mainly so that finer granularity is available as document management systems grow able to produce and consume it. A system that is unable to segment a file simply stops at file level, which stays safe and remains useful.</xs:documentation>
+    <xs:documentation xml:lang="est">MUSTAND (versioon 0.1-draft): käesolev spetsifikatsioon ei ole veel lõplik ja on avaldatud kasutajate tagasiside kogumiseks; struktuuri üksikasjad võivad edaspidises versioonis veel muutuda. DHX Kapsli (DecContainer) laiendus, mis kirjeldab juurdepääsupiiranguid täpsemalt kui terve dokumendi tasandil: faili kaupa ning faili sees samasuguse juurdepääsutingimusega leheküljevahemike, lõiguvahemike ja sõnavahemike rühmade kaupa. Laiend on mõeldud kasutamiseks DecContainer/RecordTypeSpecificMetadata sees ja ei muuda Kapsel.xsd faili mitte mingil viisil, mistõttu rakendused, mis laiendust ei tunne, töötavad jätkuvalt samamoodi, kasutades ainult DecContainer/Access väärtust. OLULINE ÜHILDUVUSREEGEL: iga tasand peab olema vähemalt niivõrd piirav kui kõik sellesse kuuluvad tasandid, see tähendab, et DecContainer/Access peab olema vähemalt niivõrd piirav kui suvaline sellele alluv File/Access, mis peab olema vähemalt niivõrd piirav kui suvaline sellesse kuuluv AccessGroup/Access. Juurdepääs muutub rakenduse dokumenti süvenedes seega ainult leebemaks, mitte kunagi rangemaks, mis tagab, et suvalisel tasandil peatuv rakendus ei anna juurdepääsu dokumendi osale, mida võimekam rakendus peaks piirama; halvimal juhul on tulemus vajalikust konservatiivsem. TÖÖTLUSJÄRJEKORD laiendust tundva rakenduse jaoks: (1) Kui DecContainer/Access/AccessConditionsCode on "Avalik", on terve dokument koos kõigi failidega avalik; laiend saaks siis üksnes lisada piiranguid, mis rikuksid ühilduvusreeglit, mistõttu seda ei tohiks üldse esineda ja RecordTypeSpecificMetadata elementi ei ole vaja uurida. (2) Kui DecContainer/Access/AccessConditionsCode on "AK", on dokument tervikuna piiratud ja laiendust võib kasutada üksikute failide või faili üksikute osade avamiseks. Rakendus otsib iga DecContainer/File jaoks üles granularAccess/File kirje, mille FileGuid ühtib; fail, millel siin kirje puudub või millel puudub oma Access, jääb piiratuks täpselt nii, nagu ütleb DecContainer/Access. (3) Kui selle kirje Access/AccessConditionsCode on "Avalik", on terve fail avalik ja selle faili AccessGroup elemente ei ole vaja uurida — "Avalik" märkega fail ei tohi sisaldada piiratud AccessGroup elementi. (4) Kui see on "AK", on fail tervikuna piiratud, kuid selle osad võivad siiski olla avalikud. Rakendus võib laskuda osa tasandile ainult siis, kui ta tunneb faili SegmentationMethod väärtust; kui SegmentationMethod puudub või selle väärtus on rakendusele tundmatu, PEAB rakendus siin peatuma ja rakendama terve faili kohta faili enda Access väärtust. (5) Olles SegmentationMethod väärtuse ära tundnud, loeb rakendus DefaultPartAccessConditionsCode välja, mis ütleb, kas faili osad, mida ükski AccessGroup ei kata, pärivad faili piirangu või on avalikud, ning rakendab seejärel iga AccessGroup väärtust selles loetletud lehekülje-, lõigu- ja sõnavahemike kohta. Kui kaks sama faili AccessGroup elementi katavad osaliselt sama sisu, kehtib kattuva osa kohta neist rangem. MÄRKUS EELDATAVA KASUTUSE KOHTA: laienduse esmane eesmärk on eristada tervikuna piiratud dokumendi sees avalikke faile piiratutest, mida saavutavad sammud (1) kuni (3); osa tasandi kirjeldus (sammud (4) ja (5)) on ette nähtud peamiselt selleks, et täpsem detailsus oleks olemas siis, kui dokumendihaldussüsteemid suudavad seda luua ja töödelda. Süsteem, mis faili jaotada ei suuda, peatub lihtsalt faili tasandil, mis jääb turvaliseks ja on jätkuvalt kasulik.</xs:documentation>
+  </xs:annotation>
+  <xs:element name="granularAccess">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Root element of the granular access extension, placed inside DecContainer/RecordTypeSpecificMetadata. Describes which files of a record that is restricted as a whole are in fact public, and which parts of a restricted file are in fact public. Only meaningful when DecContainer/Access/AccessConditionsCode is "AK"; a record that is already public as a whole has nothing to open up and should not carry this extension.</xs:documentation>
+      <xs:documentation xml:lang="est">Detailse juurdepääsu laienduse juurelement, mis paigutatakse DecContainer/RecordTypeSpecificMetadata sisse. Kirjeldab, millised tervikuna piiratud dokumendi failid on tegelikult avalikud ja millised piiratud faili osad on tegelikult avalikud. Omab tähendust ainult siis, kui DecContainer/Access/AccessConditionsCode on "AK"; tervikuna juba avalikul dokumendil ei ole midagi avada ja see ei tohiks laiendust sisaldada.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="File" type="GranularFileType" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Access description of one file of the record. Not every File of DecContainer needs to be listed here — a file that is not listed keeps the access condition given by DecContainer/Access unchanged, i.e. it stays restricted along with the rest of the record.</xs:documentation>
+            <xs:documentation xml:lang="est">Ühe dokumendi faili juurdepääsukirjeldus. Kõiki DecContainer faile ei pea siin loetlema — failile, mida siin ei kirjeldata, kehtib muutumatult DecContainer/Access juurdepääsutingimus, see tähendab, et see jääb piiratuks koos ülejäänud dokumendiga.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="GranularFileType">
+    <xs:sequence>
+      <xs:element name="FileGuid" type="dec:GuidType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Reference to the FileGuid of the corresponding DecContainer/File element that this access description applies to.</xs:documentation>
+          <xs:documentation xml:lang="est">Viide vastava DecContainer/File elemendi FileGuid väärtusele, mille kohta see juurdepääsukirjeldus kehtib.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Access" type="GranularAccessType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Access conditions and restrictions that apply to the whole file. Must not be more restrictive than DecContainer/Access, and must not be less restrictive than any AccessGroup/Access nested within this file. If the code here is "Avalik", the whole file is public and the application need not examine SegmentationMethod, DefaultPartAccessConditionsCode or any AccessGroup of this file; such a file must therefore not contain a restricted AccessGroup. If the code here is "AK", the file is restricted as a whole, but parts of it may be opened by the AccessGroup and DefaultPartAccessConditionsCode elements below. If this element is omitted, DecContainer/Access applies to the whole file unchanged.</xs:documentation>
+          <xs:documentation xml:lang="est">Terve faili kohta kehtivad juurdepääsutingimused ja -piirangud. Ei tohi olla rangem kui DecContainer/Access ega leebem kui suvaline sellesse failisse kuuluv AccessGroup/Access. Kui siinne kood on "Avalik", on terve fail avalik ning rakendus ei pea uurima selle faili SegmentationMethod, DefaultPartAccessConditionsCode ega ühtki AccessGroup elementi; seetõttu ei tohi selline fail sisaldada piiratud AccessGroup elementi. Kui siinne kood on "AK", on fail tervikuna piiratud, kuid selle osi võib avada allpool olevate AccessGroup ja DefaultPartAccessConditionsCode elementidega. Kui see element on välja jäetud, kehtib terve faili kohta muutumatult DecContainer/Access.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SegmentationMethod" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Free-form identifier of the algorithm used to split this file's content into pages, paragraphs and words for the purpose of PageRange, ParagraphRange and WordRange below (e.g. how a "paragraph" or a "word" is determined, whether page numbers, headers/footers or similar are counted). Required whenever any AccessGroup of this file uses PageRange, ParagraphRange or WordRange, since without it their numbering is ambiguous. The algorithm identified here also determines which of the three range kinds are meaningful for the file at all, and may state that some of them must not be used: a scanned PDF, for example, may well be describable by page but not by paragraph or word, and a spreadsheet may be described by treating each row as a paragraph, so that no separate cell-level construct is needed. This element also acts as the gate to part-level processing: an application may only apply DefaultPartAccessConditionsCode and AccessGroup if it recognises this value and can reproduce the segmentation exactly. An application that does not recognise the value, or finds this element missing, MUST fall back to applying the file's own Access to the whole file, which is safe because the file's Access is never less restrictive than any part of it. This extension intentionally does not fix a closed list of algorithms, so that new algorithms — for new file formats or for handling edge cases such as page numbers — can be introduced by convention, without changing this schema. It is recommended that the value identify both the method and its version, e.g. "whitespace-split-v1" or "docx-paragraphs-v1", and that the exact algorithm behind each identifier be agreed and published separately by the organisations exchanging documents.</xs:documentation>
+          <xs:documentation xml:lang="est">Vabas vormis tunnus algoritmile, mille alusel selle faili sisu jaotatakse lehekülgedeks, lõikudeks ja sõnadeks allpool kasutatavate PageRange, ParagraphRange ja WordRange jaoks (nt mille alusel määratakse "lõik" või "sõna", kas leheküljenumbrid, päised/jalused vms loetakse kaasa). Kohustuslik, kui ükskõik milline selle faili AccessGroup kasutab PageRange, ParagraphRange või WordRange elementi, sest muidu on nende numeratsioon mitmeti mõistetav. Siin viidatud algoritm määrab ka selle, millised kolmest vahemikuliigist on antud faili puhul üldse tähenduslikud, ja võib sätestada, et mõnda neist ei tohi kasutada: näiteks skaneeritud PDF-i saab tõenäoliselt kirjeldada lehekülgede kaupa, kuid mitte lõikude või sõnade kaupa, ning tabelarvutusfaili saab kirjeldada nii, et iga rida loetakse lõiguks, mistõttu eraldi lahtri tasandi konstruktsiooni ei ole vaja. See element toimib ka väravana osa tasandi töötlusele: rakendus võib DefaultPartAccessConditionsCode ja AccessGroup elemente rakendada ainult siis, kui ta tunneb siinset väärtust ja suudab jaotuse täpselt taastada. Rakendus, mis väärtust ei tunne või mille jaoks see element puudub, PEAB rakendama terve faili kohta faili enda Access väärtust; see on turvaline, sest faili Access ei ole kunagi leebem kui ükski selle osa. Laiend teadlikult ei fikseeri kinnist algoritmide loetelu, et uusi algoritme — uute failivormingute jaoks või servajuhtude (nt leheküljenumbrid) käsitlemiseks — saaks kasutusele võtta kokkuleppe alusel, ilma seda skeemi muutmata. Soovituslik on, et väärtus identifitseeriks nii meetodi kui selle versiooni, nt "whitespace-split-v1" või "docx-paragraphs-v1", ning et iga tunnuse taga oleva täpse algoritmi kirjelduse lepiksid dokumente vahetavad osapooled omavahel kokku ja avaldaksid selle eraldi.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DefaultPartAccessConditionsCode" type="dec:AccessConditionType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Access condition of the parts of this file that no AccessGroup covers. "AK" means such parts inherit the file's own restriction, so that only the parts explicitly listed in an AccessGroup are opened; "Avalik" means such parts are public, so that only the parts explicitly listed in an AccessGroup are restricted. This makes it unnecessary to enumerate every public range of a mostly public file, or every restricted range of a mostly restricted one — whichever case is in the minority is the one that is listed. Must not be less restrictive than the file's own Access is allowed to be by the compatibility rule, and may only be relied upon by an application that recognises SegmentationMethod; if this element is omitted, "AK" is assumed, i.e. uncovered parts stay as restricted as the file itself.</xs:documentation>
+          <xs:documentation xml:lang="est">Selle faili nende osade juurdepääsutingimus, mida ükski AccessGroup ei kata. "AK" tähendab, et sellised osad pärivad faili enda piirangu, mistõttu avatakse ainult AccessGroup elementides otsesõnu loetletud osad; "Avalik" tähendab, et sellised osad on avalikud, mistõttu piiratakse ainult AccessGroup elementides otsesõnu loetletud osi. Nii ei ole vaja loetleda valdavalt avaliku faili kõiki avalikke vahemikke ega valdavalt piiratud faili kõiki piiratud vahemikke — loetletakse see pool, mis on vähemuses. Ei tohi olla leebem, kui ühilduvusreegel faili enda Access väärtuse puhul lubab, ning sellele võib tugineda ainult rakendus, mis tunneb SegmentationMethod väärtust; kui element on välja jäetud, eeldatakse väärtust "AK", see tähendab, et katmata osad jäävad sama piiratuks kui fail ise.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AccessGroup" type="AccessGroupType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">A single access description shared by one or more page ranges, paragraph ranges and/or word ranges within the file, overriding DefaultPartAccessConditionsCode for exactly those ranges. The three range kinds may be mixed freely in one group and are numbered independently of each other, so a group may for instance cover two whole pages and a single word found elsewhere in the file. Grouping multiple ranges that carry the same access condition and restrictions under one AccessGroup avoids repeating identical Access data for each range. Only meaningful for a file whose own Access is "AK", and only to be processed by an application that recognises the file's SegmentationMethod. Ranges belonging to different AccessGroup elements of the same file must not overlap; where they do, the more restrictive AccessGroup applies to the overlapping part.</xs:documentation>
+          <xs:documentation xml:lang="est">Üks juurdepääsukirjeldus, mida jagab faili sees üks või mitu leheküljevahemikku, lõiguvahemikku ja/või sõnavahemikku ning mis kehtib täpselt nende vahemike kohta DefaultPartAccessConditionsCode väärtuse asemel. Kolme vahemikuliiki võib ühes rühmas vabalt segamini kasutada ja neid loendatakse üksteisest sõltumatult, mistõttu rühm võib näiteks katta kaks tervet lehekülge ja ühe mujal failis paikneva sõna. Samasuguse juurdepääsutingimuse ja -piirangutega vahemike rühmitamine ühe AccessGroup alla väldib identsete Access andmete kordamist iga vahemiku juures. Omab tähendust ainult faili puhul, mille enda Access on "AK", ja seda töötleb ainult rakendus, mis tunneb faili SegmentationMethod väärtust. Sama faili erinevatele AccessGroup elementidele kuuluvad vahemikud ei tohi omavahel kattuda; kattumise korral kehtib kattuva osa kohta rangem AccessGroup.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AccessGroupType">
+    <xs:sequence>
+      <xs:element name="Access" type="GranularAccessType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Access conditions and restrictions that apply to every PageRange, ParagraphRange and WordRange listed in this group. Must not be more restrictive than the enclosing File's Access (or DecContainer/Access, if File/Access is not given) — this group may be equally or less restrictive than its enclosing file, typically marking a public range inside an otherwise restricted file, but never more restrictive, since File/Access (and, failing that, DecContainer/Access) must remain a valid, safe ceiling for applications that do not descend to this level.</xs:documentation>
+          <xs:documentation xml:lang="est">Juurdepääsutingimused ja -piirangud, mis kehtivad kõigi selles rühmas loetletud PageRange, ParagraphRange ja WordRange elementide kohta. Ei tohi olla rangem kui ümbritseva faili Access (või DecContainer/Access, kui File/Access puudub) — see rühm võib olla ümbritsevast failist võrdselt või leebem, tähistades tavaliselt avalikku vahemikku muidu piiratud failis, kuid mitte kunagi rangem, sest File/Access (või selle puudumisel DecContainer/Access) peab jääma turvaliseks ülemmääraks rakendustele, mis sellele tasandile ei lasku.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PageRange" type="PageRangeType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">One contiguous range of pages within the file, as determined by SegmentationMethod, to which this group's Access applies. Pages are the coarsest and most widely applicable part granularity: they suit a PDF of scanned documents, presentation slides and the printable sheets of a spreadsheet, and they can be used for files whose SegmentationMethod does not define paragraphs or words at all.</xs:documentation>
+          <xs:documentation xml:lang="est">Üks katkematu leheküljevahemik faili sees, määratuna vastavalt SegmentationMethod väärtusele, mille kohta kehtib selle rühma Access. Leheküljed on kõige jämedam ja kõige laiemalt rakendatav osa detailsus: need sobivad skaneeritud dokumentidest koosnevale PDF-ile, esitluse slaididele ja tabelarvutusfaili trükitavatele lehtedele ning neid saab kasutada failide puhul, mille SegmentationMethod lõike ega sõnu üldse ei määratle.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ParagraphRange" type="ParagraphRangeType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">One contiguous range of paragraphs within the file, as segmented by SegmentationMethod, to which this group's Access applies. Paragraph numbering runs over the whole file and is independent of PageRange, so a paragraph range need not be described in terms of the page or pages containing it. A SegmentationMethod may map paragraphs onto a structure other than prose paragraphs where that is the natural unit — for example one row of a spreadsheet per paragraph.</xs:documentation>
+          <xs:documentation xml:lang="est">Üks katkematu lõiguvahemik faili sees, jaotatuna vastavalt SegmentationMethod väärtusele, mille kohta kehtib selle rühma Access. Lõikude numeratsioon kulgeb üle terve faili ja on PageRange elementidest sõltumatu, mistõttu lõiguvahemikku ei ole vaja kirjeldada seda sisaldava lehekülje või lehekülgede kaudu. SegmentationMethod võib lõigud vastendada muule struktuurile kui tavatekstilõigud, kui see on loomulik ühik — näiteks üks tabelarvutusfaili rida lõigu kohta.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="WordRange" type="WordRangeType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">One contiguous range of words within the file, as segmented by SegmentationMethod and numbered independently of ParagraphRange (i.e. word numbering runs over the whole file, not restarting in each paragraph), to which this group's Access applies. This allows marking a word range without having to describe the paragraph(s) that contain it.</xs:documentation>
+          <xs:documentation xml:lang="est">Üks katkematu sõnavahemik faili sees, jaotatuna vastavalt SegmentationMethod väärtusele ja loendatuna ParagraphRange elementidest sõltumatult (sõnade numeratsioon kulgeb üle terve faili, mitte alustades iga lõigu algusest uuesti), mille kohta kehtib selle rühma Access. See võimaldab märkida sõnavahemiku, kirjeldamata seda sisaldava(id) lõiku(ke).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PageRangeType">
+    <xs:sequence>
+      <xs:element name="StartPage" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Ordinal number of the first page of the range within the file, counting from 1. This is the position of the page in the file, not any page number printed on the page itself, which may differ.</xs:documentation>
+          <xs:documentation xml:lang="est">Vahemiku esimese lehekülje järjekorranumber failis, alustades 1-st. See on lehekülje asukoht failis, mitte leheküljele endale trükitud leheküljenumber, mis võib sellest erineda.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EndPage" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Ordinal number of the last page of the range within the file (inclusive), counting from 1. Equal to StartPage for a range covering a single page.</xs:documentation>
+          <xs:documentation xml:lang="est">Vahemiku viimase lehekülje järjekorranumber failis (kaasa arvatud), alustades 1-st. Ühte lehekülge katva vahemiku puhul võrdne StartPage väärtusega.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParagraphRangeType">
+    <xs:sequence>
+      <xs:element name="StartParagraph" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Ordinal number of the first paragraph of the range within the file's textual content, counting from 1.</xs:documentation>
+          <xs:documentation xml:lang="est">Vahemiku esimese lõigu järjekorranumber faili tekstisisus, alustades 1-st.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EndParagraph" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Ordinal number of the last paragraph of the range within the file's textual content (inclusive), counting from 1. Equal to StartParagraph for a range covering a single paragraph.</xs:documentation>
+          <xs:documentation xml:lang="est">Vahemiku viimase lõigu järjekorranumber faili tekstisisus (kaasa arvatud), alustades 1-st. Ühe lõiku katva vahemiku puhul võrdne StartParagraph väärtusega.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WordRangeType">
+    <xs:sequence>
+      <xs:element name="StartWord" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Ordinal number of the first word of the range within the file's textual content, counting from 1.</xs:documentation>
+          <xs:documentation xml:lang="est">Vahemiku esimese sõna järjekorranumber faili tekstisisus, alustades 1-st.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EndWord" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Ordinal number of the last word of the range within the file's textual content (inclusive), counting from 1. Equal to StartWord for a range covering a single word.</xs:documentation>
+          <xs:documentation xml:lang="est">Vahemiku viimase sõna järjekorranumber faili tekstisisus (kaasa arvatud), alustades 1-st. Ühte sõna katva vahemiku puhul võrdne StartWord väärtusega.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GranularAccessType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Access conditions and restrictions, structurally identical to DecContainer/Access, reused at File and AccessGroup level.</xs:documentation>
+      <xs:documentation xml:lang="est">Juurdepääsutingimused ja -piirangud, struktuurilt samasugused kui DecContainer/Access, mida taaskasutatakse File ja AccessGroup tasandil.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="AccessConditionsCode" type="dec:AccessConditionType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Description of access conditions of this part of the record.</xs:documentation>
+          <xs:documentation xml:lang="est">Dokumendi selle osa juurdepääsutingimuse kirjeldus.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AccessRestriction" type="AccessRestrictionType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Description of access restriction established on this part of the record.</xs:documentation>
+          <xs:documentation xml:lang="est">Dokumendi selle osale kehtestatud juurdepääsupiirangu kirjeldus.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AccessRestrictionType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Structurally identical to the anonymous type of DecContainer/Access/AccessRestriction, repeated here because XML Schema does not allow reusing an anonymous type across namespaces.</xs:documentation>
+      <xs:documentation xml:lang="est">Struktuurilt samasugune kui DecContainer/Access/AccessRestriction anonüümne tüüp, siin korratud, sest XML Schema ei luba anonüümset tüüpi teisest nimeruumist taaskasutada.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element type="xs:string" name="RestrictionIdentifier" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Record restriction identifier</xs:documentation>
+          <xs:documentation xml:lang="est">Juurdepääsupiirangu aluste klassifikaatori tunnus</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:date" name="RestrictionBeginDate">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Date on which notation about access restriction was made</xs:documentation>
+          <xs:documentation xml:lang="est">Juurdepääsupiirangu märke tegemise kuupäev (märke vormistamise kuupäev)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:date" name="RestrictionEndDate">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Latest expiry date of access restriction</xs:documentation>
+          <xs:documentation xml:lang="est">Juurdepääsupiirangu lõppemise maksimaalne kuupäev</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="RestrictionEndEvent" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Event in which restriction expires before latest expiry date</xs:documentation>
+          <xs:documentation xml:lang="est">Sündmus, mille toimumisel piirang lõppeb enne maksimaalset lõpptähtaega</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:date" name="RestrictionInvalidSince" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Expiry date of record access restriction</xs:documentation>
+          <xs:documentation xml:lang="est">Dokumendi juurdepääsupiirangu kehtivuse lõppkuupäev</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="RestrictionBasis">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Legal act on which restriction was established</xs:documentation>
+          <xs:documentation xml:lang="est">Õigusakt mille alusel piirang on seatud</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="InformationOwner">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Name of authority that (initially) established access restriction</xs:documentation>
+          <xs:documentation xml:lang="est">Juurdepääsupiirangu (esmaselt) kehtestanud asutuse nimi</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

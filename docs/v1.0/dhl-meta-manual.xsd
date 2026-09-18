@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<xs:schema targetNamespace="http://www.riik.ee/schemas/dhl-meta-manual" xmlns:tns="http://www.riik.ee/schemas/dhl-meta-manual" xmlns:dhlma="http://www.riik.ee/schemas/dhl-meta-automatic" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.riik.ee/schemas/dhl-meta-automatic" schemaLocation="dhl-meta-automatic.xsd"/>
+	<xs:element name="koostaja_asutuse_nr" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>algse koostaja ehk autori asutuse number</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="saaja_asutuse_nr" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>asutuse nr, kellele saata (kui tühi, ei saadeta)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="koostaja_dokumendinimi" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>dokumendi nimi koostajal</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="koostaja_dokumendityyp" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>dokumendi tüüp koostajal (leping vms)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="koostaja_votmesona" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>dokumendi võtmesõna koostajal (leping vms)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="koostaja_dokumendinr" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>koostaja asutuse dokumendinumber</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="koostaja_kuupaev" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>koostamiskuupäev</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="koostaja_asutuse_nimi" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>algse koostaja asutuse nimi</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="koostaja_asutuse_kontakt" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>algse koostaja asutuse kontaktinfo</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="autori_osakond" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>osakond, kus autor ehk ametlik saatja peaks töötama</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="autori_isikukood" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>autori ehk ametliku saatja isikukood</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="autori_nimi" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>autori ehk ametliku saatja nimi</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="autori_kontakt" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>autori ehk ametliku saatja kontaktinfo</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+    <xs:element name="seotud_dhl_id" type="dhlma:dhlDokIDType">
+		<xs:annotation>
+			<xs:documentation>Seotud dokumendi DHL ID</xs:documentation>
+		</xs:annotation>
+    </xs:element>
+	<xs:element name="seotud_dokumendinr_koostajal" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Koostaja dokument, mis on praegusega seotud</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="seotud_dokumendinr_saajal" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Saaja dokument, mis on praegusega seotud</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="saatja_dokumendinr" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>saatja asutuse dokumendinumber (kui erineb koostajast)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="saatja_kuupaev" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>saatmiskuupäev (kui erineb koostamiskuupäevast)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="saatja_asutuse_kontakt" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>saatja asutuse kontakt</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="saaja_isikukood" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>isikukood, kellele dokument saadetakse</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="saaja_nimi" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>isiku nimi, kellele dokument saadetakse</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="saaja_osakond" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>osakonna nimi, kus vastav isik peaks töötama</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="saatja_defineeritud">
+		<xs:annotation>
+			<xs:documentation>Saaja defineeritud väli</xs:documentation>
+		</xs:annotation>
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute ref="tns:valjanimi" use="required" />
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+	</xs:element>
+	<xs:attribute name="valjanimi" type="xs:string" />
+	<xs:element name="koostaja_failinimi">
+		<xs:annotation>
+			<xs:documentation>failinimi koostajal (ilma kataloogide-teeta)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="koostaja_kataloog">
+		<xs:annotation>
+			<xs:documentation>kataloog, kus koostaja dokumenti hoidis (täistee, ilma dokumendifaili nimeta)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="koostaja_kokkuvote">
+		<xs:annotation>
+			<xs:documentation>dokumendi sisu/eesmärgi lühike kokkuvõte (abstract)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+    <xs:element name="sisu_id">
+        <xs:annotation>
+            <xs:documentation>viide digidoc konteineris asuvale dokumendi põhifailile (kui konteiner sisaldab põhifaili ja lisafaile)</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+</xs:schema>

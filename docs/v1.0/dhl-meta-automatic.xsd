@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://www.riik.ee/schemas/dhl-meta-automatic" xmlns:tns="http://www.riik.ee/schemas/dhl-meta-automatic" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xs:annotation>
+	  	<xs:documentation xml:lang="ee">
+	  		DVK XML konteiner - automaatselt DVK tarkvara poolt lisatavad andmed.
+	  		Litsentsitud EUPL v.1.1 alusel. (http://ec.europa.eu/idabc/eupl)
+	  	</xs:documentation>
+	  	<xs:documentation xml:lang="en">
+	  		DVK XML container - part of the container that is filled automatically by the DVK software.
+	  		Licensed under EUPL v.1.1 (http://ec.europa.eu/idabc/eupl)
+	  	</xs:documentation>
+ 	</xs:annotation>
+	<xs:element name="dhl_id" type="tns:dhlDokIDType">
+		<xs:annotation>
+			<xs:documentation xml:lang="ee">Hoidla sisene unikaalne id</xs:documentation>
+			<xs:documentation xml:lang="en">DVK unique ID</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="dhl_saabumisviis" type="xs:string">
+		<xs:annotation>
+			<xs:documentation xml:lang="ee">Esialgu string email või string xtee</xs:documentation>
+			<xs:documentation xml:lang="en">Means of transport - email or xtee</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="dhl_saabumisaeg" type="xs:dateTime">
+		<xs:annotation>
+			<xs:documentation xml:lang="ee">Hoidlasse saabumise aeg CCYY-MM-DDThh:mm:ss</xs:documentation>
+			<xs:documentation xml:lang="en">The date and time when the document reached the DVK server</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="dhl_saatmisviis" type="xs:string">
+		<xs:annotation>
+			<xs:documentation xml:lang="ee">Esialgu string email või string xtee</xs:documentation>
+			<xs:documentation xml:lang="en">Means of transport - email or xtee</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="dhl_saatmisaeg" type="xs:dateTime">
+		<xs:annotation>
+			<xs:documentation xml:lang="ee">Hoidlast saatmise aeg CCYY-MM-DDThh:mm:ss</xs:documentation>
+			<xs:documentation xml:lang="en">The date and time when the document was sent from the DVK server</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="dhl_saatja_asutuse_nr" type="xs:string">
+		<xs:annotation>
+			<xs:documentation xml:lang="ee">Registrinr turvaserverist (ainult xteest tulnud)</xs:documentation>
+			<xs:documentation xml:lang="en">The X-tee security server institution code of the sender</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="dhl_saatja_asutuse_nimi" type="xs:string">
+		<xs:annotation>
+			<xs:documentation xml:lang="ee">Asutuse nimi turvaserverist (ainult xteest tulnud)</xs:documentation>
+			<xs:documentation xml:lang="en">The name of the sender's institution from the X-tee security server</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="dhl_saatja_isikukood" type="xs:string">
+		<xs:annotation>
+			<xs:documentation xml:lang="ee">Isikukood turvaserverist (ainult xteest tulnud)</xs:documentation>
+			<xs:documentation xml:lang="en">The sender's personal code from the X-tee security server</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="dhl_saaja_asutuse_nr" type="xs:string">
+		<xs:annotation>
+			<xs:documentation xml:lang="ee">Registrinr turvaserverile (xteega saadetud)</xs:documentation>
+			<xs:documentation xml:lang="en">Recipient's insititution code for the X-tee security server</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="dhl_saaja_asutuse_nimi" type="xs:string">
+		<xs:annotation>
+			<xs:documentation xml:lang="ee">Asutuse nimi turvaserverile (xteega saadetud)</xs:documentation>
+			<xs:documentation xml:lang="en">The name of the institution for the X-tee security server</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="dhl_saaja_isikukood" type="xs:string">
+		<xs:annotation>
+			<xs:documentation xml:lang="ee">Saaja kood turvaserverile (xteega saadetud)</xs:documentation>
+			<xs:documentation xml:lang="en">Recipient's personal code for the X-tee security server</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="dhl_saatja_epost" type="xs:string">
+		<xs:annotation>
+			<xs:documentation xml:lang="ee">Saatja eposti aadress (tulnud epostiga)</xs:documentation>
+			<xs:documentation xml:lang="en">Sender's e-mail address</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="dhl_saaja_epost" type="xs:string">
+		<xs:annotation>
+			<xs:documentation xml:lang="ee">E-post, kellele saadeti (saadetud epostiga)</xs:documentation>
+			<xs:documentation xml:lang="en">Recipient's e-mail address</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="dhl_email_header">
+		<xs:annotation>
+			<xs:documentation xml:lang="ee">E-posti header. Nimi on atribuudis "name", sisu on elemendi sisus</xs:documentation>
+			<xs:documentation xml:lang="en">E-mail header. Name in attribute "name", content as element content</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="name" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="dhl_kaust" type="xs:string">
+		<xs:annotation>
+			<xs:documentation xml:lang="ee">Kausta, milles antud dokumenti DVK-s asub, täisnimi.</xs:documentation>
+			<xs:documentation xml:lang="en">The full name of the folder in which the document resides on the DVK server</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:simpleType name="dhlDokTaisnimiType">
+		<xs:annotation>
+			<xs:documentation xml:lang="ee">Dokumendi asukohatee andmetüüp</xs:documentation>
+			<xs:documentation xml:lang="en">Document full path datatype</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="dhlDokIDType">
+		<xs:annotation>
+			<xs:documentation xml:lang="ee">DHL dokumendi seesmise ID andmetüüp</xs:documentation>
+			<xs:documentation xml:lang="en">DVK internal ID type</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+</xs:schema>

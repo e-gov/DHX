@@ -1,9 +1,9 @@
 # Üldised määratlused
 title: DHX
-baseurl: "DHX"
+baseurl: "/DHX"
 
 # Build settings
-gems:
+plugins:
   - jekyll-feed
 exclude:
   - Gemfile

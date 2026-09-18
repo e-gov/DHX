@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://www.riik.ee/schemas/dhl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.riik.ee/schemas/dhl" xmlns:dhlma="http://www.riik.ee/schemas/dhl-meta-automatic" xmlns:dhlmm="http://www.riik.ee/schemas/dhl-meta-manual" xmlns:rkel="http://www.riik.ee/schemas/dhl/rkel_letter" xmlns:dd="http://www.sk.ee/DigiDoc/v1.3.0#" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+  <xs:import namespace="http://www.sk.ee/DigiDoc/v1.3.0#" schemaLocation="DigiDoc-1.3.xsd"/>
+  <xs:import namespace="http://www.riik.ee/schemas/dhl-meta-automatic" schemaLocation="dhl-meta-automatic.xsd"/>
+  <xs:import namespace="http://www.riik.ee/schemas/dhl-meta-manual" schemaLocation="dhl-meta-manual.xsd"/>
+  <xs:import namespace="http://www.riik.ee/schemas/dhl/rkel_letter" schemaLocation="rkel_letter.xsd"/>
+  <xs:element name="regnr" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Adressaadi asutuse registreerimisnumber</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="isikukood" type="isikukoodType">
+    <xs:annotation>
+      <xs:documentation>Adressaadi isikukood</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ametikoha_kood" type="xs:integer">
+    <xs:annotation>
+      <xs:documentation>Adressaadi ametikoha kood. Kasulik juhul, kui saadetis on adresseeritud mingi ametikoha täitjale sõltumata seda ametikohta täitvast isikust. Kood peab vastama ametikohtade registri ID-le</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ametikoha_nimetus" type="xs:integer">
+    <xs:annotation>
+      <xs:documentation>Adressaadi ametikoha nimetus.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="allyksuse_kood" type="xs:integer">
+    <xs:annotation>
+      <xs:documentation>Adressaadi allüksuse kood. Kasulik juhul, kui saadetis on adresseeritud asutuse allüksusele. Kood peab vastama allüksuste registri ID-le</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="allyksuse_nimetus" type="xs:integer">
+    <xs:annotation>
+      <xs:documentation>Adressaadi allüksuse nimetus.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="epost" type="epostType">
+    <xs:annotation>
+      <xs:documentation>Adressaadi e-posti aadress</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="nimi" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Adressaadi (isiku) nimi</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="asutuse_nimi" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Adressaadi asutuse nimi</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="osakonna_kood" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Adressaadi struktuuriüksuse asutusesisene kood</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="osakonna_nimi" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Adressaadi struktuuriüksuse nimi</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="aadressType">
+    <xs:annotation>
+      <xs:documentation>Dokumendi transpordiaadress</xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element ref="regnr" minOccurs="0"/>
+      <xs:element ref="isikukood" minOccurs="0"/>
+      <xs:element ref="ametikoha_kood" minOccurs="0"/>
+	  <xs:element ref="ametikoha_nimetus" minOccurs="0"/>
+      <xs:element ref="allyksuse_kood" minOccurs="0"/>
+	  <xs:element ref="allyksuse_nimetus" minOccurs="0"/>
+      <xs:element ref="epost" minOccurs="0"/>
+      <xs:element ref="nimi" minOccurs="0"/>
+      <xs:element ref="asutuse_nimi" minOccurs="0"/>
+      <xs:element ref="osakonna_kood" minOccurs="0"/>
+      <xs:element ref="osakonna_nimi" minOccurs="0"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:simpleType name="isikukoodType">
+    <xs:annotation>
+      <xs:documentation>Füüsilise isiku isikukoodi tüüp</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(\d{11}|\c{2}\d+)?"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="epostType">
+    <xs:annotation>
+      <xs:documentation>e-posti andmeformaadi tüüp</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="saatja" type="aadressType">
+    <xs:annotation>
+      <xs:documentation>Saatja info</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="saaja" type="aadressType">
+    <xs:annotation>
+      <xs:documentation>Saaja info, kellele dokument edastatakse/edastati</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="vahendaja" type="aadressType">
+    <xs:annotation>
+      <xs:documentation>Asutus/isik, kes dokumendi saatja DVK serverist saaja DVK serverisse edastas</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="edastus">
+    <xs:annotation>
+      <xs:documentation>Dokumendi konkreetsele saajele edastamise olekuinfo</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="saaja"/>
+        <xs:element name="saadud" type="xs:dateTime">
+          <xs:annotation>
+            <xs:documentation>Ajamoment, mil DHL dokumendi saatjalt kätte sai</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="meetod">
+          <xs:annotation>
+            <xs:documentation>Transpordiviis, mida tuleb kasutada dokumendi saajale edastamiseks</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="epost"/>
+              <xs:enumeration value="xtee"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="edastatud" type="xs:dateTime" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Ajamoment, mil dokument edastati DHL poolt saajale</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="loetud" type="xs:dateTime" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Ajamoment, mil dokument märgiti saaja poolt loetuks</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element ref="fault" minOccurs="0"/>
+        <xs:element name="staatus">
+          <xs:annotation>
+            <xs:documentation>Info edastuse oleku kohta</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="saatmisel"/>
+              <xs:enumeration value="saadetud"/>
+              <xs:enumeration value="katkestatud"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="vastuvotja_staatus_id" type="xs:integer" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Info dokumendile vastuvõtja poolel määratud oleku kohta</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="metaxml" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Saatjale tagasiside saatmiseks mõeldud vaba struktuuriga andmeväli</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any minOccurs="0"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fault">
+    <xs:annotation>
+      <xs:documentation>Element transpordivigade teatamiseks. Sisu analoogne SOAP fault päringuvastusega</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="faultcode" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Veakood peab olema unikaalne iga veatüübi puhul</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="faultactor" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Vea tekitaja. Näiteks serveri puhul "Server", kliendi rakenduse (DVK mõistes näiteks dokumendiallalaadija) puhul "Client"</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="faultstring" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Veateade, millest peab olema arusaadav, mis veaga on tegu, nt "Dokumendi XML ei valideeru", "Dokumendis leiti viirus"</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="faultdetail" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Vea detailne kirjeldus, mis näitab ära konkreetse vea juurpõhjuse, nt "Valideerimisviga real 23: element metainfo pole lõpetatud", "Failist eelnou.doc leiti viirus WinWorm.32"</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="metainfo">
+    <xs:annotation>
+      <xs:documentation>Dokumendi metainfo</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:any namespace="http://www.riik.ee/schemas/dhl-meta-automatic" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:any namespace="http://www.riik.ee/schemas/dhl-meta-manual" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="dhlDokumentType">
+    <xs:annotation>
+      <xs:documentation>Andmevahetusdokumendi tüüp</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:sequence>
+        <xs:element ref="metainfo" minOccurs="0"/>
+        <xs:element ref="transport" minOccurs="0"/>
+        <xs:element ref="ajalugu" minOccurs="0"/>
+        <xs:element ref="metaxml" minOccurs="0"/>
+        <xs:element ref="dd:SignedDoc" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+      <xs:element name="ref" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Viide dokumendile DHL dokumendikontol</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="dhl_id" type="dhlma:dhlDokIDType" use="optional"/>
+          <xs:attribute name="dhl_taisnimi" type="dhlma:dhlDokTaisnimiType"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="tagasisideType">
+    <xs:annotation>
+      <xs:documentation>Tagasiside vastuvõetud dokumendi oleku ja vigade kohta</xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="dhl_id" type="xs:integer" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Dokumendi DVK ID</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vastuvotja_staatus_id" type="xs:integer" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Vastuvõtja poolel dokumendile antud oleku ID</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element ref="fault" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>vastuvõtja poolel ilmnenud vea andmed</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+  <xs:element name="transport">
+    <xs:annotation>
+      <xs:documentation>Dokumendi transportinfo</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="saatja" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="saaja" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="vahendaja" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="metaxml">
+    <xs:annotation>
+      <xs:documentation>Riigikantselei poolt fikseeritud kirja metaandmed</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:any namespace="##any" processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="dokument" type="dhlDokumentType">
+    <xs:annotation>
+      <xs:documentation>DHL poolt kasutatav dokumendielement</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ajalugu">
+    <xs:annotation>
+      <xs:documentation>Informatsioon dokumendi liikumistee kohta</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="metainfo"/>
+        <xs:element ref="transport"/>
+        <xs:element ref="metaxml"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

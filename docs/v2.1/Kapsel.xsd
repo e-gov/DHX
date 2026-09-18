@@ -1,0 +1,654 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns="http://www.riik.ee/schemas/deccontainer/vers_2_1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.riik.ee/schemas/deccontainer/vers_2_1/">
+  <xs:element name="DecContainer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Transport">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Data describing addressing documents in DEC</xs:documentation>
+            <xs:documentation xml:lang="est">Dokumendi adresseerimist DVKs kirjeldavad andmed</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DecSender">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Record sender’s organisation, structural unit or private individual</xs:documentation>
+                  <xs:documentation xml:lang="est">Dokumendi saatja organisatsioon, struktuuriüksus või eraisik</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="OrganisationCode">
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">Registry code of legal entity</xs:documentation>
+                        <xs:documentation xml:lang="est">Juriidilise isiku registrikood</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="StructuralUnit" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">Sub-/structural unit of legal entity</xs:documentation>
+                        <xs:documentation xml:lang="est">Juriidilise isiku all/struktuuriüksus</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="PersonalIdCode" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">Natural person’s ID code</xs:documentation>
+                        <xs:documentation xml:lang="est">Füüsilise isiku isikukood</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="DecRecipient" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Record recipient’s organisation, structural unit or private individual</xs:documentation>
+                  <xs:documentation xml:lang="est">Dokumendi saaja organisatsioon, struktuuriüksus või eraisik</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="OrganisationCode">
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">Registry code of legal entity</xs:documentation>
+                        <xs:documentation xml:lang="est">Juriidilise isiku registrikood</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="StructuralUnit" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">Sub-/structural unit of legal entity</xs:documentation>
+                        <xs:documentation xml:lang="est">Juriidilise isiku all/struktuuriüksus</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="PersonalIdCode" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation xml:lang="en">Natural person’s ID code</xs:documentation>
+                        <xs:documentation xml:lang="est">Füüsilise isiku isikukood</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Initiator" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Details of source record</xs:documentation>
+            <xs:documentation xml:lang="est">Lähtedokumendi andmed</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="InitiatorRecordOriginalIdentifier" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Source record identifier</xs:documentation>
+                  <xs:documentation xml:lang="est">Lähtedokumendi viit</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:dateTime" name="InitiatorRecordDate" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Source record date and time</xs:documentation>
+                  <xs:documentation xml:lang="est">Lähtedokumendi kuupäev ja kellaaeg</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="Organisation" type="OrganisationType" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Details of initiator’s organisation</xs:documentation>
+                  <xs:documentation xml:lang="est">Algataja organisatsiooni andmed</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="Person" type="PersonType" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Initiator’s personal details</xs:documentation>
+                  <xs:documentation xml:lang="est">Algataja isiku andmed</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="ContactData" type="ContactDataType">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Initiator’s contact details</xs:documentation>
+                  <xs:documentation xml:lang="est">Algataja kontaktandmed</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RecordCreator" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Details of record creator/person responsible for record</xs:documentation>
+            <xs:documentation xml:lang="est">Dokumendi koostaja/vastutaja andmed</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Organisation" type="OrganisationType" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Details of creator's organisation</xs:documentation>
+                  <xs:documentation xml:lang="est">Koostaja organisatsiooni andmed</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="Person" type="PersonType" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Creator’s personal details</xs:documentation>
+                  <xs:documentation xml:lang="est">Koostaja isiku andmed</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="ContactData" type="ContactDataType" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Creator’s contact details</xs:documentation>
+                  <xs:documentation xml:lang="est">Koostaja kontaktandmed</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RecordSenderToDec" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Details of sender of record</xs:documentation>
+            <xs:documentation xml:lang="est">Dokumendi väljasaatja andmed</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Organisation" type="OrganisationType" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Details of sender’s organisation</xs:documentation>
+                  <xs:documentation xml:lang="est">Saatja organisatsiooni andmed</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="Person" type="PersonType" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Sender’s personal details</xs:documentation>
+                  <xs:documentation xml:lang="est">Saatja isiku andmed</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="ContactData" type="ContactDataType" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Sender’s contact details</xs:documentation>
+                  <xs:documentation xml:lang="est">Saatja kontaktandmed</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Recipient" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Details of addressee of record</xs:documentation>
+            <xs:documentation xml:lang="est">Dokumendi adressaadi andmed</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RecipientRecordGuid" minOccurs="0" type="GuidType">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Unique identifier of associated record in recipient's system</xs:documentation>
+                  <xs:documentation xml:lang="est">Seotud dokumendi unikaalne identifikaator saaja süsteemis</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:string" name="RecipientRecordOriginalIdentifier" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Code given to record on registration that indicates record's location in recipient’s system</xs:documentation>
+                  <xs:documentation xml:lang="est">Dokumendi seosviit, mis osutab dokumendi asukohale saaja süsteemis</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:string" name="MessageForRecipient" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Message or comment for recipient sent together with the record</xs:documentation>
+                  <xs:documentation xml:lang="est">Dokumendile lisatud kommentaar, kaaskiri saajale</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="Organisation" type="OrganisationType" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Details of recipient’s organisation</xs:documentation>
+                  <xs:documentation xml:lang="est">Saaja organisatsiooni andmed</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="Person" type="PersonType" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Recipient’s personal details</xs:documentation>
+                  <xs:documentation xml:lang="est">Saaja isiku andmed</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="ContactData" type="ContactDataType" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Recipient’s contact details</xs:documentation>
+                  <xs:documentation xml:lang="est">Saaja kontaktandmed</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RecordMetadata">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Metadata of record to be sent</xs:documentation>
+            <xs:documentation xml:lang="est">Saadetava dokumendi metaandmed</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RecordGuid" type="GuidType">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Unique record identifier</xs:documentation>
+                  <xs:documentation xml:lang="est">Dokumendi unikaalne identifikaator</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:string" name="RecordType">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Record type</xs:documentation>
+                  <xs:documentation xml:lang="est">Dokumendiliigi nimetus</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:string" name="RecordOriginalIdentifier">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Code given to record on registration that indicates record's location in sender's system</xs:documentation>
+                  <xs:documentation xml:lang="est">Dokumendi viit, mis osutab dokumendi asukohale saatja süsteemis</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:dateTime" name="RecordDateRegistered">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Date and time of record's registration in sender's system</xs:documentation>
+                  <xs:documentation xml:lang="est">Dokumendi saatja süsteemis registreerimise kuupäev ja kellaaeg</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:string" name="RecordTitle">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Title of record</xs:documentation>
+                  <xs:documentation xml:lang="est">Dokumendi pealkiri</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:string" name="RecordLanguage" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Language of record content</xs:documentation>
+                  <xs:documentation xml:lang="est">Dokumendi sisu esituse keel</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:string" name="RecordAbstract" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Brief presentation of record content as free text</xs:documentation>
+                  <xs:documentation xml:lang="est">Dokumendi sisu lühiesitus vaba tekstina</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:date" name="ReplyDueDate" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Deadline for sending the reply</xs:documentation>
+                  <xs:documentation xml:lang="est">Dokumendiga kaasneva vastuse edastamise tähtaeg</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Access">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Metadata of access granted to record</xs:documentation>
+            <xs:documentation xml:lang="est">Dokumendile antud juurdepääsu metaandmed</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AccessConditionsCode" type="AccessConditionType">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Description of access conditions of record</xs:documentation>
+                  <xs:documentation xml:lang="est">Dokumendile antud juurdepääsutingimuse kirjeldus</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="AccessRestriction" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Description of access restriction established on record</xs:documentation>
+                  <xs:documentation xml:lang="est">Dokumendile kehtestatud juurdepääsupiirangu kirjeldus</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="RestrictionIdentifier" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">Record restriction identifier</xs:documentation>
+                        <xs:documentation xml:lang="est">Juurdepääsupiirangu aluste klassifikaatori tunnus</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:date" name="RestrictionBeginDate">
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">Date on which notation about access restriction was made</xs:documentation>
+                        <xs:documentation xml:lang="est">Juurdepääsupiirangu märke tegemise kuupäev (märke vormistamise kuupäev)</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:date" name="RestrictionEndDate">
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">Latest expiry date of access restriction</xs:documentation>
+                        <xs:documentation xml:lang="est">Juurdepääsupiirangu lõppemise maksimaalne kuupäev</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="RestrictionEndEvent" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">Event in which restriction expires before latest expiry date</xs:documentation>
+                        <xs:documentation xml:lang="est">Sündmus, mille toimumisel piirang lõppeb enne maksimaalset lõpptähtaega</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:date" name="RestrictionInvalidSince" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">Expiry date of record access restriction</xs:documentation>
+                        <xs:documentation xml:lang="est">Dokumendi juurdepääsupiirangu kehtivuse lõppkuupäev</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="RestrictionBasis">
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">Legal act on which restriction was established</xs:documentation>
+                        <xs:documentation xml:lang="est">Õigusakt mille alusel piirang on seatud</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="InformationOwner">
+                      <xs:annotation>
+                        <xs:documentation xml:lang="en">Name of authority that (initially) established access restriction</xs:documentation>
+                        <xs:documentation xml:lang="est">Juurdepääsupiirangu (esmaselt) kehtestanud asutuse nimi</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SignatureMetadata" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Metadata of record signature</xs:documentation>
+            <xs:documentation xml:lang="est">Dokumendi allkirja metaandmed</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="SignatureType" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Type of signature given to record</xs:documentation>
+                  <xs:documentation xml:lang="est">Dokumendile antud allkirja tüüp</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:string" name="Signer" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Name of the person who signed the record</xs:documentation>
+                  <xs:documentation xml:lang="est">Dokumendi allkirja andja</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:string" name="Verified" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Signature verification</xs:documentation>
+                  <xs:documentation xml:lang="est">Allkirja kehtivuse kinnitus</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:dateTime" name="SignatureVerificationDate" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Date and time of signature verification</xs:documentation>
+                  <xs:documentation xml:lang="est">Allkirja verifitseerimise kuupäev ja kellaaeg</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="File" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Metadata of file</xs:documentation>
+            <xs:documentation xml:lang="est">Faili metaandmed</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FileGuid" type="GuidType">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Unique file identifier</xs:documentation>
+                  <xs:documentation xml:lang="est">Faili unikaalne identifikaator</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:boolean" name="RecordMainComponent" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Indicates weather the file is the main part of the record</xs:documentation>
+                  <xs:documentation xml:lang="est">Näitab kas fail on dokumendi põhiosa</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:string" name="FileName">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Name of file that forms record or its component</xs:documentation>
+                  <xs:documentation xml:lang="est">Dokumendi või selle komponendi moodustava faili nimi</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:string" name="MimeType">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">MIME type of file</xs:documentation>
+                    <xs:documentation xml:lang="est">Faili MIME tüüp</xs:documentation>
+                  </xs:annotation>
+                </xs:element>
+              <xs:element type="xs:integer" name="FileSize" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Size of initial file that forms record or its component</xs:documentation>
+                  <xs:documentation xml:lang="est">Dokumendi või selle komponendi moodustava algfaili maht</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:string" name="ZipBase64Content">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Content of zipped and Base64 coded file</xs:documentation>
+                  <xs:documentation xml:lang="est">ZIP-itud ja Base64 kodeeringusse pandud faili sisu</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RecordTypeSpecificMetadata" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Metadata of record type described in State Information System Management System</xs:documentation>
+            <xs:documentation xml:lang="est">RIHAs kirjeldatud dokumendiliigi metaandmed</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any namespace="##any" processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DecMetadata" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Metadata automatically added by DEC central server. Deprecated after closing of DEC central server and implementation of DHX</xs:documentation>
+            <xs:documentation xml:lang="est">DVK keskserveri poolt automaatselt lisatavad metaandmed. Ebavajalik pärast DVK keskserveri sulgemist ning DHX-le üleminekut</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:integer" name="DecId">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Unique DEC record identifier</xs:documentation>
+                  <xs:documentation xml:lang="est">DVK dokumendi unikaalne identifikaator</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:string" name="DecFolder">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Folder of DEC document</xs:documentation>
+                  <xs:documentation xml:lang="est">DVK dokumendi asukoha kaust</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:dateTime" name="DecReceiptDate">
+                <xs:annotation>
+                  <xs:documentation xml:lang="en">Date and time of receipt of record in DEC</xs:documentation>
+                  <xs:documentation xml:lang="est">DVK-sse dokumendi saabumise kuupäev ja kellaaeg</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="OrganisationType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="Name">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Official name of sole proprietor or entrepreneur that is a legal entity</xs:documentation>
+          <xs:documentation xml:lang="est">Juriidilise või füüsilisest isikust ettevõtja ametlik nimi</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="OrganisationCode" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Registry code of legal entity</xs:documentation>
+          <xs:documentation xml:lang="est">Juriidilise isiku registrikood</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="StructuralUnit" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Sub-/structural unit of legal entity</xs:documentation>
+          <xs:documentation xml:lang="est">Juriidilise isiku all/struktuuriüksus</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="PositionTitle" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Position title in organisation</xs:documentation>
+          <xs:documentation xml:lang="est">Ametinimetus organisatsioonis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="Residency" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Residency of organisation</xs:documentation>
+          <xs:documentation xml:lang="est">Organisatsiooni residentsus</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PersonType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="Name">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Natural person’s name</xs:documentation>
+          <xs:documentation xml:lang="est">Füüsilise isiku nimi</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="GivenName" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Natural person’s given name</xs:documentation>
+          <xs:documentation xml:lang="est">Füüsilise isiku eesnimi</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="Surname" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Natural person’s surname</xs:documentation>
+          <xs:documentation xml:lang="est">Füüsilise isiku perekonnanimi</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="PersonalIdCode" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Natural person’s ID code</xs:documentation>
+          <xs:documentation xml:lang="est">Füüsilise isiku isikukood</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="Residency" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Natural person’s residency</xs:documentation>
+          <xs:documentation xml:lang="est">Füüsilise isiku residentsus</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ContactDataType">
+    <xs:sequence>
+      <xs:element type="xs:boolean" name="Adit" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Subscriber of Official Document Infrastructure Service</xs:documentation>
+          <xs:documentation xml:lang="est">Liitumine ADITiga</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Phone" minOccurs="0" type="PhoneType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Telephone number</xs:documentation>
+          <xs:documentation xml:lang="est">Telefoninumber</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="Email" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">E-mail address</xs:documentation>
+          <xs:documentation xml:lang="est">E-posti aadress</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="WebPage" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Website address</xs:documentation>
+          <xs:documentation xml:lang="est">Veebilehe aadress</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="MessagingAddress" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Message communication address</xs:documentation>
+          <xs:documentation xml:lang="est">Sõnumside aadress</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PostalAddress" type="PostalAddressType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Postal address</xs:documentation>
+          <xs:documentation xml:lang="est">Postiaadress</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PostalAddressType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="Country" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Name of address object’s country</xs:documentation>
+          <xs:documentation xml:lang="est">Aadressiobjekti riigi nimetus</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="County" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Name of address object’s country</xs:documentation>
+          <xs:documentation xml:lang="est">Maakonna nimi</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="LocalGovernment" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Name of local government unit (municipality, town or city)</xs:documentation>
+          <xs:documentation xml:lang="est">Omavalitsusüksuse (vald, omavalitsuslik linn) nimi</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="AdministrativeUnit" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Name of settlement or city district</xs:documentation>
+          <xs:documentation xml:lang="est">Asula või linnaosa nimi</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="SmallPlace" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Land area smaller than settlement unit</xs:documentation>
+          <xs:documentation xml:lang="est">Asustusüksusest väiksem maa-ala</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="LandUnit" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Name of land unit</xs:documentation>
+          <xs:documentation xml:lang="est">Maaüksuse nimi</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="Street" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">For the purposes of § 2 of the Roads Act, a road whose name is used in the addresses of other address objects</xs:documentation>
+          <xs:documentation xml:lang="est">Teeseaduse § 2 tähenduses tee, mille nime kasutatakse teiste aadressiobjektide aadressis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="HouseNumber" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">House number</xs:documentation>
+          <xs:documentation xml:lang="est">Maja number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="BuildingPartNumber" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Number of apartment or office</xs:documentation>
+          <xs:documentation xml:lang="est">Korteri või tööruumi number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PostalCode" minOccurs="0" type="PostalCodeType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Postal code (postcode) of address object</xs:documentation>
+          <xs:documentation xml:lang="est">Aadressiobjekti asukoha postiindeks (sihtnumber)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="AccessConditionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Avalik"/>
+      <xs:enumeration value="AK"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="GuidType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PhoneType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9 +()-]*"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PostalCodeType">
+    <xs:restriction base="xs:integer">
+      <xs:pattern value="[0-9]{5}"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

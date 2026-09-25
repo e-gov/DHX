@@ -1,6 +1,6 @@
 # Elektroonilise andmevahetuse metaandmete loend
 
-Metaandmed, mida saadetakse dokumendi edastamisel DVK kaudu, lihtsustamaks elektroonilist suhtlust dokumendihaldussüsteemide ja teiste infosüsteemide vahel.
+Metaandmed, mida saadetakse dokumendi edastamisel DHX kaudu, lihtsustamaks elektroonilist suhtlust dokumendihaldussüsteemide ja teiste infosüsteemide vahel.
 
 ## Versioon 2.1
 
@@ -12,6 +12,13 @@ Tehniline dokumentatsioon:
 * [Naide2.xml](v2.1/Naide2.xml)
 * [Naide3.xml](v2.1/Naide3.xml)
 * [Vastavustabel.ods](v2.1/Vastavustabel.ods)
+
+### Laiendused
+
+Kapslit saab laiendada elemendi `RecordTypeSpecificMetadata` kaudu, muutmata `Kapsel.xsd` faili. Laiendust mittetundev rakendus töötab sellisel juhul edasi täpselt nagu varem.
+
+* [granularAccess](granularAccess) (MUSTAND) — täpsem juurdepääsutingimuste kirjeldamine kui terve dokumendi tasandil: faili kaupa ning faili sees lehekülgede, lõikude ja sõnade kaupa. Valmistab ette avaliku teabe seaduse § 38 lõikes 2 nõutud osalise juurdepääsu andmise: tervikuna piiratud dokumendi avaliku osa saab avaldada ilma dokumenti uuesti läbi töötamata. Lisaks saab edastada dokumendi avalikustatava pealkirja, lühiesituse ja failinimed.
+  * [Jaotusalgoritmid](segmentationMethods) (MUSTAND) — laienduse juurde kuuluv register, mis määratleb, kuidas faili osadeks jaotatakse (`SegmentationMethod` tunnused). Täieneb laiendust muutmata.
 
 ## Versioon 1.0
 

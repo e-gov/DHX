@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="0.1-draft" xmlns="http://www.riik.ee/schemas/deccontainer/vers_2_1/granularAccess/" xmlns:ga="http://www.riik.ee/schemas/deccontainer/vers_2_1/granularAccess/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dec="http://www.riik.ee/schemas/deccontainer/vers_2_1/" targetNamespace="http://www.riik.ee/schemas/deccontainer/vers_2_1/granularAccess/">
+  <xs:import namespace="http://www.riik.ee/schemas/deccontainer/vers_2_1/" schemaLocation="Kapsel.xsd"/>
+  <xs:annotation>
+    <xs:documentation xml:lang="en">STATUS: DRAFT (version 0.1-draft). Extension of DHX Kapsel (DecContainer) describing access conditions per file, and within a file per group of page, paragraph and word ranges. Embedded in DecContainer/RecordTypeSpecificMetadata; does not modify Kapsel.xsd.</xs:documentation>
+    <xs:documentation xml:lang="est">STAATUS: MUSTAND (versioon 0.1-draft). DHX Kapsli (DecContainer) laiendus, mis kirjeldab juurdepääsutingimusi faili kaupa ning faili sees lehekülje-, lõigu- ja sõnavahemike rühmade kaupa. Paikneb DecContainer/RecordTypeSpecificMetadata sees ja ei muuda Kapsel.xsd faili.</xs:documentation>
+    <xs:documentation xml:lang="en">The extension sits behind an xs:any processContents="skip" wildcard, so Kapsel-level validation does not examine it. An application intending to act on the block MUST validate it against this schema, MUST check the rules this schema cannot express, and MUST ignore the entire extension if either fails. THOSE RULES, THE PROCESSING ORDER AND ALL RATIONALE ARE SPECIFIED IN granularAccess.md IN THE DHX REPOSITORY (https://github.com/e-gov/DHX), WHICH IS THE NORMATIVE DOCUMENT; the annotations below only name the elements.</xs:documentation>
+    <xs:documentation xml:lang="est">Laiendus paikneb xs:any processContents="skip" metamärgi taga, mistõttu kapsli tasandi skeemikontroll seda ei puuduta. Rakendus, kes kavatseb ploki alusel toimida, PEAB selle valideerima käesoleva skeemi järgi, PEAB kontrollima reegleid, mida skeem väljendada ei suuda, ning PEAB kogu laienduse eirama, kui kas või üks neist ei õnnestu. NEED REEGLID, TÖÖTLUSJÄRJEKORD JA KÕIK PÕHJENDUSED ON KIRJAS FAILIS granularAccess.md DHX HOIDLAS (https://github.com/e-gov/DHX), MIS ON NORMATIIVNE DOKUMENT; allolevad märkused üksnes nimetavad elemente.</xs:documentation>
+  </xs:annotation>
+  <xs:element name="granularAccess">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Root element of the granular access extension. Meaningful only when DecContainer/Access/AccessConditionsCode is "AK"</xs:documentation>
+      <xs:documentation xml:lang="est">Detailse juurdepääsu laienduse juurelement. Omab tähendust ainult siis, kui DecContainer/Access/AccessConditionsCode on "AK"</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="PublicRecordTitle" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Publicly disclosable title of the record, used when publishing in place of RecordMetadata/RecordTitle, which itself remains unchanged</xs:documentation>
+            <xs:documentation xml:lang="est">Dokumendi avalikustatav pealkiri, mida kasutatakse avaldamisel RecordMetadata/RecordTitle asemel; kapsli enda pealkiri ise jääb muutumatuna alles</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="PublicRecordAbstract" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Publicly disclosable brief presentation of the record's content, used when publishing in place of RecordMetadata/RecordAbstract, which itself remains unchanged</xs:documentation>
+            <xs:documentation xml:lang="est">Dokumendi sisu avalikustatav lühiesitus, mida kasutatakse avaldamisel RecordMetadata/RecordAbstract asemel; kapsli enda lühiesitus ise jääb muutumatuna alles</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="File" type="GranularFileType" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Access description of one file of the record. A file not described here keeps the access condition given by DecContainer/Access</xs:documentation>
+            <xs:documentation xml:lang="est">Ühe dokumendi faili juurdepääsukirjeldus. Failile, mida siin ei kirjeldata, kehtib DecContainer/Access juurdepääsutingimus</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:unique name="UniqueFileGuid">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">Each file of the record may be described at most once. Compares values as written, so an application must also compare FileGuid values case-insensitively itself</xs:documentation>
+        <xs:documentation xml:lang="est">Iga dokumendi faili tohib kirjeldada kuni üks kord. Võrdleb väärtusi nii, nagu need on kirjutatud, mistõttu rakendus peab FileGuid väärtusi ka ise tõstutundetult võrdlema</xs:documentation>
+      </xs:annotation>
+      <xs:selector xpath="ga:File"/>
+      <xs:field xpath="ga:FileGuid"/>
+    </xs:unique>
+  </xs:element>
+  <xs:complexType name="GranularFileType">
+    <xs:sequence>
+      <xs:element name="FileGuid" type="dec:GuidType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Reference to the FileGuid of the DecContainer/File element this access description applies to</xs:documentation>
+          <xs:documentation xml:lang="est">Viide selle DecContainer/File elemendi FileGuid väärtusele, mille kohta juurdepääsukirjeldus kehtib</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PublicFileName" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Publicly disclosable name of this file, used when publishing in place of DecContainer/File/FileName, which itself remains unchanged</xs:documentation>
+          <xs:documentation xml:lang="est">Selle faili avalikustatav nimi, mida kasutatakse avaldamisel DecContainer/File/FileName asemel; kapsli enda failinimi ise jääb muutumatuna alles</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Access" type="GranularAccessType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Access conditions and restrictions of the whole file. Must not be more restrictive than DecContainer/Access, nor less restrictive than any AccessGroup/Access of this file. If omitted, DecContainer/Access applies to the whole file unchanged</xs:documentation>
+          <xs:documentation xml:lang="est">Terve faili juurdepääsutingimused ja -piirangud. Ei tohi olla rangem kui DecContainer/Access ega leebem kui selle faili suvaline AccessGroup/Access. Puudumisel kehtib terve faili kohta muutumatult DecContainer/Access</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:sequence minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Part-level description of this file: optional as a whole, but indivisible — if any element of this group is present, all of them must be</xs:documentation>
+          <xs:documentation xml:lang="est">Selle faili osa tasandi kirjeldus: tervikuna vabatahtlik, kuid jagamatu — kui esineb ükskõik milline selle rühma element, peavad esinema kõik</xs:documentation>
+        </xs:annotation>
+        <xs:element name="SegmentationMethod" type="SegmentationMethodType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Identifier of the algorithm that splits this file into the pages, paragraphs and words the ranges below refer to. Published identifiers are listed in segmentationMethods.md in the DHX repository. An application that does not recognise the value MUST NOT descend to part level, and MUST apply the file's own Access to the whole file</xs:documentation>
+            <xs:documentation xml:lang="est">Tunnus algoritmile, mis jaotab selle faili lehekülgedeks, lõikudeks ja sõnadeks, millele allpool olevad vahemikud viitavad. Avaldatud tunnused on loetletud failis segmentationMethods.md DHX hoidlas. Rakendus, kes väärtust ei tunne, EI TOHI osa tasandile laskuda ja PEAB rakendama terve faili kohta faili enda Access väärtust</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="SegmentationCheck" type="SegmentationCheckType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Unit totals the sender's segmentation produced for this file, which the receiver recomputes and compares before acting on any range. If any required count differs, the application MUST NOT descend to part level, and MUST apply the file's own Access to the whole file</xs:documentation>
+            <xs:documentation xml:lang="est">Ühikute koguarvud, milleni saatja jaotus selle faili puhul jõudis ja mille vastuvõtja arvutab uuesti ning võrdleb enne ühegi vahemiku rakendamist. Kui mõni nõutav loend erineb, EI TOHI rakendus osa tasandile laskuda ja PEAB rakendama terve faili kohta faili enda Access väärtust</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="DefaultPartAccessConditionsCode" type="dec:AccessConditionType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">Access condition of the parts of this file that no AccessGroup covers. "AK": such parts inherit the file's restriction, so only the listed ranges are opened. "Avalik": such parts are public, so only the listed ranges are restricted. Deliberately given no schema default, which would apply only to a present-but-empty element, never to an absent one</xs:documentation>
+            <xs:documentation xml:lang="est">Selle faili nende osade juurdepääsutingimus, mida ükski AccessGroup ei kata. "AK": sellised osad pärivad faili piirangu, mistõttu avatakse ainult loetletud vahemikud. "Avalik": sellised osad on avalikud, mistõttu piiratakse ainult loetletud vahemikke. Skeemi vaikeväärtust talle teadlikult ei anta — see kehtiks üksnes olemasolevale, kuid tühjale elemendile, mitte kunagi puuduvale</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="AccessGroup" type="AccessGroupType" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">A single access description shared by one or more ranges within the file, applying to exactly those ranges in place of DefaultPartAccessConditionsCode</xs:documentation>
+            <xs:documentation xml:lang="est">Üks juurdepääsukirjeldus, mida jagab faili sees üks või mitu vahemikku ja mis kehtib täpselt nende vahemike kohta DefaultPartAccessConditionsCode väärtuse asemel</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AccessGroupType">
+    <xs:sequence>
+      <xs:element name="Access" type="GranularAccessType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Access conditions and restrictions of every range listed in this group. Must not be more restrictive than the enclosing File/Access, or DecContainer/Access if File/Access is not given</xs:documentation>
+          <xs:documentation xml:lang="est">Kõigi selles rühmas loetletud vahemike juurdepääsutingimused ja -piirangud. Ei tohi olla rangem kui ümbritsev File/Access või, kui see puudub, DecContainer/Access</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:choice minOccurs="1" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Every AccessGroup must list at least one range. The three range kinds may appear in any order and any number of times, and must not overlap with the ranges of another AccessGroup of the same file</xs:documentation>
+          <xs:documentation xml:lang="est">Iga AccessGroup peab loetlema vähemalt ühe vahemiku. Kolme vahemikuliiki võib esineda suvalises järjekorras ja suvalisel arvul ning need ei tohi kattuda sama faili teise AccessGroup elemendi vahemikega</xs:documentation>
+        </xs:annotation>
+        <xs:element name="PageRange" type="PageRangeType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">One contiguous range of pages within the file, as determined by SegmentationMethod</xs:documentation>
+            <xs:documentation xml:lang="est">Üks katkematu leheküljevahemik faili sees, määratuna vastavalt SegmentationMethod väärtusele</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ParagraphRange" type="ParagraphRangeType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">One contiguous range of paragraphs within the file, as segmented by SegmentationMethod and numbered over the whole file</xs:documentation>
+            <xs:documentation xml:lang="est">Üks katkematu lõiguvahemik faili sees, jaotatuna vastavalt SegmentationMethod väärtusele ja nummerdatuna üle terve faili</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="WordRange" type="WordRangeType">
+          <xs:annotation>
+            <xs:documentation xml:lang="en">One contiguous range of words within the file, as segmented by SegmentationMethod and numbered over the whole file, independently of paragraphs</xs:documentation>
+            <xs:documentation xml:lang="est">Üks katkematu sõnavahemik faili sees, jaotatuna vastavalt SegmentationMethod väärtusele ja nummerdatuna üle terve faili, lõikudest sõltumatult</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SegmentationCheckType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Unit totals of a segmentation. Which counts are required is decided by the file's SegmentationMethod, not by this schema; a count the method does not define is omitted, not given as zero</xs:documentation>
+      <xs:documentation xml:lang="est">Jaotuse ühikute koguarvud. Selle, millised loendid on nõutavad, otsustab faili SegmentationMethod, mitte käesolev skeem; loend, mida meetod ei määratle, jäetakse välja, mitte ei esitata nullina</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:annotation>
+        <xs:documentation xml:lang="en">At least one count must be present. The choice of sequences expresses "at least one, each at most once, in fixed order" in XML Schema 1.0 without breaking unique particle attribution</xs:documentation>
+        <xs:documentation xml:lang="est">Vähemalt üks loend peab olema esitatud. Jadade valik väljendab XML Schema 1.0-s „vähemalt üks, igaüht kuni üks kord, kindlas järjekorras“ ilma osakeste üheses omistamises vastuolu tekitamata</xs:documentation>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:element ref="PageCount"/>
+        <xs:element ref="ParagraphCount" minOccurs="0"/>
+        <xs:element ref="WordCount" minOccurs="0"/>
+      </xs:sequence>
+      <xs:sequence>
+        <xs:element ref="ParagraphCount"/>
+        <xs:element ref="WordCount" minOccurs="0"/>
+      </xs:sequence>
+      <xs:element ref="WordCount"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="PageCount" type="xs:nonNegativeInteger">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Total number of pages the segmentation produced for this file. Declared globally only so that SegmentationCheckType can reference it from more than one branch of its choice; not intended as a document root</xs:documentation>
+      <xs:documentation xml:lang="est">Lehekülgede koguarv, milleni jaotus selle faili puhul jõudis. Deklareeritud üldisena üksnes selleks, et SegmentationCheckType saaks sellele viidata mitmest valiku harust; dokumendi juurelemendina ei ole mõeldud</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="ParagraphCount" type="xs:nonNegativeInteger">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Total number of paragraphs the segmentation produced for this file. Declared globally only so that SegmentationCheckType can reference it from more than one branch of its choice; not intended as a document root</xs:documentation>
+      <xs:documentation xml:lang="est">Lõikude koguarv, milleni jaotus selle faili puhul jõudis. Deklareeritud üldisena üksnes selleks, et SegmentationCheckType saaks sellele viidata mitmest valiku harust; dokumendi juurelemendina ei ole mõeldud</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="WordCount" type="xs:nonNegativeInteger">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Total number of words the segmentation produced for this file. Declared globally only so that SegmentationCheckType can reference it from more than one branch of its choice; not intended as a document root</xs:documentation>
+      <xs:documentation xml:lang="est">Sõnade koguarv, milleni jaotus selle faili puhul jõudis. Deklareeritud üldisena üksnes selleks, et SegmentationCheckType saaks sellele viidata mitmest valiku harust; dokumendi juurelemendina ei ole mõeldud</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:simpleType name="SegmentationMethodType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Identifier of a segmentation algorithm. Based on xs:token so that whitespace is normalised before the exact-match comparison applications perform</xs:documentation>
+      <xs:documentation xml:lang="est">Jaotusalgoritmi tunnus. Aluseks on xs:token, nii et tühimärgid normaliseeritakse enne täpset võrdlust, mida rakendused teevad</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="PageRangeType">
+    <xs:sequence>
+      <xs:element name="StartPage" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Ordinal number of the first page of the range within the file, counting from 1. The position of the page in the file, not any page number printed on the page itself</xs:documentation>
+          <xs:documentation xml:lang="est">Vahemiku esimese lehekülje järjekorranumber failis, alustades 1-st. Lehekülje asukoht failis, mitte leheküljele endale trükitud number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EndPage" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Ordinal number of the last page of the range within the file, inclusive. Equal to StartPage for a range covering a single page</xs:documentation>
+          <xs:documentation xml:lang="est">Vahemiku viimase lehekülje järjekorranumber failis, kaasa arvatud. Ühte lehekülge katva vahemiku puhul võrdne StartPage väärtusega</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParagraphRangeType">
+    <xs:sequence>
+      <xs:element name="StartParagraph" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Ordinal number of the first paragraph of the range within the file's textual content, counting from 1</xs:documentation>
+          <xs:documentation xml:lang="est">Vahemiku esimese lõigu järjekorranumber faili tekstisisus, alustades 1-st</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EndParagraph" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Ordinal number of the last paragraph of the range within the file's textual content, inclusive. Equal to StartParagraph for a range covering a single paragraph</xs:documentation>
+          <xs:documentation xml:lang="est">Vahemiku viimase lõigu järjekorranumber faili tekstisisus, kaasa arvatud. Ühte lõiku katva vahemiku puhul võrdne StartParagraph väärtusega</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WordRangeType">
+    <xs:sequence>
+      <xs:element name="StartWord" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Ordinal number of the first word of the range within the file's textual content, counting from 1</xs:documentation>
+          <xs:documentation xml:lang="est">Vahemiku esimese sõna järjekorranumber faili tekstisisus, alustades 1-st</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EndWord" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Ordinal number of the last word of the range within the file's textual content, inclusive. Equal to StartWord for a range covering a single word</xs:documentation>
+          <xs:documentation xml:lang="est">Vahemiku viimase sõna järjekorranumber faili tekstisisus, kaasa arvatud. Ühte sõna katva vahemiku puhul võrdne StartWord väärtusega</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GranularAccessType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Access conditions and restrictions, structurally identical to DecContainer/Access, reused at File and AccessGroup level</xs:documentation>
+      <xs:documentation xml:lang="est">Juurdepääsutingimused ja -piirangud, struktuurilt samasugused kui DecContainer/Access, mida taaskasutatakse File ja AccessGroup tasandil</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="AccessConditionsCode" type="dec:AccessConditionType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Description of access conditions of this part of the record</xs:documentation>
+          <xs:documentation xml:lang="est">Dokumendi selle osa juurdepääsutingimuse kirjeldus</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AccessRestriction" type="AccessRestrictionType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Description of access restriction established on this part of the record</xs:documentation>
+          <xs:documentation xml:lang="est">Dokumendi selle osale kehtestatud juurdepääsupiirangu kirjeldus</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AccessRestrictionType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Structurally identical to the anonymous type of DecContainer/Access/AccessRestriction, repeated here because XML Schema does not allow reusing an anonymous type across namespaces</xs:documentation>
+      <xs:documentation xml:lang="est">Struktuurilt samasugune kui DecContainer/Access/AccessRestriction anonüümne tüüp, siin korratud, sest XML Schema ei luba anonüümset tüüpi teisest nimeruumist taaskasutada</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element type="xs:string" name="RestrictionIdentifier" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Record restriction identifier</xs:documentation>
+          <xs:documentation xml:lang="est">Juurdepääsupiirangu aluste klassifikaatori tunnus</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:date" name="RestrictionBeginDate">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Date on which notation about access restriction was made</xs:documentation>
+          <xs:documentation xml:lang="est">Juurdepääsupiirangu märke tegemise kuupäev (märke vormistamise kuupäev)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:date" name="RestrictionEndDate">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Latest expiry date of access restriction</xs:documentation>
+          <xs:documentation xml:lang="est">Juurdepääsupiirangu lõppemise maksimaalne kuupäev</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="RestrictionEndEvent" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Event in which restriction expires before latest expiry date</xs:documentation>
+          <xs:documentation xml:lang="est">Sündmus, mille toimumisel piirang lõppeb enne maksimaalset lõpptähtaega</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:date" name="RestrictionInvalidSince" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Expiry date of record access restriction</xs:documentation>
+          <xs:documentation xml:lang="est">Dokumendi juurdepääsupiirangu kehtivuse lõppkuupäev</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="RestrictionBasis">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Legal act on which restriction was established</xs:documentation>
+          <xs:documentation xml:lang="est">Õigusakt mille alusel piirang on seatud</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="InformationOwner">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Name of authority that (initially) established access restriction</xs:documentation>
+          <xs:documentation xml:lang="est">Juurdepääsupiirangu (esmaselt) kehtestanud asutuse nimi</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

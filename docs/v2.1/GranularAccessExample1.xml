@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DecContainer xmlns="http://www.riik.ee/schemas/deccontainer/vers_2_1/">
+  <Transport>
+    <DecSender>
+      <OrganisationCode>adit</OrganisationCode>
+      <PersonalIdCode>EE38001085718</PersonalIdCode>
+    </DecSender>
+    <DecRecipient>
+      <OrganisationCode>70006317</OrganisationCode>
+    </DecRecipient>
+  </Transport>
+  <RecordCreator>
+    <Person>
+      <Name>Jaak-Kristjan Jõeorg</Name>
+      <GivenName>Jaak-Kristjan</GivenName>
+      <Surname>Jõeorg</Surname>
+      <PersonalIdCode>EE38001085718</PersonalIdCode>
+      <Residency>EE</Residency>
+    </Person>
+    <ContactData>
+      <Adit>1</Adit>
+      <Phone>3725550101</Phone>
+      <Email>jaak-kristjan.joeorg@example.ee</Email>
+    </ContactData>
+  </RecordCreator>
+  <RecordSenderToDec>
+    <Person>
+      <Name>Jaak-Kristjan Jõeorg</Name>
+      <GivenName>Jaak-Kristjan</GivenName>
+      <Surname>Jõeorg</Surname>
+      <PersonalIdCode>EE38001085718</PersonalIdCode>
+      <Residency>EE</Residency>
+    </Person>
+    <ContactData>
+      <Adit>1</Adit>
+      <Phone>3725550101</Phone>
+      <Email>jaak-kristjan.joeorg@example.ee</Email>
+    </ContactData>
+  </RecordSenderToDec>
+  <Recipient>
+    <Organisation>
+      <Name>Riigi Infosüsteemi Amet</Name>
+      <OrganisationCode>70006317</OrganisationCode>
+      <Residency>EE</Residency>
+    </Organisation>
+  </Recipient>
+  <RecordMetadata>
+    <RecordGuid>25892e17-80f6-415f-9c65-7395632f0234</RecordGuid>
+    <RecordType>Kiri</RecordType>
+    <RecordOriginalIdentifier>213465</RecordOriginalIdentifier>
+    <RecordDateRegistered>2012-11-11T19:18:03</RecordDateRegistered>
+    <RecordTitle>Ettepanek</RecordTitle>
+    <RecordLanguage>EE</RecordLanguage>
+    <RecordAbstract>Jaak-Kristjan Jõeorg (isikukood 38001085718) ettepanek seoses AS Ehitaja hinnapakkumisega.</RecordAbstract>
+  </RecordMetadata>
+  <!--
+    Document-level Access MUST always be the strictest access condition present
+    anywhere in the record (see granularAccess.xsd documentation). This record
+    contains restricted content, so the top-level AccessConditionsCode is "AK"
+    with a matching AccessRestriction, and the granularAccess extension below is
+    used to open up the parts that are in fact public.
+
+    An application that does not understand RecordTypeSpecificMetadata/granularAccess
+    treats the whole record as restricted — correct, if conservative. An
+    application that does understand the extension first validates the block
+    against granularAccess.xsd and checks the rules the schema cannot express
+    (discarding the whole block if anything fails), then descends level by level:
+    Lisa.pdf turns out to be public as a whole; of Ettepanek.txt everything
+    except paragraphs 3-4 and word 42 turns out to be public; and of the scanned
+    price offer all pages except 4-5 turn out to be public. The record
+    also carries a public title, a public abstract replacing one that names the
+    protected company, and a neutral public name for the scanned file whose real
+    name would disclose that company.
+
+    Both SegmentationMethod values used below — "plaintext-blocks-v1" and
+    "pdf-pages-v1" — are identifiers defined in the segmentation method registry
+    (docs/segmentationMethods.md). Only published identifiers may be used in
+    exchanged documents, since the identifier is what tells a receiver how to
+    reproduce the segmentation exactly.
+  -->
+  <Access>
+    <AccessConditionsCode>AK</AccessConditionsCode>
+    <AccessRestriction>
+      <RestrictionIdentifier>AvTS§35p1p11</RestrictionIdentifier>
+      <RestrictionBeginDate>2012-11-11</RestrictionBeginDate>
+      <RestrictionEndDate>2017-11-11</RestrictionEndDate>
+      <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 11</RestrictionBasis>
+      <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+    </AccessRestriction>
+  </Access>
+  <File>
+    <FileGuid>25892e17-80f6-415f-9c65-7395632f0001</FileGuid>
+    <RecordMainComponent>1</RecordMainComponent>
+    <FileName>Ettepanek.txt</FileName>
+    <MimeType>text/plain</MimeType>
+    <FileSize>2114</FileSize>
+    <ZipBase64Content>H4sIAAAAAAAAAAMAAAAAAAAAAAAAAA==</ZipBase64Content>
+  </File>
+  <File>
+    <FileGuid>25892e17-80f6-415f-9c65-7395632f0002</FileGuid>
+    <RecordMainComponent>0</RecordMainComponent>
+    <FileName>Lisa.pdf</FileName>
+    <MimeType>application/pdf</MimeType>
+    <FileSize>54211</FileSize>
+    <ZipBase64Content>H4sIAAAAAAAAAAMAAAAAAAAAAAAAAA==</ZipBase64Content>
+  </File>
+  <File>
+    <FileGuid>25892e17-80f6-415f-9c65-7395632f0003</FileGuid>
+    <RecordMainComponent>0</RecordMainComponent>
+    <FileName>AS_Ehitaja_hinnapakkumine_skaneeritud.pdf</FileName>
+    <MimeType>application/pdf</MimeType>
+    <FileSize>1841200</FileSize>
+    <ZipBase64Content>H4sIAAAAAAAAAAMAAAAAAAAAAAAAAA==</ZipBase64Content>
+  </File>
+  <RecordTypeSpecificMetadata>
+    <granularAccess xmlns="http://www.riik.ee/schemas/deccontainer/vers_2_1/granularAccess/">
+      <!--
+        The record's own title "Ettepanek" happens to be publishable, but a
+        public title is given explicitly anyway, which is the safer practice:
+        an application then never has to decide whether RecordMetadata/RecordTitle
+        may be shown to someone without access to the restricted content. This
+        also matters after the restriction period expires, when the record has to
+        be published and a title prepared in advance is available.
+      -->
+      <PublicRecordTitle>Ettepanek</PublicRecordTitle>
+      <!--
+        The record's own RecordAbstract names both the person and the company
+        whose price offer is the protected business secret, so unlike the title
+        it genuinely cannot be shown to someone without access. PublicRecordAbstract
+        carries a summary that can. An abstract is free text about what the
+        record is about, so it discloses restricted information more readily
+        than a title does — which is why it is worth substituting explicitly
+        rather than leaving an application to decide.
+
+        Note that RecordAbstract is itself optional in Kapsel: a record with no
+        abstract at all simply has none to show, and omitting both elements is
+        not an error.
+      -->
+      <PublicRecordAbstract>Ettepanek uue lahenduse kasutuselevõtuks.</PublicRecordAbstract>
+      <!--
+        File Ettepanek.txt is restricted as a whole: its Access is "AK", never
+        more permissive than the document-level Access above it. An application
+        that understands file-level access but cannot segment the file therefore
+        withholds the whole file, which is safe.
+
+        An application that recognises the SegmentationMethod value may go
+        further. This file is plain text, so "plaintext-blocks-v1" applies: a
+        paragraph is a run of non-blank lines, words are counted over the whole
+        file, and page ranges must not be used. Before applying any range, the
+        application segments the file itself and checks that it arrives at the
+        same totals as SegmentationCheck — 12 paragraphs and 287 words, the two
+        counts plaintext-blocks-v1 requires. If either differs, the two
+        implementations do not in fact segment this file alike, every range
+        below is therefore suspect, and the application keeps the whole file
+        restricted instead of publishing a span next to the restricted one.
+        DefaultPartAccessConditionsCode
+        says that any part of this file not covered by an AccessGroup below is in
+        fact "Avalik", so only the restricted islands need to be enumerated —
+        there is no need to list every public paragraph. Those islands are
+        paragraphs 3-4 and a single word elsewhere in the file (word 42, e.g. a
+        personal identification code mentioned in passing in an otherwise public
+        paragraph). Since they carry the identical access condition and
+        restriction, they are listed together under one AccessGroup, so the
+        Access/AccessRestriction data only needs to be written once instead of
+        being repeated per range. Note that the word range is independent of the
+        paragraph range and does not require the paragraph containing it to be
+        listed. Word and paragraph numbering both follow SegmentationMethod.
+      -->
+      <File>
+        <FileGuid>25892e17-80f6-415f-9c65-7395632f0001</FileGuid>
+        <Access>
+          <AccessConditionsCode>AK</AccessConditionsCode>
+          <AccessRestriction>
+            <RestrictionIdentifier>AvTS§35p1p11</RestrictionIdentifier>
+            <RestrictionBeginDate>2012-11-11</RestrictionBeginDate>
+            <RestrictionEndDate>2017-11-11</RestrictionEndDate>
+            <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 11</RestrictionBasis>
+            <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+          </AccessRestriction>
+        </Access>
+        <SegmentationMethod>plaintext-blocks-v1</SegmentationMethod>
+        <SegmentationCheck>
+          <ParagraphCount>12</ParagraphCount>
+          <WordCount>287</WordCount>
+        </SegmentationCheck>
+        <DefaultPartAccessConditionsCode>Avalik</DefaultPartAccessConditionsCode>
+        <AccessGroup>
+          <Access>
+            <AccessConditionsCode>AK</AccessConditionsCode>
+            <AccessRestriction>
+              <RestrictionIdentifier>AvTS§35p1p11</RestrictionIdentifier>
+              <RestrictionBeginDate>2012-11-11</RestrictionBeginDate>
+              <RestrictionEndDate>2017-11-11</RestrictionEndDate>
+              <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 11</RestrictionBasis>
+              <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+            </AccessRestriction>
+          </Access>
+          <ParagraphRange>
+            <StartParagraph>3</StartParagraph>
+            <EndParagraph>4</EndParagraph>
+          </ParagraphRange>
+          <WordRange>
+            <StartWord>42</StartWord>
+            <EndWord>42</EndWord>
+          </WordRange>
+        </AccessGroup>
+      </File>
+      <!--
+        File Lisa.pdf is public as a whole. Because its Access is "Avalik", an
+        application stops here for this file: there is nothing to segment and no
+        AccessGroup to process, and none may be present. This is the case where
+        the extension opens up a whole file of an otherwise restricted record,
+        and it is the main practical purpose of this extension — distinguishing
+        public files from restricted ones inside a restricted record.
+      -->
+      <File>
+        <FileGuid>25892e17-80f6-415f-9c65-7395632f0002</FileGuid>
+        <Access>
+          <AccessConditionsCode>Avalik</AccessConditionsCode>
+        </Access>
+      </File>
+      <!--
+        This file's own name, "AS_Ehitaja_hinnapakkumine_skaneeritud.pdf", names
+        the company whose price offer is the business secret being protected, so
+        the name itself cannot be shown to someone without access. PublicFileName
+        gives a neutral substitute to display instead.
+
+        The file is a PDF of scanned documents. Its pages carry no
+        machine-readable text, so "pdf-pages-v1" is the applicable segmentation
+        method: it numbers pages by their position in the PDF page tree and
+        permits PageRange only, forbidding paragraph and word ranges. Page
+        granularity is enough to withhold the two scanned pages that bear
+        restricted content while releasing the rest.
+
+        SegmentationCheck gives the only count pdf-pages-v1 requires: the total
+        number of pages, 11. A receiver that traverses the PDF page tree and
+        arrives at a different number has understood the file's page structure
+        differently from the sender — the usual cause being a page tree walked
+        in another order or nested page groups counted wrongly — so the page
+        numbers below would not mean the same thing to both parties, and the
+        file stays fully restricted.
+
+        Note that the page numbers are positions in the file, not the numbers
+        printed on the scanned originals, which for a scanned volume often start
+        somewhere else entirely. Note also that pdf-pages-v1 covers page content
+        only: if this PDF carried restricted information in its metadata,
+        bookmarks or an embedded file, page ranges would not be enough and the
+        file would have to stay fully restricted.
+
+        DefaultPartAccessConditionsCode is "Avalik", so the pages not listed below
+        are public. Pages 4-5 are restricted on a different legal basis
+        (business secret) than the rest of the record, with its own shorter
+        expiry date, which shows why each AccessGroup carries a complete
+        AccessRestriction of its own rather than inheriting one.
+      -->
+      <File>
+        <FileGuid>25892e17-80f6-415f-9c65-7395632f0003</FileGuid>
+        <PublicFileName>Hinnapakkumine_skaneeritud.pdf</PublicFileName>
+        <Access>
+          <AccessConditionsCode>AK</AccessConditionsCode>
+          <AccessRestriction>
+            <RestrictionIdentifier>AvTS§35p1p17</RestrictionIdentifier>
+            <RestrictionBeginDate>2012-11-11</RestrictionBeginDate>
+            <RestrictionEndDate>2017-11-11</RestrictionEndDate>
+            <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 17</RestrictionBasis>
+            <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+          </AccessRestriction>
+        </Access>
+        <SegmentationMethod>pdf-pages-v1</SegmentationMethod>
+        <SegmentationCheck>
+          <PageCount>11</PageCount>
+        </SegmentationCheck>
+        <DefaultPartAccessConditionsCode>Avalik</DefaultPartAccessConditionsCode>
+        <AccessGroup>
+          <Access>
+            <AccessConditionsCode>AK</AccessConditionsCode>
+            <AccessRestriction>
+              <RestrictionIdentifier>AvTS§35p1p17</RestrictionIdentifier>
+              <RestrictionBeginDate>2012-11-11</RestrictionBeginDate>
+              <RestrictionEndDate>2017-11-11</RestrictionEndDate>
+              <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 17</RestrictionBasis>
+              <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+            </AccessRestriction>
+          </Access>
+          <PageRange>
+            <StartPage>4</StartPage>
+            <EndPage>5</EndPage>
+          </PageRange>
+        </AccessGroup>
+      </File>
+    </granularAccess>
+  </RecordTypeSpecificMetadata>
+  <DecMetadata>
+    <DecId>410125</DecId>
+    <DecFolder>/</DecFolder>
+    <DecReceiptDate>2012-11-11T19:20:42</DecReceiptDate>
+  </DecMetadata>
+</DecContainer>

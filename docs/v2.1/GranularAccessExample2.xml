@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DecContainer xmlns="http://www.riik.ee/schemas/deccontainer/vers_2_1/">
+  <Transport>
+    <DecSender>
+      <OrganisationCode>adit</OrganisationCode>
+      <PersonalIdCode>EE38001085718</PersonalIdCode>
+    </DecSender>
+    <DecRecipient>
+      <OrganisationCode>70006317</OrganisationCode>
+    </DecRecipient>
+  </Transport>
+  <RecordCreator>
+    <Person>
+      <Name>Jaak-Kristjan Jõeorg</Name>
+      <GivenName>Jaak-Kristjan</GivenName>
+      <Surname>Jõeorg</Surname>
+      <PersonalIdCode>EE38001085718</PersonalIdCode>
+      <Residency>EE</Residency>
+    </Person>
+    <ContactData>
+      <Adit>1</Adit>
+      <Phone>3725550101</Phone>
+      <Email>jaak-kristjan.joeorg@example.ee</Email>
+    </ContactData>
+  </RecordCreator>
+  <RecordSenderToDec>
+    <Person>
+      <Name>Jaak-Kristjan Jõeorg</Name>
+      <GivenName>Jaak-Kristjan</GivenName>
+      <Surname>Jõeorg</Surname>
+      <PersonalIdCode>EE38001085718</PersonalIdCode>
+      <Residency>EE</Residency>
+    </Person>
+    <ContactData>
+      <Adit>1</Adit>
+      <Phone>3725550101</Phone>
+      <Email>jaak-kristjan.joeorg@example.ee</Email>
+    </ContactData>
+  </RecordSenderToDec>
+  <Recipient>
+    <Organisation>
+      <Name>Riigi Infosüsteemi Amet</Name>
+      <OrganisationCode>70006317</OrganisationCode>
+      <Residency>EE</Residency>
+    </Organisation>
+  </Recipient>
+  <RecordMetadata>
+    <RecordGuid>25892e17-80f6-415f-9c65-7395632f0567</RecordGuid>
+    <RecordType>Leping</RecordType>
+    <RecordOriginalIdentifier>213466</RecordOriginalIdentifier>
+    <RecordDateRegistered>2012-11-11T19:18:03</RecordDateRegistered>
+    <RecordTitle>Hooldusleping</RecordTitle>
+    <RecordLanguage>EE</RecordLanguage>
+  </RecordMetadata>
+  <!--
+    This example shows the most common shape of record in practice: the record
+    carries a single file, and that file is a signed ASiC-E container ("asice")
+    holding the actual documents. Without the extension such a record has exactly
+    one access condition for everything inside the envelope; with it, the
+    contract itself can be published while the attachment stays restricted.
+
+    The record carries one Kapsel file, and the description nests three levels
+    deep inside it, because a container may itself hold a container:
+
+      Hooldusleping.asice                   the Kapsel file, AK
+      ├── Hooldusleping.pdf                 public as a whole
+      ├── Koosolek.asice                    a nested container, AK
+      │   ├── Protokoll.pdf                 AK, but pages 1-3 of 9 are public
+      │   └── (other members)               not described, therefore restricted
+      └── (third member)                    not described, therefore restricted
+
+    This shows the two things the member level is built around. First, SubFile is
+    recursive: a SubFile may contain SubFile elements, to any depth the schema is
+    concerned with — Koosolek.asice is described exactly as the Kapsel file above
+    it is, with a ContainerFormat of its own. Second, the part level applies
+    inside a container member exactly as it does on a Kapsel file: SubFile has
+    the same structure as File, only identified by EntryName instead of FileGuid,
+    so Protokoll.pdf carries SegmentationMethod and an AccessGroup two levels
+    down. For an example that uses the part level directly on Kapsel files, and
+    that also uses PublicRecordTitle, PublicRecordAbstract and PublicFileName,
+    see GranularAccessExample1.xml.
+
+    Document-level Access MUST always be the strictest access condition present
+    anywhere in the record. The record holds restricted content, so the top-level
+    AccessConditionsCode is "AK" — and, for the same reason, so is the Access of
+    the outer container, and so is the Access of Koosolek.asice, which holds
+    restricted members of its own. A container MUST NOT be marked "Avalik" while
+    anything inside it is restricted, at any depth: an application that stops at
+    that container would otherwise publish it whole, restricted content included.
+
+    How far an application gets is up to it, and stopping early is always safe,
+    because access only ever becomes more permissive on the way down, never
+    stricter. Each stopping point withholds more than the next one:
+
+      does not understand the extension, or cannot unpack asice
+                          -> whole record restricted
+      unpacks one level only (the recommended minimum)
+                          -> publishes Hooldusleping.pdf, keeps Koosolek.asice
+                             whole
+      unpacks two levels, does not know pdf-pages-v1
+                          -> also descends into Koosolek.asice, but keeps
+                             Protokoll.pdf whole
+      unpacks two levels and knows pdf-pages-v1
+                          -> also publishes pages 1-3 of Protokoll.pdf
+
+    None of these is an error, and none needs to be reported to the sender. Every
+    receiver's published set is a subset of the next one's. An application MAY
+    therefore impose whatever nesting depth limit suits it; supporting one level
+    is the recommended minimum.
+
+    Both identifiers used below — the container format "asice-v1" and the
+    segmentation method "pdf-pages-v1" — are defined in the registry
+    (docs/segmentationMethods.md). Only published identifiers may be used in
+    exchanged documents, since the identifier is what tells a receiver how to
+    reproduce the sender's view of the container and of the file exactly.
+  -->
+  <Access>
+    <AccessConditionsCode>AK</AccessConditionsCode>
+    <AccessRestriction>
+      <RestrictionIdentifier>AvTS§35p1p17</RestrictionIdentifier>
+      <RestrictionBeginDate>2012-11-11</RestrictionBeginDate>
+      <RestrictionEndDate>2017-11-11</RestrictionEndDate>
+      <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 17</RestrictionBasis>
+      <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+    </AccessRestriction>
+  </Access>
+  <File>
+    <FileGuid>25892e17-80f6-415f-9c65-7395632f0011</FileGuid>
+    <RecordMainComponent>1</RecordMainComponent>
+    <FileName>Hooldusleping.asice</FileName>
+    <MimeType>application/vnd.etsi.asic-e+zip</MimeType>
+    <FileSize>731648</FileSize>
+    <ZipBase64Content>H4sIAAAAAAAAAAMAAAAAAAAAAAAAAA==</ZipBase64Content>
+  </File>
+  <RecordTypeSpecificMetadata>
+    <granularAccess xmlns="http://www.riik.ee/schemas/deccontainer/vers_2_1/granularAccess/">
+      <!--
+        PublicRecordTitle and PublicRecordAbstract are absent here. The record's
+        own title "Hooldusleping" is publishable as it stands, and the record has
+        no abstract at all — which is not an error, since RecordAbstract is
+        optional in Kapsel itself. A block consisting only of File elements is
+        perfectly valid.
+
+        No PublicFileName is given anywhere either: the container's own name and
+        every described member name are publishable as they stand. A member with
+        a disclosing name would carry one, and for a member it substitutes the
+        EntryName when publishing.
+      -->
+      <File>
+        <FileGuid>25892e17-80f6-415f-9c65-7395632f0011</FileGuid>
+        <!--
+          The container file is restricted as a whole, because it holds
+          restricted content — some of it two levels further in. This is the
+          compatibility rule: no level may be more permissive than anything it
+          contains, however deep.
+        -->
+        <Access>
+          <AccessConditionsCode>AK</AccessConditionsCode>
+          <AccessRestriction>
+            <RestrictionIdentifier>AvTS§35p1p17</RestrictionIdentifier>
+            <RestrictionBeginDate>2012-11-11</RestrictionBeginDate>
+            <RestrictionEndDate>2017-11-11</RestrictionEndDate>
+            <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 17</RestrictionBasis>
+            <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+          </AccessRestriction>
+        </Access>
+        <!--
+          "asice-v1" is a container format identifier defined in the registry
+          (docs/segmentationMethods.md), in the same way SegmentationMethod
+          identifiers are. It tells the receiver how this container's members are
+          named and how an EntryName below is compared with them: names are read
+          from the ZIP central directory and compared case-sensitively after
+          Unicode NFC normalisation.
+
+          An application that does not recognise the identifier, or cannot unpack
+          the container, MUST NOT descend to member level and applies the
+          container's own Access to the whole file.
+        -->
+        <ContainerFormat>asice-v1</ContainerFormat>
+        <!--
+          Only the members that open something up are listed. The container's
+          third data file, Hinnapakkumine.pdf, contains the business secret being
+          protected: it needs no entry of its own, because a member no SubFile
+          element describes stays restricted. The sender therefore never has to
+          enumerate the whole container, and a receiver that reads the container
+          differently from the sender — seeing an extra entry, or one fewer —
+          cannot thereby publish anything: an unnamed member is withheld either
+          way.
+
+          The contract itself is public as a whole. Because its Access is
+          "Avalik", an application stops here for this member: there is nothing
+          to segment, and no further levels are described. This is the simple
+          case, and the main practical purpose of the extension — distinguishing
+          public files from restricted ones inside a restricted record.
+
+          EntryName is a path within the container, relative to its root, with
+          "/" separating directories, so a member inside a subdirectory is
+          simply "Manused/Kiri.pdf" — one SubFile element, not two nested ones,
+          because a folder is neither a container nor a member of its own. The
+          schema allows only one spelling of a path: no separator at the start
+          or the end, no empty segments, no backslash, and no "." or ".."
+          segments, so no value can point outside the container. Nesting is for
+          a member that is genuinely a container of its own, as the next member
+          is. A member addressed by a path is usually worth giving a
+          PublicFileName as well, since publishing the path verbatim would
+          expose the container's internal layout.
+
+          One caveat worth noting, and it applies to every member published out
+          of this container: a member published on its own is no longer covered
+          by the container's signature. Whether to publish the member on its own,
+          publish the whole container, or publish nothing is the publishing
+          authority's decision; the extension does not settle it.
+        -->
+        <SubFile>
+          <EntryName>Hooldusleping.pdf</EntryName>
+          <Access>
+            <AccessConditionsCode>Avalik</AccessConditionsCode>
+          </Access>
+        </SubFile>
+        <!--
+          This member is itself a container: the minutes of the meeting where the
+          contract was agreed were signed separately, so they arrived as their own
+          asice envelope, which the sender then put inside the outer one. Nothing
+          in the extension treats this as a special case — a SubFile is described
+          exactly like the Kapsel file above it, with a ContainerFormat of its own
+          and SubFile elements of its own. That is what makes the member level
+          recursive: the same two elements repeat at every depth, and the schema
+          sets no limit on how many times.
+
+          Its Access is "AK", because it holds a restricted member. The rule is
+          the same one that applies to the outer container, applied one level
+          down: no level may be more permissive than anything it contains, at any
+          depth. Marking this envelope "Avalik" in the hope that the restriction
+          on Protokoll.pdf below would still hold would be wrong — an application
+          that stops at this level publishes the envelope whole, and the
+          restriction would not merely go unnoticed, it could not take effect at
+          all.
+
+          An application that supports only one level of nesting — the recommended
+          minimum — stops here and withholds this envelope whole. It is not
+          required to say so, and nothing is wrong: it simply published less than
+          an application that descends further would.
+        -->
+        <SubFile>
+          <EntryName>Koosolek.asice</EntryName>
+          <Access>
+            <AccessConditionsCode>AK</AccessConditionsCode>
+            <AccessRestriction>
+              <RestrictionIdentifier>AvTS§35p1p17</RestrictionIdentifier>
+              <RestrictionBeginDate>2012-11-11</RestrictionBeginDate>
+              <RestrictionEndDate>2017-11-11</RestrictionEndDate>
+              <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 17</RestrictionBasis>
+              <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+            </AccessRestriction>
+          </Access>
+          <!--
+            The nested container carries its own ContainerFormat. It happens to be
+            the same identifier as the outer one here, but it need not be: an
+            asice envelope may hold a zip, and each level is read according to the
+            identifier given at that level.
+
+            EntryName is unique per container, not across the whole description.
+            Two different containers may each hold a file called Protokoll.pdf
+            without any conflict, which is why the schema enforces uniqueness
+            within one container only.
+          -->
+          <ContainerFormat>asice-v1</ContainerFormat>
+          <!--
+            Only Protokoll.pdf is described. Whatever else this inner envelope
+            holds — an attendance list, an earlier draft — stays restricted
+            without being mentioned, exactly as at the level above. The
+            unlisted-member rule applies identically at every depth.
+
+            This member shows that the part level applies inside a container
+            member exactly as it does on a Kapsel file: the first three pages of
+            the minutes record the decision and are public, while the remaining
+            pages discuss the price offer that is the protected business secret.
+
+            Its Access is "AK" — never more permissive than the envelope above it,
+            and never more restrictive than the public pages it contains. An
+            application that reaches this depth but does not recognise
+            "pdf-pages-v1" withholds the file whole, which is safe.
+
+            An application that does recognise it may go further. pdf-pages-v1
+            numbers pages by their position in the PDF page tree and permits
+            PageRange only, forbidding paragraph and word ranges: a scanned or
+            mixed PDF carries no reliable machine-readable text, and page
+            granularity is enough here. Before applying any range, the application
+            paginates the file itself and checks that it arrives at the same
+            PageCount — 9, the only count pdf-pages-v1 requires. A receiver that
+            arrives at a different number has understood the file's page structure
+            differently from the sender, so the page numbers below would not mean
+            the same thing to both parties, and the file stays fully restricted.
+
+            Note that the page numbers are positions in the file, not the numbers
+            printed on the pages, which often differ. Note also that pdf-pages-v1
+            covers page content only: if this PDF carried restricted information
+            in its metadata, bookmarks or an embedded file, page ranges would not
+            be enough and the file would have to stay fully restricted.
+
+            DefaultPartAccessConditionsCode is "AK" here, the opposite choice from
+            the file's counterpart in GranularAccessExample1.xml: most of this
+            file is restricted, so it is the public pages that are enumerated
+            rather than the restricted ones. Either direction is valid — the
+            element decides which side has to be listed, so that a file never
+            needs all its parts described.
+
+            Publishing these three pages means extracting them from a file that
+            is itself inside two signed envelopes. The result carries neither
+            signature. As above, whether to publish that way is the publishing
+            authority's decision, not something the extension settles.
+          -->
+          <SubFile>
+            <EntryName>Protokoll.pdf</EntryName>
+            <Access>
+              <AccessConditionsCode>AK</AccessConditionsCode>
+              <AccessRestriction>
+                <RestrictionIdentifier>AvTS§35p1p17</RestrictionIdentifier>
+                <RestrictionBeginDate>2012-11-11</RestrictionBeginDate>
+                <RestrictionEndDate>2017-11-11</RestrictionEndDate>
+                <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 17</RestrictionBasis>
+                <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+              </AccessRestriction>
+            </Access>
+            <SegmentationMethod>pdf-pages-v1</SegmentationMethod>
+            <SegmentationCheck>
+              <PageCount>9</PageCount>
+            </SegmentationCheck>
+            <DefaultPartAccessConditionsCode>AK</DefaultPartAccessConditionsCode>
+            <AccessGroup>
+              <Access>
+                <AccessConditionsCode>Avalik</AccessConditionsCode>
+              </Access>
+              <PageRange>
+                <StartPage>1</StartPage>
+                <EndPage>3</EndPage>
+              </PageRange>
+            </AccessGroup>
+          </SubFile>
+        </SubFile>
+      </File>
+    </granularAccess>
+  </RecordTypeSpecificMetadata>
+  <DecMetadata>
+    <DecId>410126</DecId>
+    <DecFolder>/</DecFolder>
+    <DecReceiptDate>2012-11-11T19:20:42</DecReceiptDate>
+  </DecMetadata>
+</DecContainer>

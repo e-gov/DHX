@@ -2,8 +2,8 @@
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="0.1-draft" xmlns="http://www.riik.ee/schemas/deccontainer/vers_2_1/granularAccess/" xmlns:ga="http://www.riik.ee/schemas/deccontainer/vers_2_1/granularAccess/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dec="http://www.riik.ee/schemas/deccontainer/vers_2_1/" targetNamespace="http://www.riik.ee/schemas/deccontainer/vers_2_1/granularAccess/">
   <xs:import namespace="http://www.riik.ee/schemas/deccontainer/vers_2_1/" schemaLocation="Kapsel.xsd"/>
   <xs:annotation>
-    <xs:documentation xml:lang="en">STATUS: DRAFT (version 0.1-draft). Extension of DHX Kapsel (DecContainer) describing access conditions per file, and within a file per group of page, paragraph and word ranges. Embedded in DecContainer/RecordTypeSpecificMetadata; does not modify Kapsel.xsd.</xs:documentation>
-    <xs:documentation xml:lang="est">STAATUS: MUSTAND (versioon 0.1-draft). DHX Kapsli (DecContainer) laiendus, mis kirjeldab juurdepääsutingimusi faili kaupa ning faili sees lehekülje-, lõigu- ja sõnavahemike rühmade kaupa. Paikneb DecContainer/RecordTypeSpecificMetadata sees ja ei muuda Kapsel.xsd faili.</xs:documentation>
+    <xs:documentation xml:lang="en">STATUS: DRAFT (version 0.1-draft). Extension of DHX Kapsel (DecContainer) describing access conditions per file, per member of a container file, and within a file per group of page, paragraph and word ranges. Embedded in DecContainer/RecordTypeSpecificMetadata; does not modify Kapsel.xsd.</xs:documentation>
+    <xs:documentation xml:lang="est">STAATUS: MUSTAND (versioon 0.1-draft). DHX Kapsli (DecContainer) laiendus, mis kirjeldab juurdepääsutingimusi faili kaupa, konteinerfaili sisalduvate failide kaupa ning faili sees lehekülje-, lõigu- ja sõnavahemike rühmade kaupa. Paikneb DecContainer/RecordTypeSpecificMetadata sees ja ei muuda Kapsel.xsd faili.</xs:documentation>
     <xs:documentation xml:lang="en">The extension sits behind an xs:any processContents="skip" wildcard, so Kapsel-level validation does not examine it. An application intending to act on the block MUST validate it against this schema, MUST check the rules this schema cannot express, and MUST ignore the entire extension if either fails. THOSE RULES, THE PROCESSING ORDER AND ALL RATIONALE ARE SPECIFIED IN granularAccess.md IN THE DHX REPOSITORY (https://github.com/e-gov/DHX), WHICH IS THE NORMATIVE DOCUMENT; the annotations below only name the elements.</xs:documentation>
     <xs:documentation xml:lang="est">Laiendus paikneb xs:any processContents="skip" metamärgi taga, mistõttu kapsli tasandi skeemikontroll seda ei puuduta. Rakendus, kes kavatseb ploki alusel toimida, PEAB selle valideerima käesoleva skeemi järgi, PEAB kontrollima reegleid, mida skeem väljendada ei suuda, ning PEAB kogu laienduse eirama, kui kas või üks neist ei õnnestu. NEED REEGLID, TÖÖTLUSJÄRJEKORD JA KÕIK PÕHJENDUSED ON KIRJAS FAILIS granularAccess.md DHX HOIDLAS (https://github.com/e-gov/DHX), MIS ON NORMATIIVNE DOKUMENT; allolevad märkused üksnes nimetavad elemente.</xs:documentation>
   </xs:annotation>
@@ -31,6 +31,14 @@
             <xs:documentation xml:lang="en">Access description of one file of the record. A file not described here keeps the access condition given by DecContainer/Access</xs:documentation>
             <xs:documentation xml:lang="est">Ühe dokumendi faili juurdepääsukirjeldus. Failile, mida siin ei kirjeldata, kehtib DecContainer/Access juurdepääsutingimus</xs:documentation>
           </xs:annotation>
+          <xs:unique name="UniqueEntryNameInFile">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Each member of this container file may be described at most once. Scoped to this file's direct members only, so two different containers may each hold an entry of the same name</xs:documentation>
+              <xs:documentation xml:lang="est">Selle konteinerfaili iga sisalduvat faili tohib kirjeldada kuni üks kord. Kehtib ainult selle faili vahetute sisalduvate failide kohta, mistõttu kaks eri konteinerit tohivad kumbki sisaldada samanimelist kirjet</xs:documentation>
+            </xs:annotation>
+            <xs:selector xpath="ga:SubFile"/>
+            <xs:field xpath="ga:EntryName"/>
+          </xs:unique>
         </xs:element>
       </xs:sequence>
     </xs:complexType>
@@ -59,48 +67,138 @@
       </xs:element>
       <xs:element name="Access" type="GranularAccessType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="en">Access conditions and restrictions of the whole file. Must not be more restrictive than DecContainer/Access, nor less restrictive than any AccessGroup/Access of this file. If omitted, DecContainer/Access applies to the whole file unchanged</xs:documentation>
-          <xs:documentation xml:lang="est">Terve faili juurdepääsutingimused ja -piirangud. Ei tohi olla rangem kui DecContainer/Access ega leebem kui selle faili suvaline AccessGroup/Access. Puudumisel kehtib terve faili kohta muutumatult DecContainer/Access</xs:documentation>
+          <xs:documentation xml:lang="en">Access conditions and restrictions of the whole file. Must not be more permissive than DecContainer/Access, nor more restrictive than anything this file contains — any AccessGroup/Access or SubFile/Access. If omitted, DecContainer/Access applies to the whole file unchanged</xs:documentation>
+          <xs:documentation xml:lang="est">Terve faili juurdepääsutingimused ja -piirangud. Ei tohi olla leebem kui DecContainer/Access ega rangem kui miski, mida see fail sisaldab — selle faili suvaline AccessGroup/Access või SubFile/Access. Puudumisel kehtib terve faili kohta muutumatult DecContainer/Access</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:sequence minOccurs="0">
+      <xs:choice minOccurs="0">
         <xs:annotation>
-          <xs:documentation xml:lang="en">Part-level description of this file: optional as a whole, but indivisible — if any element of this group is present, all of them must be</xs:documentation>
-          <xs:documentation xml:lang="est">Selle faili osa tasandi kirjeldus: tervikuna vabatahtlik, kuid jagamatu — kui esineb ükskõik milline selle rühma element, peavad esinema kõik</xs:documentation>
+          <xs:documentation xml:lang="en">How this file is subdivided, if at all: into parts (first branch) or into the members of a container (second branch), never both. Absent for a file that is neither segmented nor unpacked</xs:documentation>
+          <xs:documentation xml:lang="est">Kuidas see fail on jaotatud, kui üldse: osadeks (esimene haru) või konteineri sisalduvateks failideks (teine haru), mitte kunagi mõlemaks. Puudub faili puhul, mida ei jaotata osadeks ega pakita lahti</xs:documentation>
         </xs:annotation>
-        <xs:element name="SegmentationMethod" type="SegmentationMethodType">
+        <xs:sequence>
           <xs:annotation>
-            <xs:documentation xml:lang="en">Identifier of the algorithm that splits this file into the pages, paragraphs and words the ranges below refer to. Published identifiers are listed in segmentationMethods.md in the DHX repository. An application that does not recognise the value MUST NOT descend to part level, and MUST apply the file's own Access to the whole file</xs:documentation>
-            <xs:documentation xml:lang="est">Tunnus algoritmile, mis jaotab selle faili lehekülgedeks, lõikudeks ja sõnadeks, millele allpool olevad vahemikud viitavad. Avaldatud tunnused on loetletud failis segmentationMethods.md DHX hoidlas. Rakendus, kes väärtust ei tunne, EI TOHI osa tasandile laskuda ja PEAB rakendama terve faili kohta faili enda Access väärtust</xs:documentation>
+            <xs:documentation xml:lang="en">Part-level description of this file: optional as a whole, but indivisible — if any element of this group is present, all of them must be</xs:documentation>
+            <xs:documentation xml:lang="est">Selle faili osa tasandi kirjeldus: tervikuna vabatahtlik, kuid jagamatu — kui esineb ükskõik milline selle rühma element, peavad esinema kõik</xs:documentation>
           </xs:annotation>
-        </xs:element>
-        <xs:element name="SegmentationCheck" type="SegmentationCheckType">
+          <xs:element name="SegmentationMethod" type="SegmentationMethodType">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Identifier of the algorithm that splits this file into the pages, paragraphs and words the ranges below refer to. Published identifiers are listed in segmentationMethods.md in the DHX repository. An application that does not recognise the value MUST NOT descend to part level, and MUST apply the file's own Access to the whole file</xs:documentation>
+              <xs:documentation xml:lang="est">Tunnus algoritmile, mis jaotab selle faili lehekülgedeks, lõikudeks ja sõnadeks, millele allpool olevad vahemikud viitavad. Avaldatud tunnused on loetletud failis segmentationMethods.md DHX hoidlas. Rakendus, kes väärtust ei tunne, EI TOHI osa tasandile laskuda ja PEAB rakendama terve faili kohta faili enda Access väärtust</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="SegmentationCheck" type="SegmentationCheckType">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Unit totals the sender's segmentation produced for this file, which the receiver recomputes and compares before acting on any range. If any required count differs, the application MUST NOT descend to part level, and MUST apply the file's own Access to the whole file</xs:documentation>
+              <xs:documentation xml:lang="est">Ühikute koguarvud, milleni saatja jaotus selle faili puhul jõudis ja mille vastuvõtja arvutab uuesti ning võrdleb enne ühegi vahemiku rakendamist. Kui mõni nõutav loend erineb, EI TOHI rakendus osa tasandile laskuda ja PEAB rakendama terve faili kohta faili enda Access väärtust</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="DefaultPartAccessConditionsCode" type="dec:AccessConditionType">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Access condition of the parts of this file that no AccessGroup covers. "AK": such parts inherit the file's restriction, so only the listed ranges are opened. "Avalik": such parts are public, so only the listed ranges are restricted. Deliberately given no schema default, which would apply only to a present-but-empty element, never to an absent one</xs:documentation>
+              <xs:documentation xml:lang="est">Selle faili nende osade juurdepääsutingimus, mida ükski AccessGroup ei kata. "AK": sellised osad pärivad faili piirangu, mistõttu avatakse ainult loetletud vahemikud. "Avalik": sellised osad on avalikud, mistõttu piiratakse ainult loetletud vahemikke. Skeemi vaikeväärtust talle teadlikult ei anta — see kehtiks üksnes olemasolevale, kuid tühjale elemendile, mitte kunagi puuduvale</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="AccessGroup" type="AccessGroupType" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A single access description shared by one or more ranges within the file, applying to exactly those ranges in place of DefaultPartAccessConditionsCode</xs:documentation>
+              <xs:documentation xml:lang="est">Üks juurdepääsukirjeldus, mida jagab faili sees üks või mitu vahemikku ja mis kehtib täpselt nende vahemike kohta DefaultPartAccessConditionsCode väärtuse asemel</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:sequence>
           <xs:annotation>
-            <xs:documentation xml:lang="en">Unit totals the sender's segmentation produced for this file, which the receiver recomputes and compares before acting on any range. If any required count differs, the application MUST NOT descend to part level, and MUST apply the file's own Access to the whole file</xs:documentation>
-            <xs:documentation xml:lang="est">Ühikute koguarvud, milleni saatja jaotus selle faili puhul jõudis ja mille vastuvõtja arvutab uuesti ning võrdleb enne ühegi vahemiku rakendamist. Kui mõni nõutav loend erineb, EI TOHI rakendus osa tasandile laskuda ja PEAB rakendama terve faili kohta faili enda Access väärtust</xs:documentation>
+            <xs:documentation xml:lang="en">Member-level description of this container file: optional as a whole, but indivisible — if any element of this group is present, all of them must be. Members that no SubFile element describes always stay restricted, so there is no need to enumerate them and no default element for them</xs:documentation>
+            <xs:documentation xml:lang="est">Selle konteinerfaili sisalduvate failide tasandi kirjeldus: tervikuna vabatahtlik, kuid jagamatu — kui esineb ükskõik milline selle rühma element, peavad esinema kõik. Sisalduvad failid, mida ükski SubFile element ei kirjelda, jäävad alati piiratuks, mistõttu neid ei ole vaja loetleda ega ole nende jaoks vaikeväärtuse elementi</xs:documentation>
           </xs:annotation>
-        </xs:element>
-        <xs:element name="DefaultPartAccessConditionsCode" type="dec:AccessConditionType">
-          <xs:annotation>
-            <xs:documentation xml:lang="en">Access condition of the parts of this file that no AccessGroup covers. "AK": such parts inherit the file's restriction, so only the listed ranges are opened. "Avalik": such parts are public, so only the listed ranges are restricted. Deliberately given no schema default, which would apply only to a present-but-empty element, never to an absent one</xs:documentation>
-            <xs:documentation xml:lang="est">Selle faili nende osade juurdepääsutingimus, mida ükski AccessGroup ei kata. "AK": sellised osad pärivad faili piirangu, mistõttu avatakse ainult loetletud vahemikud. "Avalik": sellised osad on avalikud, mistõttu piiratakse ainult loetletud vahemikke. Skeemi vaikeväärtust talle teadlikult ei anta — see kehtiks üksnes olemasolevale, kuid tühjale elemendile, mitte kunagi puuduvale</xs:documentation>
-          </xs:annotation>
-        </xs:element>
-        <xs:element name="AccessGroup" type="AccessGroupType" maxOccurs="unbounded">
-          <xs:annotation>
-            <xs:documentation xml:lang="en">A single access description shared by one or more ranges within the file, applying to exactly those ranges in place of DefaultPartAccessConditionsCode</xs:documentation>
-            <xs:documentation xml:lang="est">Üks juurdepääsukirjeldus, mida jagab faili sees üks või mitu vahemikku ja mis kehtib täpselt nende vahemike kohta DefaultPartAccessConditionsCode väärtuse asemel</xs:documentation>
-          </xs:annotation>
-        </xs:element>
-      </xs:sequence>
+          <xs:element name="ContainerFormat" type="ContainerFormatType">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Identifier of the format of this container file, which determines how its members are named and how those names are compared. Published identifiers are listed in segmentationMethods.md in the DHX repository. An application that does not recognise the value MUST NOT descend to member level, and MUST apply the file's own Access to the whole file</xs:documentation>
+              <xs:documentation xml:lang="est">Selle konteinerfaili vormingu tunnus, mis määrab, kuidas selle sisalduvad failid on nimetatud ja kuidas neid nimesid võrreldakse. Avaldatud tunnused on loetletud failis segmentationMethods.md DHX hoidlas. Rakendus, kes väärtust ei tunne, EI TOHI sisalduvate failide tasandile laskuda ja PEAB rakendama terve faili kohta faili enda Access väärtust</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element ref="SubFile" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:choice>
     </xs:sequence>
   </xs:complexType>
+  <xs:element name="SubFile" type="SubFileType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Access description of one member of a container file. Declared globally so that SubFileType can reference it and describe a container inside a container to any depth; not intended as a document root</xs:documentation>
+      <xs:documentation xml:lang="est">Ühe konteinerfaili sisalduva faili juurdepääsukirjeldus. Deklareeritud üldisena selleks, et SubFileType saaks sellele viidata ja kirjeldada konteinerit konteineri sees suvalise sügavuseni; dokumendi juurelemendina ei ole mõeldud</xs:documentation>
+    </xs:annotation>
+    <xs:unique name="UniqueEntryNameInSubFile">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">Each member of this nested container may be described at most once. Scoped to this member's own direct members only</xs:documentation>
+        <xs:documentation xml:lang="est">Selle pesastatud konteineri iga sisalduvat faili tohib kirjeldada kuni üks kord. Kehtib ainult selle sisalduva faili enda vahetute sisalduvate failide kohta</xs:documentation>
+      </xs:annotation>
+      <xs:selector xpath="ga:SubFile"/>
+      <xs:field xpath="ga:EntryName"/>
+    </xs:unique>
+  </xs:element>
+  <xs:complexType name="SubFileType">
+    <xs:sequence>
+      <xs:element name="EntryName" type="EntryNameType">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Path of this member within its immediately enclosing container, with "/" separating directories, e.g. "Manused/Kiri.pdf". A directory is not a member and gets no SubFile of its own; a nested SubFile expresses a member that is itself a container and carries its own ContainerFormat. Each container format's registry entry defines how a path is matched against the container's entries</xs:documentation>
+          <xs:documentation xml:lang="est">Selle sisalduva faili tee vahetult ümbritseva konteineri sees, kus kaustu eraldab "/", nt "Manused/Kiri.pdf". Kaust ei ole sisalduv fail ega saa oma SubFile elementi; pesastatud SubFile väljendab sisalduvat faili, mis on ise konteiner ja kannab oma ContainerFormat tunnust. Iga konteinervormingu registrikirje määratleb, kuidas teed konteineri kirjetega kokku viiakse</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PublicFileName" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Publicly disclosable name of this member, used when publishing in place of EntryName, which itself remains unchanged. Worth giving whenever EntryName is a path, since a path is rarely the name to display</xs:documentation>
+          <xs:documentation xml:lang="est">Selle sisalduva faili avalikustatav nimi, mida kasutatakse avaldamisel EntryName asemel; tee ise jääb muutumatuna alles. Tasub anda alati, kui EntryName on tee, sest tee ei ole harilikult see, mida kuvada tahetakse</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Access" type="GranularAccessType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Access conditions and restrictions of this whole member. Must not be more permissive than the enclosing File/Access or SubFile/Access, nor more restrictive than anything this member itself contains. If omitted, the enclosing File/Access or SubFile/Access applies to this whole member unchanged</xs:documentation>
+          <xs:documentation xml:lang="est">Selle sisalduva faili kui terviku juurdepääsutingimused ja -piirangud. Ei tohi olla leebem kui ümbritsev File/Access või SubFile/Access ega rangem kui miski, mida see sisalduv fail ise sisaldab. Puudumisel kehtib selle sisalduva faili kohta muutumatult ümbritsev File/Access või SubFile/Access</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:choice minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">How this member is subdivided, if at all: into parts or into the members of a nested container, never both</xs:documentation>
+          <xs:documentation xml:lang="est">Kuidas see sisalduv fail on jaotatud, kui üldse: osadeks või pesastatud konteineri sisalduvateks failideks, mitte kunagi mõlemaks</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="SegmentationMethod" type="SegmentationMethodType"/>
+          <xs:element name="SegmentationCheck" type="SegmentationCheckType"/>
+          <xs:element name="DefaultPartAccessConditionsCode" type="dec:AccessConditionType"/>
+          <xs:element name="AccessGroup" type="AccessGroupType" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:sequence>
+          <xs:element name="ContainerFormat" type="ContainerFormatType"/>
+          <xs:element ref="SubFile" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="EntryNameType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Path of one member within one container, relative to that container's root, with "/" separating directories. Kept a simple type so that identity constraints can enforce uniqueness over the whole path. The pattern excludes a leading or trailing separator, empty segments, backslashes, and the segments "." and ".." so that one member has exactly one spelling and no value can point outside the container</xs:documentation>
+      <xs:documentation xml:lang="est">Ühe sisalduva faili tee ühe konteineri sees, konteineri juure suhtes, kus kaustu eraldab "/". Hoitud lihttüübina, et unikaalsuskitsendus saaks jõustada kogu tee unikaalsust. Muster välistab eraldaja tee alguses ja lõpus, tühjad segmendid, kurakaldkriipsud ning segmendid "." ja "..", nii et ühel sisalduval failil on täpselt üks kirjapilt ja ükski väärtus ei saa osutada konteinerist välja</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+      <xs:pattern value="(\.*[^./\\][^/\\]*)(/(\.*[^./\\][^/\\]*))*"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ContainerFormatType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">Identifier of a container format. Based on xs:token so that whitespace is normalised before the exact-match comparison applications perform</xs:documentation>
+      <xs:documentation xml:lang="est">Konteineri vormingu tunnus. Aluseks on xs:token, nii et tühimärgid normaliseeritakse enne täpset võrdlust, mida rakendused teevad</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:complexType name="AccessGroupType">
     <xs:sequence>
       <xs:element name="Access" type="GranularAccessType">
         <xs:annotation>
-          <xs:documentation xml:lang="en">Access conditions and restrictions of every range listed in this group. Must not be more restrictive than the enclosing File/Access, or DecContainer/Access if File/Access is not given</xs:documentation>
-          <xs:documentation xml:lang="est">Kõigi selles rühmas loetletud vahemike juurdepääsutingimused ja -piirangud. Ei tohi olla rangem kui ümbritsev File/Access või, kui see puudub, DecContainer/Access</xs:documentation>
+          <xs:documentation xml:lang="en">Access conditions and restrictions of every range listed in this group. Must not be more restrictive than the enclosing File/Access or SubFile/Access, or DecContainer/Access if neither is given</xs:documentation>
+          <xs:documentation xml:lang="est">Kõigi selles rühmas loetletud vahemike juurdepääsutingimused ja -piirangud. Ei tohi olla rangem kui ümbritsev File/Access või SubFile/Access või, kui kumbki puudub, DecContainer/Access</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:choice minOccurs="1" maxOccurs="unbounded">

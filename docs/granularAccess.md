@@ -7,8 +7,9 @@ Läbiva suurtähega esitatud sõnu PEAB, PEAKS, VÕIB ja EI TOHI tuleb tõlgenda
 Tehniline dokumentatsioon:
 
 * [granularAccess.xsd](v2.1/granularAccess.xsd)
-* [GranularAccessExample1.xml](v2.1/GranularAccessExample1.xml)
-* [Jaotusalgoritmid](segmentationMethods) — avaldatud `SegmentationMethod` tunnuste register
+* [GranularAccessExample1.xml](v2.1/GranularAccessExample1.xml) — näidiskapsel faili ja osa tasandiga
+* [GranularAccessExample2.xml](v2.1/GranularAccessExample2.xml) — näidiskapsel pesastatud konteinerfailidega ja sisalduva faili osa tasandiga
+* [Jaotusalgoritmid ja konteinervormingud](segmentationMethods) — avaldatud `SegmentationMethod` ja `ContainerFormat` tunnuste register
 
 ## Sisukord
 
@@ -28,10 +29,14 @@ Tehniline dokumentatsioon:
   * [Uue SegmentationMethod kasutuselevõtt](#uue-segmentationmethod-kasutuselev%C3%B5tt)
   * [Avaldamata tunnus](#avaldamata-tunnus)
   * [AccessGroup](#accessgroup)
+  * [SubFile](#subfile)
+  * [Konteinervorming](#konteinervorming)
+  * [Pesastuse sügavus](#pesastuse-s%C3%BCgavus)
 * [Näited](#n%C3%A4ited)
   * [Avalik fail piiratud dokumendis](#avalik-fail-piiratud-dokumendis)
   * [Valdavalt avalik fail üksikute piiratud kohtadega](#valdavalt-avalik-fail-%C3%BCksikute-piiratud-kohtadega)
   * [Skaneeritud PDF](#skaneeritud-pdf)
+  * [Asice-konteiner avaliku ja piiratud failiga](#asice-konteiner-avaliku-ja-piiratud-failiga)
   * [Kinnikaetud koopia avaliku versioonina](#kinnikaetud-koopia-avaliku-versioonina)
 * [Laienduse edasiarendamine](#laienduse-edasiarendamine)
   * [Uus laiendus vana kõrvale](#uus-laiendus-vana-k%C3%B5rvale)
@@ -51,9 +56,9 @@ Avaliku teabe seaduse § 38 lõige 2 näeb ette teistsuguse tulemuse:
 
 **Milline norm mida nõuab.** § 38 lõige 2 paneb kohustuse teabevaldajale teabenõudele vastamisel — see ei nõua, et juurdepääsupiirang oleks dokumendis osade kaupa märgitud. Piirangu märkimist ennast reguleerivad § 40 (tähtajad) ja § 41 (märke tegemine). Käesolev laiendus ei täida § 38 lõike 2 kohustust, vaid **valmistab selle täitmise ette**: kui dokumendiga liigub kaasa masinloetav kirjeldus sellest, milline osa ei ole piiratud, saab vastuvõttev asutus hiljem teabenõudele vastates avaldada just selle osa — ilma et keegi peaks dokumendi uuesti läbi töötama ja otsustama, mis on avalik. Ilma niisuguse kirjelduseta on osaline avaldamine käsitöö, ja käsitsi tehtav otsus jäetakse praktikas sageli tegemata, tunnistades kogu dokumendi asutusesiseseks.
 
-Laiendus `granularAccess` võimaldab kirjeldada, millised tervikuna piiratud dokumendi **failid** on tegelikult avalikud, ja vajaduse korral ka millised faili **osad** (leheküljed, lõigud, sõnad) on avalikud. Nii saab vastuvõttev süsteem hiljem teabenõudele vastates avaldada just selle osa, mille kohta piirang ei kehti. Lisaks saab laiendusega edastada dokumendi **avalikustatava pealkirja, lühiesituse ja failinimed**, sest ka pealkiri, lühiesitus või failinimi võib ise piiratud teavet avaldada.
+Laiendus `granularAccess` võimaldab kirjeldada, millised tervikuna piiratud dokumendi **failid** on tegelikult avalikud, millised **konteinerfailis sisalduvad failid** on avalikud, ja vajaduse korral ka millised faili **osad** (leheküljed, lõigud, sõnad) on avalikud. Nii saab vastuvõttev süsteem hiljem teabenõudele vastates avaldada just selle osa, mille kohta piirang ei kehti. Lisaks saab laiendusega edastada dokumendi **avalikustatava pealkirja, lühiesituse ja failinimed**, sest ka pealkiri, lühiesitus või failinimi võib ise piiratud teavet avaldada.
 
-Laienduse praktiline põhieesmärk on eristada avalikke faile piiratutest. Osa tasandi kirjeldus on ette nähtud peamiselt tulevikuks — see on olemas siis, kui dokumendihaldussüsteemid suudavad seda luua ja töödelda.
+Laienduse praktiline põhieesmärk on eristada avalikke faile piiratutest. Kuna valdav osa dokumente liigub praegu allkirjastatud konteinerfailidena (asice), kus kapsli tasandil on üksainus fail, kuulub siia juurde ka konteineris sisalduvate failide eristamine (vt [SubFile](#subfile)). Osa tasandi kirjeldus on ette nähtud peamiselt tulevikuks — see on olemas siis, kui dokumendihaldussüsteemid suudavad seda luua ja töödelda.
 
 ## Ühilduvus
 
@@ -66,13 +71,16 @@ Laiendus **ei muuda** `Kapsel.xsd` faili. Ta paigutatakse elementi `RecordTypeSp
 
 > **Ühilduvusreegel.** Iga tasand PEAB olema vähemalt niivõrd piirav kui kõik sellesse kuuluvad tasandid.
 >
-> `DecContainer/Access` ⊇ `File/Access` ⊇ `AccessGroup/Access`
+> `DecContainer/Access` ⊇ `File/Access` ⊇ `SubFile/Access` ⊇ … ⊇ `AccessGroup/Access`
 
 Juurdepääs muutub dokumenti süvenedes seega ainult **leebemaks**, mitte kunagi rangemaks. Rakendus, mis peatub mis tahes tasandil, ei anna kunagi juurdepääsu millelegi, mida võimekam rakendus peaks piirama — halvimal juhul on tulemus vajalikust konservatiivsem.
 
-Sellest järeldub kaks asja, mida on lihtne valesti teha:
+Reegel kehtib suvalise sügavuseni: konteinerfaili sisalduvad failid võivad ise olla konteinerid (vt [SubFile](#subfile)), ja iga uus tasand lisandub samasse ahelasse. Kontrollimiseks piisab siiski sellest, et iga tasandit võrreldakse **oma vahetu ülemaga** — kui ükski kõrvutine paar reeglit ei riku, ei riku seda ka ükski kaugem paar.
+
+Sellest järeldub kolm asja, mida on lihtne valesti teha:
 
 * Kui failis on kasvõi üks piiratud osa, PEAB `File/Access` olema `AK`. Faili EI TOHI märkida `Avalik`, lootes et piiratud osad tulevad allpool olevatest `AccessGroup` elementidest — faili tasandil peatuv rakendus avaldaks siis terve faili.
+* Kui konteineris on kasvõi üks piiratud sisalduv fail — ükskõik kui sügaval —, PEAB konteineri `Access` olema `AK`. Konteinerit EI TOHI märkida `Avalik`, lootes et piiratud failid tulevad allpool olevatest `SubFile` elementidest. Konteineri tasandil peatuv rakendus avaldaks konteineri ühe tervikuna ja koos sellega iga piiratud faili selle sees. Piirang ei jääks siis lihtsalt märkamata, vaid ei saakski mõjuda.
 * Kui `DecContainer/Access` on `Avalik`, on kogu dokument juba avalik ja laiendusel ei ole midagi avada. Sellisel dokumendil EI TOHIKS laiendust üldse olla.
 
 ### Valideerimine
@@ -100,12 +108,18 @@ Osa reegleid on skeemis jõustatud, osa mitte — XSD 1.0 ei suuda neid väljend
 | ------ | ---------- |
 | Iga `FileGuid` esineb kuni üks kord (täpsel võrdlusel) | skeem |
 | Kaks `FileGuid` väärtust ei lange kokku ka tõstutundetul võrdlusel | **rakendus** |
+| Iga `EntryName` esineb oma konteineri sees kuni üks kord (täpsel võrdlusel) | skeem |
+| `EntryName` ei sisalda teeeraldajat ega ole tühi | skeem |
 | Iga `AccessGroup` sisaldab vähemalt üht vahemikku | skeem |
 | `SegmentationCheck` sisaldab vähemalt üht loendit | skeem |
 | `SegmentationCheck` sisaldab täpselt neid loendeid, mida jaotusalgoritm nõuab | **rakendus** |
 | `SegmentationMethod`, `SegmentationCheck`, `DefaultPartAccessConditionsCode` ja `AccessGroup` esinevad kas koos või üldse mitte | skeem |
+| `ContainerFormat` ja `SubFile` esinevad kas koos või üldse mitte | skeem |
+| Fail on jaotatud kas osadeks või sisalduvateks failideks, mitte mõlemaks | skeem |
 | Elemendi `SegmentationCheck` loendid ühtivad rakenduse enda jaotuse tulemusega | **rakendus** |
+| Iga `EntryName` vastab tõepoolest ühele konteineri kirjele | **rakendus** |
 | Fail, mille `Access` on `Avalik`, ei sisalda ühtki `AccessGroup` elementi | **rakendus** |
+| Konteiner, mille `Access` on `Avalik`, ei sisalda ühtki piiratud `SubFile` elementi | **rakendus** |
 | Ükski tasand ei ole rangem kui teda ümbritsev (ühilduvusreegel) | **rakendus** |
 | Vahemiku lõppväärtus ei ole väiksem kui algusväärtus | **rakendus** |
 | Sama faili erinevate `AccessGroup` elementide vahemikud ei kattu | **rakendus** |
@@ -116,11 +130,13 @@ Osa reegleid on skeemis jõustatud, osa mitte — XSD 1.0 ei suuda neid väljend
 Laiendust tundev rakendus PEAB ploki esmalt valideerima ja kontrollima skeemiväliseid reegleid (vt [Valideerimine](#valideerimine)). Vigase ploki korral PEAB kogu laienduse eirama. Seejärel liigub ta tasandite kaupa ja peatub esimesel tasandil, mida ta ei suuda töödelda.
 
 1. **Dokument.** Kui `DecContainer/Access/AccessConditionsCode` on `Avalik`, on kogu dokument koos failidega avalik. `RecordTypeSpecificMetadata` elementi ei ole vaja uurida.
-2. **Fail.** Kui dokumendi kood on `AK`, otsib rakendus iga `DecContainer/File` jaoks üles `granularAccess/File` kirje, mille `FileGuid` ühtib. Fail, millel kirje puudub või millel puudub oma `Access`, jääb piiratuks nagu ütleb `DecContainer/Access`.
-3. **Avalik fail.** Kui kirje `Access/AccessConditionsCode` on `Avalik`, on terve fail avalik. Rakendus peatub siin — selle faili `AccessGroup` elemente ei ole vaja uurida ja neid EI TOHI ka olla.
-4. **Jaotusalgoritm.** Kui kood on `AK`, on fail tervikuna piiratud, kuid selle osad võivad olla avalikud. Rakendus VÕIB osa tasandile laskuda **ainult siis**, kui ta tunneb faili `SegmentationMethod` väärtust ja suudab jaotuse täpselt taastada. Kui element puudub või väärtus on tundmatu, PEAB rakendus peatuma ja rakendama terve faili kohta faili enda `Access` väärtust.
-5. **Jaotuse kontroll.** Jaotusalgoritmi tundes jaotab rakendus faili ise ja võrdleb oma ühikute koguarve elemendiga `SegmentationCheck`. Kui mõni tunnuse poolt nõutav loend erineb, PEAB rakendus peatuma ja rakendama terve faili kohta faili enda `Access` väärtust — täpselt nagu tundmatu tunnuse korral (vt [Jaotuse kontroll](#jaotuse-kontroll)).
-6. **Osad.** Loendite ühtimisel loeb rakendus `DefaultPartAccessConditionsCode` välja ja rakendab seejärel iga `AccessGroup` väärtust selles loetletud vahemike kohta. See element on osa tasandil kirjeldatud faili puhul alati olemas, sest skeem nõuab seda koos `SegmentationMethod`, `SegmentationCheck` ja `AccessGroup` elementidega.
+2. **Fail.** Kui dokumendi kood on `AK`, otsib rakendus iga `DecContainer/File` jaoks üles `granularAccess/File` kirje, mille `FileGuid` ühtib. Fail, millel kirje puudub või millel puudub oma `Access`, jääb piiratuks nagu ütleb `DecContainer/Access`. Edaspidi tähendab **kirje** just seda parajasti töödeldavat laienduse elementi — kuni sammuni 5 `File` elementi, pärast sinna naasmist ka `SubFile` elementi. Konteineris sisalduvale failile viidatakse alati sõnadega *konteineri kirje*.
+3. **Avalik fail.** Kui kirje `Access/AccessConditionsCode` on `Avalik`, on terve fail avalik. Rakendus peatub siin — selle faili `AccessGroup` ega `SubFile` elemente ei ole vaja uurida ja piiratud sisu neis EI TOHI ka olla.
+4. **Jaotusviis.** Kui kood on `AK`, on fail tervikuna piiratud, kuid selle osad või sisalduvad failid võivad olla avalikud. Sama kirje näitab, kummal viisil fail on jaotatud: `SegmentationMethod` osadeks või `ContainerFormat` sisalduvateks failideks. Kui kumbagi ei ole, jääb fail tervikuna piiratuks.
+5. **Sisalduvad failid.** Kui kirjes on `ContainerFormat`, VÕIB rakendus sisalduvate failide tasandile laskuda **ainult siis**, kui ta tunneb vormingu tunnust ja suudab konteineri lahti pakkida. Kui tunnus on tundmatu, lahtipakkimine ei õnnestu või rakendus on jõudnud oma [sügavuse piirini](#pesastuse-s%C3%BCgavus), PEAB rakendus peatuma ja rakendama terve konteineri kohta konteineri enda `Access` väärtust. Õnnestumisel töötleb ta iga `SubFile` kirjet — alustades selle sammu juures uuesti punktist 3, kus kirje tähendab nüüd seda `SubFile` elementi, sest sisalduv fail võib ise olla kas avalik, osadeks jaotatud või omakorda konteiner. Sisalduv fail, mida ükski `SubFile` ei kirjelda, jääb konteineri enda `Access` väärtuse alla; selliseid faile ei ole vaja loetleda.
+6. **Jaotusalgoritm.** Kui kirjes on `SegmentationMethod`, VÕIB rakendus osa tasandile laskuda **ainult siis**, kui ta tunneb selle väärtust ja suudab jaotuse täpselt taastada. Tundmatu väärtuse korral PEAB rakendus peatuma ja rakendama terve faili kohta faili enda `Access` väärtust.
+7. **Jaotuse kontroll.** Jaotusalgoritmi tundes jaotab rakendus faili ise ja võrdleb oma ühikute koguarve elemendiga `SegmentationCheck`. Kui mõni tunnuse poolt nõutav loend erineb, PEAB rakendus peatuma ja rakendama terve faili kohta faili enda `Access` väärtust — täpselt nagu tundmatu tunnuse korral (vt [Jaotuse kontroll](#jaotuse-kontroll)).
+8. **Osad.** Loendite ühtimisel loeb rakendus `DefaultPartAccessConditionsCode` välja ja rakendab seejärel iga `AccessGroup` väärtust selles loetletud vahemike kohta. See element on osa tasandil kirjeldatud faili puhul alati olemas, sest skeem nõuab seda koos `SegmentationMethod`, `SegmentationCheck` ja `AccessGroup` elementidega.
 
 ## Struktuur
 
@@ -132,19 +148,30 @@ granularAccess
     ├── FileGuid                              viide DecContainer/File failile
     ├── PublicFileName                (0..1)  avalikustatav failinimi
     ├── Access                        (0..1)  terve faili juurdepääsutingimus
-    └── ─── osa tasand: kas kõik või mitte ühtki ───  (0..1)
-        ├── SegmentationMethod                jaotusalgoritmi tunnus
-        ├── SegmentationCheck                 jaotuse ühikute koguarvud
-        │   ├── PageCount                (0..1)  kui algoritm nõuab
-        │   ├── ParagraphCount           (0..1)  kui algoritm nõuab
-        │   └── WordCount                (0..1)  kui algoritm nõuab
-        ├── DefaultPartAccessConditionsCode   katmata osade tingimus
-        └── AccessGroup                (1..n)
-            ├── Access                        rühma juurdepääsutingimus
-            └── vähemalt üks vahemik   (1..n) suvalises järjekorras:
-                ├── PageRange                 StartPage, EndPage
-                ├── ParagraphRange            StartParagraph, EndParagraph
-                └── WordRange                 StartWord, EndWord
+    └── ─── valik: kas osa tasand, sisalduvad failid või kumbagi ─── (0..1)
+        │
+        ├── ─── A: osa tasand: kas kõik või mitte ühtki ───
+        │   ├── SegmentationMethod            jaotusalgoritmi tunnus
+        │   ├── SegmentationCheck             jaotuse ühikute koguarvud
+        │   │   ├── PageCount            (0..1)  kui algoritm nõuab
+        │   │   ├── ParagraphCount       (0..1)  kui algoritm nõuab
+        │   │   └── WordCount            (0..1)  kui algoritm nõuab
+        │   ├── DefaultPartAccessConditionsCode   katmata osade tingimus
+        │   └── AccessGroup            (1..n)
+        │       ├── Access                    rühma juurdepääsutingimus
+        │       └── vähemalt üks vahemik (1..n) suvalises järjekorras:
+        │           ├── PageRange             StartPage, EndPage
+        │           ├── ParagraphRange        StartParagraph, EndParagraph
+        │           └── WordRange             StartWord, EndWord
+        │
+        └── ─── B: sisalduvad failid: kas kõik või mitte ühtki ───
+            ├── ContainerFormat               konteinervormingu tunnus
+            └── SubFile                  (1..n)  EntryName on konteineris unikaalne
+                ├── EntryName                 sisalduva faili tee konteineri sees
+                ├── PublicFileName       (0..1)  avalikustatav failinimi
+                ├── Access               (0..1)  terve sisalduva faili tingimus
+                └── ─── valik: A või B, täpselt nagu File tasandil ─── (0..1)
+                    └── (B haru kordub: SubFile võib sisaldada SubFile'e)
 ```
 
 `Access` on nii `File` kui `AccessGroup` tasandil struktuurilt samasugune kui kapsli `DecContainer/Access`: `AccessConditionsCode` (`Avalik` või `AK`) ja korduv `AccessRestriction`.
@@ -216,7 +243,7 @@ Sama faili erinevate `AccessGroup` elementide vahemikud EI TOHI kattuda. Kattumi
 
 Faili osadeks jaotamise viisi ei saa eeldada: erinevaid failitüüpe jaotatakse erinevalt ning ka ühe tüübi sees on valikukohti (kas leheküljenumbrid, päised ja jalused loetakse kaasa; mis on „sõna“). Seepärast annab `SegmentationMethod` **jaotusalgoritmi tunnuse** — nime, mille alusel mõlemad pooled teavad, millist jaotusalgoritmi kasutada ja kuidas vahemikke seetõttu tõlgendada. Edaspidi nimetatakse seda väärtust ka lühidalt tunnuseks.
 
-Laiendus **teadlikult ei fikseeri kinnist algoritmide loetelu**, et uusi algoritme saaks kasutusele võtta ilma skeemi muutmata. Tunnused avaldatakse eraldi registris: **[Jaotusalgoritmid](segmentationMethods)**, mille täienemine ei nõua laienduse uut versiooni. Soovituslik on, et väärtus näitaks nii meetodit kui selle versiooni (nt `pdf-pages-v1`).
+Laiendus **teadlikult ei fikseeri kinnist algoritmide loetelu**, et uusi algoritme saaks kasutusele võtta ilma skeemi muutmata. Tunnused avaldatakse eraldi registris: **[Jaotusalgoritmid ja konteinervormingud](segmentationMethods)**, mille täienemine ei nõua laienduse uut versiooni. Soovituslik on, et väärtus näitaks nii meetodit kui selle versiooni (nt `pdf-pages-v1`).
 
 > **Kasutada PEAKS registris avaldatud tunnuseid.** Praegu on määratletud:
 >
@@ -273,9 +300,11 @@ Protsess järgib protokolli üldist arenduskorda (vt [CONTRIBUTING.md](https://g
 1. **Algoritmi kirjeldamine.** Uue tunnuse looja spetsifitseerib algoritmi nii täpselt, et sõltumatu teostus jõuaks sama jaotuseni: kuidas sisu lehekülgedeks, lõikudeks ja sõnadeks jagatakse, kuidas neid nummerdatakse, mida (nt leheküljenumbrid, päised, jalused, joonealused märkused, metaandmed) arvestatakse ja mida ei arvestata, milliseid failivorminguid tunnus katab ning **milliseid vahemikuliike sellega kasutada tohib**. Tunnus valitakse nii, et see sisaldaks versiooninumbrit (nt `pdf-pages-v1`).
 2. **RIA-le esitamine.** Kirjeldus — või link välisele spetsifikatsioonile, samuti viited taaskasutatavatele teekidele või moodulitele, kui neid on — esitatakse RIA-le [DHX hoidla Issue](https://github.com/e-gov/DHX/issues) kaudu.
 3. **Läbivaatamine.** RIA töötab sisendi läbi ja täpsustab seda.
-4. **Avaldamine.** RIA avaldab tunnuse kirjelduse või selle lingi registris [Jaotusalgoritmid](segmentationMethods), et kõik osapooled saaksid algoritmile toe realiseerida.
+4. **Avaldamine.** RIA avaldab tunnuse kirjelduse või selle lingi registris [Jaotusalgoritmid ja konteinervormingud](segmentationMethods), et kõik osapooled saaksid algoritmile toe realiseerida.
 
 Avaldatud jaotusalgoritmi tunnus on **jäädav**: selle tähendust ei muudeta hiljem (vt eelmist märkust). Muudatus tähendab alati uut tunnust, mis läbib sama protsessi.
+
+**Sama protsess kehtib `ContainerFormat` tunnuse kohta.** Vahemikuliikide asemel tuleb sammus 1 määratleda, millised konteineri kirjed on sisalduvad failid ja millised jäetakse välja, ning kuidas `EntryName` väärtust kirje nimega võrreldakse (vt [Konteinervorming](#konteinervorming)). Ka konteinervormingu tunnus on avaldamise järel jäädav.
 
 ### Avaldamata tunnus
 
@@ -288,6 +317,8 @@ Kasutaja PEAB siiski arvestama, et **avaldamata tunnuse tundmisele ei saa tugine
 * tunnuse tähenduse muutumatus kehtib ka avaldamata algoritmi kohta (vt [SegmentationMethod](#segmentationmethod)). Kui tunnus hiljem avaldatakse, PEAB avaldatav määratlus kirjeldama sama jaotust, mida juba vahetatud dokumentides kasutati — vastasel juhul tõlgendab hiljem avaldatud määratluse järgi toimiv rakendus vanu vahemikke valesti. Muudetud tähendus nõuab uut tunnust.
 
 Seepärast on avaldamine soovituslik alati, kui kirjeldus võib olla laiemalt kasulik: avaldatud tunnus töötab kõigi osapooltega, avaldamata tunnus ainult kokkuleppe osaliste vahel.
+
+Sama kehtib avaldamata `ContainerFormat` tunnuse kohta: seda mittetundev vastuvõtja jääb konteineri tasandile ja rakendab terve konteineri kohta konteineri enda `Access` väärtust.
 
 ### AccessGroup
 
@@ -317,6 +348,72 @@ Rühm koondab ühe juurdepääsukirjelduse alla kõik vahemikud, mille kohta see
 ```
 
 Igal rühmal on **oma täielik** `AccessRestriction`, mitte päritud. See on oluline, sest juurdepääsupiirangu alused erinevad tähtaja poolest: AvTS § 40 lõige 1 lubab üldjuhul kuni 5 (+5) aastat, lõige 3 näeb isikuandmete puhul ette 75 / 30 / 110 aastat. Ühe faili eri osad võivad seega olla piiratud erineval alusel ja erineva lõpptähtajaga.
+
+### SubFile
+
+Kapsli fail on sageli **konteiner**: praegu liigub valdav osa dokumente asice-vormingus, kus allkirjastatud ümbriku sees on tegelikud failid. Ainult faili tasandil kirjeldades saaks sellisele dokumendile anda üheainsa juurdepääsutingimuse, kuigi ümbriku sees võib olla nii avalikke kui piiratud faile. `SubFile` kirjeldab konteineris **sisalduvat** faili eraldi.
+
+| element | kohustuslik | kirjeldus |
+| ------- | ----------- | --------- |
+| `EntryName` | jah | Sisalduva faili tee konteineri sees, kaustad eraldatud kaldkriipsuga. **Ühes konteineris unikaalne** — skeem jõustab seda. |
+| `PublicFileName` | ei | Avalikustatav failinimi. Puudumisel kasutatakse `EntryName` väärtust — mis kaustas oleva faili puhul on tee, mitte kuvatav nimi. |
+| `Access` | ei | Terve sisalduva faili juurdepääsutingimus. Puudumisel kehtib seda sisaldava `File` või `SubFile` elemendi enda `Access`. |
+| osa tasand või sisalduvad failid | ei | Täpselt samad kaks haru nagu `File` tasandil — kas `SegmentationMethod` ja kaaslased, või `ContainerFormat` koos `SubFile` elementidega, või kumbagi. |
+
+`SubFile` on struktuurilt sama nagu `File`, ainult et faili identifitseerib `FileGuid` asemel `EntryName`. Kõik, mis kehtib `File` kohta — `Access` vabatahtlikkus, osa tasandi jagamatus, `DefaultPartAccessConditionsCode` kohustuslikkus osa tasandil, `AccessGroup` reeglid — kehtib `SubFile` kohta samamoodi.
+
+**`EntryName` on tee konteineri sees.** Konteineri sisu võib olla kaustapuus ja kaustad eraldatakse kaldkriipsuga: kirjele `Manused/Kiri.pdf` viidatakse täpselt selle väärtusega. Tee on alati konteineri **juure suhtes**.
+
+Skeem jõustab, et teel on **üksainus kirjapilt**: eraldajat ei tohi olla tee alguses ega lõpus, tühje segmente ei tohi olla, kurakaldkriips `\` on keelatud ning keelatud on ka segmendid `.` ja `..`. Nii ei teki küsimust, kas `./fail.pdf`, `/fail.pdf` ja `fail.pdf` on sama fail — kehtib ainult viimane —, ja ükski väärtus ei saa osutada konteinerist välja. Kuidas teed konteineri kirjetega kokku viiakse, ütleb vormingu kirje [konteinervormingute registris](segmentationMethods#konteinervormingud); ZIP-põhistel vormingutel on kirjenimi niigi tee, mistõttu võrdlus käib otse.
+
+**Kaust ei ole konteiner ega sisalduv fail.** `SubFile` pesastatakse ainult siis, kui sisalduv fail on ise konteiner ja saab seetõttu oma `ContainerFormat` tunnuse. Kaustale `ContainerFormat` tunnust anda ei saa — teda ei pakita lahti ja ükski vorming teda ei kirjelda —, mistõttu kaustas olevat faili kirjeldab **üksainus** `SubFile` element, mille `EntryName` on tervikuna tee. Terve kausta avaldamiseks loetletakse selles olevad failid.
+
+**Tee tagab üheselt määratuse.** Kuna `EntryName` sisaldab kogu teed, ei saa kaks eri sisalduvat faili anda sama väärtust ja skeemi unikaalsuskitsendus töötab kogu tee kohta. Sama nimega faile eri kaustades — `A/aruanne.pdf` ja `B/aruanne.pdf` — saab seetõttu kirjeldada kõrvuti.
+
+**Teed ei ole harilikult mõtet failinimena kuvada.** Kui `EntryName` on tee, tasub anda ka `PublicFileName`: `Manused/Kiri.pdf` asemel kuvatakse siis `Kiri.pdf`. Muidu avaldab kuvatav nimi ühtlasi konteineri sisemise ülesehituse.
+
+**Nime normaliseerimine sõltub vormingust.** Kuidas `EntryName` väärtust konteineri sisuga võrrelda — tõstutundlikult või mitte, millise kodeeringu ja Unicode'i normaalkujuga — on iga konteinervormingu enda küsimus ja seda kirjeldab vormingu kirje [konteinervormingute registris](segmentationMethods#konteinervormingud). Rakendus PEAB võrdlema nii, nagu seal kirjas.
+
+**Kõiki sisalduvaid faile ei pea loetlema, ja loetlemata fail jääb alati piiratuks.** Loetlemata sisalduv fail jääb konteineri enda `Access` väärtuse alla, seega piiratud konteineri puhul piiratuks. Kui konteineris on üksainus avaldatav fail, piisab ühestainsast `SubFile` kirjest.
+
+Osa tasandil otsustab katmata osade tingimuse `DefaultPartAccessConditionsCode`, sisalduvate failide tasandil samasugust valikut ei ole. Vahe on tahtlik ja tuleb sellest, et pooled seisavad erinevalt: faili osi võib olla sadu ja neid kõiki loetleda ei saa, mistõttu on vaja võimalust loetleda see pool, mida on vähem. Konteineri koosseis on aga lõplik ja saatjale teada — tema selle koostas —, nii et avaldatavate failide loetlemine ei ole koormav. Vastutasuks kaob ära terve klass vigu: ükskõik kuidas vastuvõtja konteineri sisu loeb, saab avaldada ainult seda, mida saatja on nimeliselt kirjeldanud. Kirje, mida vastuvõtja näeb, aga saatja ei näinud, jääb igal juhul avaldamata.
+
+**Konteineri allkiri ei kandu sisalduva failiga kaasa.** Kui asice-konteinerist avaldatakse üksik fail, jääb see konteineri allkirjast välja ja avaldatud fail ei ole enam allkirjastatud. Laiendus seda ei lahenda; asutus otsustab oma reeglite järgi, kas avaldada sisalduv fail eraldi, avaldada terve konteiner või jätta avaldamata.
+
+### Konteinervorming
+
+Sisalduvate failide tasand on **jagamatu** nagu osa tasandki: `ContainerFormat` ja `SubFile` esinevad kas mõlemad või kumbki mitte. Ilma vormingu tunnuseta ei ole teada, mille külge `EntryName` kinnitub; ilma ühegi `SubFile` elemendita ei kirjeldaks vormingu tunnus midagi.
+
+| element | kirjeldus |
+| ------- | --------- |
+| `ContainerFormat` | Konteinervormingu tunnus, nt `asice-v1`. Lubatud väärtused on [konteinervormingute registris](segmentationMethods#konteinervormingud). Tundmatu tunnuse korral PEAB rakendus peatuma. |
+
+`ContainerFormat` ütleb, **kuidas `EntryName` tee konteineri vastu lahendatakse**: millised konteineri kirjed on üldse sisalduvad failid, kuidas nimi kodeeringust loetakse ning kas võrdlus on tõstutundlik ja millise Unicode'i normaalkujuga. Ilma selle kokkuleppeta ei leiaks rakendus nime `Otsus_Õ.pdf` üles seal, kus täpitäht on salvestatud teisel kujul.
+
+**Miks siin kontrollarve ei ole.** Osa tasandil on `SegmentationCheck` möödapääsmatu, sest vahemik `3–4` on **positsiooniline**: kui vastuvõtja jaotus on ühe võrra nihkes, viitab vahemik ikkagi millelegi — lihtsalt valele lõigule. Viga ei anna märku ja avaldatud saab sisu, mida pidi kaitsma; koguarvud on ainus viis seda tabada. `EntryName` niimoodi eksida ei saa: nimi kas vastab konteineri kirjele või ei vasta. Vastuolu ilmneb kohapeal ja üksiku kirje kohta, mitte vaikselt ja nihkena.
+
+Sellest järeldub, et konteineri koosseisu koguarvu ei ole vaja. Reegel, et **loetlemata sisalduv fail jääb alati piiratuks**, teeb sama töö otsesemalt: avaldada saab ainult nimeliselt kirjeldatud faile, seega ei saa vastuvõtja teistsugune lugem kunagi midagi juurde avaldada. Kirje, mida saatja ei näinud, jääb kirjeldamata ja seega piiratuks; kirje, mida vastuvõtja ei näe, jääb lihtsalt leidmata (vt allpool). Kontrollarv annaks siin ainult ühe uue koha, kus pooled võivad tähenduseta erinevuse tõttu lahku minna — nt kas asice-konteineri `mimetype` ja `META-INF/` kirjed loendusse kuuluvad — ja see erinevus lülitaks kogu kirjelduse välja seal, kus sisu on tegelikult sama.
+
+**Nimi, mis ei vasta ühelegi kirjele, peatab konteineri töötluse.** Kui rakendus konteineri lahti pakib ja mõnda `EntryName` väärtust seal ei leia, on kirjeldus ja konteiner omavahel vastuolus — kumb neist on vale, ei ole teada: konteiner võib olla vahetatud, aga rakendus võib ka lugeda kirjenimesid saatjast erinevalt. Kumbki põhjus ei luba ülejäänud nimesid usaldada, mistõttu PEAB rakendus peatuma ja rakendama terve konteineri kohta konteineri enda `Access` väärtust — mitte avaldama neid faile, mille nimed juhtumisi leiti. See puudutab ainult seda konteinerit: teiste kapsli failide kirjeldused jäävad kehtima.
+
+**Peatumine ei ole viga.** Tundmatu konteinervorming ja ebaõnnestunud lahtipakkimine annavad mõlemad sama tulemuse: konteineri sisu jääb avaldamata ja terve konteiner käsitletakse konteineri enda tingimuse järgi. See on ohutu pool — avaldamata jääb see, mille kohta oleks võinud avaldada rohkem, ja mitte kunagi vastupidi. Vt ka [Avaldamata tunnus](#avaldamata-tunnus).
+
+### Pesastuse sügavus
+
+Konteiner võib sisaldada konteinerit: asice-ümbrikus võib olla zip, selle sees veel asice ja nii edasi. Seetõttu `SubFile` võib sisaldada `SubFile` elemente **ilma skeemis seatud piirita**.
+
+Tasand tekib **ainult konteinerist konteineri sees**, mitte kaustapuust: kaustas paiknev fail on sama tasandi sisalduv fail, ainult pikema `EntryName` väärtusega (vt [SubFile](#subfile)). Kaustapuuga konteineri kirjeldamine ei nõua seetõttu vastuvõtjalt ühtki lisatasandit.
+
+**Iga süsteem VÕIB seada oma sügavuse piiri.** Ühtset kõvakodeeritud piiri ei ole, sest süsteemide võimalused erinevad: mõni suudab ainult ühe tasandi lahti pakkida, mõni tunneb sügavat pesastust. Piiri seab vastuvõtja oma võimaluste järgi ja piirini jõudmine annab sama tulemuse nagu tundmatu vorming — rakendus peatub ja rakendab selle tasandi kirje enda `Access` väärtust kogu allesoleva sisu kohta.
+
+See on ohutu just seepärast, et **juurdepääs muutub laskumisel ainult leebemaks, mitte kunagi rangemaks** (vt [Ühilduvus](#%C3%BChilduvus)). Piirini jõudnud rakenduse avaldatav sisu on seetõttu alati sügavamale laskuva rakenduse avaldatava sisu **alamhulk**: mida varem peatuda, seda vähem avaldada. Ilma selle reeglita ei saaks sügavuse piire üldse lubada — piirini jõudmine võiks siis avaldada midagi, mis sügavamal on piiratud.
+
+* **Soovituslik miinimum on üks tasand** (`File` sees `SubFile`). See katab praeguse peamise juhu: asice-konteiner, mille sees on failid.
+* **Piirini jõudmine ei ole viga** ega vigane plokk. Rakendus ei pea seda saatjale teatama; ta lihtsalt ei laskunud sügavamale.
+* **Saatja ei tohiks sügavust asjata kasvatada.** Mida sügavam kirjeldus, seda väiksem osa vastuvõtjatest seda kasutada suudab. Kirjeldust tasub anda nii sügavale, kui on tegelikult vaja — mitte igaks juhuks sügavamale.
+* **Ressursipiirangud jäävad kehtima.** Lahtipakkimisel PEAB rakendus arvestama ka sisalduvate failide mahu ja arvuga, mitte ainult sügavusega. Pahatahtlikult koostatud konteiner võib olla väike, kuid lahtipakituna hiiglaslik.
+
+Pesastatud kirjelduse ja selle astmelise töötlemise näide on [GranularAccessExample2.xml](v2.1/GranularAccessExample2.xml): seal näitab iga peatumiskoht — laiendust mittetundev rakendus, üht tasandit toetav rakendus, kaht tasandit toetav rakendus ja jaotusalgoritmi tundev rakendus — järjest suuremat avaldatavat hulka.
 
 ## Näited
 
@@ -440,6 +537,69 @@ Skaneeritud lehekülgedel ei ole masinloetavat teksti, seega kirjeldab algoritm 
 ```
 
 Täielik näidiskapsel: [GranularAccessExample1.xml](v2.1/GranularAccessExample1.xml).
+
+### Asice-konteiner avaliku ja piiratud failiga
+
+Kapsli fail on allkirjastatud asice-konteiner, mille sees on kolm faili: leping, selle lisa ja üks piiratud sisuga manus. Konteiner ise on `AK`, sest ta sisaldab piiratud faili (ühilduvusreegel). Loetleda tuleb ainult need kaks faili, millega midagi avatakse — kolmas jääb loetlemata ja seetõttu piiratuks.
+
+```xml
+<File>
+  <FileGuid>25892e17-80f6-415f-9c65-7395632f0007</FileGuid>
+  <Access>
+    <AccessConditionsCode>AK</AccessConditionsCode>
+    <AccessRestriction>
+      <RestrictionIdentifier>AvTS§35p1p17</RestrictionIdentifier>
+      <RestrictionBeginDate>2012-11-11</RestrictionBeginDate>
+      <RestrictionEndDate>2017-11-11</RestrictionEndDate>
+      <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 17</RestrictionBasis>
+      <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+    </AccessRestriction>
+  </Access>
+  <ContainerFormat>asice-v1</ContainerFormat>
+  <SubFile>
+    <EntryName>Leping.pdf</EntryName>
+    <Access>
+      <AccessConditionsCode>Avalik</AccessConditionsCode>
+    </Access>
+  </SubFile>
+  <SubFile>
+    <EntryName>Lisa_1.pdf</EntryName>
+    <PublicFileName>Lepingu lisa 1.pdf</PublicFileName>
+    <Access>
+      <AccessConditionsCode>AK</AccessConditionsCode>
+      <AccessRestriction>
+        <RestrictionIdentifier>AvTS§35p1p17</RestrictionIdentifier>
+        <RestrictionBeginDate>2012-11-11</RestrictionBeginDate>
+        <RestrictionEndDate>2017-11-11</RestrictionEndDate>
+        <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 17</RestrictionBasis>
+        <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+      </AccessRestriction>
+    </Access>
+    <SegmentationMethod>pdf-pages-v1</SegmentationMethod>
+    <SegmentationCheck>
+      <PageCount>4</PageCount>
+    </SegmentationCheck>
+    <DefaultPartAccessConditionsCode>AK</DefaultPartAccessConditionsCode>
+    <AccessGroup>
+      <Access>
+        <AccessConditionsCode>Avalik</AccessConditionsCode>
+      </Access>
+      <PageRange>
+        <StartPage>1</StartPage>
+        <EndPage>2</EndPage>
+      </PageRange>
+    </AccessGroup>
+  </SubFile>
+</File>
+```
+
+Siin kirjeldab esimene `SubFile` tervikuna avaldatava lepingu. Teine näitab, et **sisalduva faili sees saab kasutada osa tasandit täpselt samamoodi** nagu kapsli faili sees: lisa ise on `AK`, kuid selle kaks esimest lehekülge avaldatakse.
+
+Kolmandat sisalduvat faili ei ole loetletud. See ei ole viga: loetlemata sisalduv fail jääb piiratuks, nii et piiratud manust ei ole vaja kuidagi märkida. Konteineri koosseisu ei loetleta kuskil tervikuna — kirjelduses on ainult need failid, mille kohta saatjal on midagi öelda.
+
+Rakendus, kes asice-vormingut lahti pakkida ei suuda, jätab `SubFile` kirjed lihtsalt tähelepanuta ja käsitleb terve konteineri `AK`-na. Rakendus, kes suudab, avaldab `Leping.pdf` faili ja — kui ta tunneb ka tunnust `pdf-pages-v1` — lisa kaks esimest lehekülge.
+
+Täielik näidiskapsel, mis läheb sellest sammu võrra kaugemale: seal on konteiner konteineri sees, nii et kirjeldus ulatub kolme tasandini — `File` → `SubFile` (pesastatud asice) → `SubFile` (osa tasandil kirjeldatud PDF). Vt [GranularAccessExample2.xml](v2.1/GranularAccessExample2.xml).
 
 ### Kinnikaetud koopia avaliku versioonina
 
@@ -577,6 +737,7 @@ Laiendus on teadlikult piiratud ulatusega. Praeguses versioonis **ei** saa kirje
 * **Asukohta pildis** — näiteks isikukoodi ümbritsevat ristkülikut skaneeritud lehel. Koordinaatide töötlemine oleks praegustele dokumendihaldussüsteemidele liiga keeruline; skaneeritud failide puhul on lahenduseks leheküljetäpsus.
 * **AK-märke tegemist dokumendile endale.** AvTS § 41 lõige 2 nõuab märke tegemist dokumendile, kui teabekandja seda võimaldab. Laiendus kirjeldab juurdepääsu kapslis ja seda kohustust ei asenda.
 * **Osa tasandit failivormingutele, millele `SegmentationMethod` tunnus puudub** — praegu eelkõige vormindatud tekst. Neid faile kirjeldatakse ainult faili tasandil. Kui avalik osa on siiski vaja edastada, on lahenduseks saatja koostatud kinnikaetud koopia eraldi failina (vt [Kinnikaetud koopia avaliku versioonina](#kinnikaetud-koopia-avaliku-versioonina)).
+* **Allkirja säilimist konteinerist avaldatud faili juures.** `SubFile` võimaldab avaldada üksiku faili allkirjastatud konteinerist, kuid avaldatud fail ei kanna konteineri allkirja kaasa (vt [SubFile](#subfile)). Laiendus ei kirjelda, kuidas allkirjastatud kujul osalist avaldamist teha; see on konteinervormingute enda küsimus.
 
 ## Nõuete loend
 
@@ -584,8 +745,9 @@ Käesoleva laienduse nõuded koondatult, [DHX protokolli](index) nõuete loendi 
 
 | jaotis | nõue |
 | ------ | ---- |
-| [Ühilduvus](#%C3%BChilduvus) | Iga tasand PEAB olema vähemalt niivõrd piirav kui kõik sellesse kuuluvad tasandid: `DecContainer/Access` ⊇ `File/Access` ⊇ `AccessGroup/Access`. |
+| [Ühilduvus](#%C3%BChilduvus) | Iga tasand PEAB olema vähemalt niivõrd piirav kui kõik sellesse kuuluvad tasandid: `DecContainer/Access` ⊇ `File/Access` ⊇ `SubFile/Access` ⊇ … ⊇ `AccessGroup/Access`. Reegel kehtib suvalise pesastussügavuseni. |
 | [Ühilduvus](#%C3%BChilduvus) | Kui failis on kasvõi üks piiratud osa, PEAB `File/Access` olema `AK`. Faili EI TOHI märkida `Avalik`, lootes et piiratud osad tulevad `AccessGroup` elementidest. |
+| [Ühilduvus](#%C3%BChilduvus) | Kui konteineris on kasvõi üks piiratud sisalduv fail — ükskõik kui sügaval —, PEAB konteineri `Access` olema `AK`. Konteinerit EI TOHI märkida `Avalik`, lootes et piiratud failid tulevad `SubFile` elementidest. |
 | [Ühilduvus](#%C3%BChilduvus) | Kui `DecContainer/Access` on `Avalik`, EI TOHIKS dokument laiendust üldse sisaldada. |
 | [Valideerimine](#valideerimine) | Rakendus, kes kavatseb laiendust kasutada, PEAB ploki valideerima `granularAccess.xsd` järgi ja PEAB kontrollima neid reegleid, mida skeem väljendada ei suuda. |
 | [Vigane plokk](#vigane-plokk) | Kui plokk ei valideeru või rikub mõnda spetsifikatsiooni reeglit, PEAB rakendus kogu laienduse eirama ja rakendama terve dokumendi kohta `DecContainer/Access` väärtust. |
@@ -598,11 +760,18 @@ Käesoleva laienduse nõuded koondatult, [DHX protokolli](index) nõuete loendi 
 | [DefaultPartAccessConditionsCode](#defaultpartaccessconditionscode) | Osa tasandil kirjeldatud faili puhul PEAB `DefaultPartAccessConditionsCode` väärtus olema otsesõnu kirjas. |
 | [Vahemikud](#vahemikud) | Iga `AccessGroup` PEAB sisaldama vähemalt üht vahemikku. |
 | [Vahemikud](#vahemikud) | Sama faili erinevate `AccessGroup` elementide vahemikud EI TOHI kattuda; vahemiku lõppväärtus EI TOHI olla väiksem kui algusväärtus. |
-| [SegmentationMethod](#segmentationmethod) | Kasutada PEAKS registris [Jaotusalgoritmid](segmentationMethods) avaldatud tunnuseid. Avaldamata tunnust VÕIB kasutada, kuid selle tundmisele ei saa tugineda. |
+| [SegmentationMethod](#segmentationmethod) | Kasutada PEAKS registris [Jaotusalgoritmid ja konteinervormingud](segmentationMethods) avaldatud tunnuseid. Avaldamata tunnust VÕIB kasutada, kuid selle tundmisele ei saa tugineda. |
 | [SegmentationMethod](#segmentationmethod) | Tunnusega lubatud vahemikuliike EI TOHI ületada: iga tunnuse määratlus ütleb, milliseid kolmest liigist tohib kasutada. |
 | [SegmentationMethod](#segmentationmethod) | Kasutusel oleva `SegmentationMethod` väärtuse tähendus EI TOHI kunagi muutuda; muudatus nõuab uut tunnust. |
 | [Jaotuse kontroll](#jaotuse-kontroll) | Osa tasandil kirjeldatud faili puhul PEAB `SegmentationCheck` sisaldama täpselt neid loendeid, mida faili `SegmentationMethod` nõuab; loendit, mida tunnus ei määratle, EI TOHI esitada. |
 | [Jaotuse kontroll](#jaotuse-kontroll) | Rakendus PEAB nõutavad loendid ise arvutama ja võrdlema. Kui mõni erineb, EI TOHI rakendus osa tasandile laskuda ja PEAB rakendama terve faili kohta faili enda `Access` väärtust. |
+| [SubFile](#subfile) | Iga `EntryName` TOHIB ühe konteineri sees esineda kuni üks kord. Väärtus on tee konteineri juure suhtes; eraldaja tee alguses või lõpus, tühjad segmendid, kurakaldkriips ning segmendid `.` ja `..` on keelatud. |
+| [SubFile](#subfile) | Rakendus PEAB `EntryName` väärtusi konteineri kirjetega võrdlema täpselt nii, nagu vastava `ContainerFormat` kirje seda ette näeb. |
+| [SubFile](#subfile) | Sisalduv fail, mida ükski `SubFile` element ei kirjelda, jääb konteineri enda `Access` väärtuse alla. Rakendus EI TOHI sellist faili avaldada. |
+| [Konteinervorming](#konteinervorming) | Rakendus VÕIB sisalduvate failide tasandile laskuda ainult siis, kui ta tunneb `ContainerFormat` väärtust ja suudab konteineri lahti pakkida. Tundmatu tunnuse korral PEAB rakendus peatuma ja rakendama terve konteineri kohta konteineri enda `Access` väärtust. |
+| [Konteinervorming](#konteinervorming) | Kui mõni `EntryName` ei vasta ühelegi konteineri kirjele, PEAB rakendus selle konteineri töötluse peatama ja rakendama terve konteineri kohta konteineri enda `Access` väärtust. |
+| [Pesastuse sügavus](#pesastuse-s%C3%BCgavus) | Rakendus VÕIB seada oma pesastussügavuse piiri. Piirini jõudmisel PEAB ta peatuma ja rakendama selle tasandi kirje enda `Access` väärtust kogu allesoleva sisu kohta; see ei ole viga. Toetada PEAKS vähemalt üht tasandit. |
+| [Pesastuse sügavus](#pesastuse-s%C3%BCgavus) | Rakendus PEAB lahtipakkimisel arvestama sisalduvate failide mahu ja arvu piiranguid, mitte ainult sügavust. |
 | [Kinnikaetud koopia](#kinnikaetud-koopia-avaliku-versioonina) | Kinnikaetud koopias PEAB piiratud sisu olema failist tegelikult eemaldatud, mitte visuaalselt varjatud, ning koopia PEAB olema puhastatud ka metaandmetest, mis algset sisu kannavad. |
 | [Kinnikaetud koopia](#kinnikaetud-koopia-avaliku-versioonina) | Algse faili asendamisel või täiendamisel tuleb kinnikaetud koopia uuesti koostada; vananenud koopiat EI TOHI dokumendis jätta. |
 | [Laienduse edasiarendamine](#laienduse-edasiarendamine) | Uus versioon EI TOHI muuta selle laienduse nimeruumi, juurelementi ega olemasolevate elementide tähendust. |

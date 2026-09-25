@@ -17,8 +17,8 @@ Tehniline dokumentatsioon:
 
 Kapslit saab laiendada elemendi `RecordTypeSpecificMetadata` kaudu, muutmata `Kapsel.xsd` faili. Laiendust mittetundev rakendus töötab sellisel juhul edasi täpselt nagu varem.
 
-* [granularAccess](granularAccess) (MUSTAND) — täpsem juurdepääsutingimuste kirjeldamine kui terve dokumendi tasandil: faili kaupa ning faili sees lehekülgede, lõikude ja sõnade kaupa. Valmistab ette avaliku teabe seaduse § 38 lõikes 2 nõutud osalise juurdepääsu andmise: tervikuna piiratud dokumendi avaliku osa saab avaldada ilma dokumenti uuesti läbi töötamata. Lisaks saab edastada dokumendi avalikustatava pealkirja, lühiesituse ja failinimed.
-  * [Jaotusalgoritmid](segmentationMethods) (MUSTAND) — laienduse juurde kuuluv register, mis määratleb, kuidas faili osadeks jaotatakse (`SegmentationMethod` tunnused). Täieneb laiendust muutmata.
+* [granularAccess](granularAccess) (MUSTAND) — täpsem juurdepääsutingimuste kirjeldamine kui terve dokumendi tasandil: faili kaupa, konteinerfailis sisalduvate failide kaupa ning faili sees lehekülgede, lõikude ja sõnade kaupa. Valmistab ette avaliku teabe seaduse § 38 lõikes 2 nõutud osalise juurdepääsu andmise: tervikuna piiratud dokumendi avaliku osa saab avaldada ilma dokumenti uuesti läbi töötamata. Lisaks saab edastada dokumendi avalikustatava pealkirja, lühiesituse ja failinimed.
+  * [Jaotusalgoritmid ja konteinervormingud](segmentationMethods) (MUSTAND) — laienduse juurde kuuluv register, mis määratleb, kuidas faili osadeks jaotatakse (`SegmentationMethod` tunnused) ja kuidas konteinerfailis sisalduvad failid tuvastatakse (`ContainerFormat` tunnused). Täieneb laiendust muutmata.
 
 ## Versioon 1.0
 

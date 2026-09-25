@@ -1,4 +1,4 @@
-# Jaotusalgoritmid (SegmentationMethod)
+# Jaotusalgoritmid ja konteinervormingud (SegmentationMethod, ContainerFormat)
 
 **Staatus: MUSTAND.** Käesolev register kuulub kokku laiendusega [granularAccess](granularAccess) (versioon 0.1-draft) ja on avaldatud tagasiside kogumiseks.
 
@@ -29,26 +29,47 @@ Läbiva suurtähega esitatud sõnu PEAB, PEAKS, VÕIB ja EI TOHI tuleb tõlgenda
   * [Servajuhud](#servajuhud-plaintext-blocks-v1)
   * [Mida algoritm ei kata](#mida-algoritm-ei-kata-plaintext-blocks-v1)
   * [Näide](#n%C3%A4ide-plaintext-blocks-v1)
+* [Konteinervormingud](#konteinervormingud)
+* [asice-v1](#asice-v1)
+  * [Ulatus](#ulatus-asice-v1)
+  * [Sisalduvad failid](#sisalduvad-failid-asice-v1)
+  * [Servajuhud](#servajuhud-asice-v1)
+  * [Mida vorming ei kata](#mida-vorming-ei-kata-asice-v1)
+  * [Näide](#n%C3%A4ide-asice-v1)
+* [zip-v1](#zip-v1)
+  * [Ulatus](#ulatus-zip-v1)
+  * [Sisalduvad failid](#sisalduvad-failid-zip-v1)
+  * [Servajuhud](#servajuhud-zip-v1)
+  * [Mida vorming ei kata](#mida-vorming-ei-kata-zip-v1)
 * [Millele algoritmi veel ei ole](#millele-algoritmi-veel-ei-ole)
-* [Uue algoritmi lisamine](#uue-algoritmi-lisamine)
+* [Uue tunnuse lisamine](#uue-tunnuse-lisamine)
 * [Tagasiside](#tagasiside)
 
 ## Milleks see register on
 
-Laiendus `granularAccess` kirjeldab faili osade juurdepääsu vahemikena — lehekülgede, lõikude ja sõnade järjekorranumbritena. Number iseenesest ei tähenda midagi: „lõik 3“ on mõttekas ainult siis, kui saatja ja vastuvõtja jaotavad faili täpselt ühtemoodi. Selle jaotuse määrab element `SegmentationMethod`, mille väärtus on jaotusalgoritmi tunnus.
+Laiendus `granularAccess` kirjeldab juurdepääsu **ühikute kaupa** — faili osade puhul lehekülgede, lõikude ja sõnade järjekorranumbritena, konteinerfaili puhul sisalduvate failide nimedena. Viide iseenesest ei tähenda midagi: „lõik 3“ ja `Leping.pdf` on mõttekad ainult siis, kui saatja ja vastuvõtja tuvastavad ühikud täpselt ühtemoodi. Osade puhul määrab selle element `SegmentationMethod`, konteinerite puhul element `ContainerFormat`.
 
-Laiendus ise jaotusalgoritme ei määratle — see hoiaks uute algoritmide lisamise skeemi versioonide küljes. Tunnused avaldatakse **käesolevas registris**, mis täieneb laiendust muutmata (vt [Uue SegmentationMethod kasutuselevõtt](granularAccess#uue-segmentationmethod-kasutuselev%C3%B5tt)).
+Laiendus ise neid tunnuseid ei määratle — see hoiaks uute tunnuste lisamise skeemi versioonide küljes. Tunnused avaldatakse **käesolevas registris**, mis täieneb laiendust muutmata (vt [Uue SegmentationMethod kasutuselevõtt](granularAccess#uue-segmentationmethod-kasutuselev%C3%B5tt)).
 
-Register on koht, mille alusel rakendus otsustab, kas tohib faili osa tasandile laskuda: **tundmatu jaotusalgoritmi korral PEAB rakendus jääma faili tasandile** ja rakendama terve faili kohta faili enda `Access` väärtust. Avaldamata jaotusalgoritmi tunnust VÕIB kasutada, kuid see on tuntud ainult neile osapooltele, kes on selle omavahel kokku leppinud — kõigile teistele jääb fail tervikuna `AK`-ks (vt [Avaldamata tunnus](granularAccess#avaldamata-tunnus)). Avaldamine on seetõttu ainus viis muuta tunnus kõigile kasutatavaks.
+Register on koht, mille alusel rakendus otsustab, kas tohib tasandi võrra sügavamale laskuda: **tundmatu tunnuse korral PEAB rakendus jääma faili tasandile** ja rakendama terve faili kohta faili enda `Access` väärtust. Avaldamata tunnust VÕIB kasutada, kuid see on tuntud ainult neile osapooltele, kes on selle omavahel kokku leppinud — kõigile teistele jääb fail tervikuna `AK`-ks (vt [Avaldamata tunnus](granularAccess#avaldamata-tunnus)). Avaldamine on seetõttu ainus viis muuta tunnus kõigile kasutatavaks.
 
 ## Register
+
+**Jaotusalgoritmid** (`SegmentationMethod`) — kuidas faili sisu osadeks jaotatakse:
 
 | jaotusalgoritmi tunnus | failid | lubatud vahemikud | nõutavad kontrollarvud | staatus |
 | ---------------------- | ------ | ----------------- | ---------------------- | ------- |
 | [`pdf-pages-v1`](#pdf-pages-v1) | PDF | ainult `PageRange` | `PageCount` | mustand |
 | [`plaintext-blocks-v1`](#plaintext-blocks-v1) | lihttekst | `ParagraphRange`, `WordRange` | `ParagraphCount`, `WordCount` | mustand |
 
-**Mustandi staatus tähendab järgmist.** Kuni laiendus `granularAccess` on mustand, on ka need määratlused mustandid ja neid VÕIB veel muuta. Muutumatuse reegel („tunnuse tähendus EI TOHI kunagi muutuda“) hakkab tunnuse kohta kehtima siis, kui tunnust on kasutatud vahetatud dokumentides — mustandi ajal tootmisvahetust ei toimu, seega saab määratlust veel parandada. Laienduse esimese lõpliku versiooniga külmuvad mõlemad määratlused jäädavalt.
+**Konteinervormingud** (`ContainerFormat`) — mis nime konteinerfailis sisalduvad failid kannavad ja kuidas neid nimesid võrreldakse:
+
+| konteinervormingu tunnus | failid | staatus |
+| ------------------------ | ------ | ------- |
+| [`asice-v1`](#asice-v1) | ASiC-E (`.asice`, `.sce`), BDOC | mustand |
+| [`zip-v1`](#zip-v1) | ZIP | mustand |
+
+**Mustandi staatus tähendab järgmist.** Kuni laiendus `granularAccess` on mustand, on ka need määratlused mustandid ja neid VÕIB veel muuta. Muutumatuse reegel („tunnuse tähendus EI TOHI kunagi muutuda“) hakkab tunnuse kohta kehtima siis, kui tunnust on kasutatud vahetatud dokumentides — mustandi ajal tootmisvahetust ei toimu, seega saab määratlust veel parandada. Laienduse esimese lõpliku versiooniga külmuvad kõik määratlused jäädavalt.
 
 ## Kuidas määratlust lugeda
 
@@ -60,6 +81,16 @@ Iga määratlus esitab samad osad. Pealkirjades on tunnus sulgudes, et samanimel
 * **Nõutavad kontrollarvud** — millised elemendi `SegmentationCheck` loendid tuleb selle tunnuse puhul esitada ja mida vastuvõtja kontrollib. Loendit, mida algoritm ei määratle, EI TOHI esitada. Skeem nõuab vähemalt üht loendit, kuid ei tea, millised on õiged — seda ütleb ainult käesolev register, mistõttu rakendus PEAB seda ise kontrollima.
 * **Servajuhud** — olukorrad, mille kohta teostused muidu erineksid.
 * **Mida algoritm ei kata** — failisisu, mis vahemikega kirjeldatav ei ole. See osa on ohutuse seisukohalt kõige olulisem: kui failis on piiratud teavet väljaspool algoritmi katet, ei piisa vahemikest ja fail PEAB jääma tervikuna `AK`-ks.
+
+**Konteinervormingu määratlus** järgib sama ülesehitust, kuid vahemike asemel on küsimus, **mis nime sisalduvad failid kannavad ja millised konteineri kirjed nende hulka üldse kuuluvad**. Selle asemel on osad:
+
+* **Ulatus** — millistele failidele vorming kohaldub.
+* **Sisalduvad failid** — millised konteineri kirjed on `SubFile` elemendiga kirjeldatavad ja millised mitte (nt allkirjafailid ja vormingu oma abifailid).
+* **Nimede võrdlemine** — kuidas `EntryName` väärtust kirje nimega võrreldakse: kodeering, tõstutundlikkus, Unicode'i normaalkuju.
+* **Servajuhud** — olukorrad, mille kohta teostused muidu erineksid.
+* **Mida vorming ei kata** — konteineri sisu, mis `SubFile` elementidega kirjeldatav ei ole.
+
+Kontrollarve konteinervormingul ei ole. Põhjus on selles, et `EntryName` on **nimeline** viide, mitte positsiooniline nagu vahemik: nimi kas vastab konteineri kirjele või ei vasta, ja vale kirje tabamine ei ole võimalik. Koos reegliga, et loetlemata sisalduv fail jääb piiratuks, tähendab see, et vastuvõtja teistsugune lugem ei saa kunagi midagi juurde avaldada (vt [Konteinervorming](granularAccess#konteinervorming)).
 
 ---
 
@@ -308,9 +339,176 @@ Tähelepanu tuleb pöörata piirangu pikale lõpptähtajale: isikuandmeid sisald
 
 ---
 
+## Konteinervormingud
+
+Konteinervormingu tunnus vastab ühele küsimusele: **mis nime konteineris sisalduvad failid kannavad ja millised konteineri kirjed nende hulka üldse kuuluvad.** Sellest sõltub, mille külge `SubFile` elemendi `EntryName` kinnitub.
+
+**`EntryName` on tee konteineri sees.** Kaldkriipsuga `/` eraldatakse kaustad, nii et kirjele `Manused/Kiri.pdf` viidatakse täpselt selle teega. Tee on alati konteineri **juure suhtes**: alguses ega lõpus eraldajat ei ole, tühje segmente ei ole, ning segmendid `.` ja `..` on keelatud — skeem jõustab kõike seda. Nii on igal sisalduval failil täpselt üks kirjapilt ja ükski väärtus ei saa osutada konteinerist välja.
+
+Mõlemad allpool määratletud vormingud on ZIP-põhised ja järgivad seetõttu sama põhimõtet:
+
+1. Kirjed loetakse ZIP-i **keskkataloogist** (central directory), mitte faili kirjete järjestusest.
+2. Kirjenimi dekodeeritakse: kui kirje üldotstarbelise lipuvälja bitt 11 on seatud, siis UTF-8 järgi, muidu CP437 järgi. Saadud nimi viiakse Unicode'i normaalkujule **NFC**.
+3. Sisalduvad failid on kõik kirjed, mis vormingu määratluse järgi sisalduvate failide hulka kuuluvad — kaustapuu sügavusest sõltumata **ühe loeteluna**, mitte tasandite kaupa. ZIP-i kirjenimi on niigi juba tee, mis kasutab eraldajana kaldkriipsu, nii et `EntryName` väärtus võrreldakse kirjenimega **otse**.
+
+**Kaustapuu ei tekita pesastust.** Kaustas paiknev fail on sama tasandi sisalduv fail nagu juurkirje, ainult et tema tee kannab kausta nime ees. `SubFile` pesastatakse ainult siis, kui sisalduv fail on **ise konteiner** ja saab seetõttu oma `ContainerFormat` tunnuse. Kaust ei ole konteiner: teda ei pakita lahti ja tal ei ole vormingut, mille järgi teda lugeda.
+
+**Kaust ise ei ole sisalduv fail.** Kaustale endale ei saa `SubFile` elementi anda — juurdepääsu kirjeldatakse failide, mitte kaustade kohta. Terve kausta avaldamiseks loetletakse selles olevad failid. Ka ainult kaustamärgendist koosnevat kirjet (nimi lõpeb kaldkriipsuga) ei ole vaja ega saa kirjeldada.
+
+**Nimede võrdlemine.** Võrdlus on **tõstutundlik ja märgihaaval**; `EntryName` väärtus viiakse samuti NFC kujule. Tõstutundlikkus on ZIP-i enda omadus: `Leping.pdf` ja `leping.pdf` on samas konteineris kaks eri kirjet. NFC on vajalik seepärast, et osa süsteeme salvestab täpitähed lahutatud kujul (`o` + kombineeriv umlaut) ja teised liidetud kujul — ilma normaliseerimiseta ei leitaks faili `Otsus_Õ.pdf` üles.
+
+Kuna tee on `EntryName` väärtuses tervikuna kirjas, on iga sisalduv fail üheselt määratud ja **kaks eri faili ei saa anda sama väärtust**. Sama nimega faile eri kaustades — `A/aruanne.pdf` ja `B/aruanne.pdf` — saab seetõttu kirjeldada kõrvuti, ilma et konteinerit oleks vaja ümber koostada.
+
+**Ühised servajuhud.** Järgmistel juhtudel EI OLE kumbki tunnus kohaldatav ja fail PEAB jääma tervikuna `AK`-ks:
+
+| olukord | põhjus |
+| ------- | ------ |
+| Kaks kirjet sama nimega | Ei ole alust valida, millist `EntryName` tähistab. ZIP lubab niisuguse arhiivi, kuigi tavalised tööriistad seda ei tekita. |
+| Kirje nimi sisaldab kurakaldkriipsu `\` | Osa vanu tööriistu kasutab seda eraldajana, osa peab osaks nimest; tähendus ei ole üheselt teada. |
+| Kirje nimi algab kaldkriipsuga või sisaldab segmenti `.` või `..` | Nimi ei osuta üheselt ühele kirjele; tavaline ka pahatahtlikes konteinerites. |
+| Mõni kirje on krüpteeritud ja võtit ei ole | Sisu ei saa avaldada ega kontrollida. |
+| Konteiner on mitmeosaline (spanned/split) või vigane keskkataloogiga | Kirjenimesid ei saa usaldusväärselt lugeda. |
+
+**Peatumine ei ole viga.** Kõigil neil juhtudel käsitletakse konteinerit tervikuna konteineri enda `Access` väärtuse järgi. Vt [Konteinervorming](granularAccess#konteinervorming).
+
+---
+
+## asice-v1
+
+Sisalduvate failide loend ASiC-E konteinerile — allkirjastatud ümbrikule, milles dokumendihaldussüsteemid praegu valdava osa faile edastavad.
+
+### Ulatus (asice-v1)
+
+ASiC-E konteinerid (`application/vnd.etsi.asic-e+zip`), sealhulgas BDOC (`application/vnd.bdoc-1.0`), mis on ASiC-E profiil.
+
+Tunnus EI OLE kohaldatav:
+
+* **ASiC-S konteinerile** (`application/vnd.etsi.asic-s+zip`) — selles on määratluse järgi üksainus andmeobjekt, mistõttu sisalduvate failide kaupa kirjeldamine ei anna faili tasandi kirjeldusele midagi juurde;
+* **DDOC failile** — see ei ole ZIP, vaid XML, milles failid on base64-kujul elementides `DataFile`. Tegemist on pärandvorminguga, millele tunnust ei ole ega kavandata;
+* konteinerile, mille kirje `mimetype` puudub või mille väärtus ei ole kumbki ülalnimetatud tüüp. ASiC nõuab seda kirjet arhiivi esimese, pakkimata kirjena; selle puudumine tähendab, et fail ei ole nõuetekohane ASiC-E ja tema koosseisu ei saa usaldada.
+
+### Sisalduvad failid (asice-v1)
+
+Sisalduvate failide hulka **ei kuulu**:
+
+* kirje nimega täpselt `mimetype`;
+* kõik kirjed, mille nimi algab segmendiga `META-INF/` — sealhulgas `META-INF/manifest.xml` ja allkirjafailid `META-INF/signatures*.xml`;
+* kirjed, mis on ainult kaustamärgendid (nimi lõpeb kaldkriipsuga).
+
+Ülejäänud kirjed on sisalduvad failid: allkirjastatud andmeobjektid, kaustapuu sügavusest sõltumata ühe loeteluna. Kirjele `Manused/Kiri.pdf` viidatakse `EntryName` väärtusega `Manused/Kiri.pdf` samamoodi nagu juurkirjele tema nimega.
+
+Väljajätmine puudutab ainult konteineri juurt: kirje `META-INF/manifest.xml` jääb välja, kuid kirje `Lisad/META-INF/miski.xml` on tavaline sisalduv fail. `SubFile` element, mille `EntryName` on `mimetype` või osutab väljajäetud `META-INF/` kirjele, ei vasta seetõttu ühelegi sisalduvale failile ja PEAB rakenduse selle konteineri kohta peatama (vt [Konteinervorming](granularAccess#konteinervorming)).
+
+### Servajuhud (asice-v1)
+
+| olukord | tulemus |
+| ------- | ------- |
+| Konteiner, milles ei ole ühtki andmeobjekti | Kirjeldada ei ole midagi; sellist konteinerit ei kirjeldata sisalduvate failide tasandil (skeem nõuab vähemalt üht `SubFile` elementi). |
+| Allkiri on kehtetu või puudub | Ei mõjuta nimede lugemist. Allkirja kehtivus on eraldi küsimus ja seda hindab rakendus oma reeglite järgi. |
+| Konteineris on teine konteiner (asice, zip) | Tavaline sisalduv fail, mida VÕIB omakorda kirjeldada oma `ContainerFormat` tunnusega. |
+| Kirje `mimetype` on pakitud või ei ole esimene | Fail ei ole nõuetekohane ASiC; tunnus ei ole kohaldatav. |
+| `META-INF/manifest.xml` loetleb kirje, mida arhiivis ei ole (või vastupidi) | Konteiner on vigane; tunnus ei ole kohaldatav. |
+
+### Mida vorming ei kata (asice-v1)
+
+Sisalduvate failide kaupa kirjeldamine puudutab ainult andmeobjekte. Konteineris on aga andmeid, mis ei ole ükski sisalduv fail ja mida `SubFile` element ei kirjelda:
+
+* **Allkirjafailid** (`META-INF/signatures*.xml`) — nendes on allkirjastajate sertifikaadid koos nimede ja isikukoodidega, allkirjastamise aeg ja koht, ajatemplid ja OCSP-vastused. Kui piiratud on **allkirjastaja isik**, ei aita sisalduvate failide kirjeldamine ja konteiner PEAB jääma tervikuna `AK`-ks.
+* **Manifest** (`META-INF/manifest.xml`) — loetleb kõigi andmeobjektide nimed ja tüübid, ka nende, mida ei avaldata. Allkirjas on lisaks iga andmeobjekti räsi.
+* **Kirjete metaandmed** — ajatemplid, kirjekommentaarid ja arhiivikommentaar.
+
+> **Sisalduva faili väljajätmine ei eemalda tema nime.** Kui vastuvõtja avaldab konteineri, millest üks andmeobjekt on välja jäetud, jääb selle **nimi** endiselt manifesti ja allkirja sisse. Kui juba failinimi avaldab piiratud teabe, PEAB vastuvõtja avaldama sisalduvad failid eraldi failidena või konteineri uuesti koostama — mitte avaldama algset konteinerit ühe kirje võrra kärbituna.
+
+**Konteinerist avaldatud fail ei ole allkirjastatud.** Üksik andmeobjekt ilma ümbriku allkirjata ei kanna allkirja kaasa, ja ümbrik, millest kirje on eemaldatud, ei ole enam kehtiva allkirjaga. Laiendus seda ei lahenda (vt [SubFile](granularAccess#subfile)).
+
+### Näide (asice-v1)
+
+Konteiner `Leping.asice` sisaldab kirjeid:
+
+```text
+mimetype
+Leping.pdf
+Lisa_1.pdf
+Manused/Kalkulatsioon.xlsx
+Manused/Kiri.pdf
+META-INF/manifest.xml
+META-INF/signatures0.xml
+```
+
+Sisalduvad failid on **neli**, kõik ühel tasandil: `Leping.pdf`, `Lisa_1.pdf`, `Manused/Kalkulatsioon.xlsx` ja `Manused/Kiri.pdf`. Igaühele viidatakse tema täieliku teega. Kirjed `mimetype` ja `META-INF/*` jäävad välja. Kaust `Manused` ise ei ole sisalduv fail — kirjeldatakse selles olevaid faile, mitte kausta.
+
+```xml
+<ContainerFormat>asice-v1</ContainerFormat>
+<SubFile>
+  <EntryName>Leping.pdf</EntryName>
+  <Access>
+    <AccessConditionsCode>Avalik</AccessConditionsCode>
+  </Access>
+</SubFile>
+<SubFile>
+  <EntryName>Manused/Kiri.pdf</EntryName>
+  <PublicFileName>Kiri.pdf</PublicFileName>
+  <Access>
+    <AccessConditionsCode>Avalik</AccessConditionsCode>
+  </Access>
+</SubFile>
+```
+
+Kaustas olev `Manused/Kiri.pdf` on kirjeldatud **ühe** `SubFile` elemendiga, mille `EntryName` on tervikuna tee — pesastamist ei ole, sest kaust ei ole konteiner. Pesastatud `SubFile` tekiks ainult siis, kui mõni sisalduv fail oleks ise konteiner ja kannaks oma `ContainerFormat` tunnust.
+
+Sellele failile on antud ka `PublicFileName`, sest `EntryName` on siin tee, mitte failinimi: avaldamisel on mõistlik kuvada `Kiri.pdf`, mitte `Manused/Kiri.pdf`. Tee kuvamine paljastaks pealekauba konteineri sisemise ülesehituse.
+
+Kirjeldatud on kaks faili neljast. `Manused/Kalkulatsioon.xlsx` ja `Lisa_1.pdf` jäävad loetlemata ja seetõttu piiratuks; konteineri ülejäänud koosseisu ei ole vaja kuskil nimetada.
+
+Kuna kaustapuu ei tekita tasandeid, piisab selle konteineri kirjelduse töötlemiseks **ühe** pesastustasandi toest: rakendus pakib `Leping.asice` lahti ja leiab mõlemad kirjeldatud failid korraga.
+
+---
+
+## zip-v1
+
+Sisalduvate failide loend tavalisele ZIP-arhiivile.
+
+### Ulatus (zip-v1)
+
+ZIP-arhiivid (`application/zip`), mille sisu on **kasutaja failid** — näiteks mitme faili koondamiseks kokku pakitud arhiiv.
+
+Tunnus EI OLE kohaldatav **ZIP-põhistele failivormingutele**, kus arhiivi kirjed ei ole kasutaja failid, vaid faili sisemine ülesehitus:
+
+* `.docx`, `.xlsx`, `.pptx` (OPC) ja `.odt`, `.ods`, `.odp` (ODF) — nende kirjed on dokumendi osad, nagu `word/document.xml` ja `content.xml`. Ühe niisuguse kirje avaldamine ei anna avaldatavat dokumenti ja kirjete kaupa juurdepääsu kirjeldamine ei tähenda midagi. Nende failide osalise avaldamise võimalused on kirjeldatud jaotises [Millele algoritmi veel ei ole](#millele-algoritmi-veel-ei-ole);
+* `.asice`, `.sce`, `.bdoc` — nende jaoks on tunnus [`asice-v1`](#asice-v1), mis jätab loendist välja vormingu oma abikirjed. `zip-v1` loendaks ka need, andes eksitava tulemuse;
+* `.jar`, `.epub` ja muud ZIP-põhised vormingud samal põhjusel.
+
+Eristamine on **saatja ülesanne**: tunnuse valib see, kes kirjelduse koostab. Vastuvõtja VÕIB kontrollida, kas faili tüüp tunnusega sobib, ja mittesobivuse korral PEAB peatuma.
+
+### Sisalduvad failid (zip-v1)
+
+Kõik kirjed on sisalduvad failid — abikirjeid, mida välja jätta, ZIP-il ei ole. Erandiks on ainult kaustamärgendid (nimi lõpeb kaldkriipsuga), mis ei ole failid. `EntryName` väärtus on kirjenimi tervikuna.
+
+Kaustapuu ei muuda siin midagi: kaustas olevad viis faili on viis sisalduvat faili, mille `EntryName` väärtused algavad kausta nimega.
+
+### Servajuhud (zip-v1)
+
+| olukord | tulemus |
+| ------- | ------- |
+| Arhiiv, mille kirjete hulgas on ainult tühjad kaustamärgendid | Sisalduvaid faile ei ole; sisalduvate failide tasandit ei kirjeldata. |
+| Kirje pikkus on 0 baiti | Tavaline sisalduv fail. Tühi fail on fail. |
+| Kirje on sümbolviide (symlink) | Ei ole sisalduv fail selles tähenduses; tunnus ei ole kohaldatav. |
+| Arhiivis on teine arhiiv | Tavaline sisalduv fail, mida VÕIB omakorda kirjeldada oma `ContainerFormat` tunnusega. |
+| ZIP64-vormingus arhiiv | Kohaldatav, kui rakendus ZIP64 toetab; muidu peatub rakendus nagu tundmatu vormingu korral. |
+
+### Mida vorming ei kata (zip-v1)
+
+* **Arhiivi- ja kirjekommentaarid** ning kirjete ajatemplid ei ole ükski sisalduv fail. Kui piiratud teave on seal, PEAB konteiner jääma tervikuna `AK`-ks.
+* **Kirjete nimed ise.** Sisalduva faili väljajätmine ei eemalda tema nime ülejäänud struktuurist ega kausta nimest, mis võib sisu kirjeldada. Vajaduse korral avaldatakse sisalduvad failid eraldi, mitte kärbitud arhiivina.
+* **Lahtipakkimise maht.** Väike arhiiv võib lahtipakituna olla hiiglaslik. Rakendus PEAB rakendama oma mahu- ja arvupiiranguid (vt [Pesastuse sügavus](granularAccess#pesastuse-s%C3%BCgavus)). Piirangusse jooksmine annab sama tulemuse nagu tundmatu vorming: rakendus peatub ja arhiiv jääb tervikuna piiratuks.
+
+---
+
 ## Millele algoritmi veel ei ole
 
 Registris puuduva failitüübi osa tasandil kirjeldada ei saa — sellised failid jäävad faili tasandile. See ei ole viga ega takista laienduse kasutamist: failide kaupa eristamine on laienduse esmane eesmärk.
+
+**DDOC vormingule tunnust ei kavandata.** See Eestis varem laialt kasutatud allkirjakonteiner on pärandvorming: uusi DDOC konteinereid enam ei looda, vaid neid ainult säilitatakse ja loetakse. Seetõttu ei ole tunnusest praktilist kasu — kirjeldus liiguks kaasa vahetatavate dokumentidega, mille konteinerid on uued. DDOC faile kirjeldatakse faili tasandil.
 
 Kõige olulisem puuduv juhtum on **vormindatud tekst** (`.doc`, `.docx`, `.odt`, `.rtf`, HTML). Lõikudeks jaotamine sõltub seal dokumendi struktuurist, mitte tühjadest ridadest, ning arvestada tuleb tabeleid, joonealuseid märkusi, tekstikaste, päiseid, jaluseid ja jälitatud muudatusi. Sõltumatud teostused jõuavad hõlpsasti erineva lõikude ja sõnade loenduseni, ning sõnavahemiku nihkumine ühe võrra tähendab, et avaldatakse isikukood, mis pidi jääma avaldamata. Selle vormingu algoritm vajab seetõttu hoolikat spetsifitseerimist ja on kavas eraldi tööna.
 
@@ -319,9 +517,9 @@ Kuni algoritm puudub, kirjeldatakse vormindatud tekstifaile ainult faili tasandi
 1. **Kinnikaetud koopia** — saatja lisab dokumendile algse faili koopia, millest piiratud osad on eemaldatud, ja märgib koopia `Avalik`-uks. Algne fail jääb `AK`-ks. See töötab ka siis, kui kumbki pool osa tasandit ei toeta, ja säilitab faili vormingu. Vt [Kinnikaetud koopia avaliku versioonina](granularAccess#kinnikaetud-koopia-avaliku-versioonina) — sealhulgas seda, mille eest saatja seejuures vastutab.
 2. **Teisendamine lihttekstiks**, mille järel saab kasutada tunnust [`plaintext-blocks-v1`](#plaintext-blocks-v1). Annab masinloetava osa tasandi kirjelduse, kuid kaotab vorminduse ja võib kaotada sisu, mida lihttekst ei kanna (tabelid, joonealused märkused, tekstikastid).
 
-## Uue algoritmi lisamine
+## Uue tunnuse lisamine
 
-Uue jaotusalgoritmi määratlemise ja avaldamise kord on kirjeldatud laienduse dokumendis: [Uue SegmentationMethod kasutuselevõtt](granularAccess#uue-segmentationmethod-kasutuselev%C3%B5tt).
+Uue jaotusalgoritmi määratlemise ja avaldamise kord on kirjeldatud laienduse dokumendis: [Uue SegmentationMethod kasutuselevõtt](granularAccess#uue-segmentationmethod-kasutuselev%C3%B5tt). **Sama kord kehtib konteinervormingu tunnuse kohta**, ainult et lubatud vahemikuliikide asemel tuleb määratleda sisalduvate failide loend ja nimede võrdlemine.
 
 Uus määratlus lisatakse käesolevasse registrisse. Registri täienemine **ei muuda** laiendust `granularAccess` ega selle skeemi ja ei nõua laienduse uut versiooni.
 

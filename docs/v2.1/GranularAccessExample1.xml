@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DecContainer xmlns="http://www.riik.ee/schemas/deccontainer/vers_2_1/">
+  <Transport>
+    <DecSender>
+      <OrganisationCode>adit</OrganisationCode>
+      <PersonalIdCode>EE38001085718</PersonalIdCode>
+    </DecSender>
+    <DecRecipient>
+      <OrganisationCode>70006317</OrganisationCode>
+    </DecRecipient>
+  </Transport>
+  <RecordCreator>
+    <Person>
+      <Name>Jaak-Kristjan Jõeorg</Name>
+      <GivenName>Jaak-Kristjan</GivenName>
+      <Surname>Jõeorg</Surname>
+      <PersonalIdCode>EE38001085718</PersonalIdCode>
+      <Residency>EE</Residency>
+    </Person>
+    <ContactData>
+      <Adit>1</Adit>
+      <Phone>3725550101</Phone>
+      <Email>jaak-kristjan.joeorg@example.ee</Email>
+    </ContactData>
+  </RecordCreator>
+  <RecordSenderToDec>
+    <Person>
+      <Name>Jaak-Kristjan Jõeorg</Name>
+      <GivenName>Jaak-Kristjan</GivenName>
+      <Surname>Jõeorg</Surname>
+      <PersonalIdCode>EE38001085718</PersonalIdCode>
+      <Residency>EE</Residency>
+    </Person>
+    <ContactData>
+      <Adit>1</Adit>
+      <Phone>3725550101</Phone>
+      <Email>jaak-kristjan.joeorg@example.ee</Email>
+    </ContactData>
+  </RecordSenderToDec>
+  <Recipient>
+    <Organisation>
+      <Name>Riigi Infosüsteemi Amet</Name>
+      <OrganisationCode>70006317</OrganisationCode>
+      <Residency>EE</Residency>
+    </Organisation>
+  </Recipient>
+  <RecordMetadata>
+    <RecordGuid>25892e17-80f6-415f-9c65-7395632f0234</RecordGuid>
+    <RecordType>Kiri</RecordType>
+    <RecordOriginalIdentifier>213465</RecordOriginalIdentifier>
+    <RecordDateRegistered>2026-09-11T19:18:03</RecordDateRegistered>
+    <RecordTitle>Ettepanek</RecordTitle>
+    <RecordLanguage>EE</RecordLanguage>
+    <RecordAbstract>Jaak-Kristjan Jõeorg (isikukood 38001085718) ettepanek seoses AS Ehitaja hinnapakkumisega.</RecordAbstract>
+  </RecordMetadata>
+  <!--
+    Dokumendi tasandi Access PEAB alati olema kõige rangem juurdepääsutingimus,
+    mis dokumendis kusagil esineb (vt granularAccess.xsd dokumentatsiooni). See
+    dokument sisaldab piiratud sisu, mistõttu ülemise tasandi
+    AccessConditionsCode on „AK“ koos vastava AccessRestriction elemendiga, ning
+    allpool olev granularAccess laiendus avab need osad, mis tegelikult on
+    avalikud.
+
+    Rakendus, mis RecordTypeSpecificMetadata/granularAccess elementi ei tunne,
+    loeb terve dokumendi piiratuks — õige, kuigi ettevaatlik tulemus. Laiendust
+    tundev rakendus valideerib ploki kõigepealt granularAccess.xsd vastu ja
+    kontrollib reegleid, mida skeem väljendada ei suuda (vea korral jätab terve
+    ploki kõrvale), ning laskub siis tasand tasandi haaval: Lisa.pdf osutub
+    tervikuna avalikuks; failist Ettepanek.txt osutub avalikuks kõik peale
+    lõikude 3-4 ja sõna 42; skaneeritud hinnapakkumisest osutuvad avalikuks kõik
+    leheküljed peale 4-5. Dokument kannab ühtlasi avalikku pealkirja, avalikku
+    lühiesitust kaitstavat äriühingut nimetava lühiesituse asemel ning
+    neutraalset avalikku failinime skaneeritud failile, mille tegelik nimi selle
+    äriühingu avaldaks.
+
+    Mõlemad allpool kasutatud SegmentationMethod väärtused —
+    „plaintext-blocks-v1“ ja „pdf-pages-v1“ — on tunnused, mis on määratletud
+    jaotusalgoritmide registris (docs/segmentationMethods.md). Kasutada PEAKS
+    avaldatud tunnuseid, sest tunnus on see, mis ütleb vastuvõtjale, kuidas
+    jaotust täpselt korrata: avaldatud tunnus töötab iga osapoolega, avaldamata
+    tunnus ainult nendega, kellega see on kokku lepitud. Avaldamata tunnuse
+    kasutamine ei ole keelatud, kuid selle tundmisele ei saa tugineda — seda
+    mittetundev vastuvõtja jääb faili tasandile ja jätab terve faili
+    piiratuks.
+  -->
+  <Access>
+    <AccessConditionsCode>AK</AccessConditionsCode>
+    <AccessRestriction>
+      <RestrictionIdentifier>AvTS§35p1p11</RestrictionIdentifier>
+      <RestrictionBeginDate>2026-09-11</RestrictionBeginDate>
+      <RestrictionEndDate>2031-09-11</RestrictionEndDate>
+      <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 11</RestrictionBasis>
+      <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+    </AccessRestriction>
+  </Access>
+  <File>
+    <FileGuid>25892e17-80f6-415f-9c65-7395632f0001</FileGuid>
+    <RecordMainComponent>1</RecordMainComponent>
+    <FileName>Ettepanek.txt</FileName>
+    <MimeType>text/plain</MimeType>
+    <FileSize>2114</FileSize>
+    <ZipBase64Content>H4sIAAAAAAAAAAMAAAAAAAAAAAAAAA==</ZipBase64Content>
+  </File>
+  <File>
+    <FileGuid>25892e17-80f6-415f-9c65-7395632f0002</FileGuid>
+    <RecordMainComponent>0</RecordMainComponent>
+    <FileName>Lisa.pdf</FileName>
+    <MimeType>application/pdf</MimeType>
+    <FileSize>54211</FileSize>
+    <ZipBase64Content>H4sIAAAAAAAAAAMAAAAAAAAAAAAAAA==</ZipBase64Content>
+  </File>
+  <File>
+    <FileGuid>25892e17-80f6-415f-9c65-7395632f0003</FileGuid>
+    <RecordMainComponent>0</RecordMainComponent>
+    <FileName>AS_Ehitaja_hinnapakkumine_skaneeritud.pdf</FileName>
+    <MimeType>application/pdf</MimeType>
+    <FileSize>1841200</FileSize>
+    <ZipBase64Content>H4sIAAAAAAAAAAMAAAAAAAAAAAAAAA==</ZipBase64Content>
+  </File>
+  <RecordTypeSpecificMetadata>
+    <granularAccess xmlns="http://www.riik.ee/schemas/deccontainer/vers_2_1/granularAccess/">
+      <!--
+        Dokumendi enda pealkiri „Ettepanek“ on juhtumisi avaldatav, kuid
+        avalik pealkiri antakse siiski selgesõnaliselt — see on ohutum tava:
+        rakendus ei pea siis kunagi ise otsustama, kas
+        RecordMetadata/RecordTitle tohib näidata kellelegi, kellel piiratud
+        sisule juurdepääsu ei ole. See loeb ka pärast piirangu tähtaja
+        möödumist, kui dokument tuleb avalikustada ja ette valmistatud pealkiri
+        on olemas.
+      -->
+      <PublicRecordTitle>Ettepanek</PublicRecordTitle>
+      <!--
+        Dokumendi enda RecordAbstract nimetab nii isikut kui ka äriühingut,
+        kelle hinnapakkumine on kaitstav ärisaladus, mistõttu erinevalt
+        pealkirjast ei saa seda tõepoolest näidata kellelegi, kellel
+        juurdepääsu ei ole. PublicRecordAbstract kannab lühiesitust, mida saab.
+        Lühiesitus on vaba tekst selle kohta, millest dokument räägib, ja
+        avaldab seetõttu piiratud teavet kergemini kui pealkiri — just
+        seepärast tasub see selgesõnaliselt asendada, mitte jätta otsustamine
+        rakenduse hooleks.
+
+        Tuleb tähele panna, et RecordAbstract on kapslis endas valikuline:
+        dokumendil, millel lühiesitust üldse ei ole, ei ole seda lihtsalt
+        näidata, ja mõlema elemendi puudumine ei ole viga.
+      -->
+      <PublicRecordAbstract>Ettepanek uue lahenduse kasutuselevõtuks.</PublicRecordAbstract>
+      <!--
+        Fail Ettepanek.txt on tervikuna piiratud: selle Access on „AK“, mitte
+        kunagi leebem kui dokumendi tasandi Access selle kohal. Rakendus, mis
+        tunneb faili tasandit, aga faili osadeks jaotada ei suuda, jätab
+        seetõttu terve faili kinni, mis on ohutu.
+
+        SegmentationMethod väärtust tundev rakendus võib minna kaugemale. See
+        fail on lihttekst, mistõttu kohaldub „plaintext-blocks-v1“: lõik on
+        tühjade ridadeta ridade jada, sõnu loetakse terve faili ulatuses ja
+        leheküljevahemikke kasutada ei tohi. Enne ühegi vahemiku rakendamist
+        jaotab rakendus faili ise ja kontrollib, kas jõuab samadele
+        koondarvudele nagu SegmentationCheck — 12 lõiku ja 287 sõna, need kaks
+        arvu nõuab plaintext-blocks-v1. Kui kas või üks erineb, ei jaota kaks
+        teostust seda faili tegelikult ühtemoodi, iga allpool olev vahemik on
+        seetõttu kahtlane ja rakendus jätab terve faili piiratuks, selle asemel
+        et avaldada piiratud koha kõrval olevat vahemikku.
+
+        DefaultPartAccessConditionsCode ütleb, et iga selle faili osa, mida
+        ükski allpool olev AccessGroup ei kata, on tegelikult „Avalik“,
+        mistõttu loetleda tuleb ainult piiratud saared — avalikke lõike ei ole
+        vaja ükshaaval üles lugeda. Need saared on lõigud 3-4 ja üksainus sõna
+        mujal failis (sõna 42, näiteks möödaminnes mainitud isikukood muidu
+        avalikus lõigus). Kuna neil on identne juurdepääsutingimus ja piirang,
+        on need loetletud koos ühe AccessGroup elemendi all, nii et
+        Access/AccessRestriction andmed tuleb kirjutada ainult üks kord, mitte
+        korrata iga vahemiku juures. Tuleb tähele panna, et sõnavahemik on
+        lõiguvahemikust sõltumatu ega nõua seda sisaldava lõigu loetlemist. Nii
+        sõnade kui ka lõikude nummerdamine järgib SegmentationMethod tunnust.
+      -->
+      <File>
+        <FileGuid>25892e17-80f6-415f-9c65-7395632f0001</FileGuid>
+        <Access>
+          <AccessConditionsCode>AK</AccessConditionsCode>
+          <AccessRestriction>
+            <RestrictionIdentifier>AvTS§35p1p11</RestrictionIdentifier>
+            <RestrictionBeginDate>2026-09-11</RestrictionBeginDate>
+            <RestrictionEndDate>2031-09-11</RestrictionEndDate>
+            <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 11</RestrictionBasis>
+            <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+          </AccessRestriction>
+        </Access>
+        <SegmentationMethod>plaintext-blocks-v1</SegmentationMethod>
+        <SegmentationCheck>
+          <ParagraphCount>12</ParagraphCount>
+          <WordCount>287</WordCount>
+        </SegmentationCheck>
+        <DefaultPartAccessConditionsCode>Avalik</DefaultPartAccessConditionsCode>
+        <AccessGroup>
+          <Access>
+            <AccessConditionsCode>AK</AccessConditionsCode>
+            <AccessRestriction>
+              <RestrictionIdentifier>AvTS§35p1p11</RestrictionIdentifier>
+              <RestrictionBeginDate>2026-09-11</RestrictionBeginDate>
+              <RestrictionEndDate>2031-09-11</RestrictionEndDate>
+              <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 11</RestrictionBasis>
+              <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+            </AccessRestriction>
+          </Access>
+          <ParagraphRange>
+            <StartParagraph>3</StartParagraph>
+            <EndParagraph>4</EndParagraph>
+          </ParagraphRange>
+          <WordRange>
+            <StartWord>42</StartWord>
+            <EndWord>42</EndWord>
+          </WordRange>
+        </AccessGroup>
+      </File>
+      <!--
+        Fail Lisa.pdf on tervikuna avalik. Kuna selle Access on „Avalik“,
+        peatub rakendus selle faili juures: jaotada ei ole midagi ja töödelda ei
+        ole ühtki AccessGroup elementi, ning ühtki EI TOHI ka olla. See on
+        juhtum, kus laiendus avab muidu piiratud dokumendi terve faili, ja see
+        on laienduse peamine praktiline eesmärk — eristada piiratud dokumendi
+        sees avalikke faile piiratutest.
+      -->
+      <File>
+        <FileGuid>25892e17-80f6-415f-9c65-7395632f0002</FileGuid>
+        <Access>
+          <AccessConditionsCode>Avalik</AccessConditionsCode>
+        </Access>
+      </File>
+      <!--
+        Selle faili enda nimi „AS_Ehitaja_hinnapakkumine_skaneeritud.pdf“
+        nimetab äriühingut, kelle hinnapakkumine on kaitstav ärisaladus,
+        mistõttu nime ennast ei saa näidata kellelegi, kellel juurdepääsu ei
+        ole. PublicFileName annab neutraalse asenduse, mida selle asemel kuvada.
+
+        Fail on skaneeritud dokumentide PDF. Selle lehekülgedel ei ole
+        masinloetavat teksti, mistõttu kohalduv jaotusalgoritm on
+        „pdf-pages-v1“: see nummerdab leheküljed nende asukoha järgi PDF-i
+        leheküljepuus ja lubab ainult PageRange vahemikke, keelates lõigu- ja
+        sõnavahemikud. Leheküljetäpsusest piisab, et jätta kinni need kaks
+        skaneeritud lehekülge, mis kannavad piiratud sisu, ja avaldada
+        ülejäänu.
+
+        SegmentationCheck annab ainsa arvu, mida pdf-pages-v1 nõuab:
+        lehekülgede koguarvu 11. Vastuvõtja, kes PDF-i leheküljepuu läbib ja
+        jõuab teise arvuni, on faili leheküljestruktuuri mõistnud saatjast
+        erinevalt — harilik põhjus on teises järjekorras läbitud leheküljepuu
+        või valesti loetud pesastatud leheküljerühmad —, mistõttu allpool olevad
+        leheküljenumbrid ei tähendaks mõlemale poolele sama, ja fail jääb
+        tervikuna piiratuks.
+
+        Tuleb tähele panna, et leheküljenumbrid on asukohad failis, mitte
+        skaneeritud originaalidele trükitud numbrid, mis skaneeritud köite puhul
+        algavad sageli hoopis mujalt. Samuti tuleb tähele panna, et
+        pdf-pages-v1 katab ainult lehekülje sisu: kui see PDF kannaks piiratud
+        teavet oma metaandmetes, järjehoidjates või manustatud failis, ei
+        piisaks leheküljevahemikest ja fail peaks jääma tervikuna piiratuks.
+
+        DefaultPartAccessConditionsCode on „Avalik“, mistõttu allpool
+        loetlemata leheküljed on avalikud. Leheküljed 4-5 on piiratud teisel
+        õiguslikul alusel (ärisaladus) kui ülejäänud dokument ja oma lühema
+        tähtajaga, mis näitab, miks iga AccessGroup kannab oma täielikku
+        AccessRestriction elementi, mitte ei päri seda.
+      -->
+      <File>
+        <FileGuid>25892e17-80f6-415f-9c65-7395632f0003</FileGuid>
+        <PublicFileName>Hinnapakkumine_skaneeritud.pdf</PublicFileName>
+        <Access>
+          <AccessConditionsCode>AK</AccessConditionsCode>
+          <AccessRestriction>
+            <RestrictionIdentifier>AvTS§35p1p17</RestrictionIdentifier>
+            <RestrictionBeginDate>2026-09-11</RestrictionBeginDate>
+            <RestrictionEndDate>2029-09-11</RestrictionEndDate>
+            <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 17</RestrictionBasis>
+            <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+          </AccessRestriction>
+        </Access>
+        <SegmentationMethod>pdf-pages-v1</SegmentationMethod>
+        <SegmentationCheck>
+          <PageCount>11</PageCount>
+        </SegmentationCheck>
+        <DefaultPartAccessConditionsCode>Avalik</DefaultPartAccessConditionsCode>
+        <AccessGroup>
+          <Access>
+            <AccessConditionsCode>AK</AccessConditionsCode>
+            <AccessRestriction>
+              <RestrictionIdentifier>AvTS§35p1p17</RestrictionIdentifier>
+              <RestrictionBeginDate>2026-09-11</RestrictionBeginDate>
+              <RestrictionEndDate>2029-09-11</RestrictionEndDate>
+              <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 17</RestrictionBasis>
+              <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+            </AccessRestriction>
+          </Access>
+          <PageRange>
+            <StartPage>4</StartPage>
+            <EndPage>5</EndPage>
+          </PageRange>
+        </AccessGroup>
+      </File>
+    </granularAccess>
+  </RecordTypeSpecificMetadata>
+  <DecMetadata>
+    <DecId>410125</DecId>
+    <DecFolder>/</DecFolder>
+    <DecReceiptDate>2026-09-11T19:20:42</DecReceiptDate>
+  </DecMetadata>
+</DecContainer>

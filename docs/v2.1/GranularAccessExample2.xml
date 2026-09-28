@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DecContainer xmlns="http://www.riik.ee/schemas/deccontainer/vers_2_1/">
+  <Transport>
+    <DecSender>
+      <OrganisationCode>adit</OrganisationCode>
+      <PersonalIdCode>EE38001085718</PersonalIdCode>
+    </DecSender>
+    <DecRecipient>
+      <OrganisationCode>70006317</OrganisationCode>
+    </DecRecipient>
+  </Transport>
+  <RecordCreator>
+    <Person>
+      <Name>Jaak-Kristjan Jõeorg</Name>
+      <GivenName>Jaak-Kristjan</GivenName>
+      <Surname>Jõeorg</Surname>
+      <PersonalIdCode>EE38001085718</PersonalIdCode>
+      <Residency>EE</Residency>
+    </Person>
+    <ContactData>
+      <Adit>1</Adit>
+      <Phone>3725550101</Phone>
+      <Email>jaak-kristjan.joeorg@example.ee</Email>
+    </ContactData>
+  </RecordCreator>
+  <RecordSenderToDec>
+    <Person>
+      <Name>Jaak-Kristjan Jõeorg</Name>
+      <GivenName>Jaak-Kristjan</GivenName>
+      <Surname>Jõeorg</Surname>
+      <PersonalIdCode>EE38001085718</PersonalIdCode>
+      <Residency>EE</Residency>
+    </Person>
+    <ContactData>
+      <Adit>1</Adit>
+      <Phone>3725550101</Phone>
+      <Email>jaak-kristjan.joeorg@example.ee</Email>
+    </ContactData>
+  </RecordSenderToDec>
+  <Recipient>
+    <Organisation>
+      <Name>Riigi Infosüsteemi Amet</Name>
+      <OrganisationCode>70006317</OrganisationCode>
+      <Residency>EE</Residency>
+    </Organisation>
+  </Recipient>
+  <RecordMetadata>
+    <RecordGuid>25892e17-80f6-415f-9c65-7395632f0567</RecordGuid>
+    <RecordType>Leping</RecordType>
+    <RecordOriginalIdentifier>213466</RecordOriginalIdentifier>
+    <RecordDateRegistered>2026-09-11T19:18:03</RecordDateRegistered>
+    <RecordTitle>Hooldusleping</RecordTitle>
+    <RecordLanguage>EE</RecordLanguage>
+  </RecordMetadata>
+  <!--
+    See näide esitab dokumendi kõige tavalisema kuju praktikas: dokumendil on
+    üksainus fail ja see fail on allkirjastatud ASiC-E konteiner („asice“), mis
+    hoiab tegelikke dokumente. Ilma laienduseta on niisugusel dokumendil täpselt
+    üks juurdepääsutingimus kõige kohta, mis ümbriku sees on; laiendusega saab
+    lepingu enda avaldada, samal ajal kui lisa jääb piiratuks.
+
+    Dokumendil on üks kapsli fail ja kirjeldus pesastub selle sees kolme tasandi
+    sügavuseks, sest konteiner võib ise hoida konteinerit:
+
+      Hooldusleping.asice                   kapsli fail, AK
+      ├── Hooldusleping.pdf                 tervikuna avalik
+      ├── Manused/                          kaust, mitte sisalduv fail
+      │   └── Tööde_kirjeldus.pdf           tervikuna avalik
+      ├── Koosolek.asice                    pesastatud konteiner, AK
+      │   ├── Protokoll.pdf                 AK, kuid 9-st leheküljest 1-3 avalikud
+      │   └── (muud sisalduvad failid)      kirjeldamata, seega piiratud
+      └── (neljas sisalduv fail)            kirjeldamata, seega piiratud
+
+    See näitab kaht asja, mille ümber sisalduvate failide tasand on ehitatud.
+    Esiteks on SubFile rekursiivne: SubFile võib sisaldada SubFile elemente nii
+    sügavale, kui skeemi poolest soovitakse — Koosolek.asice on kirjeldatud
+    täpselt nii nagu kapsli fail selle kohal, oma ContainerFormat tunnusega.
+    Teiseks kohaldub osa tasand konteineris sisalduva faili sees täpselt nii
+    nagu kapsli faili kohal: SubFile elemendil on sama struktuur nagu File
+    elemendil, ainult et tuvastatakse EntryName, mitte FileGuid kaudu, mistõttu
+    Protokoll.pdf kannab kaks tasandit allpool SegmentationMethod tunnust ja
+    AccessGroup elementi. Näite, mis kasutab osa tasandit otse kapsli failide
+    kohal ning kasutab ka PublicRecordTitle, PublicRecordAbstract ja
+    PublicFileName elemente, leiab failist GranularAccessExample1.xml.
+
+    Kaust Manused ei ole kolmas tasand: selles paiknev Tööde_kirjeldus.pdf on
+    sama tasandi sisalduv fail nagu Hooldusleping.pdf, ainult et selle EntryName
+    on tee — „Manused/“ eesliitega. Tasandi tekitab ainult konteiner konteineri
+    sees, nagu Koosolek.asice. Selle faili nimi kannab ühtlasi täpitähti ja
+    näitab, miks konteinervormingu kirje ütleb, millisel Unicode'i normaalkujul
+    nimesid võrreldakse.
+
+    Dokumendi tasandi Access PEAB alati olema kõige rangem juurdepääsutingimus,
+    mis dokumendis kusagil esineb. Dokument hoiab piiratud sisu, mistõttu
+    ülemise tasandi AccessConditionsCode on „AK“ — ja samal põhjusel on seda ka
+    välimise konteineri Access ning faili Koosolek.asice Access, mis hoiab omi
+    piiratud sisalduvaid faile. Konteinerit EI TOHI märkida „Avalik“ ajal, mil
+    miski selle sees on mis tahes sügavusel piiratud: selle konteineri juures
+    peatuv rakendus avaldaks muidu konteineri tervikuna, koos piiratud sisuga.
+
+    Kui kaugele rakendus jõuab, on tema enda otsustada, ja varem peatumine on
+    alati ohutu, sest juurdepääs muutub laskumisel ainult leebemaks, mitte
+    kunagi rangemaks. Iga peatumiskoht jätab kinni rohkem kui järgmine:
+
+      ei tunne laiendust või ei suuda asice-t lahti pakkida
+                          -> terve dokument piiratud
+      pakib lahti ainult ühe tasandi (soovituslik miinimum)
+                          -> avaldab Hooldusleping.pdf ja
+                             Manused/Tööde_kirjeldus.pdf, jätab Koosolek.asice
+                             tervikuna kinni
+      pakib lahti kaks tasandit, ei tunne pdf-pages-v1
+                          -> laskub ka faili Koosolek.asice sisse, kuid jätab
+                             Protokoll.pdf tervikuna kinni
+      pakib lahti kaks tasandit ja tunneb pdf-pages-v1
+                          -> avaldab ka Protokoll.pdf leheküljed 1-3
+
+    Ükski neist ei ole viga ja ühestki ei ole vaja saatjale teatada. Iga
+    vastuvõtja avaldatav hulk on järgmise oma alamhulk. Rakendus VÕIB seetõttu
+    seada endale sobiva pesastussügavuse piiri; ühe tasandi toetamine on
+    soovituslik miinimum.
+
+    Mõlemad allpool kasutatud tunnused — konteinervorming „asice-v1“ ja
+    jaotusalgoritm „pdf-pages-v1“ — on määratletud registris
+    (docs/segmentationMethods.md). Kasutada PEAKS avaldatud tunnuseid, sest
+    tunnus on see, mis ütleb vastuvõtjale, kuidas saatja nägemust konteinerist
+    ja failist täpselt korrata: avaldatud tunnus töötab iga osapoolega,
+    avaldamata tunnus ainult nendega, kellega see on kokku lepitud. Avaldamata
+    tunnuse kasutamine ei ole keelatud, kuid selle tundmisele ei saa tugineda —
+    seda mittetundev vastuvõtja jääb kõrgemale tasandile ja jätab konteineri
+    või faili tervikuna piiratuks.
+  -->
+  <Access>
+    <AccessConditionsCode>AK</AccessConditionsCode>
+    <AccessRestriction>
+      <RestrictionIdentifier>AvTS§35p1p17</RestrictionIdentifier>
+      <RestrictionBeginDate>2026-09-11</RestrictionBeginDate>
+      <RestrictionEndDate>2031-09-11</RestrictionEndDate>
+      <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 17</RestrictionBasis>
+      <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+    </AccessRestriction>
+  </Access>
+  <File>
+    <FileGuid>25892e17-80f6-415f-9c65-7395632f0011</FileGuid>
+    <RecordMainComponent>1</RecordMainComponent>
+    <FileName>Hooldusleping.asice</FileName>
+    <MimeType>application/vnd.etsi.asic-e+zip</MimeType>
+    <FileSize>731648</FileSize>
+    <ZipBase64Content>H4sIAAAAAAAAAAMAAAAAAAAAAAAAAA==</ZipBase64Content>
+  </File>
+  <RecordTypeSpecificMetadata>
+    <granularAccess xmlns="http://www.riik.ee/schemas/deccontainer/vers_2_1/granularAccess/">
+      <!--
+        PublicRecordTitle ja PublicRecordAbstract on siin puudu. Dokumendi enda
+        pealkiri „Hooldusleping“ on avaldatav nii, nagu see on, ja dokumendil ei
+        ole lühiesitust üldse — mis ei ole viga, sest RecordAbstract on kapslis
+        endas valikuline. Plokk, mis koosneb ainult File elementidest, on
+        täiesti korrektne.
+
+        Kusagil ei ole antud ka PublicFileName elementi: nii konteineri enda
+        nimi kui ka iga kirjeldatud sisalduva faili nimi on avaldatav nii, nagu
+        need on. Avaldava nimega sisalduv fail kannaks seda elementi ja
+        sisalduva faili puhul asendab see avaldamisel EntryName väärtust.
+      -->
+      <File>
+        <FileGuid>25892e17-80f6-415f-9c65-7395632f0011</FileGuid>
+        <!--
+          Konteinerfail on tervikuna piiratud, sest see hoiab piiratud sisu —
+          osa sellest kaks tasandit sügavamal. See on ühilduvusreegel: ükski
+          tasand ei tohi olla leebem kui miski, mida ta sisaldab, ükskõik kui
+          sügaval.
+        -->
+        <Access>
+          <AccessConditionsCode>AK</AccessConditionsCode>
+          <AccessRestriction>
+            <RestrictionIdentifier>AvTS§35p1p17</RestrictionIdentifier>
+            <RestrictionBeginDate>2026-09-11</RestrictionBeginDate>
+            <RestrictionEndDate>2031-09-11</RestrictionEndDate>
+            <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 17</RestrictionBasis>
+            <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+          </AccessRestriction>
+        </Access>
+        <!--
+          „asice-v1“ on konteinervormingu tunnus, mis on määratletud registris
+          (docs/segmentationMethods.md) samamoodi nagu SegmentationMethod
+          tunnused. See ütleb vastuvõtjale, kuidas selle konteineri sisalduvad
+          failid on nimetatud ja kuidas allpool olevat EntryName väärtust
+          nendega võrreldakse: nimed loetakse ZIP-i keskkataloogist ja
+          võrreldakse tõstutundlikult pärast Unicode NFC normaliseerimist.
+
+          Rakendus, mis tunnust ei tunne või konteinerit lahti pakkida ei suuda,
+          EI TOHI laskuda sisalduvate failide tasandile ja rakendab konteineri
+          enda Access väärtust terve faili kohta.
+        -->
+        <ContainerFormat>asice-v1</ContainerFormat>
+        <!--
+          Loetletud on ainult need sisalduvad failid, mis midagi avavad.
+          Konteineri neljas andmefail Hinnapakkumine.pdf sisaldab kaitstavat
+          ärisaladust: sellele ei ole oma kirjet vaja, sest sisalduv fail, mida
+          ükski SubFile element ei kirjelda, jääb piiratuks. Saatja ei pea
+          seetõttu kunagi terve konteineri sisu üles lugema, ja vastuvõtja, kes
+          loeb konteinerit saatjast erinevalt — nähes üht kirjet rohkem või
+          vähem —, ei saa sellega midagi avaldada: nimetamata sisalduv fail
+          jääb mõlemal juhul kinni.
+
+          Leping ise on tervikuna avalik. Kuna selle Access on „Avalik“, peatub
+          rakendus selle sisalduva faili juures: jaotada ei ole midagi ja
+          edasisi tasandeid ei ole kirjeldatud. See on lihtne juhtum ja
+          laienduse peamine praktiline eesmärk — eristada piiratud dokumendi
+          sees avalikke faile piiratutest.
+
+          Üks tähelepanek, mis kehtib iga sellest konteinerist avaldatava
+          sisalduva faili kohta: omaette avaldatud sisalduv fail ei ole enam
+          konteineri allkirjaga kaetud. Kas avaldada sisalduv fail omaette,
+          avaldada terve konteiner või mitte avaldada midagi, on avaldava
+          asutuse otsus; laiendus seda ei lahenda.
+        -->
+        <SubFile>
+          <EntryName>Hooldusleping.pdf</EntryName>
+          <Access>
+            <AccessConditionsCode>Avalik</AccessConditionsCode>
+          </Access>
+        </SubFile>
+        <!--
+          See sisalduv fail paikneb konteineri kaustas Manused ja näitab kaht
+          asja korraga.
+
+          Esiteks on EntryName tee konteineri sees, konteineri juure suhtes,
+          kus kaustu eraldab „/“. Kaust ei ole ei konteiner ega omaette
+          sisalduv fail, mistõttu siin on üksainus SubFile element tervikliku
+          teega, mitte kaks pesastatut: pesastus on mõeldud sisalduvale failile,
+          mis on tõepoolest omaette konteiner, nagu järgmine sisalduv fail.
+          Kaust ei tekita ka vastuvõtjale lisatasandit — ühte tasandit toetav
+          rakendus avaldab selle faili samamoodi nagu Hooldusleping.pdf.
+
+          Skeem lubab teel ainult üht kirjapilti: eraldajat ei ole alguses ega
+          lõpus, tühje segmente ei ole, kurakaldkriipsu ei ole ning segmente
+          „.“ ja „..“ ei ole, mistõttu ükski väärtus ei saa osutada
+          konteinerist välja. Kuna tee on tervikuna EntryName väärtuses, on
+          väärtus üheselt määratud: sama nimega failid eri kaustades on eri
+          väärtused ja neid saab kirjeldada kõrvuti.
+
+          PublicFileName on siin antud just seepärast, et EntryName on tee.
+          Avaldamisel kuvatakse „Tööde_kirjeldus.pdf“, mitte
+          „Manused/Tööde_kirjeldus.pdf“ — tee kuvamine paljastaks pealekauba
+          konteineri sisemise ülesehituse.
+
+          Teiseks kannab nimi täpitähti ja näitab, miks nimede võrdlemine on
+          vormingu kirjes määratletud. Tunnus asice-v1 ütleb, et kirjenimi
+          loetakse ZIP-i keskkataloogist, viiakse Unicode'i normaalkujule NFC
+          ja võrreldakse tõstutundlikult; EntryName väärtus viiakse samuti NFC
+          kujule. Normaliseerimine on vajalik, sest osa süsteeme salvestab
+          tähe „ö“ ühe koodipunktina (U+00F6), teised lahutatud kujul „o“ +
+          kombineeriv umlaut (U+006F U+0308). Mõlemad kirjapildid näevad
+          ekraanil välja ühesugused, kuid on baithaaval erinevad, nii et ilma
+          normaliseerimiseta jääks kirje leidmata.
+
+          Leidmata jäänud kirje ei ole ohutu vaikimisi juhtum: kui mõni
+          EntryName ei vasta ühelegi konteineri kirjele, PEAB rakendus selle
+          konteineri töötluse peatama ja rakendama terve konteineri kohta
+          konteineri enda Access väärtust. Vale normaliseerimine jätaks
+          seetõttu avaldamata ka Hooldusleping.pdf faili. Erinevalt
+          vahemikevahest annab nimede vahe märku kohe: viga ei jää märkamata,
+          vaid peatab töötluse.
+        -->
+        <SubFile>
+          <EntryName>Manused/Tööde_kirjeldus.pdf</EntryName>
+          <PublicFileName>Tööde_kirjeldus.pdf</PublicFileName>
+          <Access>
+            <AccessConditionsCode>Avalik</AccessConditionsCode>
+          </Access>
+        </SubFile>
+        <!--
+          See sisalduv fail on ise konteiner: selle koosoleku protokoll, kus
+          leping kokku lepiti, allkirjastati eraldi, mistõttu see saabus omaette
+          asice-ümbrikuna, mille saatja siis välimise sisse pani. Miski
+          laienduses ei kohtle seda erijuhtumina — SubFile kirjeldatakse täpselt
+          nii nagu kapsli fail selle kohal, oma ContainerFormat tunnuse ja omade
+          SubFile elementidega. Just see teeb sisalduvate failide tasandi
+          rekursiivseks: samad kaks elementi korduvad igal sügavusel ja skeem ei
+          sea nende arvule piiri.
+
+          Selle Access on „AK“, sest see hoiab piiratud sisalduvat faili.
+          Reegel on sama, mis kehtib välimise konteineri kohta, rakendatud üks
+          tasand allpool: ükski tasand ei tohi olla leebem kui miski, mida ta
+          mis tahes sügavusel sisaldab. Selle ümbriku märkimine „Avalik“
+          lootuses, et allpool oleva faili Protokoll.pdf piirang ikkagi kehtib,
+          oleks vale — selle tasandi juures peatuv rakendus avaldab ümbriku
+          tervikuna ja piirang ei jääks lihtsalt märkamata, see ei saaks üldse
+          kehtima hakata.
+
+          Rakendus, mis toetab ainult üht pesastustasandit — soovituslikku
+          miinimumi —, peatub siin ja jätab selle ümbriku tervikuna kinni. Tal
+          ei ole kohustust sellest teatada ja miski ei ole valesti: ta lihtsalt
+          avaldas vähem kui sügavamale laskuv rakendus avaldaks.
+        -->
+        <SubFile>
+          <EntryName>Koosolek.asice</EntryName>
+          <Access>
+            <AccessConditionsCode>AK</AccessConditionsCode>
+            <AccessRestriction>
+              <RestrictionIdentifier>AvTS§35p1p17</RestrictionIdentifier>
+              <RestrictionBeginDate>2026-09-11</RestrictionBeginDate>
+              <RestrictionEndDate>2031-09-11</RestrictionEndDate>
+              <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 17</RestrictionBasis>
+              <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+            </AccessRestriction>
+          </Access>
+          <!--
+            Pesastatud konteiner kannab oma ContainerFormat tunnust. Siin on
+            see juhtumisi sama tunnus nagu välimisel, kuid olema ei pea:
+            asice-ümbrik võib hoida zip-i ja iga tasand loetakse selle tasandil
+            antud tunnuse järgi.
+
+            EntryName on unikaalne ühe konteineri sees, mitte terve kirjelduse
+            ulatuses. Kaks eri konteinerit võivad mõlemad hoida faili nimega
+            Protokoll.pdf ilma igasuguse vastuoluta ja just seepärast jõustab
+            skeem unikaalsust ainult ühe konteineri sees.
+          -->
+          <ContainerFormat>asice-v1</ContainerFormat>
+          <!--
+            Kirjeldatud on ainult Protokoll.pdf. Mida see sisemine ümbrik veel
+            hoiab — osalejate nimekirja, varasemat kavandit —, jääb piiratuks
+            ilma mainimist, täpselt nagu tasandil ülalpool. Kirjeldamata
+            sisalduva faili reegel kehtib igal sügavusel ühtemoodi.
+
+            See sisalduv fail näitab, et osa tasand kohaldub konteineris
+            sisalduva faili sees täpselt nii nagu kapsli faili kohal:
+            protokolli esimesed kolm lehekülge kajastavad otsust ja on
+            avalikud, ülejäänud leheküljed arutavad hinnapakkumist, mis on
+            kaitstav ärisaladus.
+
+            Selle Access on „AK“ — mitte kunagi leebem kui ümbrik selle kohal
+            ega kunagi rangem kui avalikud leheküljed, mida see sisaldab.
+            Rakendus, mis sellele sügavusele jõuab, aga tunnust „pdf-pages-v1“
+            ei tunne, jätab faili tervikuna kinni, mis on ohutu.
+
+            Tunnust tundev rakendus võib minna kaugemale. pdf-pages-v1
+            nummerdab leheküljed nende asukoha järgi PDF-i leheküljepuus ja
+            lubab ainult PageRange vahemikke, keelates lõigu- ja
+            sõnavahemikud: skaneeritud või segasisulises PDF-is ei ole
+            usaldusväärset masinloetavat teksti ja leheküljetäpsusest piisab
+            siin. Enne ühegi vahemiku rakendamist leheküljestab rakendus faili
+            ise ja kontrollib, kas jõuab sama PageCount väärtuseni — 9, ainsa
+            arvuni, mida pdf-pages-v1 nõuab. Vastuvõtja, kes jõuab teise
+            arvuni, on faili leheküljestruktuuri mõistnud saatjast erinevalt,
+            mistõttu allpool olevad leheküljenumbrid ei tähendaks mõlemale
+            poolele sama, ja fail jääb tervikuna piiratuks.
+
+            Tuleb tähele panna, et leheküljenumbrid on asukohad failis, mitte
+            lehekülgedele trükitud numbrid, mis sageli erinevad. Samuti tuleb
+            tähele panna, et pdf-pages-v1 katab ainult lehekülje sisu: kui see
+            PDF kannaks piiratud teavet oma metaandmetes, järjehoidjates või
+            manustatud failis, ei piisaks leheküljevahemikest ja fail peaks
+            jääma tervikuna piiratuks.
+
+            DefaultPartAccessConditionsCode on siin „AK“ — vastupidine valik
+            sellele, mis on faili vastel failis GranularAccessExample1.xml:
+            suurem osa sellest failist on piiratud, mistõttu loetletakse
+            avalikud leheküljed, mitte piiratud. Mõlemad suunad on korrektsed —
+            element otsustab, kumb pool tuleb üles lugeda, nii et faili puhul ei
+            ole kunagi vaja kirjeldada kõiki selle osi.
+
+            Nende kolme lehekülje avaldamine tähendab nende eraldamist failist,
+            mis on ise kahe allkirjastatud ümbriku sees. Tulemus ei kanna
+            kumbagi allkirja. Nagu ülalpool, on niisugusel viisil avaldamine
+            avaldava asutuse otsus, mitte midagi, mida laiendus lahendaks.
+          -->
+          <SubFile>
+            <EntryName>Protokoll.pdf</EntryName>
+            <Access>
+              <AccessConditionsCode>AK</AccessConditionsCode>
+              <AccessRestriction>
+                <RestrictionIdentifier>AvTS§35p1p17</RestrictionIdentifier>
+                <RestrictionBeginDate>2026-09-11</RestrictionBeginDate>
+                <RestrictionEndDate>2031-09-11</RestrictionEndDate>
+                <RestrictionBasis>Avaliku teabe seadus §35 lg 1 p 17</RestrictionBasis>
+                <InformationOwner>Riigi Infosüsteemi Amet</InformationOwner>
+              </AccessRestriction>
+            </Access>
+            <SegmentationMethod>pdf-pages-v1</SegmentationMethod>
+            <SegmentationCheck>
+              <PageCount>9</PageCount>
+            </SegmentationCheck>
+            <DefaultPartAccessConditionsCode>AK</DefaultPartAccessConditionsCode>
+            <AccessGroup>
+              <Access>
+                <AccessConditionsCode>Avalik</AccessConditionsCode>
+              </Access>
+              <PageRange>
+                <StartPage>1</StartPage>
+                <EndPage>3</EndPage>
+              </PageRange>
+            </AccessGroup>
+          </SubFile>
+        </SubFile>
+      </File>
+    </granularAccess>
+  </RecordTypeSpecificMetadata>
+  <DecMetadata>
+    <DecId>410126</DecId>
+    <DecFolder>/</DecFolder>
+    <DecReceiptDate>2026-09-11T19:20:42</DecReceiptDate>
+  </DecMetadata>
+</DecContainer>
